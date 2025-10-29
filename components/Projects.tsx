@@ -40,7 +40,7 @@ const Projects: React.FC = () => {
             container.scrollBy({ left: scrollAmount, behavior: 'smooth' });
         }
     }, []);
-    
+    //asdasdasdasdasdadasdasdasda
     const startAutoScroll = useCallback(() => {
         if (intervalRef.current) clearInterval(intervalRef.current);
         intervalRef.current = window.setInterval(advanceCarousel, 30000); // 30 seconds
