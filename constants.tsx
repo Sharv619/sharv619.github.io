@@ -20,6 +20,10 @@ const LightBulbIcon: React.FC<{className?: string}> = ({className}) => (
     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className={className || "w-6 h-6"}><path strokeLinecap="round" strokeLinejoin="round" d="M9.938 6.026a8.25 8.25 0 10-1.878 1.878M12 12.75h.008v.008H12v-.008z" /><path strokeLinecap="round" strokeLinejoin="round" d="M12 3v.01M12 21v-.01M4.05 4.05l.007.007M19.95 19.95l-.007-.007M3 12h.01M21 12h-.01M4.05 19.95l.007-.007M19.95 4.05l-.007.007" /></svg>
 );
 
+const SparklesIcon: React.FC<{className?: string}> = ({className}) => (
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className={className || "w-6 h-6"}><path strokeLinecap="round" strokeLinejoin="round" d="M9.813 15.904L9 18.75l-.813-2.846a4.5 4.5 0 00-3.09-3.09L2.25 12l2.846-.813a4.5 4.5 0 003.09-3.09L9 5.25l.813 2.846a4.5 4.5 0 003.09 3.09L15.75 12l-2.846.813a4.5 4.5 0 00-3.09 3.09zM18.259 8.715L18 9.75l-.259-1.035a3.375 3.375 0 00-2.455-2.456L14.25 6l1.036-.259a3.375 3.375 0 002.455-2.456L18 2.25l.259 1.035a3.375 3.375 0 002.456 2.456L21.75 6l-1.035.259a3.375 3.375 0 00-2.456 2.456zM16.898 20.562L16.25 21.75l-.648-1.188a2.25 2.25 0 01-1.423-1.423L13.25 18.5l1.188-.648a2.25 2.25 0 011.423-1.423L16.25 15l.648 1.188a2.25 2.25 0 011.423 1.423L19.5 18.5l-1.188.648a2.25 2.25 0 01-1.423 1.423z" /></svg>
+);
+
 const PaintBrushIcon: React.FC<{className?: string}> = ({className}) => (
   <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className={className || "w-6 h-6"}><path strokeLinecap="round" strokeLinejoin="round" d="M16.862 3.487a4.5 4.5 0 016.364 6.364L9.493 23.584l-6.364-6.364L16.862 3.487zM7.5 16.5l-3 3" /></svg>
 );
@@ -163,6 +167,82 @@ export const SKILLS_DATA: any = {
             { name: 'Bash/Shell Scripting', icon: <WrenchScrewdriverIcon /> },
             { name: 'Technical Documentation', icon: <WrenchScrewdriverIcon /> },
             { name: 'Stakeholder Communication', icon: <WrenchScrewdriverIcon /> },
+        ],
+    },
+  ],
+  aiAutomation: [
+    {
+        title: 'AI & Automation',
+        skills: [
+            { name: 'n8n & Automation', icon: <SparklesIcon /> },
+            { name: 'Ollama & Local LLMs', icon: <SparklesIcon /> },
+            { name: 'Gemini API', icon: <SparklesIcon /> },
+            { name: 'AI Coding Agents', icon: <SparklesIcon /> },
+        ],
+    },
+    {
+        title: 'AI/ML Projects',
+        skills: [
+            { name: 'RAG Architecture', icon: <LightBulbIcon /> },
+            { name: 'AIOps & Diagnostics', icon: <LightBulbIcon /> },
+            { name: 'Knowledge Graphs', icon: <LightBulbIcon /> },
+            { name: 'Git Pre-Hook Reviewer', icon: <LightBulbIcon /> },
+        ],
+    },
+    {
+        title: 'Prompt Engineering',
+        skills: [
+            { name: 'Vibecoding', icon: <PaintBrushIcon /> },
+            { name: 'Context Optimization', icon: <PaintBrushIcon /> },
+            { name: 'System Prompts', icon: <PaintBrushIcon /> },
+            { name: 'Tool Integration', icon: <PaintBrushIcon /> },
+        ],
+    },
+    {
+        title: 'Portfolio Projects',
+        skills: [
+            { name: 'AI Career Co-Pilot', icon: <CodeBracketIcon /> },
+            { name: 'CI/CD Simulator', icon: <CodeBracketIcon /> },
+            { name: 'Knowledge Pipeline', icon: <CodeBracketIcon /> },
+            { name: 'This Portfolio', icon: <CodeBracketIcon /> },
+        ],
+    },
+  ],
+  aiAutomation: [
+    {
+        title: 'AI & Automation',
+        skills: [
+            { name: 'n8n & Automation', icon: <SparklesIcon /> },
+            { name: 'Ollama & Local LLMs', icon: <SparklesIcon /> },
+            { name: 'Gemini API', icon: <SparklesIcon /> },
+            { name: 'AI Coding Agents', icon: <SparklesIcon /> },
+        ],
+    },
+    {
+        title: 'AI/ML Projects',
+        skills: [
+            { name: 'RAG Architecture', icon: <LightBulbIcon /> },
+            { name: 'AIOps & Diagnostics', icon: <LightBulbIcon /> },
+            { name: 'Knowledge Graphs', icon: <LightBulbIcon /> },
+            { name: 'Git Pre-Hook Reviewer', icon: <LightBulbIcon /> },
+        ],
+    },
+    {
+        title: 'Prompt Engineering',
+        skills: [
+            { name: 'Vibecoding', icon: <PaintBrushIcon /> },
+            { name: 'Context Optimization', icon: <PaintBrushIcon /> },
+            { name: 'System Prompts', icon: <PaintBrushIcon /> },
+            { name: 'Tool Integration', icon: <PaintBrushIcon /> },
+        ],
+    },
+    {
+        title: 'Portfolio Projects',
+        skills: [
+            { name: 'AI Career Co-Pilot', icon: <CodeBracketIcon /> },
+            { name: 'CI/CD Simulator', icon: <CodeBracketIcon /> },
+            { name: 'Knowledge Pipeline', icon: <CodeBracketIcon /> },
+            { name: 'This Portfolio', icon: <CodeBracketIcon /> },
         ],
     },
   ],

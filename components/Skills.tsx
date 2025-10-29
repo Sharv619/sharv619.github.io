@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { SKILLS_DATA } from '../constants';
 
-type SkillCategory = 'fullstack' | 'frontend' | 'devops';
+type SkillCategory = 'fullstack' | 'frontend' | 'devops' | 'aiAutomation';
 
 const Skills: React.FC = () => {
   const [selectedCategory, setSelectedCategory] = useState<SkillCategory>('fullstack');
@@ -10,6 +10,7 @@ const Skills: React.FC = () => {
     { key: 'fullstack' as SkillCategory, label: 'Full Stack', icon: '💻' },
     { key: 'frontend' as SkillCategory, label: 'Frontend', icon: '🎨' },
     { key: 'devops' as SkillCategory, label: 'DevOps', icon: '⚙️' },
+    { key: 'aiAutomation' as SkillCategory, label: 'AI/Automation', icon: '🤖' }
   ];
 
   const selectedSkills = SKILLS_DATA[selectedCategory];
