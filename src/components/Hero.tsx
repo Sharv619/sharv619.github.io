@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { motion } from "framer-motion";
 import { personalInfo, socialLinks } from "@/lib/data";
 
@@ -22,23 +23,17 @@ export default function Hero() {
           >
             <div className="relative">
               <div className="w-32 h-32 sm:w-40 sm:h-40 rounded-full overflow-hidden border-4 border-white dark:border-gray-800 shadow-xl">
-                <img
-                  src="/avatar.png"
+                <Image
+                  src={personalInfo.avatar}
                   alt="Himanshu Lade - Full-Stack Engineer & AI/ML Specialist"
+                  width={160}
+                  height={160}
+                  sizes="(min-width: 640px) 160px, 128px"
                   className="w-full h-full object-cover"
-                  onError={(e) => {
-                    // Fallback to placeholder if image doesn't exist
-                    const img = e.currentTarget as HTMLImageElement;
-                    const placeholder = img.nextElementSibling as HTMLElement;
-                    if (img && placeholder) {
-                      img.style.display = 'none';
-                      placeholder.style.display = 'flex';
-                    }
-                  }}
+                  priority
+                  placeholder="blur"
+                  blurDataURL="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQEAYABgAAD/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0o MCUDBKRYGB0/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoK"
                 />
-                <div className="w-full h-full bg-gradient-to-br from-blue-100 to-purple-100 dark:from-blue-900 dark:to-purple-900 flex items-center justify-center text-4xl font-bold text-blue-600 dark:text-blue-400 hidden">
-                  HL
-                </div>
               </div>
               <div className="absolute -bottom-2 -right-2 w-8 h-8 bg-green-500 rounded-full border-4 border-white dark:border-gray-800 flex items-center justify-center">
                 <svg className="w-4 h-4 text-white" fill="currentColor" viewBox="0 0 20 20">

@@ -5,6 +5,7 @@ import { personalInfo, experience, projects, skills } from "@/lib/data";
 import ThemeProvider from "@/components/ThemeProvider";
 import AvailabilityBanner from "@/components/AvailabilityBanner";
 import SEOHead from "@/components/SEOHead";
+import ChatbotProvider from "@/components/ChatbotProvider";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -41,7 +42,9 @@ export default function RootLayout({
         <SEOHead />
         <ThemeProvider>
           <AvailabilityBanner />
-          {children}
+          <ChatbotProvider>
+            {children}
+          </ChatbotProvider>
         </ThemeProvider>
       </body>
     </html>

@@ -1,9 +1,23 @@
 "use client";
 
 import { motion } from "framer-motion";
+import Link from "next/link";
 import { projects } from "@/lib/data";
 
-export default function Projects() {
+interface ProjectsProps {
+  selectedSkills: string[];
+}
+
+function generateSlug(projectTitle: string): string {
+  return projectTitle.toLowerCase()
+    .replace(/\s+/g, '-')
+    .replace(/\([^)]*\)/g, '') // Remove parentheses
+    .replace(/[&]/g, '') // Remove &
+    .replace(/-+/g, '-') // Replace multiple hyphens with single
+    .trim();
+}
+
+export default function Projects({ selectedSkills }: ProjectsProps) {
   return (
     <section id="projects" className="py-20 bg-white dark:bg-gray-900">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -38,6 +52,29 @@ export default function Projects() {
                   {project.description}
                 </p>
 
+                {project.technicalChallenge && (
+                  <div className="mb-4">
+                    <h4 className="text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
+                      Technical Challenge:
+                    </h4>
+                    <p className="text-gray-600 dark:text-gray-300 leading-relaxed">
+                      {project.technicalChallenge}
+                    </p>
+                  </div>
+                )}
+
+                {/* Diagram placeholder: Add architecture diagram here
+                <div className="mb-4">
+                  <Image
+                    src={`/diagrams/${generateSlug(project.title)}.png`}
+                    alt={`${project.title} architecture diagram`}
+                    width={400}
+                    height={200}
+                    className="rounded-md"
+                  />
+                </div>
+                */}
+
                 <div className="mb-4">
                   <h4 className="text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
                     Technologies:
@@ -55,19 +92,17 @@ export default function Projects() {
                 </div>
 
                 <div className="flex space-x-4">
-                  <a
-                    href={project.liveUrl}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="flex-1 text-center px-4 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-700 transition-colors duration-300"
+                  <Link
+                    href={`/projects/${generateSlug(project.title)}`}
+                    className="flex-1 text-center px-4 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-700 transition-colors duration-300 inline-block"
                   >
-                    Live Demo
-                  </a>
+                    Read More
+                  </Link>
                   <a
                     href={project.githubUrl}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="flex-1 text-center px-4 py-2 border border-gray-300 dark:border-gray-600 text-gray-700 dark:text-gray-300 rounded-md hover:bg-gray-50 dark:hover:bg-gray-800 transition-colors duration-300"
+                    className="flex-1 text-center px-4 py-2 border border-gray-300 dark:border-gray-600 text-gray-700 dark:text-gray-300 rounded-md hover:bg-gray-50 dark:hover:bg-gray-800 transition-colors duration-300 inline-block"
                   >
                     Source Code
                   </a>

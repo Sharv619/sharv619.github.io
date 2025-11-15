@@ -93,6 +93,33 @@ export default function SEOHead() {
     // Inject analytics and tracking codes
     injectAnalytics();
 
+    // Add Open Graph meta tags
+    const addMeta = (property: string, content: string) => {
+      const meta = document.createElement('meta');
+      meta.setAttribute('property', property);
+      meta.setAttribute('content', content);
+      document.head.appendChild(meta);
+    };
+
+    addMeta('og:title', `${personalInfo.name} - ${personalInfo.title}`);
+    addMeta('og:description', personalInfo.bio);
+    addMeta('og:image', personalInfo.avatar);
+    addMeta('og:url', 'https://sharv619.github.io');
+    addMeta('og:type', 'profile');
+
+    // Twitter Card meta tags
+    const addTwitterMeta = (name: string, content: string) => {
+      const meta = document.createElement('meta');
+      meta.setAttribute('name', name);
+      meta.setAttribute('content', content);
+      document.head.appendChild(meta);
+    };
+
+    addTwitterMeta('twitter:card', 'summary_large_image');
+    addTwitterMeta('twitter:title', personalInfo.name);
+    addTwitterMeta('twitter:description', personalInfo.bio);
+    addTwitterMeta('twitter:image', personalInfo.avatar);
+
     // Add structured data
     const script = document.createElement('script');
     script.type = 'application/ld+json';

@@ -3,7 +3,12 @@
 import { motion } from "framer-motion";
 import { skills } from "@/lib/data";
 
-export default function Skills() {
+interface SkillsProps {
+  selectedSkills: string[];
+  onSkillToggle: (skill: string) => void;
+}
+
+export default function Skills({ selectedSkills, onSkillToggle }: SkillsProps) {
   const skillCategories = [
     { title: "Languages & Frameworks", items: skills.languages },
     { title: "Frontend & UI", items: skills.frameworks },
@@ -43,16 +48,13 @@ export default function Skills() {
               </h3>
               <div className="flex flex-wrap gap-2">
                 {category.items.map((skill, skillIndex) => (
-                  <motion.span
+                  <button
                     key={skill}
-                    initial={{ opacity: 0, scale: 0.8 }}
-                    whileInView={{ opacity: 1, scale: 1 }}
-                    transition={{ duration: 0.3, delay: (categoryIndex * 0.1) + (skillIndex * 0.05) }}
-                    viewport={{ once: true }}
-                    className="px-3 py-2 bg-blue-100 dark:bg-blue-900 text-blue-800 dark:text-blue-200 rounded-md text-sm font-medium hover:bg-blue-200 dark:hover:bg-blue-800 transition-colors duration-300"
+                    onClick={() => onSkillToggle(skill)}
+                    className={`px-3 py-2 rounded-md text-sm font-medium transition-colors duration-300 ${selectedSkills.includes(skill) ? 'bg-blue-600 text-white hover:bg-blue-700' : 'bg-blue-100 dark:bg-blue-900 text-blue-800 dark:text-blue-200 hover:bg-blue-200 dark:hover:bg-blue-800'}`}
                   >
                     {skill}
-                  </motion.span>
+                  </button>
                 ))}
               </div>
             </motion.div>

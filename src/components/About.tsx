@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion";
 import { about } from "@/lib/data";
+import Philosophy from "./Philosophy";
 
 export default function About() {
   return (
@@ -33,6 +34,8 @@ export default function About() {
             </p>
           ))}
         </motion.div>
+
+        <Philosophy />
       </div>
     </section>
   );

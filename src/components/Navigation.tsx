@@ -2,13 +2,17 @@
 
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import { useRouter } from "next/navigation";
 import { personalInfo } from "@/lib/data";
 import { useTheme } from "./ThemeProvider";
+import { useChatbot } from "./ChatbotProvider";
 
 export default function Navigation() {
+  const router = useRouter();
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const { theme, setTheme } = useTheme();
+  const { toggleChatbot } = useChatbot();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -66,6 +70,14 @@ export default function Navigation() {
                 {item.name}
               </button>
             ))}
+
+            {/* Chatbot Button */}
+            <button
+              onClick={toggleChatbot}
+              className="px-4 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-700 transition-colors duration-300 text-sm font-medium"
+            >
+              Career Co-Pilot preview
+            </button>
 
             {/* Theme Toggle Button */}
             <button
