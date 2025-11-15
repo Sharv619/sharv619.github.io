@@ -4,9 +4,30 @@ import { createContext, useContext, useEffect, useState } from "react";
 
 type Theme = "light" | "dark";
 
+// Check time-based theme preference (6 AM - 6 PM = light, 6 PM - 6 AM = dark)
+function getTimeBasedTheme(): "light" | "dark" {
+  if (typeof window === "undefined") return "light";
+
+  const now = new Date();
+  const hour = now.getHours();
+
+  // Light mode: 6:00 AM to 5:59 PM
+  // Dark mode: 6:00 PM to 5:59 AM
+  return (hour >= 6 && hour < 18) ? "light" : "dark";
+}
+
+// Fallback to system preference (old method)
+function getSystemTheme(): "light" | "dark" {
+  if (typeof window === "undefined") return "light";
+
+  const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
+  return prefersDark ? "dark" : "light";
+}
+
 interface ThemeContextType {
   theme: Theme;
   setTheme: (theme: Theme) => void;
+  resetToAutoTheme: () => void; // Reset to time-based theme
 }
 
 const ThemeContext = createContext<ThemeContextType | undefined>(undefined);
@@ -30,14 +51,16 @@ export default function ThemeProvider({ children }: ThemeProviderProps) {
   useEffect(() => {
     setMounted(true);
 
-    // Get initial theme from localStorage
+    // Get initial theme from localStorage first
     const stored = localStorage.getItem("theme") as Theme;
     if (stored === "light" || stored === "dark") {
       setTheme(stored);
-    } else {
-      // Default to light theme
-      setTheme("light");
+      return;
     }
+
+    // If no stored theme, use time-based intelligent theme
+    const timeBasedTheme = getTimeBasedTheme();
+    setTheme(timeBasedTheme);
   }, []);
 
   useEffect(() => {
@@ -53,9 +76,16 @@ export default function ThemeProvider({ children }: ThemeProviderProps) {
     localStorage.setItem("theme", theme);
   }, [theme, mounted]);
 
+  const resetToAutoTheme = () => {
+    const timeBasedTheme = getTimeBasedTheme();
+    setTheme(timeBasedTheme);
+    localStorage.removeItem("theme"); // Remove stored preference to use auto
+  };
+
   const value = {
     theme,
     setTheme,
+    resetToAutoTheme,
   };
 
   return (

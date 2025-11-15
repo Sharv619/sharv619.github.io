@@ -116,7 +116,7 @@ export default function Hero() {
                 View Projects →
               </a>
               <a
-                href="/resume.pdf"
+                href="/Resume.pdf"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-gray-600 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-400 transition-colors duration-300"
