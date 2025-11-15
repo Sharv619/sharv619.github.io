@@ -76,7 +76,5 @@ export const about = {
 
 My journey isn't about following trends; it's about pushing boundaries. I thrive in high-pressure environments where every decision matters, and I've proven I can deliver when it counts—from rescuing mission-critical systems to engineering AI-powered solutions that actually solve real problems.
 
-Beyond the professional realm, I'm constantly tinkering and experimenting. I automate my entire life with n8n workflows, run Ollama locally for AI experimentation, and treat every challenge as an opportunity to build something smarter, faster, and more resilient.
-
-I'm not looking for just any role—I'm seeking opportunities where I can apply my full-stack expertise, AI/ML innovation, and relentless problem-solving drive to build systems that matter.`,
+Beyond the professional realm, I'm constantly tinkering and experimenting. I automate my entire life with n8n workflows, run Ollama locally for AI experimentation, and treat every challenge as an opportunity to build something smarter, faster, and more resilient.`,
 };
