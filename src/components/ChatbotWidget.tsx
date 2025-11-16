@@ -81,7 +81,7 @@ export default function ChatbotWidget({ isOpen, onClose }: ChatbotWidgetProps) {
                   <p className="text-purple-400">⚡ Technical highlights: localStorage caching, multi-document processing, intelligent Q&A.</p>
                   <p className="text-yellow-400">🎯 Focus: Performance optimization for large document sets.</p>
                   <div className="border-t border-gray-600 pt-2 mt-3">
-                    <p className="text-gray-300 font-medium">I offer: Personalized career guidance, Technical interview prep, Best practices, AI/ML recommendations, Learning roadmaps.</p>
+                    <p className="text-gray-300 font-medium">Built with: Vector similarity search, Retrieval-augmented generation, Knowledge base chunking, Multi-document processing, Intelligent Q&A pipelines.</p>
                     <p className="text-red-400 italic">Note: This is a preview - ask about the project architecture or demo questions!</p>
                   </div>
                 </div>
