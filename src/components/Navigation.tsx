@@ -3,6 +3,7 @@
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { useRouter } from "next/navigation";
+import Image from "next/image";
 import { personalInfo } from "@/lib/data";
 import { useTheme } from "./ThemeProvider";
 import { useChatbot } from "./ChatbotProvider";
@@ -55,9 +56,16 @@ export default function Navigation() {
         <div className="flex justify-between items-center h-16">
           <motion.div
             whileHover={{ scale: 1.05 }}
-            className="text-xl font-bold text-gray-900 dark:text-white"
+            className="flex items-center"
           >
-            {personalInfo.name.split(" ")[0]}
+            <Image
+              src="/logo.jpeg"
+              alt="Himanshu Lade - Full-Stack Engineer & AI/ML Specialist"
+              width={40}
+              height={40}
+              className="h-10 w-auto object-contain"
+              priority
+            />
           </motion.div>
 
           {/* Desktop Navigation */}
