@@ -74,6 +74,8 @@ export default function ThemeProvider({ children }: ThemeProviderProps) {
 
     // Store in localStorage
     localStorage.setItem("theme", theme);
+
+    console.log(`Theme applied: ${theme}`); // Debug log
   }, [theme, mounted]);
 
   const resetToAutoTheme = () => {
