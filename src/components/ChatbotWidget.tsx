@@ -74,15 +74,18 @@ export default function ChatbotWidget({ isOpen, onClose }: ChatbotWidgetProps) {
               <div className="text-center text-gray-400 text-sm py-4">
                 <p className="mb-2">👋 Welcome to Career Co-Pilot!</p>
                 <div className="text-left max-w-full space-y-2 text-xs">
-                  <p className="font-semibold text-gray-300">Hi! I am a preview of <strong>Career Co-Pilot</strong>, Himanshu Lade's personal AI knowledge base assistant.</p>
-                  <p>This system demonstrates a private repository project for comprehensive career advice and technical insights.</p>
-                  <p className="text-blue-400">🔧 Built as a RAG (Retrieval-Augmented Generation) chatbot using React, TypeScript, and Gemini API.</p>
-                  <p className="text-green-400">📚 Leverages a 47-page knowledge base with advanced features.</p>
-                  <p className="text-purple-400">⚡ Technical highlights: localStorage caching, multi-document processing, intelligent Q&A.</p>
-                  <p className="text-yellow-400">🎯 Focus: Performance optimization for large document sets.</p>
+                  <p className="font-semibold text-gray-300 text-red-300">🎭 DEMO VERSION: The real Career Co-Pilot is in a private repository</p>
+                  <p className="font-medium text-gray-300">Hi! This is a mock/demo version of <strong>Career Co-Pilot</strong>, Himanshu Lade's AI-powered knowledge base assistant.</p>
+                  <div className="bg-red-900/20 border border-red-700/50 p-2 rounded mt-2 mb-2">
+                    <p className="text-yellow-400 text-sm font-medium">⚠️ Note: Live Gemini API & RAG architecture are in private repo for security</p>
+                  </div>
+                  <p className="text-blue-400">🔧 Concept Demo: Shows RAG chatbot architecture using React, TypeScript, and intelligent Q&A logic.</p>
+                  <p className="text-green-400">📚 Demonstrates 47-page knowledge base processing with contextual responses.</p>
+                  <p className="text-purple-400">⚡ Technical showcase: Local logic simulation of AI integration patterns.</p>
+                  <p className="text-yellow-400">🎯 Portfolio focus: Demonstrating AI/ML integration capabilities.</p>
                   <div className="border-t border-gray-600 pt-2 mt-3">
-                    <p className="text-gray-300 font-medium">Built with: Vector similarity search, Retrieval-augmented generation, Knowledge base chunking, Multi-document processing, Intelligent Q&A pipelines.</p>
-                    <p className="text-red-400 italic">Note: This is a preview - ask about the project architecture or demo questions!</p>
+                    <p className="text-gray-300 font-medium">Mock implementation of: Vector similarity search, Retrieval-augmented generation, Knowledge base chunking, Multi-document processing, Intelligent Q&A pipelines.</p>
+                    <p className="text-orange-400 italic">Ask about my mock responses, portfolio projects, or career advice!</p>
                   </div>
                 </div>
               </div>

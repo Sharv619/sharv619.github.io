@@ -3,7 +3,6 @@
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { useRouter } from "next/navigation";
-import Image from "next/image";
 import { personalInfo } from "@/lib/data";
 import { useTheme } from "./ThemeProvider";
 import { useChatbot } from "./ChatbotProvider";
@@ -58,14 +57,9 @@ export default function Navigation() {
             whileHover={{ scale: 1.05 }}
             className="flex items-center"
           >
-            <Image
-              src="/logo.jpeg"
-              alt="Himanshu Lade - Full-Stack Engineer & AI/ML Specialist"
-              width={40}
-              height={40}
-              className="h-10 w-auto object-contain"
-              priority
-            />
+            <span className="text-2xl font-bold text-gray-900 dark:text-white">
+              HL
+            </span>
           </motion.div>
 
           {/* Desktop Navigation */}

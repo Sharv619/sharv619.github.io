@@ -10,11 +10,12 @@ interface SkillsProps {
 
 export default function Skills({ selectedSkills, onSkillToggle }: SkillsProps) {
   const skillCategories = [
-    { title: "Languages & Frameworks", items: skills.languages },
-    { title: "Frontend & UI", items: skills.frameworks },
-    { title: "Backend & Databases", items: skills.databases },
-    { title: "Cloud & DevOps", items: skills.cloud },
-    { title: "Development Tools", items: skills.tools },
+    { title: "Languages", items: skills.languages },
+    { title: "Frontend", items: skills.frontend },
+    { title: "Backend", items: skills.backend },
+    { title: "AI/ML", items: skills["ai/ml"] },
+    { title: "DevOps & Cloud", items: skills["devops & cloud"] },
+    { title: "Databases & Security", items: skills["databases & security"] },
   ];
 
   return (
@@ -33,7 +34,7 @@ export default function Skills({ selectedSkills, onSkillToggle }: SkillsProps) {
           <div className="w-24 h-1 bg-blue-600 mx-auto"></div>
         </motion.div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {skillCategories.map((category, categoryIndex) => (
             <motion.div
               key={category.title}

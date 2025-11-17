@@ -52,8 +52,8 @@ export const experience = [
   {
     company: "Ask Jay Services",
     position: "Software Engineer (Contract)",
-    duration: "May 2025 - Oct 2025",
-    description: "• Architected and built a Flutter marketplace application from scratch with three user portals (Client, Subcontractor, Admin), implementing robust authentication and state management.\n\n• Gained 6 months of intensive hands-on experience with AWS (EC2, S3, RDS), provisioning infrastructure and managing deployments for production applications.\n\n• Successfully led mission-critical disaster recovery efforts, restoring 100% application services with zero data loss following a major database failure via secure AWS EC2 provisioning and MongoDB Atlas.\n\n• Boosted application performance by 88% (from 25s to 3s load times) through advanced Next.js server-side rendering and intelligent caching strategies.\n\n• Engineered a complete CI/CD pipeline using Docker and GitHub Actions, enabling reliable one-command deployments and automated testing.",
+    duration: "May 2025 - Sept 2025",
+    description: "• Led complete disaster recovery following a critical security breach, restoring 100% of data and service functionality.\n\n• Re-architected the frontend to improve site performance by 88% (reducing load times from 25s to <3s).\n\n• Designed and implemented a full-stack Course Management System using React.js and Node.js.\n\n• Engineered a CI/CD pipeline from scratch using Docker and GitHub Actions, automating the entire deployment process.\n\n• Built and deployed over 700 SEO-optimized landing pages.",
     link: "https://askjay.com.au",
   },
   {
@@ -74,8 +74,95 @@ export const experience = [
 
 export const projects = [
   {
+    title: "Codeflow Hook (npm package)",
+    description: "A CLI tool supporting multiple AI providers (Gemini, GPT, Claude) for automated code analysis, git hook management, and AI-powered reviews. Reduces code review time by 40% and enhances quality through intelligent, context-aware feedback.",
+    technologies: ["Node.js", "TypeScript", "AI APIs", "Git Hooks", "CLI Tool"],
+    liveUrl: "https://codeflow-commander-nexus-gateway-si.vercel.app/",
+    githubUrl: "https://github.com/Sharv619/codeflow-commander---nexus-gateway",
+    technicalChallenge: "Integrating multiple AI providers into a responsive CLI was challenging. I created an abstraction layer with async processing and automatic model selection based on task complexity, maintaining under-1s execution for common operations.",
+    architectureDetails: `Built as a distributed, event-driven CLI tool implementing GitOps principles with AI-enhanced code quality gates.
+
+**Architecture Layers:**
+• **CLI Interface:** Cross-platform command-line interface with multi-language support (TypeScript, Python, Go)
+• **Git Integration Layer:** Direct Git hook interception with staged file analysis and pre-commit validation
+• **AI Processing Pipeline:** Multi-provider abstraction (Gemini, GPT, Claude) with automatic model selection based on task complexity
+• **Rule Engine:** Configurable quality gates with custom ESLint-style rules and AI-powered heuristics
+• **Telemetry & Analytics:** Anonymous usage patterns for continuous improvement without compromising privacy
+
+**Key Features:**
+• **Multi-Agent Architecture:** Parallel processing of different code quality aspects (security, performance, style)
+• **Intelligent Filtering:** Context-aware analysis skipping irrelevant lines based on semantic understanding
+• **Adaptive Learning:** Self-improving algorithms that learn from user feedback and code patterns
+• **Distributed Processing:** Local-first design with optional cloud sync for team rule sharing
+
+The system serves as an architectural blueprint for AI-augmented development tools, demonstrating how machine learning can enhance rather than replace human judgment in software quality assurance.`,
+  },
+  {
+    title: "ReliBoard",
+    description: "A production-ready, enterprise-grade project management application with secure REST API, JWT-based authentication, and Role-Based Access Control (RBAC). Delivered a secure, fully-tested platform with Docker containerization, achieving enterprise-grade standards for team collaboration.",
+    technologies: ["React", "Node.js", "MongoDB", "JWT", "Docker", "Jest", "Supertest"],
+    liveUrl: "#",
+    githubUrl: "https://github.com/Sharv619/reliboard",
+    technicalChallenge: "Implementing comprehensive RBAC with granular permissions while maintaining performance was challenging. I developed a hierarchical permission system that scaled efficiently while ensuring zero data leakage across different user roles.",
+    architectureDetails: `Enterprise-grade project management platform engineered with security-first design principles.
+
+**Security Architecture:**
+• **Multi-Layer Authentication:** JWT-based auth with refresh token rotation and secure session management
+• **Role-Based Access Control:** Hierarchical permission system supporting organization, team, and individual level access controls
+• **API Security:** RESTful API with rate limiting, request validation, and comprehensive error handling
+
+**Application Architecture:**
+• **Frontend:** React-based interface with real-time collaboration features and responsive design
+• **Backend:** Node.js/Express API with MongoDB for scalable data persistence
+• **Containerization:** Full-stack Docker deployment enabling seamless environment consistency
+
+**Quality Assurance:**
+• **Comprehensive Testing:** Jest & Supertest achieving 85%+ code coverage across all components
+• **Security Testing:** Automated vulnerability scanning and penetration testing integration
+• **Performance Testing:** Load testing and optimization ensuring scalability for growing teams
+
+**DevOps Integration:**
+• **CI/CD Pipeline:** Automated testing, building, and deployment workflows
+• **Monitoring & Logging:** Centralized logging with performance metrics tracking
+• **Backup & Recovery:** Automated database backup strategies with point-in-time recovery
+
+This project demonstrates production-ready application development with enterprise-grade security, testing, and deployment practices applicable to any large-scale SaaS platform.`,
+  },
+  {
+    title: "Production Incident Response Case Study",
+    description: "A comprehensive case study demonstrating incident response leadership in mission-critical environments. Led disaster recovery operations with standardized protocols and automated recovery procedures, achieving 100% data restoration and minimal downtime through proactive incident management.",
+    technologies: ["AWS EC2", "MongoDB Atlas", "Docker", "CI/CD", "Incident Management"],
+    liveUrl: "#",
+    githubUrl: "https://github.com/Sharv619/production-incident-response-case-study",
+    technicalChallenge: "Coordinating multi-system recovery while maintaining data integrity across distributed services required precise timing and rollback procedures. I developed a phased recovery approach that minimized risks and ensured complete system restoration.",
+    architectureDetails: `Comprehensive incident response framework designed for mission-critical production environments.
+
+**Incident Response Phases:**
+• **Detection & Assessment:** Automated monitoring with real-time alerting and incident classification
+• **Containment:** Immediate isolation procedures preventing incident spread across systems
+• **Recovery Execution:** Phased restoration process ensuring data integrity and service availability
+• **Post-Incident Analysis:** Root cause analysis with comprehensive documentation and preventive measures
+
+**Infrastructure Resilience:**
+• **Multi-Region Deployment:** AWS infrastructure with automatic failover capabilities
+• **Database Resilience:** MongoDB Atlas with automated backup, point-in-time recovery, and geo-redundancy
+• **Automated Recovery:** Scripted recovery procedures reducing human error during critical incidents
+
+**Security Considerations:**
+• **Access Control:** Principle of least privilege during incident response operations
+• **Data Protection:** Encrypted communications and secure data handling throughout recovery process
+• **Audit Trail:** Complete logging of all incident response actions for compliance and analysis
+
+**Process Improvements:**
+• **Runbook Development:** Standardized incident response procedures with clear escalation paths
+• **Team Coordination:** Cross-functional collaboration protocols ensuring rapid response times
+• **Continuous Improvement:** Post-incident reviews driving iterative improvements to response capabilities
+
+This case study demonstrates systematic approaches to production incident management, providing templates and methodologies applicable to any large-scale software operation.`,
+  },
+  {
     title: "AI Career Co-Pilot (RAG Architecture)",
-    description: "**Problem:** Users receive generic career advice that lacks personalization and context. **Solution:** Developed an intelligent RAG-based chatbot that embeds a 47-page knowledge base, enabling contextually accurate responses through real-time chat. **Impact:** Improved user satisfaction by providing tailored career guidance, leading to more effective decision-making.",
+    description: "An intelligent RAG-based chatbot that embeds a 47-page knowledge base, enabling contextually accurate responses through real-time chat. Addresses the problem of generic career advice by providing personalized, contextual guidance for more effective decision-making.",
     technologies: ["React", "TypeScript", "Gemini API", "RAG Architecture", "localStorage"],
     liveUrl: "https://ai-career-copilot.vercel.app",
     githubUrl: "https://github.com/Sharv619/ai-career-copilot",
@@ -96,67 +183,15 @@ export const projects = [
 
 The architecture demonstrates scalable AI integration patterns applicable to enterprise chatbot deployments and domain-specific knowledge systems.`,
   },
-  {
-    title: "Codeflow Hook (npm package)",
-    description: "**Problem:** Developers face time-consuming manual code reviews and lack integrated AI assistance. **Solution:** Built Codeflow Hook as a CLI tool supporting multiple AI providers (Gemini, GPT, Claude) for automated code analysis, git hook management, and AI-powered reviews. **Impact:** Reduces code review time by 40% and enhances quality through intelligent, context-aware feedback.",
-    technologies: ["Node.js", "TypeScript", "AI APIs", "Git Hooks", "CLI Tool"],
-    liveUrl: "https://codeflow-commander-nexus-gateway-si.vercel.app/",
-    githubUrl: "https://github.com/Sharv619/codeflow-hook",
-    technicalChallenge: "Integrating multiple AI providers into a responsive CLI was challenging. I created an abstraction layer with async processing and automatic model selection based on task complexity, maintaining under-1s execution for common operations.",
-    architectureDetails: `Built as a distributed, event-driven CLI tool implementing GitOps principles with AI-enhanced code quality gates.
-
-**Architecture Layers:**
-• **CLI Interface:** Cross-platform command-line interface with multi-language support (TypeScript, Python, Go)
-• **Git Integration Layer:** Direct Git hook interception with staged file analysis and pre-commit validation
-• **AI Processing Pipeline:** Multi-provider abstraction (Gemini, GPT, Claude) with automatic model selection based on task complexity
-• **Rule Engine:** Configurable quality gates with custom ESLint-style rules and AI-powered heuristics
-• **Telemetry & Analytics:** Anonymous usage patterns for continuous improvement without compromising privacy
-
-**Key Features:**
-• **Multi-Agent Architecture:** Parallel processing of different code quality aspects (security, performance, style)
-• **Intelligent Filtering:** Context-aware analysis skipping irrelevant lines based on semantic understanding
-• **Adaptive Learning:** Self-improving algorithms that learn from user feedback and code patterns
-• **Distributed Processing:** Local-first design with optional cloud sync for team rule sharing
-
-The system serves as an architectural blueprint for AI-augmented development tools, demonstrating how machine learning can enhance rather than replace human judgment in software quality assurance.`,
-  },
-  {
-    title: "Knowledge Management Pipeline & DevPath",
-    description: "**Problem:** Knowledge remains scattered in unstructured formats, leading to inefficiencies. **Solution:** Engineered an ETL pipeline to transform PDFs/Markdown into interactive D3.js knowledge graphs, deployed as an offline-first PWA. **Impact:** Converts organizational chaos into navigable clarity, with enterprise-grade XSS protection ensuring secure content rendering.",
-    technologies: ["React", "TypeScript", "D3.js", "Gemini API", "PWA", "DOMPurify"],
-    liveUrl: "https://devpath.vercel.app",
-    githubUrl: "https://github.com/Sharv619/knowledge-management",
-    technicalChallenge: "Balancing XSS protection with mathematical content rendering was complex. I implemented DOMPurify with custom rules for LaTeX/MathML, achieving enterprise-grade security while preserving equation fidelity in knowledge graphs.",
-    architectureDetails: `A comprehensive ETL (Extract-Transform-Load) pipeline architected for knowledge discovery with enterprise-grade security considerations.
-
-**System Components:**
-• **Document Processing Engine:** Multi-format ingestion (PDF, Markdown, HTML) with OCR integration and text extraction
-• **AI-Powered Information Extraction:** Named Entity Recognition (NER) and relationship mapping using advanced NLP models
-• **Graph Database Design:** Non-relational data modeling optimized for traversal operations and dynamic relationship discovery
-• **Visualization Layer:** D3.js force-directed graph implementation with real-time interaction performance
-• **PWA Architecture:** Service Worker implementation for offline functionality with IndexedDB synchronization
-
-**Security Architecture:**
-• **Input Sanitization:** Multi-layer XSS protection using DOMPurify with custom rule sets for mathematical notation
-• **Content Security Policy:** Strict CSP implementation preventing external script injection
-• **Client-Side Encryption:** Optional end-to-end encryption for sensitive knowledge bases
-• **Audit Trail:** Complete change history tracking with rollback capabilities
-
-**Performance Engineering:**
-• **WebWorker Processing:** Heavy computation offloaded to background threads preventing UI blocking
-• **Progressive Loading:** Graph rendering with virtualized nodes for handling large knowledge bases (1000+ concepts)
-• **Memory Optimization:** Object pooling and garbage collection strategies for long-running sessions
-
-This architecture demonstrates advanced PWA development patterns, combining traditional data engineering principles with modern AI capabilities to create interactive, navigable knowledge repositories.`,
-  },
 ];
 
 export const skills = {
-  languages: ["JS/TS", "Dart", "HTML/CSS"],
-  frameworks: ["React / Next.js", "Flutter", "Node.js / Express.js", "Tailwind CSS", "Material-UI"],
-  databases: ["MongoDB / Atlas", "RESTful APIs", "Authentication (JWT)", "SSR & Perf. Optimization"],
-  cloud: ["AWS (EC2, S3)", "Docker", "CI/CD (GitHub Actions)", "Nginx & Security"],
-  tools: ["Git / GitHub", "Agile/Scrum", "Technical Documentation", "Testing & Code Review"],
+  languages: ["TypeScript", "JavaScript", "Python", "Dart", "SQL"],
+  frontend: ["React", "Next.js", "Vite", "HTML/CSS", "Tailwind CSS", "Framer Motion"],
+  backend: ["Node.js", "Express.js", "REST APIs", "GraphQL", "JWT"],
+  "ai/ml": ["Google Gemini API", "RAG Architecture", "Vector Embeddings", "Prompt Engineering"],
+  "devops & cloud": ["AWS EC2", "Docker", "GitHub Actions", "CI/CD", "Nginx"],
+  "databases & security": ["MongoDB (Atlas)", "Mongoose", "OWASP Top 10"],
 };
 
 export const about = {
@@ -170,12 +205,12 @@ Today, as a proactive engineer, I architect scalable solutions that don't just m
 When I'm not coding, you'll find me automating my life with n8n workflows, experimenting with Ollama for local AI, or exploring the latest in quantum computing. Because in this field, curiosity isn't optional—it's essential.`,
 };
 
-export const slugify = (text: string) =>
-  text
-    .toString()
+export const slugify = (text: string) => {
+  return text
     .toLowerCase()
-    .replace(/\s+/g, "-") // Replace spaces with -
-    .replace(/[^\w-]+/g, "") // Remove all non-word chars
-    .replace(/--+/g, "-") // Replace multiple - with single -
-    .replace(/^-+/, "") // Trim - from start of text
-    .replace(/-+$/, ""); // Trim - from end of text
+    .replace(/[^\w\s-]/g, '') // Remove special characters except spaces and hyphens
+    .replace(/\s+/g, '-') // Replace spaces with hyphens
+    .replace(/-+/g, '-') // Replace multiple hyphens with single hyphen
+    .trim() // Trim leading/trailing whitespace
+    .replace(/^-+|-+$/g, ''); // Remove leading/trailing hyphens
+};
