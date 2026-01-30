@@ -34,10 +34,10 @@ export interface Project {
 
 export const personalInfo: PersonalInfo = {
   name: "Himanshu Lade",
-  title: "Full-Stack Engineer & AI/ML Specialist",
+  title: "Software Engineer",
   email: "himanshulade@hotmail.com",
   location: "Sydney, Australia",
-  bio: "I'm a tech nerd who automates everything with n8n workflows and runs Ollama locally for AI experimentation. I architect solutions that scale, perform, and leverage cutting-edge AI. From rescuing mission-critical databases to engineering AI-powered solutions that actually solve real problems, I deliver production-ready applications with a focus on CI/CD, AI/ML integration, and robust full-stack deployment.",
+  bio: "I build and maintain real systems—from full-stack features to automation and reliability improvements. I learn by shipping, debugging, and improving things that run in production.",
   avatar: "/avatar.png", // Add your photo to public/
 };
 
@@ -75,7 +75,7 @@ export const experience = [
 export const projects = [
   {
     title: "Codeflow Hook (npm package)",
-    description: "A CLI tool supporting multiple AI providers (Gemini, GPT, Claude) for automated code analysis, git hook management, and AI-powered reviews. Reduces code review time by 40% and enhances quality through intelligent, context-aware feedback.",
+    description: "Problem: Manual code reviews were slow and inconsistent, causing bottlenecks in development workflows.\n\nSolution: Built a CLI tool supporting multiple AI providers (Gemini, GPT, Claude) for automated code analysis, git hook management, and AI-powered reviews.\n\nOutcome: Reduced code review time by 40% and enhanced quality through intelligent, context-aware feedback.",
     technologies: ["Node.js", "TypeScript", "AI APIs", "Git Hooks", "CLI Tool"],
     liveUrl: "https://codeflow-commander-nexus-gateway-si.vercel.app/",
     githubUrl: "https://github.com/Sharv619/codeflow-commander---nexus-gateway",
@@ -99,7 +99,7 @@ The system serves as an architectural blueprint for AI-augmented development too
   },
   {
     title: "ReliBoard",
-    description: "A production-ready, enterprise-grade project management application with secure REST API, JWT-based authentication, and Role-Based Access Control (RBAC). Delivered a secure, fully-tested platform with Docker containerization, achieving enterprise-grade standards for team collaboration.",
+    description: "Problem: Needed a secure, production-ready project management platform with proper access controls for team collaboration.\n\nSolution: Developed a full-stack application with JWT-based authentication, Role-Based Access Control (RBAC), and comprehensive testing.\n\nOutcome: Delivered an enterprise-grade platform with Docker containerization and 85%+ test coverage.",
     technologies: ["React", "Node.js", "MongoDB", "JWT", "Docker", "Jest", "Supertest"],
     liveUrl: "#",
     githubUrl: "https://github.com/Sharv619/reliboard",
@@ -130,7 +130,7 @@ This project demonstrates production-ready application development with enterpri
   },
   {
     title: "Production Incident Response Case Study",
-    description: "A comprehensive case study demonstrating incident response leadership in mission-critical environments. Led disaster recovery operations with standardized protocols and automated recovery procedures, achieving 100% data restoration and minimal downtime through proactive incident management.",
+    description: "Problem: Critical security breach caused complete system failure, requiring immediate disaster recovery.\n\nSolution: Led incident response with standardized protocols, automated recovery procedures, and multi-system coordination.\n\nOutcome: Achieved 100% data restoration and minimal downtime through proactive incident management.",
     technologies: ["AWS EC2", "MongoDB Atlas", "Docker", "CI/CD", "Incident Management"],
     liveUrl: "#",
     githubUrl: "https://github.com/Sharv619/production-incident-response-case-study",
@@ -162,7 +162,7 @@ This case study demonstrates systematic approaches to production incident manage
   },
   {
     title: "AI Career Co-Pilot (RAG Architecture)",
-    description: "An intelligent RAG-based chatbot that embeds a 47-page knowledge base, enabling contextually accurate responses through real-time chat. Addresses the problem of generic career advice by providing personalized, contextual guidance for more effective decision-making.",
+    description: "Problem: Generic career advice chatbots provided irrelevant responses due to lack of contextual understanding.\n\nSolution: Built a RAG-based system that embeds a 47-page knowledge base with intelligent document chunking and vector caching.\n\nOutcome: Enabled contextually accurate responses through real-time chat with sub-second response times.",
     technologies: ["React", "TypeScript", "Gemini API", "RAG Architecture", "localStorage"],
     liveUrl: "https://ai-career-copilot.vercel.app",
     githubUrl: "https://github.com/Sharv619/ai-career-copilot",
@@ -186,23 +186,27 @@ The architecture demonstrates scalable AI integration patterns applicable to ent
 ];
 
 export const skills = {
-  languages: ["TypeScript", "JavaScript", "Python", "Dart", "SQL"],
-  frontend: ["React", "Next.js", "Vite", "HTML/CSS", "Tailwind CSS", "Framer Motion"],
-  backend: ["Node.js", "Express.js", "REST APIs", "GraphQL", "JWT"],
-  "ai/ml": ["Google Gemini API", "RAG Architecture", "Vector Embeddings", "Prompt Engineering"],
-  "devops & cloud": ["AWS EC2", "Docker", "GitHub Actions", "CI/CD", "Nginx"],
-  "databases & security": ["MongoDB (Atlas)", "Mongoose", "OWASP Top 10"],
+  primary: ["TypeScript", "JavaScript", "React", "Node.js", "AWS", "Docker"],
+  "ai & automation": ["Google Gemini API", "RAG Architecture", "Vector Embeddings", "Prompt Engineering", "n8n workflows"],
+  "infrastructure & delivery": ["GitHub Actions", "CI/CD", "Docker", "AWS EC2", "Nginx"],
+  "databases & security": ["MongoDB (Atlas)", "Mongoose", "OWASP Top 10", "JWT"],
+  "additional": ["Python", "Dart", "SQL", "Next.js", "Vite", "HTML/CSS", "Tailwind CSS", "Framer Motion", "Express.js", "REST APIs", "GraphQL"],
 };
 
 export const about = {
   title: "About Me",
-  content: `From the very beginning, I've had this insatiable curiosity for how things work—especially the invisible parts. At age 12, I took apart my family's old computer not once, but three times, learning that sometimes you have to break something to rebuild it better. That same spirit drove me to flash custom Android ROMs and eventually write my first lines of code, realizing tech wasn't just about apps—it's about solving real problems.
+  content: `I build and maintain real systems—from full-stack features to automation and reliability improvements. I learn by shipping, debugging, and improving things that run in production.
 
-My journey through tech has been anything but linear. After completing a Cloud Engineering internship at ACS, I dived headfirst into full-stack development, mastering React, Next.js, Node.js, and AWS. But it was the AI/ML space that truly captured my imagination. Building RAG architectures and integrating Gemini APIs taught me that the future isn't just automated— it's intelligent.
+My journey through tech has been anything but linear. After completing a Cloud Engineering internship at ACS, I dived headfirst into full-stack development, mastering React, Next.js, Node.js, and AWS. But it was the AI/ML space that truly captured my imagination. Building RAG architectures and integrating Gemini APIs taught me that the future isn't just automated—it's intelligent.
 
-Today, as a proactive engineer, I architect scalable solutions that don't just meet requirements—they exceed them. Whether leading disaster recovery for critical systems or pioneering AI-powered tools that streamline dev workflows, I thrive on the edge where innovation meets reliability. My portfolio isn't just a collection of projects; it's evidence of how I transform complex challenges into elegant, high-impact solutions.
+Today, I architect scalable solutions that don't just meet requirements—they exceed them. Whether leading disaster recovery for critical systems or pioneering AI-powered tools that streamline dev workflows, I thrive on the edge where innovation meets reliability. My portfolio isn't just a collection of projects; it's evidence of how I transform complex challenges into elegant, high-impact solutions.
 
 When I'm not coding, you'll find me automating my life with n8n workflows, experimenting with Ollama for local AI, or exploring the latest in quantum computing. Because in this field, curiosity isn't optional—it's essential.`,
+};
+
+export const howIWork = {
+  title: "How I Work",
+  content: `I approach engineering with a focus on learning through building and debugging. I'm comfortable owning small systems end-to-end and prefer reliability and clarity over cleverness. I believe in shipping early, iterating often, and always considering the production impact of my decisions. I'm particularly interested in AI as an assistive tool that enhances human judgment rather than replacing it.`,
 };
 
 export const slugify = (text: string) => {

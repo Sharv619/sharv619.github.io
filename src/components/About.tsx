@@ -1,8 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { about } from "@/lib/data";
-import Philosophy from "./Philosophy";
+import { about, howIWork } from "@/lib/data";
 
 export default function About() {
   return (
@@ -35,7 +34,21 @@ export default function About() {
           ))}
         </motion.div>
 
-        <Philosophy />
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 0.3 }}
+          viewport={{ once: true }}
+          className="mt-12 prose prose-lg dark:prose-invert mx-auto"
+        >
+          <h3 className="text-center text-2xl font-bold text-gray-900 dark:text-white mb-6">
+            {howIWork.title}
+          </h3>
+
+          <p className="text-gray-600 dark:text-gray-300 leading-relaxed text-center">
+            {howIWork.content}
+          </p>
+        </motion.div>
       </div>
     </section>
   );

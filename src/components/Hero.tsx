@@ -48,10 +48,10 @@ export default function Hero() {
               {personalInfo.name}
             </h1>
             <p className="text-xl sm:text-2xl text-gray-700 dark:text-gray-300 max-w-3xl mx-auto font-medium">
-              Stop Your App Performance Headaches: Architects 88% Faster Full-Stack & AI Solutions
+              Software Engineer focused on building and maintaining real systems — from full-stack features to automation and reliability improvements.
             </p>
             <p className="text-lg text-gray-500 dark:text-gray-400 max-w-2xl mx-auto">
-              {personalInfo.bio}
+              I learn by shipping, debugging, and improving things that run in production.
             </p>
           </div>
 

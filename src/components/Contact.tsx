@@ -15,12 +15,12 @@ export default function Contact() {
           className="text-center mb-16"
         >
           <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 dark:text-white mb-4">
-            Get In Touch
+            Let's Connect
           </h2>
           <div className="w-24 h-1 bg-blue-600 mx-auto mb-8"></div>
           <p className="text-lg text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
-            I'm always interested in new opportunities and collaborations.
-            Whether you need to rescue a mission-critical system, architect an AI-powered solution, or build something that actually scales—let's connect.
+            Open to junior–mid roles in software engineering, full-stack development, platform/DevOps, and applied AI.
+            I'm looking for learning-heavy environments where I can grow and contribute to real systems.
           </p>
         </motion.div>
 
@@ -80,7 +80,7 @@ export default function Contact() {
               <svg className="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
               </svg>
-              Let's Build Something Impactful
+              Get in Touch
             </a>
           </motion.div>
         </motion.div>

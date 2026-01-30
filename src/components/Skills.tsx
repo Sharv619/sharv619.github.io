@@ -10,12 +10,11 @@ interface SkillsProps {
 
 export default function Skills({ selectedSkills, onSkillToggle }: SkillsProps) {
   const skillCategories = [
-    { title: "Languages", items: skills.languages },
-    { title: "Frontend", items: skills.frontend },
-    { title: "Backend", items: skills.backend },
-    { title: "AI/ML", items: skills["ai/ml"] },
-    { title: "DevOps & Cloud", items: skills["devops & cloud"] },
+    { title: "Primary Stack", items: skills.primary },
+    { title: "AI & Automation", items: skills["ai & automation"] },
+    { title: "Infrastructure & Delivery", items: skills["infrastructure & delivery"] },
     { title: "Databases & Security", items: skills["databases & security"] },
+    { title: "Additional Technologies", items: skills.additional },
   ];
 
   return (
@@ -31,6 +30,9 @@ export default function Skills({ selectedSkills, onSkillToggle }: SkillsProps) {
           <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 dark:text-white mb-4">
             Skills & Technologies
           </h2>
+          <p className="text-sm text-gray-600 dark:text-gray-400 mb-4">
+            (listed based on practical use, not claimed mastery)
+          </p>
           <div className="w-24 h-1 bg-blue-600 mx-auto"></div>
         </motion.div>
 
