@@ -1,6 +1,7 @@
 import { resumeData } from "@/lib/resumeData";
 import ResumeHeader from "@/components/ResumeHeader";
 import ProfessionalSummary from "@/components/ProfessionalSummary";
+import TechnicalSkills from "@/components/TechnicalSkills";
 import ExperienceSection from "@/components/ExperienceSection";
 import ProjectsSection from "@/components/ProjectsSection";
 import EducationSection from "@/components/EducationSection";
@@ -20,6 +21,9 @@ export default function ResumePage() {
         
         {/* Professional Summary */}
         <ProfessionalSummary summary={resumeData.professionalSummary} />
+        
+        {/* Technical Skills */}
+        <TechnicalSkills skills={resumeData.technicalSkills} />
         
         {/* Professional Experience */}
         <ExperienceSection experience={resumeData.experience} />
