@@ -54,7 +54,7 @@ export const resumeData: ResumeData = {
     {
       title: "Software Engineer",
       company: "Ask Jay Services",
-      location: "Sydney",
+      location: "Wollongong",
       duration: "May 2025 – Oct 2025",
       achievements: [
         "Led disaster recovery of breached production system, restoring 100% functionality with zero data loss by provisioning new AWS infrastructure and implementing security hardening measures",
@@ -100,7 +100,7 @@ export const resumeData: ResumeData = {
     {
       degree: "Master of Computer Science",
       institution: "University of Wollongong",
-      duration: "Sydney, Australia"
+      duration: "Wollongong, Australia"
     },
     {
       degree: "Bachelor of Engineering in Computer Technology",

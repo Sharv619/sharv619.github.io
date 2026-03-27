@@ -52,30 +52,7 @@ export default function EducationSection({ education }: EducationSectionProps) {
         ))}
       </div>
       
-      {/* Additional Certifications */}
-      <div className="mt-8 pt-6 border-t border-gray-200 dark:border-gray-700">
-        <h3 className="text-lg font-semibold text-gray-800 dark:text-gray-200 mb-4">
-          Additional Certifications
-        </h3>
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-          <div className="flex items-center space-x-3 p-4 bg-gray-50 dark:bg-gray-700 rounded-lg">
-            <div className="w-3 h-3 bg-blue-600 dark:bg-blue-400 rounded-full" />
-            <span className="text-gray-700 dark:text-gray-300">AWS Cloud Practitioner (In Progress)</span>
-          </div>
-          <div className="flex items-center space-x-3 p-4 bg-gray-50 dark:bg-gray-700 rounded-lg">
-            <div className="w-3 h-3 bg-purple-600 dark:bg-purple-400 rounded-full" />
-            <span className="text-gray-700 dark:text-gray-300">Google Cloud AI/ML Fundamentals</span>
-          </div>
-          <div className="flex items-center space-x-3 p-4 bg-gray-50 dark:bg-gray-700 rounded-lg">
-            <div className="w-3 h-3 bg-green-600 dark:bg-green-400 rounded-full" />
-            <span className="text-gray-700 dark:text-gray-300">OWASP Security Best Practices</span>
-          </div>
-          <div className="flex items-center space-x-3 p-4 bg-gray-50 dark:bg-gray-700 rounded-lg">
-            <div className="w-3 h-3 bg-orange-600 dark:bg-orange-400 rounded-full" />
-            <span className="text-gray-700 dark:text-gray-300">Docker & Kubernetes Essentials</span>
-          </div>
-        </div>
-      </div>
+
     </motion.div>
   );
 }
