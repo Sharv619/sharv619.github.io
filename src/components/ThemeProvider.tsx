@@ -44,39 +44,33 @@ interface ThemeProviderProps {
   children: React.ReactNode;
 }
 
+function getInitialTheme(): Theme {
+  if (typeof window === "undefined") return "light";
+  
+  const stored = localStorage.getItem("theme") as Theme;
+  if (stored === "light" || stored === "dark") {
+    return stored;
+  }
+  
+  return getTimeBasedTheme();
+}
+
 export default function ThemeProvider({ children }: ThemeProviderProps) {
-  const [theme, setTheme] = useState<Theme>("light");
-  const [mounted, setMounted] = useState(false);
+  const [theme, setTheme] = useState<Theme>(getInitialTheme);
 
   useEffect(() => {
-    setMounted(true);
-
-    // Get initial theme from localStorage first
-    const stored = localStorage.getItem("theme") as Theme;
-    if (stored === "light" || stored === "dark") {
-      setTheme(stored);
-      return;
-    }
-
-    // If no stored theme, use time-based intelligent theme
-    const timeBasedTheme = getTimeBasedTheme();
-    setTheme(timeBasedTheme);
-  }, []);
-
-  useEffect(() => {
-    if (!mounted) return;
-
     const root = window.document.documentElement;
-
-    // Remove existing theme classes and add the new one
     root.classList.remove('light', 'dark');
     root.classList.add(theme);
+  }, [theme]);
 
-    // Store in localStorage
-    localStorage.setItem("theme", theme);
-
-    console.log(`Theme applied: ${theme}`); // Debug log
-  }, [theme, mounted]);
+  const handleSetTheme = (newTheme: Theme) => {
+    setTheme(newTheme);
+    localStorage.setItem("theme", newTheme);
+    const root = window.document.documentElement;
+    root.classList.remove('light', 'dark');
+    root.classList.add(newTheme);
+  };
 
   const resetToAutoTheme = () => {
     const timeBasedTheme = getTimeBasedTheme();
@@ -86,7 +80,7 @@ export default function ThemeProvider({ children }: ThemeProviderProps) {
 
   const value = {
     theme,
-    setTheme,
+    setTheme: handleSetTheme,
     resetToAutoTheme,
   };
 
