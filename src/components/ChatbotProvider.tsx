@@ -30,7 +30,7 @@ export default function ChatbotProvider({ children }: ChatbotProviderProps) {
   return (
     <ChatbotContext.Provider value={{ isChatbotOpen, toggleChatbot }}>
       {children}
-      <ChatbotWidget isOpen={isChatbotOpen} onClose={toggleChatbot} />
+      <ChatbotWidget />
     </ChatbotContext.Provider>
   );
 }

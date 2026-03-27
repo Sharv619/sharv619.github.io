@@ -74,6 +74,59 @@ export const experience = [
 
 export const projects = [
   {
+    title: "Network Guardian AI",
+    description: "Problem: Network security breaches causing system failures and data loss.\n\nSolution: Built 3-stage ML detection pipeline using Shannon Entropy and Isolation Forests to identify malicious traffic in real-time.\n\nOutcome: Reduced API costs by ~70% and achieved real-time threat detection with containerized microservices.",
+    technologies: ["Python", "FastAPI", "React", "Scikit-learn", "Gemini API", "Docker", "Machine Learning"],
+    liveUrl: "https://github.com/Sharv619/network-guardian-ai",
+    githubUrl: "https://github.com/Sharv619/network-guardian-ai",
+    technicalChallenge: "Building a 3-stage ML pipeline that could detect network threats in real-time while keeping API costs low. Used Shannon Entropy for anomaly detection and Isolation Forests for outlier identification.",
+    architectureDetails: `AI-Powered Network Threat Detection System with 3-stage ML pipeline.
+
+**Architecture Layers:**
+• Data Collection: Real-time network packet capture
+• Feature Extraction: Shannon Entropy calculation for anomaly detection
+• ML Engine: Isolation Forests for identifying malicious traffic
+• API Layer: FastAPI with async processing
+• Deployment: Docker Compose microservices
+
+**Key Features:**
+• 3-stage detection pipeline
+• Containerized microservices
+• Real-time monitoring
+• Cost-optimized API usage (~70% reduction)`,
+  },
+  {
+    title: "LifeOS - Personal AI Calendar",
+    description: "Problem: Missing important events and failing to act on opportunities due to poor personal organization.\n\nSolution: Built RAG pipeline ingesting Google Calendar, Fit, and Drive data using sentence-transformers and Mistral-7B.\n\nOutcome: Winner at Mistral AI x UNSW Founders Hackathon with geolocation-triggered alert system.",
+    technologies: ["Python", "FastAPI", "React", "RAG", "Mistral AI", "Google APIs", "sentence-transformers"],
+    liveUrl: "#",
+    githubUrl: "#",
+    technicalChallenge: "Integrating multiple Google APIs while ensuring data privacy. Built geolocation-triggered alert system based on free time windows.",
+    architectureDetails: `Personal AI Calendar & Nudge Engine with context-aware recommendations.
+
+**Architecture:**
+• Data Ingestion: Google Calendar, Fit, Drive APIs
+• Embedding Engine: sentence-transformers
+• RAG Pipeline: Context-aware retrieval
+• LLM Integration: Mistral-7B for nudges
+• Location Service: Geolocation alerts`,
+  },
+  {
+    title: "CodeFlow-Hook",
+    description: "Problem: Manual code reviews slow and inconsistent.\n\nSolution: CLI tool with multiple AI providers for automated code analysis and reviews.\n\nOutcome: 40% faster code reviews, 450+ NPM downloads.",
+    technologies: ["Node.js", "TypeScript", "Gemini API", "RAG", "Vector Search", "Docker"],
+    liveUrl: "https://www.npmjs.com/package/codeflow-hook",
+    githubUrl: "https://github.com/Sharv619/codeflow-hook",
+    technicalChallenge: "Creating abstraction layer for multi-provider AI support while maintaining fast execution.",
+    architectureDetails: `Multi-Agent AI Code Review Tool.
+
+**Architecture:**
+• CLI Interface with intuitive commands
+• AI Abstraction Layer for multi-provider support
+• Vector Store with RAG for context awareness
+• Git Integration for pre-commit hooks`,
+  },
+  {
     title: "Codeflow Hook (npm package)",
     description: "Problem: Manual code reviews were slow and inconsistent, causing bottlenecks in development workflows.\n\nSolution: Built a CLI tool supporting multiple AI providers (Gemini, GPT, Claude) for automated code analysis, git hook management, and AI-powered reviews.\n\nOutcome: Reduced code review time by 40% and enhanced quality through intelligent, context-aware feedback.",
     technologies: ["Node.js", "TypeScript", "AI APIs", "Git Hooks", "CLI Tool"],

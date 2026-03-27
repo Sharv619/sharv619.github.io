@@ -1,0 +1,221 @@
+{
+  "version": "3.0.0",
+  "lastUpdated": "2026-03-26",
+  "metadata": {
+    "title": "Himanshu Lade - Career Knowledge Base",
+    "description": "RAG-ready knowledge base for AI Assistant",
+    "author": "Himanshu Lade"
+  },
+  "personal": {
+    "name": "Himanshu Lade",
+    "title": "Founding Engineer",
+    "tagline": "Specialising in AI integration, high-performance infrastructure, and system reliability",
+    "location": "Sydney, Australia",
+    "availability": "Open to opportunities",
+    "bio": "Software Engineer with a founding engineer mindset, specialising in AI integration, high-performance infrastructure, and system reliability. Led disaster recovery with 100% data restoration, optimised load times by 88% (25s to 3s), and shipped open-source AI tooling with 450+ downloads in week one.",
+    "contact": {
+      "email": "himanshulade@hotmail.com",
+      "phone": "+61 434 069 483",
+      "linkedin": "linkedin.com/in/himanshu-lade",
+      "github": "github.com/Sharv619"
+    }
+  },
+  "experience": [
+    {
+      "id": "ask-jay",
+      "company": "Ask Jay Services",
+      "role": "Founding Engineer",
+      "type": "Contract",
+      "duration": "May 2025 - Oct 2025",
+      "location": "Wollongong, Australia",
+      "achievements": [
+        "Led disaster recovery of breached production system, restoring 100% functionality with zero data loss by provisioning new AWS infrastructure and implementing security hardening measures",
+        "Achieved 88% performance improvement by reducing load times from 25s to <3s through infrastructure refactoring, backend optimization, and database query optimization",
+        "Architected and developed three-sided Flutter marketplace from scratch, owning entire software development lifecycle from authentication to production deployment",
+        "Engineered automated CI/CD pipelines using Docker and GitHub Actions, enabling one-command production deployments with zero downtime",
+        "Launched 700+ SEO-optimized landing pages to drive regional expansion and organic traffic growth"
+      ],
+      "techStack": ["AWS", "React", "Flutter", "Docker", "GitHub Actions", "Node.js", "PostgreSQL"],
+      "highlights": ["Disaster Recovery", "Performance Optimization", "Full-Stack Development", "CI/CD", "Security Hardening"],
+      "impact": {
+        "metric": "100% data restoration",
+        "metric": "88% faster load times",
+        "metric": "700+ landing pages deployed"
+      }
+    },
+    {
+      "id": "acs",
+      "company": "Australian Computer Society",
+      "role": "Cloud Intern",
+      "type": "Internship",
+      "duration": "Sep 2023 – Feb 2024",
+      "location": "Wollongong, Australia",
+      "achievements": [
+        "Improved frontend performance by approximately 33% for MERN stack application serving 200+ active users through React optimization and code splitting",
+        "Remediated 15+ high-priority security vulnerabilities based on OWASP Top 10 standards, strengthening application security posture",
+        "Collaborated in Agile development sprints with QA engineers and product owners to deliver features on time with high quality standards"
+      ],
+      "techStack": ["React", "Node.js", "MongoDB", "Express", "JavaScript"],
+      "highlights": ["Security", "Performance", "Agile", "Team Collaboration"],
+      "impact": {
+        "metric": "33% performance improvement",
+        "metric": "15+ vulnerabilities fixed",
+        "metric": "200+ active users served"
+      }
+    }
+  ],
+  "projects": [
+    {
+      "id": "network-guardian-ai",
+      "name": "Network Guardian AI",
+      "tagline": "AI-Powered Network Threat Detection System",
+      "description": "AI-Powered Network Threat Detection System using machine learning to identify malicious network traffic in real-time.",
+      "hackathon": "Google DeepMind Hackathon",
+      "outcome": "Built 3-stage ML detection pipeline using Shannon Entropy and Isolation Forests to identify malicious traffic, reducing API costs ~70%.",
+      "solution": "Deployed containerised microservices with Docker Compose and FastAPI for real-time network monitoring and threat analysis.",
+      "techStack": ["Python", "FastAPI", "React", "Scikit-learn", "Gemini API", "Docker"],
+      "achievements": [
+        "Reduced API costs by ~70%",
+        "3-stage ML detection pipeline (Shannon Entropy + Isolation Forests)",
+        "Real-time threat detection with containerised microservices"
+      ],
+      "links": {
+        "github": "https://github.com/Sharv619/network-guardian-ai",
+        "live": null
+      },
+      "keywords": ["AI/ML", "Cybersecurity", "Python", "FastAPI", "Docker", "Machine Learning", "Network Security"],
+      "type": "AI/ML Project",
+      "status": "Completed"
+    },
+    {
+      "id": "codeflow-hook",
+      "name": "CodeFlow-Hook",
+      "tagline": "Multi-Agent AI Code Review Tool",
+      "description": "Open-source CLI tool with multi-agent architecture for automated code review.",
+      "problem": "Manual code reviews were slow and inconsistent, causing bottlenecks in development workflows.",
+      "solution": "Built a CLI tool supporting multiple AI providers (Gemini, GPT, Claude) for automated code analysis, git hook management, and AI-powered reviews.",
+      "outcome": "Reduced code review time by 40% and enhanced quality through intelligent, context-aware feedback.",
+      "technicalChallenge": "Integrating multiple AI providers into a responsive CLI was challenging. Created an abstraction layer with async processing and automatic model selection based on task complexity, maintaining under-1s execution for common operations.",
+      "techStack": ["Node.js", "TypeScript", "Gemini API", "RAG", "Vector Search", "Docker"],
+      "achievements": [
+        "Reduced code review time by 40%",
+        "Created abstraction layer for multi-provider AI support",
+        "450+ NPM downloads in first month"
+      ],
+      "links": {
+        "github": "https://github.com/Sharv619/codeflow-hook",
+        "npm": "https://npmjs.com/package/codeflow-hook"
+      },
+      "keywords": ["Open Source", "AI/ML", "Code Review", "RAG", "TypeScript", "CLI Tool"],
+      "type": "Developer Tool",
+      "status": "Published"
+    },
+    {
+      "id": "portfolio",
+      "name": "Personal Portfolio",
+      "tagline": "AI-Enhanced Personal Portfolio",
+      "description": "Modern personal portfolio with AI chatbot assistant and RAG-powered knowledge base.",
+      "techStack": ["Next.js", "React", "TypeScript", "Tailwind CSS", "AWS Bedrock", "Framer Motion"],
+      "achievements": [
+        "Built RAG-powered AI chatbot with neural visualization",
+        "Implemented AWS Bedrock integration with Titan Embeddings",
+        "Added Bedrock Guardrails for security"
+      ],
+      "links": {
+        "github": "https://github.com/Sharv619/sharv619.github.io",
+        "live": "https://sharv619.github.io"
+      },
+      "keywords": ["Portfolio", "Next.js", "React", "AWS", "RAG", "AI Chatbot"],
+      "type": "Web Application",
+      "status": "Live"
+    }
+  ],
+  "skills": {
+    "languages": [
+      "JavaScript (ES6+)",
+      "TypeScript",
+      "Python",
+      "Dart",
+      "SQL"
+    ],
+    "frameworks": [
+      "React.js",
+      "Next.js",
+      "Node.js",
+      "Express.js",
+      "Flutter",
+      "FastAPI",
+      "GraphQL"
+    ],
+    "cloudDevOps": [
+      "AWS (EC2, S3, Lambda, RDS)",
+      "Docker",
+      "GitHub Actions",
+      "CI/CD",
+      "Nginx",
+      "Redis"
+    ],
+    "aiData": [
+      "RAG Architecture",
+      "LLM Integration",
+      "Gemini API",
+      "Mistral AI",
+      "Isolation Forests",
+      "Shannon Entropy",
+      "Vector Search",
+      "sentence-transformers"
+    ]
+  },
+  "values": [
+    {
+      "id": "open-source",
+      "name": "Open Source Philosophy",
+      "description": "Believes in building in public and contributing to the developer community"
+    },
+    {
+      "id": "security-first",
+      "name": "Security-First Approach",
+      "description": "Implements security hardening and follows OWASP guidelines"
+    },
+    {
+      "id": "production-reliability",
+      "name": "Production Reliability",
+      "description": "Focuses on building systems that run reliably in production"
+    },
+    {
+      "id": "continuous-learning",
+      "name": "Continuous Learning",
+      "description": "Stays current with latest technologies and best practices"
+    }
+  ],
+  "education": [
+    {
+      "degree": "Master of Computer Science",
+      "institution": "University of Wollongong",
+      "location": "Wollongong, Australia",
+      "year": "2024-2026"
+    },
+    {
+      "degree": "Bachelor of Engineering in Computer Technology",
+      "institution": "Nagpur University",
+      "location": "Nagpur, India",
+      "year": "2019-2023"
+    }
+  ],
+  "chatbot": {
+    "name": "Assistant",
+    "personality": "Helpful, knowledgeable, conversational",
+    "capabilities": [
+      "Answer questions about Himanshu's experience and projects",
+      "Provide technical insights on his work",
+      "Discuss career opportunities",
+      "Share knowledge about his skills and background"
+    ],
+    "sampleQuestions": [
+      "What projects has Himanshu built?",
+      "Tell me about his AWS experience",
+      "What ML projects has he worked on?",
+      "What are his technical skills?"
+    ]
+  }
+}

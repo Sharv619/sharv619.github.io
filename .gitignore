@@ -12,6 +12,7 @@
 
 # testing
 /coverage
+/tests/
 
 # next.js
 /.next/
@@ -43,3 +44,7 @@ next-env.d.ts
 
 # knowledge base (internal context only)
 knowledge_base.md
+
+# MCP context (project state tracking)
+mcp-context.json
+src/mcp/**/*.js
