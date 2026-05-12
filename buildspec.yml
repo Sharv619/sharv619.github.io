@@ -1,0 +1,27 @@
+version: 0.2
+
+phases:
+  install:
+    runtime-versions:
+      nodejs: 20
+    commands:
+      - npm ci
+  pre_build:
+    commands:
+      - npm run lint
+      - test ! -d tests || npm run test:run
+  build:
+    commands:
+      - npm run build
+  post_build:
+    commands:
+      - test -f out/index.html
+
+artifacts:
+  base-directory: out
+  files:
+    - "**/*"
+
+cache:
+  paths:
+    - "/root/.npm/**/*"
