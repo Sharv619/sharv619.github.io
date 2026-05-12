@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
-import { personalInfo, experience, projects, skills } from "@/lib/data";
+import { personalInfo } from "@/lib/data";
 import ThemeProvider from "@/components/ThemeProvider";
 import AvailabilityBanner from "@/components/AvailabilityBanner";
 import SEOHead from "@/components/SEOHead";

@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect } from "react";
-import { personalInfo, experience, projects, skills } from "@/lib/data";
+import { personalInfo, skills } from "@/lib/data";
 
 // Structured data for SEO
 const generateStructuredData = () => {

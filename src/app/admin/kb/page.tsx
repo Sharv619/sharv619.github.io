@@ -48,7 +48,7 @@ export default function AdminKBPage() {
   };
 
   useEffect(() => {
-    loadKnowledgeBase();
+    void Promise.resolve().then(loadKnowledgeBase);
   }, []);
 
   const addTerminalLine = (line: string) => {

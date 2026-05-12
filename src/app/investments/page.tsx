@@ -195,7 +195,7 @@ export default function Investments() {
                 Self-Reinforcing Strategy: Technical Development & Strategic Positioning
               </h3>
               <p className="text-lg text-gray-600 dark:text-gray-300 leading-relaxed mb-6">
-                The primary objective transcends capital accumulation—it's the acquisition of governance rights that enable steering protocols toward adoption of proprietary intellectual property. This includes integration of self-developed verification oracles, multi-agent governance systems, and AI-enhanced security frameworks, creating a virtuous cycle where technical innovation informs strategic positioning, and governance influence accelerates development velocity.
+                The primary objective transcends capital accumulation—it&apos;s the acquisition of governance rights that enable steering protocols toward adoption of proprietary intellectual property. This includes integration of self-developed verification oracles, multi-agent governance systems, and AI-enhanced security frameworks, creating a virtuous cycle where technical innovation informs strategic positioning, and governance influence accelerates development velocity.
               </p>
               <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
                 <div className="flex items-center space-x-2 text-gray-700 dark:text-gray-300">

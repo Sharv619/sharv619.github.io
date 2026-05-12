@@ -1,8 +1,15 @@
 import { experience, projects, skills, about } from "@/lib/data";
 
+type PortfolioData = {
+  experience: typeof experience;
+  projects: typeof projects;
+  skills: typeof skills;
+  about: typeof about;
+};
+
 export class GeminiService {
   private conversationHistory: string[] = [];
-  private portfolioData: any;
+  private portfolioData: PortfolioData;
 
   constructor() {
     // Pure mock implementation with portfolio data injection
@@ -10,7 +17,9 @@ export class GeminiService {
     console.log("🚀 AI Career Co-Pilot: Mock Mode - Portfolio Data Injected (Real implementation: Private Repository)");
   }
 
-  async sendMessage(message: string, systemPrompt?: string): Promise<string> {
+  async sendMessage(message: string, _systemPrompt?: string): Promise<string> {
+    void _systemPrompt;
+
     // Simulate processing delay for realism
     await new Promise(resolve => setTimeout(resolve, 300 + Math.random() * 500));
 
@@ -31,16 +40,15 @@ export class GeminiService {
     }
 
     if (messageLower.includes("project") || messageLower.includes("portfolio") || messageLower.includes("codeflow")) {
-      const projectNames = this.portfolioData.projects.slice(0, 3).map((p: any) => p.title).join(", ");
+      const projectNames = this.portfolioData.projects.slice(0, 3).map((project) => project.title).join(", ");
       return `Portfolio highlights include ${projectNames}. Each project showcases different technical skills - from AI-powered development tools to enterprise project management systems. Check out the Projects section for detailed technical specs and architectures!`;
     }
 
     if (messageLower.includes("skills") || messageLower.includes("technology") || messageLower.includes("expertise")) {
-      const langSkills = this.portfolioData.skills.languages.slice(0, 3).join(", ");
-      const frontendSkills = this.portfolioData.skills.frontend.slice(0, 3).join(", ");
-      const backendSkills = this.portfolioData.skills.backend.slice(0, 3).join(", ");
-      const aiSkills = this.portfolioData.skills["ai/ml"].slice(0, 2).join(", ");
-      return `Himanshu specializes in: Languages (${langSkills}), Frontend (${frontendSkills}), Backend (${backendSkills}), AI/ML (${aiSkills}), and more. He particularly excels at integrating AI/ML into production applications and building resilient DevOps pipelines.`;
+      const primarySkills = this.portfolioData.skills.primary.slice(0, 3).join(", ");
+      const infrastructureSkills = this.portfolioData.skills["infrastructure & delivery"].slice(0, 3).join(", ");
+      const aiSkills = this.portfolioData.skills["ai & automation"].slice(0, 2).join(", ");
+      return `Himanshu specializes in: Primary engineering (${primarySkills}), Infrastructure (${infrastructureSkills}), AI/ML (${aiSkills}), and more. He particularly excels at integrating AI/ML into production applications and building resilient DevOps pipelines.`;
     }
 
     if (messageLower.includes("career") || messageLower.includes("advice") || messageLower.includes("job")) {

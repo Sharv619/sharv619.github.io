@@ -1,8 +1,5 @@
-/**
- * RAG Assistant Client
- * 
- * Frontend client for connecting to the AWS Lambda RAG endpoint
- */
+import { useState } from "react";
+import { getFallbackResponse } from "./fallback-responses";
 
 interface Message {
   role: "user" | "assistant";
@@ -13,6 +10,8 @@ interface Source {
   id: string;
   section: string;
   similarity?: number;
+  url?: string;
+  title?: string;
 }
 
 interface RAGResponse {
@@ -22,6 +21,7 @@ interface RAGResponse {
     modelUsed: string;
     complexity: string;
     chunksRetrieved: number;
+    githubProjectsRetrieved?: number;
   };
 }
 
@@ -179,34 +179,4 @@ export function createUseAssistantChat(): () => UseAssistantChatReturn {
   };
 }
 
-/**
- * Fallback responses for demo/offline mode
- */
-const fallbackResponses: Record<string, string> = {
-  greeting: "Hey there! I'm Assistant, Himanshu's AI career assistant. I can tell you about his projects, skills, experience, or anything else you're curious about!",
-  projects: "Himanshu has built several impressive projects! His main ones are:\n\n• **Network Guardian AI** - An AI-powered network threat detection system using ML\n• **CodeFlow-Hook** - An open-source multi-agent code review tool (450+ NPM downloads!)\n• **His Portfolio** - This very site with the RAG-powered assistant you're talking to!",
-  skills: "Himanshu's technical skills include:\n\n• **Languages:** JavaScript, TypeScript, Python, Dart, SQL\n• **Frameworks:** React, Next.js, Node.js, Flutter, GraphQL, FastAPI\n• **Cloud/DevOps:** AWS, Docker, GitHub Actions, CI/CD\n• **AI/ML:** RAG Architecture, Gemini API, Machine Learning",
-  experience: "Himanshu's experience includes:\n\n• **Ask Jay Services** (Software Engineer): Led disaster recovery, achieved 88% performance improvement, built a Flutter marketplace, and launched 700+ SEO pages\n• **ACS** (Web Developer Intern): Improved frontend performance by 33%, remediated 15+ security vulnerabilities",
-  default: "That's a great question! Feel free to ask me about Himanshu's projects, skills, experience, or anything else you'd like to know.",
-};
-
-export function getFallbackResponse(message: string): string {
-  const lower = message.toLowerCase();
-  
-  if (lower.includes("who") || lower.includes("hi") || lower.includes("hello") || lower.includes("hey")) {
-    return fallbackResponses.greeting;
-  }
-  if (lower.includes("project")) {
-    return fallbackResponses.projects;
-  }
-  if (lower.includes("skill")) {
-    return fallbackResponses.skills;
-  }
-  if (lower.includes("experience") || lower.includes("job") || lower.includes("work")) {
-    return fallbackResponses.experience;
-  }
-  
-  return fallbackResponses.default;
-}
-
-import { useState } from "react";
+export { getFallbackResponse };

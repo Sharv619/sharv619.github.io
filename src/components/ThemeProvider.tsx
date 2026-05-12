@@ -16,14 +16,6 @@ function getTimeBasedTheme(): "light" | "dark" {
   return (hour >= 6 && hour < 18) ? "light" : "dark";
 }
 
-// Fallback to system preference (old method)
-function getSystemTheme(): "light" | "dark" {
-  if (typeof window === "undefined") return "light";
-
-  const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
-  return prefersDark ? "dark" : "light";
-}
-
 interface ThemeContextType {
   theme: Theme;
   setTheme: (theme: Theme) => void;

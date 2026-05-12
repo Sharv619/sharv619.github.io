@@ -1,10 +1,12 @@
 "use client";
 
-import { createContext, useContext, useState, ReactNode } from "react";
+import { createContext, useContext, useEffect, useState, ReactNode } from "react";
 import ChatbotWidget from "./ChatbotWidget";
 
 interface ChatbotContextType {
   isChatbotOpen: boolean;
+  openChatbot: () => void;
+  closeChatbot: () => void;
   toggleChatbot: () => void;
 }
 
@@ -25,12 +27,23 @@ interface ChatbotProviderProps {
 export default function ChatbotProvider({ children }: ChatbotProviderProps) {
   const [isChatbotOpen, setIsChatbotOpen] = useState(false);
 
-  const toggleChatbot = () => setIsChatbotOpen(prev => !prev);
+  const openChatbot = () => setIsChatbotOpen(true);
+  const closeChatbot = () => setIsChatbotOpen(false);
+  const toggleChatbot = () => setIsChatbotOpen((prev) => !prev);
+
+  useEffect(() => {
+    const handleToggle = () => {
+      setIsChatbotOpen((prev) => !prev);
+    };
+
+    window.addEventListener("toggle-chatbot", handleToggle);
+    return () => window.removeEventListener("toggle-chatbot", handleToggle);
+  }, []);
 
   return (
-    <ChatbotContext.Provider value={{ isChatbotOpen, toggleChatbot }}>
+    <ChatbotContext.Provider value={{ isChatbotOpen, openChatbot, closeChatbot, toggleChatbot }}>
       {children}
-      <ChatbotWidget />
+      <ChatbotWidget isOpen={isChatbotOpen} onOpen={openChatbot} onClose={closeChatbot} />
     </ChatbotContext.Provider>
   );
 }

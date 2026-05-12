@@ -1,4 +1,4 @@
-import { readFileSync, existsSync } from "fs";
+import { existsSync } from "fs";
 import { join } from "path";
 
 interface KnowledgeBase {
@@ -140,7 +140,6 @@ function getKnowledgeBase(): KnowledgeBase {
   try {
     const kbPath = join(process.cwd(), "src/lib/resumeData.ts");
     if (existsSync(kbPath)) {
-      const data = readFileSync(kbPath, "utf-8");
       return DEFAULT_KB;
     }
   } catch (error) {

@@ -3,14 +3,15 @@
 import { motion } from "framer-motion";
 import Link from "next/link";
 import { useState } from "react";
-import { projects } from "@/lib/data";
+import type { Project } from "@/lib/data";
 
 interface ProjectsProps {
   selectedSkills: string[];
+  projects: Project[];
 }
 
-function generateSlug(projectTitle: string): string {
-  return projectTitle.toLowerCase()
+function getProjectSlug(project: Project): string {
+  return project.slug || project.title.toLowerCase()
     .replace(/\s+/g, '-')
     .replace(/\([^)]*\)/g, '') // Remove parentheses
     .replace(/[&]/g, '') // Remove &
@@ -18,26 +19,31 @@ function generateSlug(projectTitle: string): string {
     .trim();
 }
 
-export default function Projects({ selectedSkills }: ProjectsProps) {
+export default function Projects({ selectedSkills, projects }: ProjectsProps) {
   const [currentIndex, setCurrentIndex] = useState(0);
+  const visibleProjects = selectedSkills.length === 0
+    ? projects
+    : projects.filter((project) =>
+        project.technologies.some((tech) =>
+          selectedSkills.some((skill) => tech.toLowerCase().includes(skill.toLowerCase()))
+        )
+      );
+  const hasProjects = visibleProjects.length > 0;
+  const activeIndex = hasProjects ? Math.min(currentIndex, visibleProjects.length - 1) : 0;
 
   const nextSlide = () => {
-    setCurrentIndex((prevIndex) =>
-      prevIndex === projects.length - 1 ? 0 : prevIndex + 1
-    );
+    setCurrentIndex(activeIndex === visibleProjects.length - 1 ? 0 : activeIndex + 1);
   };
 
   const prevSlide = () => {
-    setCurrentIndex((prevIndex) =>
-      prevIndex === 0 ? projects.length - 1 : prevIndex - 1
-    );
+    setCurrentIndex(activeIndex === 0 ? visibleProjects.length - 1 : activeIndex - 1);
   };
 
   const goToSlide = (index: number) => {
     setCurrentIndex(index);
   };
 
-  const currentProject = projects[currentIndex];
+  const currentProject = visibleProjects[activeIndex];
 
   return (
     <section id="projects" className="py-20 bg-white dark:bg-gray-900">
@@ -55,10 +61,21 @@ export default function Projects({ selectedSkills }: ProjectsProps) {
           <div className="w-24 h-1 bg-blue-600 mx-auto"></div>
         </motion.div>
 
+        {!hasProjects && (
+          <div className="bg-gray-50 dark:bg-gray-800 rounded-lg p-8 text-center">
+            <p className="text-gray-600 dark:text-gray-300">
+              {projects.length === 0
+                ? "No GitHub repositories are currently tagged for the portfolio project feed."
+                : "No projects match the selected skills."}
+            </p>
+          </div>
+        )}
+
+        {hasProjects && (
         <div className="relative">
           {/* Main Project Card */}
           <motion.div
-            key={currentIndex}
+            key={activeIndex}
             initial={{ opacity: 0, x: 100 }}
             animate={{ opacity: 1, x: 0 }}
             exit={{ opacity: 0, x: -100 }}
@@ -68,7 +85,7 @@ export default function Projects({ selectedSkills }: ProjectsProps) {
             <div className="p-8">
               <div className="flex items-center justify-between mb-4">
                 <span className="text-sm text-gray-500 dark:text-gray-400">
-                  {currentIndex + 1} of {projects.length}
+                  {activeIndex + 1} of {visibleProjects.length}
                 </span>
                 <div className="flex space-x-2">
                   <button
@@ -94,6 +111,11 @@ export default function Projects({ selectedSkills }: ProjectsProps) {
 
               <h3 className="text-2xl font-semibold text-gray-900 dark:text-white mb-4">
                 {currentProject.title}
+                {currentProject.archived && (
+                  <span className="ml-3 align-middle text-xs px-2 py-1 rounded-full bg-amber-100 text-amber-800 dark:bg-amber-900 dark:text-amber-200">
+                    Archived
+                  </span>
+                )}
               </h3>
               <p className="text-gray-600 dark:text-gray-300 mb-6 leading-relaxed text-lg">
                 {currentProject.description}
@@ -127,26 +149,12 @@ export default function Projects({ selectedSkills }: ProjectsProps) {
               </div>
 
               <div className="flex space-x-4">
-                {currentProject.liveUrl && currentProject.liveUrl !== "#" ? (
-                  <Link
-                    href={`/projects/${generateSlug(currentProject.title)}`}
-                    className="flex-1 text-center px-6 py-3 bg-blue-600 text-white rounded-md hover:bg-blue-700 transition-colors duration-300 inline-block font-medium"
-                  >
-                    Read More
-                  </Link>
-                ) : (
-                  <button
-                    onClick={() => {
-                      alert(
-                        `${currentProject.title}\n\n${currentProject.architectureDetails}\n\nTechnical Challenge: ${currentProject.technicalChallenge || 'N/A'}\n\nClick OK to visit the GitHub repository.`
-                      );
-                      window.open(currentProject.githubUrl, '_blank', 'noopener,noreferrer');
-                    }}
-                    className="flex-1 text-center px-6 py-3 bg-blue-600 text-white rounded-md hover:bg-blue-700 transition-colors duration-300 font-medium"
-                  >
-                    Read More
-                  </button>
-                )}
+                <Link
+                  href={`/projects/${getProjectSlug(currentProject)}`}
+                  className="flex-1 text-center px-6 py-3 bg-blue-600 text-white rounded-md hover:bg-blue-700 transition-colors duration-300 inline-block font-medium"
+                >
+                  Read More
+                </Link>
                 <a
                   href={currentProject.githubUrl}
                   target="_blank"
@@ -161,12 +169,12 @@ export default function Projects({ selectedSkills }: ProjectsProps) {
 
           {/* Dot Navigation */}
           <div className="flex justify-center mt-8 space-x-2">
-            {projects.map((_, index) => (
+            {visibleProjects.map((_, index) => (
               <button
                 key={index}
                 onClick={() => goToSlide(index)}
                 className={`w-3 h-3 rounded-full transition-colors duration-300 ${
-                  index === currentIndex
+                  index === activeIndex
                     ? 'bg-blue-600'
                     : 'bg-gray-300 dark:bg-gray-600 hover:bg-blue-400'
                 }`}
@@ -177,12 +185,12 @@ export default function Projects({ selectedSkills }: ProjectsProps) {
 
           {/* Project List Preview */}
           <div className="grid grid-cols-2 md:grid-cols-4 gap-2 mt-8">
-            {projects.map((project, index) => (
+            {visibleProjects.map((project, index) => (
               <button
                 key={index}
                 onClick={() => goToSlide(index)}
                 className={`p-3 rounded-md text-xs font-medium transition-colors duration-300 ${
-                  index === currentIndex
+                  index === activeIndex
                     ? 'bg-blue-600 text-white'
                     : 'bg-gray-100 dark:bg-gray-700 text-gray-600 dark:text-gray-300 hover:bg-blue-100 dark:hover:bg-blue-900'
                 }`}
@@ -192,6 +200,7 @@ export default function Projects({ selectedSkills }: ProjectsProps) {
             ))}
           </div>
         </div>
+        )}
       </div>
     </section>
   );

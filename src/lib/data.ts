@@ -28,8 +28,17 @@ export interface Project {
   technologies: string[];
   liveUrl: string;
   githubUrl: string;
+  slug?: string;
   technicalChallenge?: string;
   architectureDetails: string;
+  archived?: boolean;
+  updatedAt?: string;
+  pushedAt?: string;
+  stars?: number;
+  forks?: number;
+  topics?: string[];
+  primaryLanguage?: string | null;
+  languageBreakdown?: Record<string, number>;
 }
 
 export const personalInfo: PersonalInfo = {

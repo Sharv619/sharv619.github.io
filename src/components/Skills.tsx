@@ -1,21 +1,22 @@
 "use client";
 
+import { useMemo } from "react";
 import { motion } from "framer-motion";
-import { skills } from "@/lib/data";
+import { deriveSkillCategories } from "@/lib/project-skills";
+import type { Project } from "@/lib/data";
 
 interface SkillsProps {
+  projects: Project[];
+  supplementalSkills?: string[];
   selectedSkills: string[];
   onSkillToggle: (skill: string) => void;
 }
 
-export default function Skills({ selectedSkills, onSkillToggle }: SkillsProps) {
-  const skillCategories = [
-    { title: "Primary Stack", items: skills.primary },
-    { title: "AI & Automation", items: skills["ai & automation"] },
-    { title: "Infrastructure & Delivery", items: skills["infrastructure & delivery"] },
-    { title: "Databases & Security", items: skills["databases & security"] },
-    { title: "Additional Technologies", items: skills.additional },
-  ];
+export default function Skills({ projects, supplementalSkills = [], selectedSkills, onSkillToggle }: SkillsProps) {
+  const skillCategories = useMemo(
+    () => deriveSkillCategories(projects, supplementalSkills),
+    [projects, supplementalSkills]
+  );
 
   return (
     <section id="skills" className="py-20 bg-gray-50 dark:bg-gray-800">
@@ -31,10 +32,18 @@ export default function Skills({ selectedSkills, onSkillToggle }: SkillsProps) {
             Skills & Technologies
           </h2>
           <p className="text-sm text-gray-600 dark:text-gray-400 mb-4">
-            (listed based on practical use, not claimed mastery)
+            Derived from project technologies, repo topics, manifests, and certifications.
           </p>
           <div className="w-24 h-1 bg-blue-600 mx-auto"></div>
         </motion.div>
+
+        {skillCategories.length === 0 && (
+          <div className="bg-white dark:bg-gray-900 rounded-lg p-8 text-center shadow-lg">
+            <p className="text-gray-600 dark:text-gray-300">
+              No project technologies are currently available.
+            </p>
+          </div>
+        )}
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {skillCategories.map((category, categoryIndex) => (
@@ -50,7 +59,7 @@ export default function Skills({ selectedSkills, onSkillToggle }: SkillsProps) {
                 {category.title}
               </h3>
               <div className="flex flex-wrap gap-2">
-                {category.items.map((skill, skillIndex) => (
+                {category.items.map((skill) => (
                   <button
                     key={skill}
                     onClick={() => onSkillToggle(skill)}

@@ -15,12 +15,12 @@ export default function Contact() {
           className="text-center mb-16"
         >
           <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 dark:text-white mb-4">
-            Let's Connect
+            Let&apos;s Connect
           </h2>
           <div className="w-24 h-1 bg-blue-600 mx-auto mb-8"></div>
           <p className="text-lg text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
             Open to junior–mid roles in software engineering, full-stack development, platform/DevOps, and applied AI.
-            I'm looking for learning-heavy environments where I can grow and contribute to real systems.
+            I&apos;m looking for learning-heavy environments where I can grow and contribute to real systems.
           </p>
         </motion.div>
 

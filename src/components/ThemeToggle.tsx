@@ -9,7 +9,7 @@ export default function ThemeToggle() {
 
   // Prevent hydration mismatch by waiting for mount
   useEffect(() => {
-    setMounted(true);
+    window.setTimeout(() => setMounted(true), 0);
   }, []);
 
   const toggleTheme = () => {

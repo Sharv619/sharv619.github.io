@@ -10,8 +10,10 @@ export default function AvailabilityBanner() {
   useEffect(() => {
     const dismissed = localStorage.getItem("availability-banner-dismissed");
     if (dismissed) {
-      setIsVisible(false);
-      setIsDismissed(true);
+      window.setTimeout(() => {
+        setIsVisible(false);
+        setIsDismissed(true);
+      }, 0);
     }
   }, []);
 
@@ -43,7 +45,7 @@ export default function AvailabilityBanner() {
                 </div>
                 <div className="flex-1 min-w-0">
                   <p className="text-sm font-medium">
-                    🚀 <strong>Available for Full-Stack & AI/ML Engineering roles</strong> - Let's build something impactful together!
+                    🚀 <strong>Available for Full-Stack & AI/ML Engineering roles</strong> - Let&apos;s build something impactful together!
                   </p>
                 </div>
               </div>

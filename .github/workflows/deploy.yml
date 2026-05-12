@@ -3,6 +3,10 @@ name: Deploy to GitHub Pages
 on:
   push:
     branches: [ main ]
+  repository_dispatch:
+    types: [refresh-project-feed]
+  schedule:
+    - cron: '17 18 * * *'
   workflow_dispatch:
 
 permissions:
@@ -32,6 +36,11 @@ jobs:
 
       - name: Build
         run: npm run build
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          PORTFOLIO_GITHUB_USERNAME: Sharv619
+          PORTFOLIO_GITHUB_TOPIC: all
+          NEXT_PUBLIC_ASSISTANT_API: ${{ vars.NEXT_PUBLIC_ASSISTANT_API }}
 
       - name: Add .nojekyll file
         run: touch ./out/.nojekyll

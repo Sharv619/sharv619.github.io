@@ -2,53 +2,6 @@
 
 import { useState } from "react";
 
-interface KnowledgeBase {
-  version: string;
-  lastUpdated: string;
-  personal: {
-    name: string;
-    title: string;
-    tagline: string;
-    location: string;
-    availability: string;
-    bio: string;
-    contact: {
-      email: string;
-      phone: string;
-      linkedin: string;
-      github: string;
-    };
-  };
-  skills: {
-    languages: string[];
-    frameworks: string[];
-    cloudDevOps: string[];
-    aiData: string[];
-  };
-  projects: Array<{
-    id: string;
-    name: string;
-    tagline: string;
-    description: string;
-    outcome?: string;
-    solution?: string;
-    hackathon?: string;
-    technicalChallenge?: string;
-    techStack: string[];
-    achievements: string[];
-    links?: Record<string, string>;
-  }>;
-  experience: Array<{
-    id: string;
-    company: string;
-    role: string;
-    duration: string;
-    location: string;
-    achievements: string[];
-    techStack: string[];
-  }>;
-}
-
 export default function KBEditor() {
   const [jsonInput, setJsonInput] = useState("");
   const [error, setError] = useState<string | null>(null);

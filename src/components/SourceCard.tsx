@@ -7,6 +7,8 @@ interface Source {
   id: string;
   section: string;
   similarity?: number;
+  url?: string;
+  title?: string;
 }
 
 interface SourceCardProps {
@@ -17,6 +19,7 @@ const sectionIcons: Record<string, string> = {
   "Personal Info": "👤",
   Experience: "💼",
   Projects: "🚀",
+  "GitHub Projects": "💻",
   Skills: "⚡",
   Values: "🎯",
   Education: "🎓",
@@ -27,6 +30,7 @@ const sectionColors: Record<string, string> = {
   "Personal Info": "from-blue-500/20 to-blue-600/10 border-blue-500/30",
   Experience: "from-purple-500/20 to-purple-600/10 border-purple-500/30",
   Projects: "from-green-500/20 to-green-600/10 border-green-500/30",
+  "GitHub Projects": "from-green-500/20 to-emerald-600/10 border-green-500/30",
   Skills: "from-orange-500/20 to-orange-600/10 border-orange-500/30",
   Values: "from-pink-500/20 to-pink-600/10 border-pink-500/30",
   Education: "from-cyan-500/20 to-cyan-600/10 border-cyan-500/30",
@@ -56,28 +60,49 @@ export default function SourceCard({ sources }: SourceCardProps) {
         {visibleSources.map((source, idx) => {
           const icon = sectionIcons[source.section] || "📄";
           const colorClass = sectionColors[source.section] || "from-gray-500/20 to-gray-600/10 border-gray-500/30";
-          
-          return (
-            <motion.div
-              key={`${source.id}-${idx}`}
-              initial={{ opacity: 0, scale: 0.8 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ delay: idx * 0.1 }}
-              className={`
-                px-3 py-1.5 rounded-lg border backdrop-blur-sm
-                bg-gradient-to-r ${colorClass}
-                flex items-center gap-1.5
-              `}
-            >
+          const sourceLabel = source.title || source.section;
+          const sourceContent = (
+            <>
               <span className="text-sm">{icon}</span>
               <span className="text-xs text-gray-200 font-medium">
-                {source.section}
+                {sourceLabel}
               </span>
               {source.similarity && (
                 <span className="text-xs text-gray-400 ml-1">
                   {Math.round(source.similarity * 100)}%
                 </span>
               )}
+            </>
+          );
+          
+          const className = `
+            px-3 py-1.5 rounded-lg border backdrop-blur-sm
+            bg-gradient-to-r ${colorClass}
+            flex items-center gap-1.5
+          `;
+
+          return source.url ? (
+            <motion.a
+              key={`${source.id}-${idx}`}
+              href={source.url}
+              target="_blank"
+              rel="noopener noreferrer"
+              initial={{ opacity: 0, scale: 0.8 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ delay: idx * 0.1 }}
+              className={className}
+            >
+              {sourceContent}
+            </motion.a>
+          ) : (
+            <motion.div
+              key={`${source.id}-${idx}`}
+              initial={{ opacity: 0, scale: 0.8 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ delay: idx * 0.1 }}
+              className={className}
+            >
+              {sourceContent}
             </motion.div>
           );
         })}

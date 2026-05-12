@@ -71,6 +71,10 @@ Here are a few examples of my work:
 - **[Enterprise Portal](#)** – Full-stack portal built with **Next.js & MongoDB**, including API integrations and user dashboards.
 - **[Marketplace Mobile App](#)** – Flutter-based app connecting sellers, buyers, and service providers.
 
+The website project feed is automated from public, non-fork GitHub repositories owned by `Sharv619`. By default it uses `PORTFOLIO_GITHUB_TOPIC=all`; set this to a specific topic such as `portfolio` if the feed should be curated. Keep repo descriptions/READMEs useful, and the next GitHub Pages rebuild will refresh the portfolio pages. The deploy workflow also runs on a daily schedule so project metadata updates without manually editing `src/lib/data.ts`. Set the GitHub Actions variable `NEXT_PUBLIC_ASSISTANT_API` to the RAG Lambda endpoint when the deployed chatbot should use the live GitHub-backed assistant instead of demo mode.
+
+Automation details for repo push refreshes and certifications live in `docs/automation.md`.
+
 
 ---
 

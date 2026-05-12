@@ -2,17 +2,12 @@
 
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { useRouter } from "next/navigation";
-import { personalInfo } from "@/lib/data";
-import { useTheme } from "./ThemeProvider";
 import { useChatbot } from "./ChatbotProvider";
 import ThemeToggle from "./ThemeToggle";
 
 export default function Navigation() {
-  const router = useRouter();
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-  const { theme, setTheme } = useTheme();
   const { toggleChatbot } = useChatbot();
 
   useEffect(() => {

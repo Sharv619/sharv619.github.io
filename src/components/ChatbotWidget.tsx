@@ -1,27 +1,19 @@
 "use client";
 
-import { useState, useEffect } from "react";
 import AssistantChat from "./AssistantChat";
 
-export default function ChatbotWidget() {
-  const [isOpen, setIsOpen] = useState(false);
+interface ChatbotWidgetProps {
+  isOpen: boolean;
+  onOpen: () => void;
+  onClose: () => void;
+}
 
-  // Listen for chatbot toggle from other components
-  useEffect(() => {
-    const handleToggle = () => {
-      setIsOpen((prev) => !prev);
-    };
-
-    window.addEventListener("toggle-chatbot", handleToggle);
-    return () => window.removeEventListener("toggle-chatbot", handleToggle);
-  }, []);
-
+export default function ChatbotWidget({ isOpen, onOpen, onClose }: ChatbotWidgetProps) {
   return (
     <>
-      {/* Floating Button */}
       {!isOpen && (
         <button
-          onClick={() => setIsOpen(true)}
+          onClick={onOpen}
           className="fixed bottom-6 right-6 z-50 w-14 h-14 bg-gradient-to-r from-cyan-500 to-blue-600 hover:from-cyan-400 hover:to-blue-500 text-white rounded-full shadow-lg flex items-center justify-center transition-all hover:scale-110"
           title="Chat with Assistant"
         >
@@ -31,8 +23,7 @@ export default function ChatbotWidget() {
         </button>
       )}
 
-      {/* Assistant Chat */}
-      <AssistantChat isOpen={isOpen} onClose={() => setIsOpen(false)} />
+      <AssistantChat isOpen={isOpen} onClose={onClose} />
     </>
   );
 }

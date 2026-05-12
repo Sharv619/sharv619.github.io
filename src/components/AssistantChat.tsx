@@ -9,7 +9,7 @@ import { sendChatMessage, getFallbackResponse } from "@/lib/assistant/rag-client
 interface Message {
   role: "user" | "assistant";
   content: string;
-  sources?: Array<{ id: string; section: string; similarity?: number }>;
+  sources?: Array<{ id: string; section: string; similarity?: number; url?: string; title?: string }>;
 }
 
 interface AssistantChatProps {
@@ -22,7 +22,7 @@ export default function AssistantChat({ isOpen, onClose }: AssistantChatProps) {
   const [input, setInput] = useState("");
   const [isLoading, setIsLoading] = useState(false);
   const [isThinking, setIsThinking] = useState(false);
-  const [useDemo, setUseDemo] = useState(true);
+  const [useDemo, setUseDemo] = useState(!process.env.NEXT_PUBLIC_ASSISTANT_API);
   const messagesEndRef = useRef<HTMLDivElement>(null);
 
   const scrollToBottom = () => {
@@ -56,9 +56,9 @@ export default function AssistantChat({ isOpen, onClose }: AssistantChatProps) {
             role: "assistant",
             content: response,
             sources: [
-              { id: "personal", section: "Personal Info" },
+              { id: "github-projects", section: "GitHub Projects" },
               { id: "skills", section: "Skills" },
-              { id: "projects", section: "Projects" },
+              { id: "experience", section: "Experience" },
             ],
           },
         ]);
@@ -101,24 +101,7 @@ export default function AssistantChat({ isOpen, onClose }: AssistantChatProps) {
   };
 
   if (!isOpen) {
-    return (
-      <motion.div
-        className="fixed bottom-6 right-6 z-50"
-        initial={{ scale: 0 }}
-        animate={{ scale: 1 }}
-        whileHover={{ scale: 1.1 }}
-      >
-        <button
-          onClick={onClose}
-          className="w-14 h-14 bg-gradient-to-r from-cyan-500 to-blue-600 hover:from-cyan-400 hover:to-blue-500 text-white rounded-full shadow-lg flex items-center justify-center transition-all"
-          title="Chat with Assistant"
-        >
-          <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z" />
-          </svg>
-        </button>
-      </motion.div>
-    );
+    return null;
   }
 
   return (
@@ -165,9 +148,9 @@ export default function AssistantChat({ isOpen, onClose }: AssistantChatProps) {
             {messages.length === 0 && (
               <div className="text-center text-gray-400 py-8">
                 <p className="text-2xl mb-2">👋</p>
-                <p className="font-medium text-gray-300">Hey! I'm Assistant</p>
+                <p className="font-medium text-gray-300">Hey! I&apos;m Assistant</p>
                 <p className="text-sm mt-2">
-                  Ask me about Himanshu's projects, skills, or experience!
+                  Ask me about Himanshu&apos;s projects, skills, or experience!
                 </p>
               </div>
             )}
