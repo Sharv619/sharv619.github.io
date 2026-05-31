@@ -8,7 +8,7 @@ import EducationSection from "@/components/EducationSection";
 
 export const metadata = {
   title: "Himanshu Lade - Resume",
-  description: "Professional resume of Himanshu Lade, Software Engineer specializing in high-performance infrastructure, AI integration, and system reliability.",
+  description: "Professional resume of Himanshu Lade, Software Engineer focused on backend systems, production reliability, cloud deployment, and AI-assisted workflow automation.",
   keywords: ["resume", "CV", "Himanshu Lade", "Software Engineer", "portfolio", "developer"],
 };
 

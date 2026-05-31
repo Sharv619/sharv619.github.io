@@ -12,6 +12,7 @@ export const verifiedClaims = {
         "Restored production service functionality after a security incident.",
         "Improved load times from roughly 25 seconds to under 3 seconds.",
         "Built Docker and GitHub Actions CI/CD workflows.",
+        "Built and deployed 700+ SEO-oriented landing pages.",
         "Deployment time reduction around 90% needs evidence before public use.",
       ],
     },

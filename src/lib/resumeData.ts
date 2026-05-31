@@ -1,3 +1,5 @@
+import { verifiedClaims } from "./claim-source-of-truth";
+
 export interface ResumeData {
   personalInfo: {
     name: string;
@@ -43,7 +45,7 @@ export const resumeData: ResumeData = {
     linkedin: "linkedin.com/in/himanshu-lade",
     github: "github.com/Sharv619"
   },
-  professionalSummary: "Software Engineer focused on backend systems, production reliability, cloud deployment, and AI-assisted workflow automation. Experience includes production recovery, load-time improvement from roughly 25s to under 3s, Docker/GitHub Actions CI/CD, and open-source AI-assisted developer tooling.",
+  professionalSummary: `${verifiedClaims.profile.headline} Experience includes production recovery, load-time improvement from ${verifiedClaims.metrics.askJayPerformance}, Docker/GitHub Actions CI/CD, and open-source AI-assisted developer tooling.`,
   technicalSkills: {
     languages: ["JavaScript (ES6+)", "TypeScript", "Python", "Dart", "SQL"],
     frameworks: ["React.js", "Next.js", "Node.js", "Express.js", "Flutter", "GraphQL", "FastAPI"],
@@ -52,16 +54,16 @@ export const resumeData: ResumeData = {
   },
   experience: [
     {
-      title: "Founding Engineer / Principal Technical Lead",
+      title: verifiedClaims.experience.askJay.title,
       company: "Ask Jay Services",
       location: "Wollongong",
-      duration: "May 2025 – Aug 2025",
+      duration: verifiedClaims.experience.askJay.duration,
       achievements: [
         "Supported production recovery after a security incident, restoring service functionality while keeping public details NDA-safe",
         "Improved load times from roughly 25s to under 3s through infrastructure, backend, frontend, and database-path optimization",
         "Built marketplace and course-management platform features across frontend and backend workflows",
         "Created Docker and GitHub Actions CI/CD workflows to make deployments more repeatable",
-        "Launched 700+ SEO-optimized landing pages to drive regional expansion and organic traffic growth, improving search visibility"
+        "Built and deployed 700+ SEO-oriented landing pages while working across production recovery, platform features, and deployment workflows as a multi-hat engineering contributor"
       ]
     },
     {
@@ -79,7 +81,7 @@ export const resumeData: ResumeData = {
   projects: [
     {
       title: "Network Guardian AI",
-      description: "AI-Powered Network Threat Detection System",
+      description: "AI-assisted network traffic analysis prototype",
       techStack: ["Python", "FastAPI", "React", "Scikit-learn", "Gemini API", "Docker", "Machine Learning"],
       achievements: [
         "Explored AI-assisted network traffic analysis and anomaly detection using Shannon Entropy and Isolation Forests",

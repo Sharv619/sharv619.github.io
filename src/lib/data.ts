@@ -1,3 +1,6 @@
+import type { ProjectEvidenceProfile } from "./evidence-signals";
+import type { PortfolioRecommendation } from "./portfolio-recommendations";
+
 export interface PersonalInfo {
   name: string;
   title: string;
@@ -39,6 +42,8 @@ export interface Project {
   topics?: string[];
   primaryLanguage?: string | null;
   languageBreakdown?: Record<string, number>;
+  evidenceProfile?: ProjectEvidenceProfile;
+  evidenceRecommendations?: PortfolioRecommendation[];
 }
 
 export const personalInfo: PersonalInfo = {

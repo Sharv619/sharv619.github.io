@@ -33,6 +33,7 @@ import {
   generateTaskPlanTool,
   updateTasksFileTool,
 } from "./tools/task-planner-tools.js";
+import { generateEvidenceReportTool } from "./tools/evidence-report-tools.js";
 
 const server = new McpServer({
   name: "portfolio-mcp-server",
@@ -223,6 +224,15 @@ server.registerTool(
     description: "Creates or updates docs/github-repo-positioning.md with repo metadata recommendations"
   },
   async () => textResult(generateRepoPositioningReportTool())
+);
+
+server.registerTool(
+  "portfolio.generate_evidence_report",
+  {
+    title: "Generate Internal Evidence Report",
+    description: "Creates or updates docs/internal-evidence-report.md with private evidence profiles and draft-only recommendations"
+  },
+  async () => textResult(await generateEvidenceReportTool())
 );
 
 server.registerTool(

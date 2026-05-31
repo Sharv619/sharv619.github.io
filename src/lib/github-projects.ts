@@ -1,5 +1,7 @@
 import { projects as fallbackProjects, slugify } from "./data";
+import { enrichGitHubProjectEvidence } from "./github-evidence-enrichment";
 import type { Project } from "./data";
+import type { GitHubEvidenceMetadata } from "./github-evidence-enrichment";
 
 export const DEFAULT_GITHUB_USERNAME = process.env.PORTFOLIO_GITHUB_USERNAME || "Sharv619";
 export const PORTFOLIO_TOPIC = process.env.PORTFOLIO_GITHUB_TOPIC || "all";
@@ -197,6 +199,7 @@ interface ProjectEnrichment {
   readme?: string;
   languages?: GitHubLanguages;
   manifestSkills?: string[];
+  evidenceMetadata?: GitHubEvidenceMetadata;
   topic?: string;
 }
 
@@ -317,6 +320,20 @@ export function normalizeRepositoryProject(
     `Forks: ${repo.forks_count}`,
     repo.archived ? "Status: Archived" : "Status: Active",
   ];
+  const evidence = enrichGitHubProjectEvidence({
+    slug: slugify(title),
+    repoName: repo.name,
+    description,
+    readme: enrichment.readme,
+    readmeSummary,
+    languages: Object.keys(enrichment.languages || {}),
+    topics,
+    technologies,
+    homepage: repo.homepage?.trim() || "",
+    githubUrl: repo.html_url,
+    lastUpdated,
+    metadata: enrichment.evidenceMetadata,
+  });
 
   return {
     title,
@@ -334,6 +351,8 @@ export function normalizeRepositoryProject(
     topics,
     primaryLanguage: repo.language,
     languageBreakdown: enrichment.languages,
+    evidenceProfile: evidence.profile,
+    evidenceRecommendations: evidence.recommendations,
   };
 }
 
@@ -386,13 +405,22 @@ export async function getPortfolioProjects(options: GetPortfolioProjectsOptions 
   try {
     const repos = await fetchPortfolioRepositories(username, topic);
     const projects = await mapWithConcurrency(repos, ENRICHMENT_CONCURRENCY, async (repo) => {
-      const [readme, languages, manifestSkills] = await Promise.all([
+      const [readme, languages, manifestEvidence] = await Promise.all([
         fetchRepositoryReadme(username, repo.name).catch(() => ""),
         fetchRepositoryLanguages(username, repo.name).catch(() => ({})),
-        fetchRepositoryManifestSkills(username, repo.name).catch(() => []),
+        fetchRepositoryManifestEvidence(username, repo.name).catch(() => ({
+          manifestSkills: [],
+          metadata: {},
+        })),
       ]);
 
-      return normalizeRepositoryProject(repo, { readme, languages, manifestSkills, topic });
+      return normalizeRepositoryProject(repo, {
+        readme,
+        languages,
+        manifestSkills: manifestEvidence.manifestSkills,
+        evidenceMetadata: manifestEvidence.metadata,
+        topic,
+      });
     });
 
     return sortPortfolioProjects(projects);
@@ -442,7 +470,10 @@ async function fetchRepositoryLanguages(username: string, repoName: string): Pro
   );
 }
 
-async function fetchRepositoryManifestSkills(username: string, repoName: string): Promise<string[]> {
+async function fetchRepositoryManifestEvidence(
+  username: string,
+  repoName: string
+): Promise<{ manifestSkills: string[]; metadata: GitHubEvidenceMetadata }> {
   const [packageJson, requirements, pyproject, dockerfile, dockerCompose, workflows] = await Promise.all([
     fetchOptionalRepositoryFile(username, repoName, "package.json"),
     fetchOptionalRepositoryFile(username, repoName, "requirements.txt"),
@@ -456,15 +487,36 @@ async function fetchRepositoryManifestSkills(username: string, repoName: string)
     ]),
     fetchRepositoryWorkflowSkills(username, repoName),
   ]);
-
-  return uniqueTechnologies([
-    ...extractPackageJsonSkills(packageJson),
+  const packageSkills = extractPackageJsonSkills(packageJson);
+  const pythonSkills = [
     ...extractPythonDependencySkills(requirements),
     ...extractPyprojectSkills(pyproject),
+  ];
+  const manifestSkills = uniqueTechnologies([
+    ...packageSkills,
+    ...pythonSkills,
     ...(dockerfile ? ["Docker"] : []),
     ...(dockerCompose ? ["Docker", "Docker Compose"] : []),
     ...workflows,
   ]);
+  const metadata: GitHubEvidenceMetadata = {
+    packageManifestPresent: Boolean(packageJson),
+    pythonDependencyFilePresent: Boolean(requirements || pyproject),
+    dockerPresent: Boolean(dockerfile || dockerCompose),
+    githubActionsPresent: workflows.includes("GitHub Actions"),
+    testsPresent: hasTestEvidence(packageJson, manifestSkills),
+    deploymentConfigPresent: workflows.length > 0 || Boolean(dockerfile || dockerCompose),
+  };
+
+  return { manifestSkills, metadata };
+}
+
+function hasTestEvidence(packageJson: string, manifestSkills: string[]): boolean {
+  if (manifestSkills.some((skill) => ["Vitest", "Jest", "Playwright", "Testing Library", "React Testing Library", "Pytest"].includes(skill))) {
+    return true;
+  }
+
+  return /\b(test|test:run|vitest|jest|playwright|pytest)\b/i.test(packageJson);
 }
 
 async function fetchFirstRepositoryFile(username: string, repoName: string, paths: string[]): Promise<string> {
