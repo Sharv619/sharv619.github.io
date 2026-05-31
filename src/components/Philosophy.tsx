@@ -20,11 +20,11 @@ export default function Philosophy() {
       </p>
 
       <p className="text-gray-600 dark:text-gray-300 mb-6 leading-relaxed">
-        User-centric design drives my approach. Every decision starts with understanding user needs, validated through iterative design and real-world testing. Performance matters—whether it&apos;s reducing load times by 88% or ensuring responsive interactions—but it must never compromise on usability or security.
+        User-centric design drives my approach. Every decision starts with understanding user needs, validated through iterative design and real-world testing. Performance matters, but it must never compromise usability, security, or maintainability.
       </p>
 
       <p className="text-gray-600 dark:text-gray-300 leading-relaxed">
-        Continuous learning keeps me ahead in this rapidly evolving industry. I stay current with emerging technologies, experiment with cutting-edge tools like AI models and automation frameworks, and actively share knowledge through documentation, code reviews, and mentorship. Technology moves fast, and so do I.
+        Continuous learning keeps me practical in a rapidly changing industry. I experiment with AI-assisted workflows and automation, then keep the public framing clear about what is production work, what is an MVP, and what is exploratory.
       </p>
     </motion.div>
   );

@@ -32,7 +32,7 @@ const generateStructuredData = () => {
       "TypeScript",
       "Node.js",
       "AWS",
-      "AI/ML",
+      "AI-assisted workflows",
       "Full-Stack Development",
       "DevOps",
       "CI/CD"

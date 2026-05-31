@@ -5,22 +5,22 @@ import { motion } from "framer-motion";
 const edges = [
   {
     title: "Full-Stack Agility",
-    description: "From sketching system diagrams to pushing the final Docker image, I have engineered end‑to‑end solutions that scale. On a recent e‑commerce platform, I designed a modular monorepo, implemented serverless APIs, and integrated CI/CD pipelines, cutting time‑to‑market by 40% while maintaining strict security standards.",
+    description: "I work across frontend, backend, and deployment workflows, with recent experience building marketplace and course-management platform features and Docker/GitHub Actions deployment paths.",
     icon: "🏗️"
   },
   {
-    title: "AI/ML Integration",
-    description: "When the challenge was to turn static documentation into an intelligent assistant, I built a Retrieval‑Augmented Generation pipeline using Gemini’s embeddings, enabling users to ask natural‑language queries and receive context‑aware answers in under 300 ms. This proof‑of‑concept now powers internal knowledge bases, demonstrating the power of AI‑first design.",
+    title: "AI-Assisted Workflows",
+    description: "I build AI-assisted prototypes with clear boundaries, including retrieval experiments, developer tooling, and responsible-AI workflow MVPs that keep humans in the loop.",
     icon: "🤖"
   },
   {
     title: "DevOps & Performance Mastery",
-    description: "I re‑architected a legacy Node.js service into a containerized microservice, introduced automated load testing, and tuned database indexes, delivering an 88% performance uplift and 99.99% uptime. The CI/CD workflow now deploys with zero‑downtime blue‑green releases, and observability dashboards alert before issues surface.",
+    description: "I helped improve production load times from roughly 25 seconds to under 3 seconds and built repeatable deployment workflows with Docker and GitHub Actions.",
     icon: "⚡"
   },
   {
     title: "Mission-Critical Resilience",
-    description: "In a high‑stakes scenario where every second counted, I led a disaster‑recovery drill for a fintech platform, automating failover across regions. The plan restored 100% of services within minutes, with zero data loss, and earned commendation from senior leadership for building a rock‑solid, resilient architecture.",
+    description: "I supported production recovery after a security incident, focusing on service restoration, safer access boundaries, database hardening, and stakeholder communication.",
     icon: "🛡️"
   }
 ];

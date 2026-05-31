@@ -1,10 +1,11 @@
 "use client";
 
 import { motion } from "framer-motion";
-import Link from "next/link";
 import Navigation from "@/components/Navigation";
 import Contact from "@/components/Contact";
+import FeaturedCaseStudies from "@/components/FeaturedCaseStudies";
 import type { Project } from "@/lib/data";
+import { getOrderedFlagshipCaseStudies } from "@/lib/flagship-case-studies";
 
 interface ProjectsPageClientProps {
   projects: Project[];
@@ -15,6 +16,8 @@ function getProjectAnchor(project: Project): string {
 }
 
 export default function ProjectsPageClient({ projects }: ProjectsPageClientProps) {
+  const caseStudies = getOrderedFlagshipCaseStudies();
+
   return (
     <div className="min-h-screen">
       <Navigation />
@@ -28,18 +31,29 @@ export default function ProjectsPageClient({ projects }: ProjectsPageClientProps
             className="text-center"
           >
             <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-gray-900 dark:text-white mb-6">
-              Project Architectures
+              Projects & Case Studies
             </h1>
             <p className="text-xl sm:text-2xl text-gray-600 dark:text-gray-300 max-w-4xl mx-auto leading-relaxed">
-              Deep dives into the architectural decisions, technical implementations, and engineering challenges behind each project.
+              Flagship case studies explain production impact, constraints, and personal contribution. The GitHub project feed below stays automated from public repo metadata.
             </p>
           </motion.div>
         </div>
       </section>
 
+      <FeaturedCaseStudies caseStudies={caseStudies} compact />
+
       {/* Projects Detail */}
       <section id="projects-detail" className="py-20 bg-white dark:bg-gray-900">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 dark:text-white mb-4">
+              GitHub-Powered Project Feed
+            </h2>
+            <p className="text-lg text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">
+              Most cards below are generated from public GitHub metadata at build time. Flagship case studies are manually curated to explain impact, constraints, and role.
+            </p>
+            <div className="w-24 h-1 bg-blue-600 mx-auto mt-6"></div>
+          </div>
           {projects.length === 0 ? (
             <div className="bg-gray-50 dark:bg-gray-800 rounded-lg p-8 text-center">
               <p className="text-gray-600 dark:text-gray-300">
@@ -131,24 +145,6 @@ export default function ProjectsPageClient({ projects }: ProjectsPageClientProps
                       </a>
                     </div>
                   </div>
-
-                  {/* Investment Planning Note (only for Codeflow Hook project) */}
-                  {project.title.toLowerCase().includes("codeflow") && (
-                    <div className="bg-blue-50 dark:bg-blue-900/20 p-6 border-t border-blue-200 dark:border-blue-800">
-                      <h4 className="text-lg font-semibold text-blue-900 dark:text-blue-100 mb-2">
-                        Future Planning: Strategic Assets & AI Governance
-                      </h4>
-                      <p className="text-blue-800 dark:text-blue-200 mb-4">
-                        Building on the architectural patterns demonstrated in these projects, future development focuses on DeFi protocol governance and complex digital asset management.
-                      </p>
-                      <Link
-                        href="/investments"
-                        className="inline-flex items-center text-blue-600 dark:text-blue-400 hover:text-blue-800 dark:hover:text-blue-300 font-medium transition-colors duration-300"
-                      >
-                        Read more about Future Planning/scope →
-                      </Link>
-                    </div>
-                  )}
                 </motion.div>
               ))}
             </div>

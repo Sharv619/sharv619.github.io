@@ -56,13 +56,13 @@ const DEFAULT_KB: KnowledgeBase = {
   experience: [
     {
       company: "Ask Jay Services",
-      role: "Software Engineer",
-      duration: "May 2025 - Oct 2025",
+      role: "Founding Engineer / Principal Technical Lead",
+      duration: "May 2025 - Aug 2025",
       achievements: [
-        "Led disaster recovery of breached production system, restoring 100% functionality",
-        "Achieved 88% performance improvement (25s to <3s load time)",
-        "Built Flutter marketplace from scratch",
-        "Engineered CI/CD pipelines with Docker and GitHub Actions"
+        "Supported production recovery after a security incident",
+        "Improved load times from roughly 25s to under 3s",
+        "Built marketplace and course-management platform features",
+        "Created CI/CD workflows with Docker and GitHub Actions"
       ]
     },
     {
@@ -70,8 +70,8 @@ const DEFAULT_KB: KnowledgeBase = {
       role: "Web Developer Intern",
       duration: "Sep 2023 - Feb 2024",
       achievements: [
-        "Improved frontend performance by 33% for MERN stack app",
-        "Remediated 15+ security vulnerabilities (OWASP Top 10)",
+        "Improved average page load time by 30% for MERN stack app serving 10,000+ users",
+        "Reviewed and resolved 15+ authentication issues using OWASP guidance",
         "Collaborated in Agile development sprints"
       ]
     }
@@ -83,7 +83,7 @@ const DEFAULT_KB: KnowledgeBase = {
       techStack: ["Python", "FastAPI", "React", "Scikit-learn", "Gemini API", "Docker"],
       achievements: [
         "Built 3-stage ML detection pipeline using Shannon Entropy and Isolation Forests",
-        "Reduced API costs by ~90%"
+        "Explored AI-assisted network traffic analysis and anomaly detection"
       ]
     },
     {
@@ -92,7 +92,7 @@ const DEFAULT_KB: KnowledgeBase = {
       techStack: ["Node.js", "TypeScript", "Gemini API", "RAG", "Vector Search"],
       achievements: [
         "Designed multi-agent system for parallel code analysis",
-        "450+ NPM downloads in first month"
+        "Published npm package for AI-assisted code review workflows"
       ]
     }
   ],

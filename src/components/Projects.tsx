@@ -56,8 +56,11 @@ export default function Projects({ selectedSkills, projects }: ProjectsProps) {
           className="text-center mb-16"
         >
           <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 dark:text-white mb-4">
-            Projects
+            GitHub Project Lab
           </h2>
+          <p className="text-lg text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">
+            Automated project cards generated from public GitHub repositories at build time. These show builder breadth; flagship case studies above provide deeper hiring proof.
+          </p>
           <div className="w-24 h-1 bg-blue-600 mx-auto"></div>
         </motion.div>
 

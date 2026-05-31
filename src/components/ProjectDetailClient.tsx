@@ -121,24 +121,6 @@ export default function ProjectDetailClient({ project }: ProjectDetailClientProp
                 </Link>
               </div>
             </div>
-
-            {/* Investment Planning Note (only for Codeflow Hook project) */}
-            {project.title.toLowerCase().includes("codeflow") && (
-              <div className="bg-blue-50 dark:bg-blue-900/20 p-6 border-t border-blue-200 dark:border-blue-800">
-                <h4 className="text-lg font-semibold text-blue-900 dark:text-blue-100 mb-2">
-                  Future Planning: Strategic Assets & AI Governance
-                </h4>
-                <p className="text-blue-800 dark:text-blue-200 mb-4">
-                  Building on the architectural patterns demonstrated in this project, future development focuses on DeFi protocol governance and complex digital asset management.
-                </p>
-                <Link
-                  href="/investments"
-                  className="inline-flex items-center text-blue-600 dark:text-blue-400 hover:text-blue-800 dark:hover:text-blue-300 font-medium transition-colors duration-300"
-                >
-                  Read more about Future Planning/scope →
-                </Link>
-              </div>
-            )}
           </motion.div>
         </div>
       </section>

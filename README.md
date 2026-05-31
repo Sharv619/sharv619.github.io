@@ -1,15 +1,11 @@
-### Hi there, I'm Himanshu 👋
-**Full-stack Engineer | DevOps & Cloud Enthusiast | Building resilient end-to-end systems**
+### Hi there, I'm Himanshu
+**Software Engineer focused on backend systems, production reliability, cloud deployment, and AI-assisted workflow automation.**
 
-I'm a software engineer, lifelong tinkerer, and self-proclaimed problem-solver. Ever since I first flashed a custom ROM on my Android device back in 2016, I've been obsessed with understanding how things work under the hood. That curiosity led me down a path into system security, optimization, and eventually full-stack development.
+I'm a software engineer in Sydney building practical systems around real workflows: production recovery, CI/CD, cloud deployment, internal tools, and AI-assisted automation. My strongest work sits at the intersection of shipping features, debugging production issues, and making systems easier to operate.
 
-Coding for me isn't just a profession—it's a craft. I love taking complex, messy problems and transforming them into clean, reliable, and elegant solutions. Whether it's architecting a full-stack enterprise system, automating repetitive workflows, or diving into the intricacies of cloud infrastructure and security, I thrive on the challenge of making things faster, safer, and more efficient.
+Recent experience includes production recovery and marketplace platform work at Ask Jay Services, where I helped restore service functionality after a security incident, improved load times from roughly 25 seconds to under 3 seconds, and built Docker + GitHub Actions deployment workflows.
 
-I'm deeply drawn to high-pressure environments where every decision matters. In a recent role as the sole engineer at a startup, I was responsible for their entire digital ecosystem—from building APIs and managing databases to orchestrating deployments and securing live systems. In four months, I learned more than most learn in years, and it cemented my passion for creating resilient, end-to-end systems.
-
-Outside of professional projects, I'm constantly exploring new tools and technologies. I recently built a no-code automation pipeline using **n8n** to manage my entire job application workflow—sorting emails, sending Slack reminders, and even tracking responses. I'm always tinkering, always learning, and always looking for the next challenge that pushes my skills further.
-
-Ultimately, I'm not just building software—I'm building experiences, processes, and systems that make life easier for people, smarter for businesses, and more resilient for the world around me.
+I also build prototypes and open-source tools to explore responsible AI workflows, developer tooling, and small-business automation. I label these clearly as MVPs, prototypes, or experiments when they are not production systems.
 
 ---
 ### 🛠️ Technologies & Tools I Use
@@ -50,26 +46,20 @@ Ultimately, I'm not just building software—I'm building experiences, processes
 </p>
 
 ---
-### 🌱 Recent Experience Highlights
+### Recent Experience Highlights
 
-As the sole engineer at a startup, I built, managed, and secured their entire digital ecosystem in a high-pressure environment:
-
-- **Full-stack enterprise portal:** Architected with **Next.js & MongoDB**, managing 50+ APIs and database models.
-- **Disaster recovery & security:** Restored 100% of live production services on **AWS EC2**, implementing improved security protocols.
-- **CI/CD automation:** Built a pipeline from scratch using **Docker & GitHub Actions** for seamless deployments.
-- **Mobile app development:** Developed a three-sided marketplace app using **Flutter**.
-
-This experience reinforced my passion for resilient, end-to-end systems and taught me more in 4 months than most learn in years.
+- **Ask Jay Services:** Founding Engineer / Principal Technical Lead, May-Aug 2025. Production recovery and marketplace platform work, including service restoration, load-time improvement from roughly 25 seconds to under 3 seconds, and Docker + GitHub Actions deployment workflows.
+- **Australian Computer Society:** Web Developer Intern, Sep 2023-Feb 2024. Worked on a MERN platform serving 10,000+ users, improved average page load time by 30%, and reviewed/resolved 15+ authentication issues using OWASP guidance.
 
 ---
 
 ### 💻 Projects
 
-Here are a few examples of my work:
+The portfolio separates flagship case studies from the broader GitHub project feed:
 
-- **[Job Application Automation Pipeline](#)** – Automated the entire job application workflow using **n8n** and **Slack** notifications.
-- **[Enterprise Portal](#)** – Full-stack portal built with **Next.js & MongoDB**, including API integrations and user dashboards.
-- **[Marketplace Mobile App](#)** – Flutter-based app connecting sellers, buyers, and service providers.
+- **Production Recovery & Performance Rebuild** - NDA-safe case study for production recovery, cloud hardening, CI/CD, and performance work.
+- **Pilly / MediMate Voice** - Firebase-backed responsible-AI medication support MVP. Not a medical product; no diagnosis, dosage advice, or real patient data.
+- **codeflow-hook** - Open-source AI-assisted code review CLI published as an npm package with early usage traction.
 
 The website project feed is automated from public, non-fork GitHub repositories owned by `Sharv619`. By default it uses `PORTFOLIO_GITHUB_TOPIC=all`; set this to a specific topic such as `portfolio` if the feed should be curated. Keep repo descriptions/READMEs useful, and the next GitHub Pages rebuild will refresh the portfolio pages. The deploy workflow also runs on a daily schedule so project metadata updates without manually editing `src/lib/data.ts`. Set the GitHub Actions variable `NEXT_PUBLIC_ASSISTANT_API` to the RAG Lambda endpoint when the deployed chatbot should use the live GitHub-backed assistant instead of demo mode.
 

@@ -3,6 +3,7 @@
 import Image from "next/image";
 import { motion } from "framer-motion";
 import { personalInfo, socialLinks } from "@/lib/data";
+import { careerPositioning } from "@/lib/career-positioning";
 
 export default function Hero() {
   return (
@@ -25,7 +26,7 @@ export default function Hero() {
               <div className="w-32 h-32 sm:w-40 sm:h-40 rounded-full overflow-hidden border-4 border-white dark:border-gray-800 shadow-xl">
                 <Image
                   src={personalInfo.avatar}
-                  alt="Himanshu Lade - Full-Stack Engineer & AI/ML Specialist"
+                  alt="Himanshu Lade - Software Engineer"
                   width={160}
                   height={160}
                   sizes="(min-width: 640px) 160px, 128px"
@@ -48,10 +49,10 @@ export default function Hero() {
               {personalInfo.name}
             </h1>
             <p className="text-xl sm:text-2xl text-gray-700 dark:text-gray-300 max-w-3xl mx-auto font-medium">
-              Software Engineer focused on building and maintaining real systems — from full-stack features to automation and reliability improvements.
+              {careerPositioning.headline}
             </p>
             <p className="text-lg text-gray-500 dark:text-gray-400 max-w-2xl mx-auto">
-              I learn by shipping, debugging, and improving things that run in production.
+              {careerPositioning.subheadline}
             </p>
           </div>
 

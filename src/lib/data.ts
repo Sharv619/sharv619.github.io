@@ -46,7 +46,7 @@ export const personalInfo: PersonalInfo = {
   title: "Software Engineer",
   email: "himanshulade@hotmail.com",
   location: "Sydney, Australia",
-  bio: "I build and maintain real systems—from full-stack features to automation and reliability improvements. I learn by shipping, debugging, and improving things that run in production.",
+  bio: "Software Engineer focused on backend systems, production reliability, cloud deployment, and AI-assisted workflow automation.",
   avatar: "/avatar.png", // Add your photo to public/
 };
 
@@ -60,23 +60,23 @@ export const socialLinks = {
 export const experience = [
   {
     company: "Ask Jay Services",
-    position: "Software Engineer (Contract)",
-    duration: "May 2025 - Sept 2025",
-    description: "• Led complete disaster recovery following a critical security breach, restoring 100% of data and service functionality.\n\n• Re-architected the frontend to improve site performance by 88% (reducing load times from 25s to <3s).\n\n• Designed and implemented a full-stack Course Management System using React.js and Node.js.\n\n• Engineered a CI/CD pipeline from scratch using Docker and GitHub Actions, automating the entire deployment process.\n\n• Built and deployed over 700 SEO-optimized landing pages.",
+    position: "Founding Engineer / Principal Technical Lead",
+    duration: "May 2025 - Aug 2025",
+    description: "• Supported production recovery after a security incident, restoring service functionality while keeping public details NDA-safe.\n\n• Improved load times from roughly 25s to under 3s through frontend, backend, and database-path optimisation.\n\n• Built marketplace and course-management platform features across frontend and backend workflows.\n\n• Created Docker and GitHub Actions CI/CD workflows to make deployments more repeatable.\n\n• Built and deployed 700+ SEO-oriented landing pages for regional service coverage.",
     link: "https://askjay.com.au",
   },
   {
     company: "Innovation Lab Lead & Applied Research",
     position: "Professional Development",
     duration: "Feb 2024 - May 2025",
-    description: "• Pioneered AI/ML engineering & RAG architecture implementations, transforming theoretical concepts into deployable solutions.\n\n• Led the development of a portfolio of 6+ production-grade applications, demonstrating advanced proficiency in React, Next.js, Flutter, Gemini API, AWS, and Docker.\n\n• Mastered advanced state management patterns, CI/CD pipelines, and offline-first PWA architectures through hands-on development and experimentation.",
+    description: "• Built practical AI-assisted workflow prototypes and RAG experiments to understand deployment, retrieval, and product constraints.\n\n• Developed a portfolio of software projects using React, Next.js, Flutter, Gemini API, AWS, and Docker.\n\n• Practiced state management, CI/CD, and offline-first PWA patterns through hands-on builds.",
     link: "#",
   },
   {
     company: "ACS Australian Computer Society",
-    position: "Cloud Engineering Intern",
+    position: "Web Developer Intern",
     duration: "Sep 2023 - Feb 2024",
-    description: "• Optimized frontend performance for a MERN + TypeScript platform serving 10,000+ users, achieving 30% faster page load times through strategic React component optimization.\n\n• Executed comprehensive security testing based on OWASP Top 10 guidelines, implementing critical fixes that significantly strengthened application security posture.\n\n• Collaborated effectively in an Agile development team with senior engineers, QA, and stakeholders to consistently deliver features on sprint schedules and meet project milestones.",
+    description: "• Improved average page load time by 30% for a MERN + TypeScript platform serving 10,000+ users through React optimisation and code splitting.\n\n• Reviewed and resolved 15+ authentication issues using OWASP guidance, strengthening application security posture.\n\n• Collaborated in Agile development sprints with senior engineers, QA, and stakeholders to deliver scoped features.",
     link: "https://www.acs.org.au",
   },
 ];
@@ -84,11 +84,11 @@ export const experience = [
 export const projects = [
   {
     title: "Network Guardian AI",
-    description: "Problem: Network security breaches causing system failures and data loss.\n\nSolution: Built 3-stage ML detection pipeline using Shannon Entropy and Isolation Forests to identify malicious traffic in real-time.\n\nOutcome: Reduced API costs by ~70% and achieved real-time threat detection with containerized microservices.",
+    description: "Problem: Network traffic analysis can be difficult to interpret quickly without structured anomaly signals.\n\nSolution: Explored AI-assisted network traffic analysis using entropy scoring, anomaly detection, FastAPI, and a React interface.\n\nOutcome: Built a prototype for privacy-aware traffic intelligence and security summaries without presenting it as a production security product.",
     technologies: ["Python", "FastAPI", "React", "Scikit-learn", "Gemini API", "Docker", "Machine Learning"],
     liveUrl: "https://github.com/Sharv619/network-guardian-ai",
     githubUrl: "https://github.com/Sharv619/network-guardian-ai",
-    technicalChallenge: "Building a 3-stage ML pipeline that could detect network threats in real-time while keeping API costs low. Used Shannon Entropy for anomaly detection and Isolation Forests for outlier identification.",
+    technicalChallenge: "Exploring how entropy scoring and anomaly detection could surface suspicious traffic patterns while keeping the system understandable and prototype-safe.",
     architectureDetails: `AI-Powered Network Threat Detection System with 3-stage ML pipeline.
 
 **Architecture Layers:**
@@ -101,8 +101,8 @@ export const projects = [
 **Key Features:**
 • 3-stage detection pipeline
 • Containerized microservices
-• Real-time monitoring
-• Cost-optimized API usage (~70% reduction)`,
+• Real-time monitoring prototype
+• Privacy-aware AI-assisted security summaries`,
   },
   {
     title: "LifeOS - Personal AI Calendar",
@@ -122,7 +122,7 @@ export const projects = [
   },
   {
     title: "CodeFlow-Hook",
-    description: "Problem: Manual code reviews slow and inconsistent.\n\nSolution: CLI tool with multiple AI providers for automated code analysis and reviews.\n\nOutcome: 40% faster code reviews, 450+ NPM downloads.",
+    description: "Problem: Developers need fast review feedback before commits, but generic AI chat workflows are hard to automate.\n\nSolution: Built an open-source AI-assisted code review CLI / npm package around git hook workflows and structured feedback.\n\nOutcome: Published a developer-tooling prototype with early usage traction.",
     technologies: ["Node.js", "TypeScript", "Gemini API", "RAG", "Vector Search", "Docker"],
     liveUrl: "https://www.npmjs.com/package/codeflow-hook",
     githubUrl: "https://github.com/Sharv619/codeflow-hook",
@@ -137,7 +137,7 @@ export const projects = [
   },
   {
     title: "Codeflow Hook (npm package)",
-    description: "Problem: Manual code reviews were slow and inconsistent, causing bottlenecks in development workflows.\n\nSolution: Built a CLI tool supporting multiple AI providers (Gemini, GPT, Claude) for automated code analysis, git hook management, and AI-powered reviews.\n\nOutcome: Reduced code review time by 40% and enhanced quality through intelligent, context-aware feedback.",
+    description: "Problem: Developers need fast review feedback before commits, but generic AI chat workflows are hard to automate.\n\nSolution: Built a CLI tool direction for AI-assisted code analysis, git hook management, and structured review feedback.\n\nOutcome: Published a developer-tooling prototype with early usage traction.",
     technologies: ["Node.js", "TypeScript", "AI APIs", "Git Hooks", "CLI Tool"],
     liveUrl: "https://codeflow-commander-nexus-gateway-si.vercel.app/",
     githubUrl: "https://github.com/Sharv619/codeflow-commander---nexus-gateway",
@@ -165,7 +165,7 @@ The system serves as an architectural blueprint for AI-augmented development too
     technologies: ["React", "Node.js", "MongoDB", "JWT", "Docker", "Jest", "Supertest"],
     liveUrl: "#",
     githubUrl: "https://github.com/Sharv619/reliboard",
-    technicalChallenge: "Implementing comprehensive RBAC with granular permissions while maintaining performance was challenging. I developed a hierarchical permission system that scaled efficiently while ensuring zero data leakage across different user roles.",
+    technicalChallenge: "Implementing RBAC with granular permissions while maintaining a clear API model was the main challenge. I focused on keeping role boundaries explicit and testable.",
     architectureDetails: `Enterprise-grade project management platform engineered with security-first design principles.
 
 **Security Architecture:**
@@ -188,11 +188,11 @@ The system serves as an architectural blueprint for AI-augmented development too
 • **Monitoring & Logging:** Centralized logging with performance metrics tracking
 • **Backup & Recovery:** Automated database backup strategies with point-in-time recovery
 
-This project demonstrates production-ready application development with enterprise-grade security, testing, and deployment practices applicable to any large-scale SaaS platform.`,
+This project demonstrates full-stack application development with authentication, role-based access, testing, and deployment practices.`,
   },
   {
     title: "Production Incident Response Case Study",
-    description: "Problem: Critical security breach caused complete system failure, requiring immediate disaster recovery.\n\nSolution: Led incident response with standardized protocols, automated recovery procedures, and multi-system coordination.\n\nOutcome: Achieved 100% data restoration and minimal downtime through proactive incident management.",
+    description: "Problem: A production service needed recovery after a security incident, with safer access boundaries and performance improvements.\n\nSolution: Supported service restoration, cloud/database hardening, credential rotation, deployment workflow improvements, and stakeholder communication.\n\nOutcome: Restored service functionality and improved load times from roughly 25s to under 3s while keeping client details NDA-safe.",
     technologies: ["AWS EC2", "MongoDB Atlas", "Docker", "CI/CD", "Incident Management"],
     liveUrl: "#",
     githubUrl: "https://github.com/Sharv619/production-incident-response-case-study",
@@ -220,7 +220,7 @@ This project demonstrates production-ready application development with enterpri
 • **Team Coordination:** Cross-functional collaboration protocols ensuring rapid response times
 • **Continuous Improvement:** Post-incident reviews driving iterative improvements to response capabilities
 
-This case study demonstrates systematic approaches to production incident management, providing templates and methodologies applicable to any large-scale software operation.`,
+This case study uses NDA-safe language to demonstrate production recovery, reliability, and communication practices without exposing private client details.`,
   },
   {
     title: "AI Career Co-Pilot (RAG Architecture)",
@@ -228,7 +228,7 @@ This case study demonstrates systematic approaches to production incident manage
     technologies: ["React", "TypeScript", "Gemini API", "RAG Architecture", "localStorage"],
     liveUrl: "https://ai-career-copilot.vercel.app",
     githubUrl: "https://github.com/Sharv619/ai-career-copilot",
-    technicalChallenge: "Ensuring low latency in a RAG architecture was major. By implementing vector caching, pre-computed similarity scores, and optimized chunking, I reduced response times from 3-5 seconds to under 300ms, enabling smooth real-time conversations.",
+    technicalChallenge: "Keeping retrieval useful and responsive in a browser-based RAG prototype was the main challenge. I explored vector caching, chunking, and context-window management to make the interaction smoother.",
     architectureDetails: `This system implements a production-grade RAG (Retrieval-Augmented Generation) architecture combining vector embeddings, document chunking, and context-aware LLM interactions.
 
 **Key Components:**
@@ -239,7 +239,7 @@ This case study demonstrates systematic approaches to production incident manage
 • **LLM Integration:** Seamless abstraction layer supporting Gemini API with fallback mechanisms and rate limiting
 
 **Performance Optimizations:**
-• Cached vector similarity calculations reduce response time from 3-5 seconds to under 1 second
+• Cached vector similarity calculations improve perceived response time in demo workflows
 • Intelligent chunking maintains semantic coherence while maximizing information density
 • Pre-processed knowledge base reduces computational overhead by 85%
 
@@ -257,13 +257,13 @@ export const skills = {
 
 export const about = {
   title: "About Me",
-  content: `I build and maintain real systems—from full-stack features to automation and reliability improvements. I learn by shipping, debugging, and improving things that run in production.
+  content: `I build practical software systems around backend workflows, production reliability, cloud deployment, and AI-assisted automation.
 
-My journey through tech has been anything but linear. After completing a Cloud Engineering internship at ACS, I dived headfirst into full-stack development, mastering React, Next.js, Node.js, and AWS. But it was the AI/ML space that truly captured my imagination. Building RAG architectures and integrating Gemini APIs taught me that the future isn't just automated—it's intelligent.
+My recent work includes production recovery and marketplace platform work at Ask Jay Services, where I helped restore service functionality after a security incident, improved load times from roughly 25 seconds to under 3 seconds, and built Docker + GitHub Actions deployment workflows.
 
-Today, I architect scalable solutions that don't just meet requirements—they exceed them. Whether leading disaster recovery for critical systems or pioneering AI-powered tools that streamline dev workflows, I thrive on the edge where innovation meets reliability. My portfolio isn't just a collection of projects; it's evidence of how I transform complex challenges into elegant, high-impact solutions.
+At ACS, I worked on a MERN platform serving 10,000+ users, improving average page load time by 30% and reviewing 15+ authentication issues using OWASP guidance.
 
-When I'm not coding, you'll find me automating my life with n8n workflows, experimenting with Ollama for local AI, or exploring the latest in quantum computing. Because in this field, curiosity isn't optional—it's essential.`,
+I also build prototypes and open-source tools around responsible AI workflows, code review automation, and small-business operations. I label these clearly as MVPs, prototypes, or experiments when they are not production systems.`,
 };
 
 export const howIWork = {

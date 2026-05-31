@@ -12,8 +12,8 @@ describe('RAG Client', () => {
     it('returns projects for project queries', () => {
       const response = getFallbackResponse('what projects has himanshu built');
       expect(response).toContain('GitHub');
-      expect(response).toContain('Network Guardian AI');
-      expect(response).toContain('CodeFlow-Hook');
+      expect(response).toContain('Production Recovery');
+      expect(response).toContain('codeflow-hook');
     });
 
     it('returns skills for skill queries', () => {
@@ -26,7 +26,7 @@ describe('RAG Client', () => {
     it('returns experience for job queries', () => {
       const response = getFallbackResponse('tell me about his experience');
       expect(response).toContain('Ask Jay Services');
-      expect(response).toContain('disaster recovery');
+      expect(response).toContain('production recovery');
     });
 
     it('returns default for unknown queries', () => {

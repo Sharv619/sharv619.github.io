@@ -8,11 +8,11 @@
   },
   "personal": {
     "name": "Himanshu Lade",
-    "title": "Founding Engineer",
-    "tagline": "Specialising in AI integration, high-performance infrastructure, and system reliability",
+    "title": "Software Engineer",
+    "tagline": "Focused on backend systems, production reliability, cloud deployment, and AI-assisted workflow automation",
     "location": "Sydney, Australia",
     "availability": "Open to opportunities",
-    "bio": "Software Engineer with a founding engineer mindset, specialising in AI integration, high-performance infrastructure, and system reliability. Led disaster recovery with 100% data restoration, optimised load times by 88% (25s to 3s), and shipped open-source AI tooling with 450+ downloads in week one.",
+    "bio": "Software Engineer focused on backend systems, production reliability, cloud deployment, and AI-assisted workflow automation. Experience includes production recovery, load-time improvement from roughly 25s to under 3s, Docker/GitHub Actions CI/CD, and open-source AI-assisted developer tooling.",
     "contact": {
       "email": "himanshulade@hotmail.com",
       "phone": "+61 434 069 483",
@@ -24,43 +24,47 @@
     {
       "id": "ask-jay",
       "company": "Ask Jay Services",
-      "role": "Founding Engineer",
+      "role": "Founding Engineer / Principal Technical Lead",
       "type": "Contract",
-      "duration": "May 2025 - Oct 2025",
+      "duration": "May 2025 - Aug 2025",
       "location": "Wollongong, Australia",
       "achievements": [
-        "Led disaster recovery of breached production system, restoring 100% functionality with zero data loss by provisioning new AWS infrastructure and implementing security hardening measures",
-        "Achieved 88% performance improvement by reducing load times from 25s to <3s through infrastructure refactoring, backend optimization, and database query optimization",
-        "Architected and developed three-sided Flutter marketplace from scratch, owning entire software development lifecycle from authentication to production deployment",
-        "Engineered automated CI/CD pipelines using Docker and GitHub Actions, enabling one-command production deployments with zero downtime",
+        "Supported production recovery after a security incident, restoring service functionality while keeping public details NDA-safe",
+        "Improved load times from roughly 25s to under 3s through infrastructure, backend, frontend, and database-path optimization",
+        "Built marketplace and course-management platform features across frontend and backend workflows",
+        "Created Docker and GitHub Actions CI/CD workflows to make deployments more repeatable",
         "Launched 700+ SEO-optimized landing pages to drive regional expansion and organic traffic growth"
       ],
       "techStack": ["AWS", "React", "Flutter", "Docker", "GitHub Actions", "Node.js", "PostgreSQL"],
       "highlights": ["Disaster Recovery", "Performance Optimization", "Full-Stack Development", "CI/CD", "Security Hardening"],
       "impact": {
-        "metric": "100% data restoration",
-        "metric": "88% faster load times",
-        "metric": "700+ landing pages deployed"
+        "metrics": [
+          "Service functionality restored after production incident",
+          "Load times improved from roughly 25s to under 3s",
+          "700+ landing pages deployed"
+        ]
       }
     },
     {
       "id": "acs",
       "company": "Australian Computer Society",
-      "role": "Cloud Intern",
+      "role": "Web Developer Intern",
       "type": "Internship",
       "duration": "Sep 2023 – Feb 2024",
       "location": "Wollongong, Australia",
       "achievements": [
-        "Improved frontend performance by approximately 33% for MERN stack application serving 200+ active users through React optimization and code splitting",
-        "Remediated 15+ high-priority security vulnerabilities based on OWASP Top 10 standards, strengthening application security posture",
+        "Improved average page load time by 30% for MERN stack application serving 10,000+ users through React optimization and code splitting",
+        "Reviewed and resolved 15+ authentication issues using OWASP guidance, strengthening application security posture",
         "Collaborated in Agile development sprints with QA engineers and product owners to deliver features on time with high quality standards"
       ],
       "techStack": ["React", "Node.js", "MongoDB", "Express", "JavaScript"],
       "highlights": ["Security", "Performance", "Agile", "Team Collaboration"],
       "impact": {
-        "metric": "33% performance improvement",
-        "metric": "15+ vulnerabilities fixed",
-        "metric": "200+ active users served"
+        "metrics": [
+          "30% average page load time reduction",
+          "15+ authentication issues reviewed/resolved",
+          "10,000+ users served"
+        ]
       }
     }
   ],
@@ -69,23 +73,23 @@
       "id": "network-guardian-ai",
       "name": "Network Guardian AI",
       "tagline": "AI-Powered Network Threat Detection System",
-      "description": "AI-Powered Network Threat Detection System using machine learning to identify malicious network traffic in real-time.",
+      "description": "Prototype exploring AI-assisted network traffic analysis and anomaly detection.",
       "hackathon": "Google DeepMind Hackathon",
-      "outcome": "Built 3-stage ML detection pipeline using Shannon Entropy and Isolation Forests to identify malicious traffic, reducing API costs ~70%.",
-      "solution": "Deployed containerised microservices with Docker Compose and FastAPI for real-time network monitoring and threat analysis.",
+      "outcome": "Explored how entropy scoring and anomaly detection could surface suspicious traffic patterns.",
+      "solution": "Built containerised prototype services with Docker Compose and FastAPI for network monitoring and threat-summary workflows.",
       "techStack": ["Python", "FastAPI", "React", "Scikit-learn", "Gemini API", "Docker"],
       "achievements": [
-        "Reduced API costs by ~70%",
-        "3-stage ML detection pipeline (Shannon Entropy + Isolation Forests)",
-        "Real-time threat detection with containerised microservices"
+        "Explored Shannon Entropy and Isolation Forests for traffic anomaly detection",
+        "Built containerised prototype services",
+        "Created AI-assisted security-summary workflows"
       ],
       "links": {
         "github": "https://github.com/Sharv619/network-guardian-ai",
         "live": null
       },
-      "keywords": ["AI/ML", "Cybersecurity", "Python", "FastAPI", "Docker", "Machine Learning", "Network Security"],
-      "type": "AI/ML Project",
-      "status": "Completed"
+      "keywords": ["AI-assisted", "Cybersecurity", "Python", "FastAPI", "Docker", "Anomaly Detection", "Network Security"],
+      "type": "AI-assisted security prototype",
+      "status": "Prototype"
     },
     {
       "id": "codeflow-hook",
@@ -94,19 +98,18 @@
       "description": "Open-source CLI tool with multi-agent architecture for automated code review.",
       "problem": "Manual code reviews were slow and inconsistent, causing bottlenecks in development workflows.",
       "solution": "Built a CLI tool supporting multiple AI providers (Gemini, GPT, Claude) for automated code analysis, git hook management, and AI-powered reviews.",
-      "outcome": "Reduced code review time by 40% and enhanced quality through intelligent, context-aware feedback.",
+      "outcome": "Published an npm package for AI-assisted code review workflows with early usage traction.",
       "technicalChallenge": "Integrating multiple AI providers into a responsive CLI was challenging. Created an abstraction layer with async processing and automatic model selection based on task complexity, maintaining under-1s execution for common operations.",
       "techStack": ["Node.js", "TypeScript", "Gemini API", "RAG", "Vector Search", "Docker"],
       "achievements": [
-        "Reduced code review time by 40%",
         "Created abstraction layer for multi-provider AI support",
-        "450+ NPM downloads in first month"
+        "Published npm package for AI-assisted code review workflows"
       ],
       "links": {
         "github": "https://github.com/Sharv619/codeflow-hook",
         "npm": "https://npmjs.com/package/codeflow-hook"
       },
-      "keywords": ["Open Source", "AI/ML", "Code Review", "RAG", "TypeScript", "CLI Tool"],
+      "keywords": ["Open Source", "AI-assisted", "Code Review", "RAG", "TypeScript", "CLI Tool"],
       "type": "Developer Tool",
       "status": "Published"
     },

@@ -45,7 +45,7 @@ export default function AvailabilityBanner() {
                 </div>
                 <div className="flex-1 min-w-0">
                   <p className="text-sm font-medium">
-                    🚀 <strong>Available for Full-Stack & AI/ML Engineering roles</strong> - Let&apos;s build something impactful together!
+                    <strong>Available for software engineering roles</strong> - backend systems, production reliability, cloud deployment, and AI-assisted workflows.
                   </p>
                 </div>
               </div>
