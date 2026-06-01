@@ -27,11 +27,15 @@ export default function Navigation() {
     { name: "Contact", href: "#contact" },
   ];
 
-  const scrollToSection = (href: string) => {
+  const navigateToSection = (href: string) => {
     const element = document.querySelector(href);
+
     if (element) {
       element.scrollIntoView({ behavior: "smooth" });
+    } else {
+      window.location.assign(`/${href}`);
     }
+
     setIsMobileMenuOpen(false);
   };
 
@@ -42,7 +46,7 @@ export default function Navigation() {
       transition={{ duration: 0.6 }}
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
         isScrolled
-          ? "bg-white/90 dark:bg-gray-900/90 backdrop-blur-md shadow-lg"
+          ? "border-b border-stone-200/80 bg-[#f7f4ed]/90 shadow-sm backdrop-blur-xl dark:border-white/10 dark:bg-[#101010]/90"
           : "bg-transparent"
       }`}
     >
@@ -52,47 +56,46 @@ export default function Navigation() {
             whileHover={{ scale: 1.05 }}
             className="flex items-center"
           >
-            <span className="text-2xl font-bold text-gray-900 dark:text-white">
+            <span className="inline-flex h-10 w-10 items-center justify-center rounded-md border border-stone-300 bg-white/70 text-sm font-black tracking-tight text-stone-950 shadow-sm dark:border-white/10 dark:bg-white/5 dark:text-white">
               HL
             </span>
           </motion.div>
 
-          {/* Desktop Navigation */}
-          <div className="hidden md:flex items-center space-x-8">
+          <div className="hidden md:flex items-center gap-1 rounded-md border border-stone-200/80 bg-white/55 p-1 shadow-sm backdrop-blur dark:border-white/10 dark:bg-white/5">
             {navItems.map((item) => (
               <button
                 key={item.name}
-                onClick={() => scrollToSection(item.href)}
-                className="text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors duration-300 font-medium"
+                onClick={() => navigateToSection(item.href)}
+                className="rounded px-3 py-2 text-sm font-medium text-stone-700 transition-colors duration-200 hover:bg-stone-950 hover:text-white dark:text-stone-300 dark:hover:bg-white dark:hover:text-stone-950"
               >
                 {item.name}
               </button>
             ))}
+          </div>
 
-            {/* Resume Link */}
+          <div className="hidden md:flex items-center gap-3">
             <a
               href="/resume"
-              className="px-4 py-2 bg-gradient-to-r from-blue-600 to-purple-600 text-white rounded-md hover:from-blue-700 hover:to-purple-700 transition-all duration-300 text-sm font-medium shadow-lg"
+              className="rounded-md border border-stone-300 bg-white/70 px-4 py-2 text-sm font-semibold text-stone-900 transition-colors duration-200 hover:border-stone-950 hover:bg-stone-950 hover:text-white dark:border-white/15 dark:bg-white/5 dark:text-white dark:hover:bg-white dark:hover:text-stone-950"
             >
               Resume
             </a>
 
-            {/* Chatbot Button */}
             <button
               onClick={toggleChatbot}
-              className="px-4 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-700 transition-colors duration-300 text-sm font-medium"
+              className="rounded-md bg-teal-700 px-4 py-2 text-sm font-semibold text-white shadow-sm transition-colors duration-200 hover:bg-teal-800 dark:bg-teal-400 dark:text-stone-950 dark:hover:bg-teal-300"
             >
-              Career Co-Pilot preview
+              Ask AI
             </button>
 
             <ThemeToggle />
           </div>
 
-          {/* Mobile menu button */}
           <div className="md:hidden">
             <button
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-              className="text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400"
+              className="rounded-md border border-stone-300 bg-white/70 p-2 text-stone-800 dark:border-white/10 dark:bg-white/5 dark:text-stone-200"
+              aria-label="Toggle navigation"
             >
               <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path
@@ -115,21 +118,27 @@ export default function Navigation() {
             animate={{ opacity: 1, height: "auto" }}
             exit={{ opacity: 0, height: 0 }}
             transition={{ duration: 0.3 }}
-            className="md:hidden bg-white dark:bg-gray-900 border-t border-gray-200 dark:border-gray-700"
+            className="border-t border-stone-200 bg-[#f7f4ed] md:hidden dark:border-white/10 dark:bg-[#101010]"
           >
             <div className="px-4 py-4 space-y-4">
               {navItems.map((item) => (
                 <button
                   key={item.name}
-                  onClick={() => scrollToSection(item.href)}
-                  className="block w-full text-left text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors duration-300 font-medium"
+                  onClick={() => navigateToSection(item.href)}
+                  className="block w-full rounded-md px-3 py-2 text-left font-medium text-stone-700 transition-colors duration-200 hover:bg-stone-900 hover:text-white dark:text-stone-300 dark:hover:bg-white dark:hover:text-stone-950"
                 >
                   {item.name}
                 </button>
               ))}
 
-              {/* Mobile Theme Toggle */}
-              <div className="pt-4 border-t border-gray-200 dark:border-gray-700">
+              <button
+                onClick={toggleChatbot}
+                className="w-full rounded-md bg-teal-700 px-4 py-3 text-sm font-semibold text-white dark:bg-teal-400 dark:text-stone-950"
+              >
+                Ask AI
+              </button>
+
+              <div className="pt-4 border-t border-stone-200 dark:border-white/10">
                 <ThemeToggle />
               </div>
             </div>

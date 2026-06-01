@@ -1,29 +1,25 @@
 @import "tailwindcss";
 
 :root {
-  /* Light theme color palette */
-  --color-background: #ffffff;
-  --color-foreground: #171717;
-  --color-primary: #3b82f6;
-  --color-primary-hover: #2563eb;
-  --color-secondary: #6b7280;
-  --color-accent: #f3f4f6;
-  --color-border: #e5e7eb;
-  --color-muted: #9ca3af;
-
-  /* Dark theme color palette */
-  --color-background-dark: #111827;
-  --color-foreground-dark: #f9fafb;
-  --color-primary-dark: #60a5fa;
-  --color-primary-hover-dark: #3b82f6;
-  --color-secondary-dark: #d1d5db;
-  --color-accent-dark: #1f2937;
-  --color-border-dark: #374151;
-  --color-muted-dark: #6b7280;
+  --color-background: #f7f4ed;
+  --color-foreground: #151515;
+  --color-primary: #0f766e;
+  --color-primary-hover: #115e59;
+  --color-secondary: #57534e;
+  --color-accent: #ebe5d8;
+  --color-border: #d8d0c2;
+  --color-muted: #78716c;
+  --color-background-dark: #101010;
+  --color-foreground-dark: #f5f2ea;
+  --color-primary-dark: #2dd4bf;
+  --color-primary-hover-dark: #5eead4;
+  --color-secondary-dark: #d6d3d1;
+  --color-accent-dark: #1f1f1c;
+  --color-border-dark: #34342f;
+  --color-muted-dark: #a8a29e;
 }
 
 .light {
-  /* Light theme variables (redundant but explicit) */
   --bg-primary: var(--color-background);
   --text-primary: var(--color-foreground);
   --text-secondary: var(--color-secondary);
@@ -34,7 +30,6 @@
 }
 
 .dark {
-  /* Dark theme variables applied via `.dark` class */
   --bg-primary: var(--color-background-dark);
   --text-primary: var(--color-foreground-dark);
   --text-secondary: var(--color-secondary-dark);
@@ -44,10 +39,21 @@
   --button-primary-hover: var(--color-primary-hover-dark);
 }
 
-/* Theme-specific font variables will be handled by Tailwind */
+html {
+  scroll-behavior: smooth;
+}
 
 body {
   background: var(--bg-primary);
   color: var(--text-primary);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+}
+
+::selection {
+  background: #0f766e;
+  color: #ffffff;
+}
+
+.text-balance {
+  text-wrap: balance;
 }

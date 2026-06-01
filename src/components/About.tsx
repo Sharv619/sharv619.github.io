@@ -5,19 +5,21 @@ import { about, howIWork } from "@/lib/data";
 
 export default function About() {
   return (
-    <section id="about" className="py-20 bg-white dark:bg-gray-900">
-      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section id="about" className="border-y border-stone-200 bg-white py-20 dark:border-white/10 dark:bg-[#151513]">
+      <div className="mx-auto grid max-w-7xl grid-cols-1 gap-12 px-4 sm:px-6 lg:grid-cols-[0.8fr_1.2fr] lg:px-8">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
           viewport={{ once: true }}
-          className="text-center mb-16"
+          className="lg:sticky lg:top-28 lg:self-start"
         >
-          <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 dark:text-white mb-4">
+          <p className="mb-3 text-sm font-bold uppercase tracking-[0.18em] text-teal-700 dark:text-teal-300">
+            About
+          </p>
+          <h2 className="text-balance text-4xl font-black leading-tight text-stone-950 sm:text-5xl dark:text-white">
             {about.title}
           </h2>
-          <div className="w-24 h-1 bg-blue-600 mx-auto"></div>
         </motion.div>
 
         <motion.div
@@ -25,29 +27,22 @@ export default function About() {
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.2 }}
           viewport={{ once: true }}
-          className="prose prose-lg dark:prose-invert mx-auto text-center"
+          className="space-y-6"
         >
           {about.content.split('\n\n').map((paragraph, index) => (
-            <p key={index} className="text-gray-600 dark:text-gray-300 mb-6 leading-relaxed">
+            <p key={index} className="text-lg leading-8 text-stone-650 text-stone-700 dark:text-stone-300">
               {paragraph}
             </p>
           ))}
-        </motion.div>
 
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.3 }}
-          viewport={{ once: true }}
-          className="mt-12 prose prose-lg dark:prose-invert mx-auto"
-        >
-          <h3 className="text-center text-2xl font-bold text-gray-900 dark:text-white mb-6">
-            {howIWork.title}
-          </h3>
-
-          <p className="text-gray-600 dark:text-gray-300 leading-relaxed text-center">
-            {howIWork.content}
-          </p>
+          <div className="border-l-4 border-teal-700 bg-[#f7f4ed] p-6 dark:border-teal-300 dark:bg-white/5">
+            <h3 className="mb-3 text-2xl font-black text-stone-950 dark:text-white">
+              {howIWork.title}
+            </h3>
+            <p className="text-lg leading-8 text-stone-700 dark:text-stone-300">
+              {howIWork.content}
+            </p>
+          </div>
         </motion.div>
       </div>
     </section>

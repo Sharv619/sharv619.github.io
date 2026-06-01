@@ -9,27 +9,47 @@ interface FeaturedCaseStudiesProps {
   compact?: boolean;
 }
 
+const studyAccents = [
+  {
+    panel: "from-emerald-950 via-stone-950 to-teal-950",
+    line: "bg-teal-300",
+    chip: "bg-teal-100 text-teal-900 dark:bg-teal-300/15 dark:text-teal-100",
+  },
+  {
+    panel: "from-indigo-950 via-stone-950 to-fuchsia-950",
+    line: "bg-fuchsia-300",
+    chip: "bg-fuchsia-100 text-fuchsia-900 dark:bg-fuchsia-300/15 dark:text-fuchsia-100",
+  },
+  {
+    panel: "from-slate-950 via-stone-950 to-amber-950",
+    line: "bg-amber-300",
+    chip: "bg-amber-100 text-amber-900 dark:bg-amber-300/15 dark:text-amber-100",
+  },
+];
+
 export default function FeaturedCaseStudies({ caseStudies, compact = false }: FeaturedCaseStudiesProps) {
   return (
-    <section id="case-studies" className="py-20 bg-white dark:bg-gray-900">
+    <section id="case-studies" className="border-y border-stone-200 bg-[#f7f4ed] py-20 dark:border-white/10 dark:bg-[#101010]">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
           viewport={{ once: true }}
-          className="text-center mb-12"
+          className="mb-12 max-w-3xl"
         >
-          <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 dark:text-white mb-4">
+          <p className="mb-3 text-sm font-bold uppercase tracking-[0.18em] text-teal-700 dark:text-teal-300">
+            Selected work
+          </p>
+          <h2 className="text-balance text-4xl font-black leading-tight text-stone-950 sm:text-5xl dark:text-white">
             Flagship Case Studies
           </h2>
-          <p className="text-lg text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">
+          <p className="mt-5 text-lg leading-8 text-stone-700 dark:text-stone-300">
             Curated proof points that explain production impact, constraints, tradeoffs, and personal contribution beyond raw GitHub metadata.
           </p>
-          <div className="w-24 h-1 bg-blue-600 mx-auto mt-6"></div>
         </motion.div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 gap-6 md:grid-cols-2 xl:grid-cols-3">
           {caseStudies.map((caseStudy, index) => (
             <motion.article
               key={caseStudy.slug}
@@ -37,78 +57,102 @@ export default function FeaturedCaseStudies({ caseStudies, compact = false }: Fe
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: index * 0.1 }}
               viewport={{ once: true }}
-              className="bg-gray-50 dark:bg-gray-800 rounded-lg p-6 shadow-lg hover:shadow-xl transition-shadow duration-300 flex flex-col"
+              className="group flex min-h-[560px] flex-col overflow-hidden rounded-lg border border-stone-300 bg-white shadow-sm transition duration-300 hover:-translate-y-1 hover:shadow-2xl hover:shadow-stone-900/10 dark:border-white/10 dark:bg-[#171715] dark:hover:shadow-black/30"
             >
-              <div className="flex flex-wrap items-center gap-2 mb-4">
-                <span className="text-xs font-semibold uppercase tracking-wide text-blue-700 dark:text-blue-300">
-                  {caseStudy.category}
-                </span>
-                <span className="text-xs px-2 py-1 rounded-full bg-gray-200 dark:bg-gray-700 text-gray-700 dark:text-gray-300">
-                  {caseStudy.status}
-                </span>
+              <div className={`relative overflow-hidden bg-gradient-to-br ${studyAccents[index % studyAccents.length].panel} p-5 text-white`}>
+                <div className="absolute inset-0 opacity-20">
+                  <div className="h-full w-full bg-[linear-gradient(to_right,#ffffff_1px,transparent_1px),linear-gradient(to_bottom,#ffffff_1px,transparent_1px)] bg-[size:28px_28px]" />
+                </div>
+                <div className="relative flex min-h-40 flex-col justify-between">
+                  <div className="flex items-center justify-between gap-3">
+                    <span className="text-xs font-bold uppercase tracking-[0.18em] text-white/70">
+                      0{index + 1}
+                    </span>
+                    <span className="rounded-full border border-white/15 bg-white/10 px-3 py-1 text-xs font-bold capitalize text-white">
+                      {caseStudy.status}
+                    </span>
+                  </div>
+                  <div>
+                    <div className={`mb-4 h-1 w-16 ${studyAccents[index % studyAccents.length].line}`} />
+                    <p className="text-sm font-bold uppercase tracking-[0.12em] text-white/65">
+                      {caseStudy.category}
+                    </p>
+                  </div>
+                </div>
               </div>
 
-              <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-3">
-                {caseStudy.title}
-              </h3>
+              <div className="flex flex-1 flex-col p-6">
+                <h3 className="text-2xl font-black leading-tight text-stone-950 dark:text-white">
+                  {caseStudy.title}
+                </h3>
 
-              <p className="text-gray-600 dark:text-gray-300 leading-relaxed mb-5">
-                {caseStudy.oneLiner}
-              </p>
+                <p className="mt-4 text-sm leading-7 text-stone-700 dark:text-stone-300">
+                  {caseStudy.oneLiner}
+                </p>
 
-              {!compact && (
-                <ul className="space-y-2 mb-5">
-                  {caseStudy.impact.slice(0, 3).map((impact) => (
-                    <li key={impact} className="text-sm text-gray-600 dark:text-gray-300 flex gap-2">
-                      <span className="mt-2 h-1.5 w-1.5 rounded-full bg-blue-600 flex-shrink-0"></span>
-                      <span>{impact}</span>
-                    </li>
+                {!compact && (
+                  <div className="mt-5 space-y-3">
+                    {caseStudy.impact.slice(0, 2).map((impact) => (
+                      <div key={impact} className="border-l-2 border-stone-300 pl-3 text-sm leading-6 text-stone-700 dark:border-white/15 dark:text-stone-300">
+                        {impact}
+                      </div>
+                    ))}
+                  </div>
+                )}
+
+                <div className="mt-6 flex flex-wrap gap-2">
+                  {caseStudy.techStack.slice(0, 5).map((tech) => (
+                    <span
+                      key={tech}
+                      className={`rounded-full px-3 py-1 text-xs font-bold ${studyAccents[index % studyAccents.length].chip}`}
+                    >
+                      {tech}
+                    </span>
                   ))}
-                </ul>
-              )}
+                </div>
 
-              <div className="flex flex-wrap gap-2 mb-6">
-                {caseStudy.techStack.slice(0, 5).map((tech) => (
-                  <span
-                    key={tech}
-                    className="px-3 py-1 bg-blue-100 dark:bg-blue-900 text-blue-800 dark:text-blue-200 text-xs rounded-full"
-                  >
-                    {tech}
-                  </span>
-                ))}
-              </div>
+                <p className="mt-5 text-sm font-medium text-stone-500 dark:text-stone-400">
+                  Role: {caseStudy.role.slice(0, 2).join(", ")}
+                </p>
 
-              <p className="text-sm text-gray-500 dark:text-gray-400 mb-6">
-                Role: {caseStudy.role.slice(0, 2).join(", ")}
-              </p>
-
-              <div className="mt-auto flex flex-wrap gap-3">
-                <Link
-                  href={`/case-studies/${caseStudy.slug}`}
-                  className="inline-flex items-center px-4 py-2 bg-blue-600 hover:bg-blue-700 text-white text-sm font-semibold rounded-md transition-colors duration-300"
-                >
-                  Read Case Study
-                </Link>
-                {caseStudy.links?.github && (
-                  <a
-                    href={caseStudy.links.github}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="inline-flex items-center px-4 py-2 border border-gray-300 dark:border-gray-600 text-gray-700 dark:text-gray-300 text-sm font-semibold rounded-md hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors duration-300"
+                <div className="mt-auto flex flex-wrap gap-3 pt-6">
+                  <Link
+                    href={`/case-studies/${caseStudy.slug}`}
+                    className="inline-flex items-center rounded-md bg-stone-950 px-4 py-2 text-sm font-bold text-white transition-colors duration-200 hover:bg-teal-800 dark:bg-white dark:text-stone-950 dark:hover:bg-teal-200"
                   >
-                    GitHub
-                  </a>
-                )}
-                {caseStudy.links?.npm && (
-                  <a
-                    href={caseStudy.links.npm}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="inline-flex items-center px-4 py-2 border border-gray-300 dark:border-gray-600 text-gray-700 dark:text-gray-300 text-sm font-semibold rounded-md hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors duration-300"
-                  >
-                    npm
-                  </a>
-                )}
+                    Read case study
+                  </Link>
+                  {caseStudy.links?.github && (
+                    <a
+                      href={caseStudy.links.github}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center rounded-md border border-stone-300 px-4 py-2 text-sm font-bold text-stone-800 transition-colors duration-200 hover:bg-stone-100 dark:border-white/15 dark:text-stone-200 dark:hover:bg-white/10"
+                    >
+                      GitHub
+                    </a>
+                  )}
+                  {caseStudy.links?.githubOffline && (
+                    <a
+                      href={caseStudy.links.githubOffline}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center rounded-md border border-stone-300 px-4 py-2 text-sm font-bold text-stone-800 transition-colors duration-200 hover:bg-stone-100 dark:border-white/15 dark:text-stone-200 dark:hover:bg-white/10"
+                    >
+                      Offline repo
+                    </a>
+                  )}
+                  {caseStudy.links?.npm && (
+                    <a
+                      href={caseStudy.links.npm}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center rounded-md border border-stone-300 px-4 py-2 text-sm font-bold text-stone-800 transition-colors duration-200 hover:bg-stone-100 dark:border-white/15 dark:text-stone-200 dark:hover:bg-white/10"
+                    >
+                      npm
+                    </a>
+                  )}
+                </div>
               </div>
             </motion.article>
           ))}

@@ -1,7 +1,19 @@
-/**
- * Fallback responses for demo/offline mode
- * Extracted for easy testing
- */
+import knowledgeBase from "@/lib/knowledge-base.json";
+
+interface KnowledgeBaseSource {
+  id: string;
+  section: string;
+  title?: string;
+  url?: string;
+}
+
+interface KnowledgeBaseResponse {
+  response: string;
+  sources: KnowledgeBaseSource[];
+}
+
+type KnowledgeProject = typeof knowledgeBase.projects[number];
+type KnowledgeExperience = typeof knowledgeBase.experience[number];
 
 export const fallbackResponses: Record<string, string> = {
   greeting: "Hey there! I'm Assistant, Himanshu's AI career assistant. I can tell you about his projects, skills, experience, or anything else you're curious about!",
@@ -10,6 +22,139 @@ export const fallbackResponses: Record<string, string> = {
   experience: "Himanshu's experience includes:\n\n• **Ask Jay Services** (Founding Engineer / Principal Technical Lead): supported production recovery, improved load times from roughly 25s to under 3s, built platform features, and created Docker/GitHub Actions workflows\n• **ACS** (Web Developer Intern): worked on a MERN platform serving 10,000+ users, improved average page load time by 30%, and reviewed/resolved 15+ authentication issues",
   default: "That's a great question! Feel free to ask me about Himanshu's projects, skills, experience, or anything else you'd like to know.",
 };
+
+function matchesAny(message: string, keywords: string[]): boolean {
+  return keywords.some((keyword) => {
+    if (keyword.includes(" ")) {
+      return message.includes(keyword);
+    }
+
+    return new RegExp(`\\b${keyword}\\b`, "i").test(message);
+  });
+}
+
+function formatList(items: string[], limit = 4): string {
+  return items.slice(0, limit).map((item) => `• ${item}`).join("\n");
+}
+
+function projectMatches(project: KnowledgeProject, message: string): boolean {
+  const searchableText = [
+    project.id,
+    project.name,
+    project.tagline,
+    project.description,
+    project.type,
+    project.status,
+    ...(project.techStack || []),
+    ...(project.keywords || []),
+  ].join(" ").toLowerCase();
+
+  return message
+    .split(/\W+/)
+    .filter((word) => word.length > 2)
+    .some((word) => searchableText.includes(word));
+}
+
+function buildProjectResponse(projects: KnowledgeProject[]): KnowledgeBaseResponse {
+  const selectedProjects = projects.slice(0, 3);
+  const response = selectedProjects.map((project) => {
+    const achievements = project.achievements?.length
+      ? `\n${formatList(project.achievements, 2)}`
+      : "";
+    const links = project.links?.github ? `\nGitHub: ${project.links.github}` : "";
+
+    return `**${project.name}** — ${project.description}\nStack: ${project.techStack.slice(0, 6).join(", ")}${achievements}${links}`;
+  }).join("\n\n");
+
+  return {
+    response,
+    sources: selectedProjects.map((project) => ({
+      id: project.id,
+      section: "Knowledge Base: Projects",
+      title: project.name,
+      url: project.links?.github || project.links?.live || undefined,
+    })),
+  };
+}
+
+function buildExperienceResponse(experience: KnowledgeExperience[]): KnowledgeBaseResponse {
+  const response = experience.map((item) => (
+    `**${item.company}** — ${item.role} (${item.duration})\n${formatList(item.achievements, 3)}`
+  )).join("\n\n");
+
+  return {
+    response,
+    sources: experience.map((item) => ({
+      id: item.id,
+      section: "Knowledge Base: Experience",
+      title: item.company,
+    })),
+  };
+}
+
+function buildSkillsResponse(): KnowledgeBaseResponse {
+  const { skills } = knowledgeBase;
+
+  return {
+    response: [
+      "**Languages:** " + skills.languages.join(", "),
+      "**Frameworks:** " + skills.frameworks.join(", "),
+      "**Cloud / DevOps:** " + skills.cloudDevOps.join(", "),
+      "**AI / Data:** " + skills.aiData.join(", "),
+    ].join("\n\n"),
+    sources: [{ id: "skills", section: "Knowledge Base: Skills", title: "Skills" }],
+  };
+}
+
+function buildPersonalResponse(): KnowledgeBaseResponse {
+  const { personal } = knowledgeBase;
+
+  return {
+    response: `I'm Assistant, Himanshu's portfolio assistant. Himanshu is a ${personal.title} in ${personal.location}. ${personal.bio}\n\nAvailability: ${personal.availability}\nEmail: ${personal.contact.email}`,
+    sources: [{ id: "personal", section: "Knowledge Base: Personal", title: personal.name }],
+  };
+}
+
+function buildEducationResponse(): KnowledgeBaseResponse {
+  const response = knowledgeBase.education.map((item) => (
+    `**${item.degree}** — ${item.institution}, ${item.location} (${item.year})`
+  )).join("\n\n");
+
+  return {
+    response,
+    sources: [{ id: "education", section: "Knowledge Base: Education", title: "Education" }],
+  };
+}
+
+export function getKnowledgeBaseResponse(message: string): KnowledgeBaseResponse {
+  const lower = message.toLowerCase();
+
+  if (matchesAny(lower, ["hi", "hello", "hey", "who are you", "your name", "about himanshu", "contact", "available"])) {
+    return buildPersonalResponse();
+  }
+
+  if (matchesAny(lower, ["skill", "skills", "tech stack", "technology", "technologies", "language", "languages", "framework", "frameworks", "aws", "docker", "rag", "ai"])) {
+    return buildSkillsResponse();
+  }
+
+  if (matchesAny(lower, ["experience", "job", "work", "career", "ask jay", "acs", "intern"])) {
+    return buildExperienceResponse(knowledgeBase.experience);
+  }
+
+  if (matchesAny(lower, ["education", "degree", "university", "study", "master", "bachelor"])) {
+    return buildEducationResponse();
+  }
+
+  if (matchesAny(lower, ["project", "built", "github", "network", "guardian", "codeflow", "portfolio", "chatbot"])) {
+    const matchedProjects = knowledgeBase.projects.filter((project) => projectMatches(project, lower));
+    return buildProjectResponse(matchedProjects.length > 0 ? matchedProjects : knowledgeBase.projects);
+  }
+
+  return {
+    response: `${fallbackResponses.default}\n\nI can answer from the local knowledge base about projects, skills, experience, education, and contact details.`,
+    sources: [{ id: "knowledge-base", section: "Knowledge Base", title: knowledgeBase.metadata.title }],
+  };
+}
 
 export function getFallbackResponse(message: string): string {
   const lower = message.toLowerCase();

@@ -71,13 +71,6 @@ export const experience = [
     link: "https://askjay.com.au",
   },
   {
-    company: "Innovation Lab Lead & Applied Research",
-    position: "Professional Development",
-    duration: "Feb 2024 - May 2025",
-    description: "• Built practical AI-assisted workflow prototypes and RAG experiments to understand deployment, retrieval, and product constraints.\n\n• Developed a portfolio of software projects using React, Next.js, Flutter, Gemini API, AWS, and Docker.\n\n• Practiced state management, CI/CD, and offline-first PWA patterns through hands-on builds.",
-    link: "#",
-  },
-  {
     company: "ACS Australian Computer Society",
     position: "Web Developer Intern",
     duration: "Sep 2023 - Feb 2024",

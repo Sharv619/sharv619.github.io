@@ -1,5 +1,5 @@
 import { describe, it, expect } from 'vitest';
-import { getFallbackResponse } from '../../src/lib/assistant/fallback-responses';
+import { getFallbackResponse, getKnowledgeBaseResponse } from '../../src/lib/assistant/fallback-responses';
 
 describe('RAG Client', () => {
   describe('getFallbackResponse', () => {
@@ -33,6 +33,32 @@ describe('RAG Client', () => {
       const response = getFallbackResponse('random question');
       expect(response).toBeDefined();
       expect(response.length).toBeGreaterThan(0);
+    });
+  });
+
+  describe('getKnowledgeBaseResponse', () => {
+    it('returns project answers with knowledge base sources', () => {
+      const result = getKnowledgeBaseResponse('tell me about network guardian');
+
+      expect(result.response).toContain('Network Guardian AI');
+      expect(result.response).toContain('FastAPI');
+      expect(result.sources.some((source) => source.id === 'network-guardian-ai')).toBe(true);
+    });
+
+    it('returns skill answers from the knowledge base', () => {
+      const result = getKnowledgeBaseResponse('what skills does he have');
+
+      expect(result.response).toContain('TypeScript');
+      expect(result.response).toContain('AWS');
+      expect(result.sources[0].section).toContain('Skills');
+    });
+
+    it('returns experience answers from the knowledge base', () => {
+      const result = getKnowledgeBaseResponse('what work experience does he have');
+
+      expect(result.response).toContain('Ask Jay Services');
+      expect(result.response).toContain('Australian Computer Society');
+      expect(result.sources.some((source) => source.section.includes('Experience'))).toBe(true);
     });
   });
 });

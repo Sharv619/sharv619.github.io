@@ -11,6 +11,7 @@
     "test:run": "vitest --run",
     "test:watch": "vitest --watch",
     "test:ui": "vitest --ui",
+    "github:scrape": "tsx scripts/export-github-projects.ts",
     "mcp:start": "tsx src/mcp/index.ts",
     "mcp:inspect": "npx @modelcontextprotocol/inspector tsx src/mcp/index.ts"
   },

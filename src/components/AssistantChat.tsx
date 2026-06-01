@@ -4,7 +4,8 @@ import { useState, useRef, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import NeuralBackground from "./NeuralBackground";
 import SourceCard from "./SourceCard";
-import { sendChatMessage, getFallbackResponse } from "@/lib/assistant/rag-client";
+import { sendChatMessage } from "@/lib/assistant/rag-client";
+import { getKnowledgeBaseResponse } from "@/lib/assistant/fallback-responses";
 
 interface Message {
   role: "user" | "assistant";
@@ -46,20 +47,15 @@ export default function AssistantChat({ isOpen, onClose }: AssistantChatProps) {
 
     try {
       if (useDemo) {
-        // Demo mode - use fallback responses
         await new Promise((resolve) => setTimeout(resolve, 1000 + Math.random() * 1000));
-        const response = getFallbackResponse(userMessage);
+        const result = getKnowledgeBaseResponse(userMessage);
         
         setMessages((prev) => [
           ...prev,
           {
             role: "assistant",
-            content: response,
-            sources: [
-              { id: "github-projects", section: "GitHub Projects" },
-              { id: "skills", section: "Skills" },
-              { id: "experience", section: "Experience" },
-            ],
+            content: result.response,
+            sources: result.sources,
           },
         ]);
       } else {
