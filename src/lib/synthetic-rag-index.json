@@ -1,0 +1,417 @@
+[
+  {
+    "id": "profile-himanshu-lade",
+    "title": "Himanshu Lade Profile",
+    "tags": [
+      "profile",
+      "about",
+      "summary",
+      "software-engineer",
+      "sydney",
+      "availability"
+    ],
+    "questions": [
+      "Who is Himanshu Lade?",
+      "Tell me about Himanshu",
+      "What does Himanshu do?",
+      "Give me a quick profile summary"
+    ],
+    "answer": "Himanshu Lade is a Sydney-based Software Engineer focused on backend systems, production reliability, cloud deployment, and AI-assisted workflow automation. His recent work includes production recovery, performance optimization, Docker/GitHub Actions CI/CD, AWS-oriented deployment work, and practical AI tooling such as codeflow-hook and portfolio RAG experiments.",
+    "sources": [
+      {
+        "id": "kb-personal",
+        "section": "Personal Profile",
+        "title": "Career Knowledge Base"
+      },
+      {
+        "id": "readme-profile",
+        "section": "README",
+        "title": "Portfolio README"
+      }
+    ],
+    "priority": 10
+  },
+  {
+    "id": "experience-ask-jay",
+    "title": "Ask Jay Services Experience",
+    "tags": [
+      "experience",
+      "ask-jay",
+      "production-recovery",
+      "performance",
+      "aws",
+      "docker",
+      "github-actions",
+      "marketplace"
+    ],
+    "questions": [
+      "What did Himanshu do at Ask Jay?",
+      "Tell me about Ask Jay Services",
+      "What production recovery work has Himanshu done?",
+      "What is his most production-relevant experience?"
+    ],
+    "answer": "At Ask Jay Services, Himanshu worked as a Founding Engineer / Principal Technical Lead from May 2025 to August 2025. He supported NDA-safe production recovery after a security incident, helped restore service functionality, improved load times from roughly 25 seconds to under 3 seconds, built marketplace and course-management features, created Docker and GitHub Actions CI/CD workflows, and helped launch 700+ SEO-oriented landing pages.",
+    "sources": [
+      {
+        "id": "ask-jay",
+        "section": "Experience",
+        "title": "Ask Jay Services"
+      },
+      {
+        "id": "production-recovery-performance-rebuild",
+        "section": "Flagship Case Studies",
+        "title": "Production Recovery & Performance Rebuild"
+      }
+    ],
+    "priority": 10
+  },
+  {
+    "id": "experience-acs",
+    "title": "Australian Computer Society Internship",
+    "tags": [
+      "experience",
+      "acs",
+      "internship",
+      "mern",
+      "react",
+      "security",
+      "performance",
+      "owasp"
+    ],
+    "questions": [
+      "What did Himanshu do at ACS?",
+      "Tell me about the ACS internship",
+      "What internship experience does Himanshu have?",
+      "Has Himanshu worked on MERN applications?"
+    ],
+    "answer": "Himanshu worked as a Web Developer Intern at the Australian Computer Society from September 2023 to February 2024. He improved average page load time by 30% for a MERN application serving 10,000+ users, reviewed and resolved 15+ authentication issues using OWASP guidance, and collaborated in Agile sprints with QA engineers and product owners.",
+    "sources": [
+      {
+        "id": "acs",
+        "section": "Experience",
+        "title": "Australian Computer Society"
+      }
+    ],
+    "priority": 9
+  },
+  {
+    "id": "project-codeflow-hook",
+    "title": "codeflow-hook",
+    "tags": [
+      "project",
+      "codeflow-hook",
+      "open-source",
+      "npm",
+      "cli",
+      "ai-code-review",
+      "developer-tooling",
+      "typescript"
+    ],
+    "questions": [
+      "What is codeflow-hook?",
+      "Tell me about Himanshu's code review CLI",
+      "What open-source tools has Himanshu built?",
+      "Has Himanshu published an npm package?"
+    ],
+    "answer": "codeflow-hook is Himanshu's open-source AI-assisted code review CLI and npm package. It explores git-hook workflows, structured review feedback, and specialized review agents for security, architecture, and code quality. The project is positioned as developer tooling that supports human judgment rather than replacing tests, CI, or human review.",
+    "sources": [
+      {
+        "id": "codeflow-hook",
+        "section": "Projects",
+        "title": "codeflow-hook",
+        "url": "https://github.com/Sharv619/codeflow-hook"
+      },
+      {
+        "id": "codeflow-hook-npm",
+        "section": "Package",
+        "title": "codeflow-hook npm",
+        "url": "https://www.npmjs.com/package/codeflow-hook"
+      }
+    ],
+    "priority": 10
+  },
+  {
+    "id": "project-pilly-medimate-voice",
+    "title": "Pilly / MediMate Voice",
+    "tags": [
+      "project",
+      "pilly",
+      "medimate",
+      "firebase",
+      "gemini",
+      "responsible-ai",
+      "healthcare",
+      "medication",
+      "mvp"
+    ],
+    "questions": [
+      "What is Pilly?",
+      "Tell me about MediMate Voice",
+      "Has Himanshu built healthcare AI projects?",
+      "What responsible AI work has Himanshu done?"
+    ],
+    "answer": "Pilly / MediMate Voice is a Firebase-backed responsible-AI medication support MVP from a Google AI hackathon context. It explores event-based reminder responses for seniors, caregiver visibility for missed-dose/refusal/snooze/help-request states, Firestore logs, Cloud Function-first workflows, Gemini response classification, and deterministic fallback handling. It is explicitly a prototype, not a medical device, and does not provide diagnosis, dosage advice, or medical decisions.",
+    "sources": [
+      {
+        "id": "pilly-medimate-voice",
+        "section": "Flagship Case Studies",
+        "title": "Pilly / MediMate Voice"
+      },
+      {
+        "id": "healthcare-safety-boundary",
+        "section": "Claim Guardrails",
+        "title": "Healthcare Safety Boundary"
+      }
+    ],
+    "priority": 9
+  },
+  {
+    "id": "project-launchpad",
+    "title": "Launchpad",
+    "tags": [
+      "project",
+      "launchpad",
+      "career",
+      "prototype",
+      "student",
+      "job-search",
+      "workflow"
+    ],
+    "questions": [
+      "What is Launchpad?",
+      "Tell me about the Launchpad project",
+      "Has Himanshu built career workflow tools?",
+      "What job search tools has Himanshu worked on?"
+    ],
+    "answer": "Launchpad is represented as a career/workflow-oriented project area in Himanshu's portfolio context. Keep public claims conservative unless a specific repository or case study is available: describe it as an exploratory workflow/project direction rather than a verified production platform.",
+    "sources": [
+      {
+        "id": "portfolio-positioning",
+        "section": "Portfolio Positioning",
+        "title": "Project Status Boundaries"
+      }
+    ],
+    "priority": 5
+  },
+  {
+    "id": "project-backpocket-os",
+    "title": "BackPocket OS",
+    "tags": [
+      "project",
+      "backpocket",
+      "workflow-automation",
+      "small-business",
+      "rag",
+      "local-first",
+      "gmail",
+      "google-drive",
+      "fastapi"
+    ],
+    "questions": [
+      "What is BackPocket OS?",
+      "Tell me about BackPocket",
+      "What AI workflow automation has Himanshu built?",
+      "What does local-first mean in BackPocket OS?"
+    ],
+    "answer": "BackPocket OS is an AI-assisted admin workflow automation prototype for small-business operations. It explores turning messy emails, quote requests, documents, and follow-ups into structured operational tasks while keeping human review visible before actions become business decisions. The project emphasizes privacy, operator approval, RAG-assisted context retrieval, Google integration planning, and local-first workflow constraints.",
+    "sources": [
+      {
+        "id": "backpocket-os",
+        "section": "Flagship Case Studies",
+        "title": "BackPocket OS",
+        "url": "https://github.com/Sharv619/backpocket-os-ai"
+      },
+      {
+        "id": "backpocket-os-offline",
+        "section": "GitHub",
+        "title": "BackPocket OS Offline",
+        "url": "https://github.com/Sharv619/backpocket-os-ai-offline"
+      }
+    ],
+    "priority": 8
+  },
+  {
+    "id": "project-network-guardian-ai",
+    "title": "Network Guardian AI",
+    "tags": [
+      "project",
+      "network-guardian",
+      "security",
+      "cybersecurity",
+      "fastapi",
+      "react",
+      "adguard",
+      "anomaly-detection",
+      "gemini"
+    ],
+    "questions": [
+      "What is Network Guardian AI?",
+      "Tell me about Himanshu's cybersecurity project",
+      "Has Himanshu built security tooling?",
+      "What anomaly detection work has Himanshu done?"
+    ],
+    "answer": "Network Guardian AI is an AI-assisted network security prototype. It explores AdGuard-connected DNS traffic review, local entropy and anomaly scoring, optional Gemini/Ollama escalation, SQLite-backed domain history, tenant-aware access patterns, FastAPI APIs, and a React dashboard. Public claims should frame it as a prototype and review workflow, not a production security product.",
+    "sources": [
+      {
+        "id": "network-guardian-ai",
+        "section": "Projects",
+        "title": "Network Guardian AI",
+        "url": "https://github.com/Sharv619/network-guardian-ai"
+      },
+      {
+        "id": "network-guardian-ai-case-study",
+        "section": "Flagship Case Studies",
+        "title": "Network Guardian AI"
+      }
+    ],
+    "priority": 8
+  },
+  {
+    "id": "project-sharvilak-writes",
+    "title": "Sharvilak Writes",
+    "tags": [
+      "project",
+      "sharvilak",
+      "writes",
+      "content",
+      "portfolio",
+      "publishing",
+      "writing"
+    ],
+    "questions": [
+      "What is Sharvilak Writes?",
+      "Tell me about Sharvilak Writes",
+      "Does Himanshu have a writing project?",
+      "What content projects has Himanshu made?"
+    ],
+    "answer": "Sharvilak Writes is a writing/content-oriented project in Himanshu's public project ecosystem. Keep claims modest: it should be described as a content or publishing project unless stronger implementation evidence is surfaced from its repository or case-study files.",
+    "sources": [
+      {
+        "id": "sharvilak-writes",
+        "section": "GitHub Repo Positioning",
+        "title": "Sharvilak Writes"
+      },
+      {
+        "id": "internal-evidence-report",
+        "section": "Evidence Report",
+        "title": "Sharvilak Writes"
+      }
+    ],
+    "priority": 5
+  },
+  {
+    "id": "project-aws-bedrock-rag-assistant",
+    "title": "AWS Bedrock RAG Assistant",
+    "tags": [
+      "project",
+      "portfolio",
+      "assistant",
+      "aws",
+      "bedrock",
+      "rag",
+      "lambda",
+      "s3",
+      "guardrails",
+      "synthetic-rag"
+    ],
+    "questions": [
+      "How does this assistant work?",
+      "Tell me about the AWS Bedrock RAG assistant",
+      "What is the portfolio chatbot architecture?",
+      "Has Himanshu used AWS Bedrock?"
+    ],
+    "answer": "The portfolio assistant is an AWS Bedrock-ready chatbot for answering questions about Himanshu's experience, projects, and skills. The hardened v1 direction avoids expensive vector infrastructure and uses curated Synthetic RAG over portfolio data, with optional Bedrock polishing, Bedrock Guardrails, S3 storage, Lambda orchestration, and API Gateway access.",
+    "sources": [
+      {
+        "id": "portfolio",
+        "section": "Projects",
+        "title": "Personal Portfolio",
+        "url": "https://github.com/Sharv619/sharv619.github.io"
+      },
+      {
+        "id": "synthetic-rag-docs",
+        "section": "Deployment Docs",
+        "title": "Synthetic RAG Architecture"
+      }
+    ],
+    "priority": 9
+  },
+  {
+    "id": "skills-devops-security",
+    "title": "DevOps and Security Skills",
+    "tags": [
+      "skills",
+      "devops",
+      "security",
+      "aws",
+      "docker",
+      "github-actions",
+      "ci-cd",
+      "owasp",
+      "production"
+    ],
+    "questions": [
+      "What DevOps skills does Himanshu have?",
+      "What security experience does Himanshu have?",
+      "Does Himanshu know AWS and Docker?",
+      "What production reliability experience does Himanshu have?"
+    ],
+    "answer": "Himanshu's DevOps and security skills include AWS-oriented deployment work, Docker, GitHub Actions, CI/CD, production recovery, credential rotation and access-boundary thinking, OWASP-guided authentication review, and performance/reliability work. His strongest evidence is the Ask Jay production recovery case study and ACS authentication/security internship work.",
+    "sources": [
+      {
+        "id": "skills-cloud-devops",
+        "section": "Skills",
+        "title": "Cloud and DevOps"
+      },
+      {
+        "id": "ask-jay",
+        "section": "Experience",
+        "title": "Ask Jay Services"
+      },
+      {
+        "id": "acs",
+        "section": "Experience",
+        "title": "Australian Computer Society"
+      }
+    ],
+    "priority": 9
+  },
+  {
+    "id": "philosophy-local-first-ai",
+    "title": "Local-First AI Philosophy",
+    "tags": [
+      "philosophy",
+      "local-first",
+      "privacy",
+      "ai",
+      "human-review",
+      "responsible-ai",
+      "workflow"
+    ],
+    "questions": [
+      "What is Himanshu's local-first AI philosophy?",
+      "How does Himanshu think about AI safety?",
+      "Does Himanshu prefer human-in-the-loop AI?",
+      "What are Himanshu's AI principles?"
+    ],
+    "answer": "Himanshu's AI project framing favors practical, local-first, privacy-aware workflows where AI supports human judgment rather than replacing ownership. This appears in codeflow-hook's human-review stance, BackPocket OS operator approval points, Pilly's deterministic safety boundaries, and the portfolio assistant's Synthetic RAG design that keeps answers inspectable and grounded in curated sources.",
+    "sources": [
+      {
+        "id": "codeflow-hook",
+        "section": "Flagship Case Studies",
+        "title": "codeflow-hook"
+      },
+      {
+        "id": "backpocket-os",
+        "section": "Flagship Case Studies",
+        "title": "BackPocket OS"
+      },
+      {
+        "id": "pilly-medimate-voice",
+        "section": "Flagship Case Studies",
+        "title": "Pilly / MediMate Voice"
+      }
+    ],
+    "priority": 8
+  }
+]

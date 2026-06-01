@@ -9,11 +9,41 @@ describe('RAG Client', () => {
       expect(getFallbackResponse('hey there')).toContain('Assistant');
     });
 
+    it('handles typo-like greeting punctuation in demo knowledge responses', () => {
+      const result = getKnowledgeBaseResponse('hel;lo');
+
+      expect(result.response).toContain('Assistant');
+      expect(result.sources.some((source) => source.id === 'profile-himanshu-lade')).toBe(true);
+    });
+
+    it('answers what do you do as a profile question in demo mode', () => {
+      const result = getKnowledgeBaseResponse('what do you do?');
+
+      expect(result.response).toContain("Himanshu");
+      expect(result.response).toContain("Software Engineer");
+      expect(result.sources.some((source) => source.id === 'personal')).toBe(true);
+    });
+
     it('returns projects for project queries', () => {
       const response = getFallbackResponse('what projects has himanshu built');
       expect(response).toContain('GitHub');
       expect(response).toContain('Production Recovery');
       expect(response).toContain('codeflow-hook');
+    });
+
+    it('routes AI project queries to project answers in demo mode', () => {
+      const result = getKnowledgeBaseResponse('ai projects');
+
+      expect(result.response).toMatch(/Network Guardian AI|AWS Bedrock|Pilly|codeflow-hook/i);
+      expect(result.sources.length).toBeGreaterThan(0);
+      expect(result.sources[0].section).not.toBe('Knowledge Base: Skills');
+    });
+
+    it('routes AI ML queries to project answers instead of broad skills', () => {
+      const result = getKnowledgeBaseResponse('AI ML');
+
+      expect(result.response).toMatch(/Network Guardian AI|Pilly|BackPocket|AWS Bedrock/i);
+      expect(result.sources[0].section).not.toBe('Knowledge Base: Skills');
     });
 
     it('returns skills for skill queries', () => {

@@ -1,4 +1,5 @@
 import knowledgeBase from "@/lib/knowledge-base.json";
+import { getSyntheticRagResponse } from "@/lib/assistant/synthetic-rag";
 
 interface KnowledgeBaseSource {
   id: string;
@@ -31,6 +32,73 @@ function matchesAny(message: string, keywords: string[]): boolean {
 
     return new RegExp(`\\b${keyword}\\b`, "i").test(message);
   });
+}
+
+function isGreeting(message: string): boolean {
+  const compact = message.toLowerCase().replace(/[^a-z]/g, "");
+  const normalized = message.toLowerCase().replace(/[^a-z0-9\s]/g, " ");
+
+  return (
+    ["hi", "hey", "hello", "helo", "helloo"].includes(compact) ||
+    /\b(hi|hey|hello|helo)\b/i.test(normalized)
+  );
+}
+
+function isProfileIntent(message: string): boolean {
+  return matchesAny(message, [
+    "who are you",
+    "what do you do",
+    "what are you",
+    "your name",
+    "about himanshu",
+    "tell me about himanshu",
+    "profile",
+    "summary",
+    "contact",
+    "available",
+  ]);
+}
+
+function isProjectIntent(message: string): boolean {
+  return matchesAny(message, [
+    "project",
+    "projects",
+    "built",
+    "build",
+    "github",
+    "case study",
+    "case studies",
+    "ai projects",
+    "ml projects",
+    "ai ml",
+    "network",
+    "guardian",
+    "codeflow",
+    "pilly",
+    "medimate",
+    "backpocket",
+    "launchpad",
+    "sharvilak",
+    "portfolio",
+    "chatbot",
+    "assistant",
+  ]);
+}
+
+function isBroadSkillsIntent(message: string): boolean {
+  return matchesAny(message, [
+    "skill",
+    "skills",
+    "tech stack",
+    "technology",
+    "technologies",
+    "language",
+    "languages",
+    "framework",
+    "frameworks",
+    "devops skills",
+    "security skills",
+  ]);
 }
 
 function formatList(items: string[], limit = 4): string {
@@ -129,12 +197,28 @@ function buildEducationResponse(): KnowledgeBaseResponse {
 export function getKnowledgeBaseResponse(message: string): KnowledgeBaseResponse {
   const lower = message.toLowerCase();
 
-  if (matchesAny(lower, ["hi", "hello", "hey", "who are you", "your name", "about himanshu", "contact", "available"])) {
+  if (isGreeting(lower)) {
+    return {
+      response: fallbackResponses.greeting,
+      sources: [{ id: "profile-himanshu-lade", section: "Synthetic RAG", title: "Himanshu Lade Profile" }],
+    };
+  }
+
+  if (isProfileIntent(lower)) {
     return buildPersonalResponse();
   }
 
-  if (matchesAny(lower, ["skill", "skills", "tech stack", "technology", "technologies", "language", "languages", "framework", "frameworks", "aws", "docker", "rag", "ai"])) {
-    return buildSkillsResponse();
+  if (isProjectIntent(lower)) {
+    const syntheticResult = getSyntheticRagResponse(message);
+    if (syntheticResult.confidence !== "low") {
+      return {
+        response: syntheticResult.response,
+        sources: syntheticResult.sources,
+      };
+    }
+
+    const matchedProjects = knowledgeBase.projects.filter((project) => projectMatches(project, lower));
+    return buildProjectResponse(matchedProjects.length > 0 ? matchedProjects : knowledgeBase.projects);
   }
 
   if (matchesAny(lower, ["experience", "job", "work", "career", "ask jay", "acs", "intern"])) {
@@ -145,9 +229,16 @@ export function getKnowledgeBaseResponse(message: string): KnowledgeBaseResponse
     return buildEducationResponse();
   }
 
-  if (matchesAny(lower, ["project", "built", "github", "network", "guardian", "codeflow", "portfolio", "chatbot"])) {
-    const matchedProjects = knowledgeBase.projects.filter((project) => projectMatches(project, lower));
-    return buildProjectResponse(matchedProjects.length > 0 ? matchedProjects : knowledgeBase.projects);
+  if (isBroadSkillsIntent(lower)) {
+    return buildSkillsResponse();
+  }
+
+  const syntheticResult = getSyntheticRagResponse(message);
+  if (syntheticResult.confidence !== "low") {
+    return {
+      response: syntheticResult.response,
+      sources: syntheticResult.sources,
+    };
   }
 
   return {

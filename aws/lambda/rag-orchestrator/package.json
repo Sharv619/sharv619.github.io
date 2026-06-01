@@ -4,13 +4,11 @@
   "description": "AWS Lambda RAG Orchestrator with Bedrock Guardrails",
   "main": "index.js",
   "scripts": {
-    "deploy": "zip -r function.zip . && aws lambda update-function-code --function-name Assistant-RAG --zip-file fileb://function.zip"
+    "package": "zip -r function.zip . -x function.zip",
+    "deploy": "npm run package && aws lambda update-function-code --function-name Assistant-RAG-Orchestrator --zip-file fileb://function.zip"
   },
   "dependencies": {
     "@aws-sdk/client-bedrock-runtime": "^3.600.0",
-    "@aws-sdk/client-opensearchserverless": "^3.600.0",
-    "@aws-sdk/client-s3": "^3.600.0",
-    "@aws-sdk/client-bedrock": "^3.600.0",
-    "pg": "^8.11.0"
+    "@aws-sdk/client-s3": "^3.600.0"
   }
 }

@@ -2,6 +2,7 @@
 
 # dependencies
 /node_modules
+aws/lambda/rag-orchestrator/node_modules/
 /.pnp
 .pnp.*
 .yarn/*
@@ -19,6 +20,14 @@
 
 # production
 /build
+aws/lambda/rag-orchestrator/function.zip
+
+# AWS CLI installer artifacts
+/awscliv2.zip
+/aws/dist/
+/aws/install
+/aws/README.md
+/aws/THIRD_PARTY_LICENSES
 
 # misc
 .DS_Store
