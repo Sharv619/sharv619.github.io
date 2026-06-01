@@ -16,6 +16,7 @@ phases:
   post_build:
     commands:
       - test -f out/index.html
+      - aws s3 sync out s3://sharv619-portfolio-site --delete
 
 artifacts:
   base-directory: out
