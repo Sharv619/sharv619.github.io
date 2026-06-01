@@ -17,11 +17,11 @@
     "mcp:inspect": "npx @modelcontextprotocol/inspector tsx src/mcp/index.ts"
   },
   "dependencies": {
-    "@ai-sdk/google": "^2.0.32",
+    "@ai-sdk/google": "^3.0.80",
     "@aws-sdk/client-s3": "^3.1057.0",
     "@google/generative-ai": "^0.24.1",
     "@modelcontextprotocol/sdk": "^1.28.0",
-    "ai": "^5.0.93",
+    "ai": "^6.0.193",
     "codeflow-hook": "^2.1.0",
     "dotenv": "^17.4.2",
     "framer-motion": "^12.23.24",
