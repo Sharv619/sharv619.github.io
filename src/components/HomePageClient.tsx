@@ -34,7 +34,7 @@ interface HomePageClientProps {
 export default function HomePageClient({ projects }: HomePageClientProps) {
   const [selectedSkills, setSelectedSkills] = useState<string[]>([]);
   const certificationSkills = certifications.flatMap((certification) => certification.skills || []);
-  const caseStudies = getOrderedFlagshipCaseStudies();
+  const caseStudies = getOrderedFlagshipCaseStudies().slice(0, 3);
 
   const handleSkillToggle = (skill: string) => {
     setSelectedSkills(prev =>

@@ -20,6 +20,7 @@ export default function Navigation() {
 
   const navItems = [
     { name: "Home", href: "#home" },
+    { name: "Work", href: "#case-studies" },
     { name: "About", href: "#about" },
     { name: "Experience", href: "#experience" },
     { name: "Projects", href: "#projects" },
@@ -91,7 +92,9 @@ export default function Navigation() {
             <ThemeToggle />
           </div>
 
-          <div className="md:hidden">
+          <div className="flex items-center gap-2 md:hidden">
+            <ThemeToggle />
+
             <button
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
               className="rounded-md border border-stone-300 bg-white/70 p-2 text-stone-800 dark:border-white/10 dark:bg-white/5 dark:text-stone-200"
@@ -138,9 +141,12 @@ export default function Navigation() {
                 Ask AI
               </button>
 
-              <div className="pt-4 border-t border-stone-200 dark:border-white/10">
-                <ThemeToggle />
-              </div>
+              <a
+                href="/resume"
+                className="block w-full rounded-md border border-stone-300 bg-white/70 px-4 py-3 text-center text-sm font-semibold text-stone-900 dark:border-white/15 dark:bg-white/5 dark:text-white"
+              >
+                Resume
+              </a>
             </div>
           </motion.div>
         )}

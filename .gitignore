@@ -3,6 +3,8 @@
 # dependencies
 /node_modules
 aws/lambda/rag-orchestrator/node_modules/
+aws/nova-act/.venv/
+aws/nova-act/__pycache__/
 /.pnp
 .pnp.*
 .yarn/*

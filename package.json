@@ -11,6 +11,7 @@
     "test:run": "vitest --run",
     "test:watch": "vitest --watch",
     "test:ui": "vitest --ui",
+    "nova-act:run": "python3 aws/nova-act/workflow.py",
     "github:scrape": "tsx scripts/export-github-projects.ts",
     "synthetic-rag:generate": "tsx scripts/generate-synthetic-rag-index.ts",
     "mcp:start": "tsx src/mcp/index.ts",
