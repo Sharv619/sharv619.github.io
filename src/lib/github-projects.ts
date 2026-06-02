@@ -207,7 +207,10 @@ interface GetPortfolioProjectsOptions {
   username?: string;
   topic?: string;
   useFallback?: boolean;
+  source?: "auto" | "github" | "fallback";
 }
+
+const githubProjectCache = new Map<string, Promise<Project[]>>();
 
 export function isPortfolioRepository(repo: GitHubRepository, topic = PORTFOLIO_TOPIC): boolean {
   if (repo.private || repo.fork) {
@@ -401,29 +404,14 @@ export async function getPortfolioProjects(options: GetPortfolioProjectsOptions 
   const username = options.username || DEFAULT_GITHUB_USERNAME;
   const topic = options.topic || PORTFOLIO_TOPIC;
   const useFallback = options.useFallback ?? true;
+  const source = options.source || getPortfolioProjectSource();
+
+  if (source === "fallback" || (source === "auto" && isProductionBuild())) {
+    return fallbackProjects;
+  }
 
   try {
-    const repos = await fetchPortfolioRepositories(username, topic);
-    const projects = await mapWithConcurrency(repos, ENRICHMENT_CONCURRENCY, async (repo) => {
-      const [readme, languages, manifestEvidence] = await Promise.all([
-        fetchRepositoryReadme(username, repo.name).catch(() => ""),
-        fetchRepositoryLanguages(username, repo.name).catch(() => ({})),
-        fetchRepositoryManifestEvidence(username, repo.name).catch(() => ({
-          manifestSkills: [],
-          metadata: {},
-        })),
-      ]);
-
-      return normalizeRepositoryProject(repo, {
-        readme,
-        languages,
-        manifestSkills: manifestEvidence.manifestSkills,
-        evidenceMetadata: manifestEvidence.metadata,
-        topic,
-      });
-    });
-
-    return sortPortfolioProjects(projects);
+    return await getCachedGitHubProjects(username, topic);
   } catch (error) {
     if (!useFallback) {
       throw error;
@@ -432,6 +420,62 @@ export async function getPortfolioProjects(options: GetPortfolioProjectsOptions 
     console.warn("GitHub project feed unavailable, using curated fallback projects.", error);
     return fallbackProjects;
   }
+}
+
+function getCachedGitHubProjects(username: string, topic: string): Promise<Project[]> {
+  const cacheKey = `${username.toLowerCase()}:${topic.toLowerCase()}`;
+  const cachedProjects = githubProjectCache.get(cacheKey);
+
+  if (cachedProjects) {
+    return cachedProjects;
+  }
+
+  const projectsPromise = fetchGitHubProjects(username, topic).catch((error: unknown) => {
+    githubProjectCache.delete(cacheKey);
+    throw error;
+  });
+  githubProjectCache.set(cacheKey, projectsPromise);
+
+  return projectsPromise;
+}
+
+async function fetchGitHubProjects(username: string, topic: string): Promise<Project[]> {
+  const repos = await fetchPortfolioRepositories(username, topic);
+  const projects = await mapWithConcurrency(repos, ENRICHMENT_CONCURRENCY, async (repo) => {
+    const [readme, languages, manifestEvidence] = await Promise.all([
+      fetchRepositoryReadme(username, repo.name).catch(() => ""),
+      fetchRepositoryLanguages(username, repo.name).catch(() => ({})),
+      fetchRepositoryManifestEvidence(username, repo.name).catch(() => ({
+        manifestSkills: [],
+        metadata: {},
+      })),
+    ]);
+
+    return normalizeRepositoryProject(repo, {
+      readme,
+      languages,
+      manifestSkills: manifestEvidence.manifestSkills,
+      evidenceMetadata: manifestEvidence.metadata,
+      topic,
+    });
+  });
+
+  return sortPortfolioProjects(projects);
+}
+
+function getPortfolioProjectSource(): "auto" | "github" | "fallback" {
+  const source = process.env.PORTFOLIO_GITHUB_SOURCE?.trim().toLowerCase();
+
+  if (source === "github" || source === "fallback") {
+    return source;
+  }
+
+  return "auto";
+}
+
+function isProductionBuild(): boolean {
+  return process.env.NEXT_PHASE === "phase-production-build"
+    || process.env.npm_lifecycle_event === "build";
 }
 
 async function fetchPortfolioRepositories(username: string, topic: string): Promise<GitHubRepository[]> {

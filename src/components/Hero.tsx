@@ -61,6 +61,7 @@ export default function Hero() {
               </a>
               <a
                 href="#projects"
+                aria-label="View Himanshu Lade's GitHub project feed"
                 className="inline-flex items-center justify-center rounded-md border border-stone-300 bg-white/60 px-6 py-4 text-base font-bold text-stone-900 transition-colors duration-200 hover:border-stone-950 hover:bg-stone-950 hover:text-white dark:border-white/15 dark:bg-white/5 dark:text-white dark:hover:bg-white dark:hover:text-stone-950"
               >
                 View projects
@@ -69,6 +70,7 @@ export default function Hero() {
                 href="/himanshu_lade_resume.docx.pdf"
                 target="_blank"
                 rel="noopener noreferrer"
+                aria-label="Open Himanshu Lade resume PDF"
                 className="inline-flex items-center justify-center rounded-md border border-transparent px-4 py-4 text-base font-bold text-stone-700 transition-colors duration-200 hover:text-teal-800 dark:text-stone-300 dark:hover:text-teal-200"
               >
                 Resume PDF
@@ -82,7 +84,8 @@ export default function Hero() {
                   href={url}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="rounded-md border border-stone-300 bg-white/50 px-3 py-2 font-semibold capitalize text-stone-700 transition-colors duration-200 hover:border-teal-700 hover:text-teal-800 dark:border-white/10 dark:bg-white/5 dark:text-stone-300 dark:hover:border-teal-300 dark:hover:text-teal-200"
+                  aria-label={`Open Himanshu Lade ${key} profile`}
+                  className="inline-flex min-h-11 items-center rounded-md border border-stone-300 bg-white/50 px-4 py-2 font-semibold capitalize text-stone-700 transition-colors duration-200 hover:border-teal-700 hover:text-teal-800 dark:border-white/10 dark:bg-white/5 dark:text-stone-300 dark:hover:border-teal-300 dark:hover:text-teal-200"
                 >
                   {key}
                 </a>
@@ -104,7 +107,7 @@ export default function Hero() {
                 src={personalInfo.avatar}
                 alt="Himanshu Lade - Software Engineer"
                 fill
-                sizes="(min-width: 1024px) 42vw, 92vw"
+                sizes="(min-width: 1280px) 470px, (min-width: 1024px) 42vw, 92vw"
                 className="object-cover"
                 priority
                 placeholder="blur"

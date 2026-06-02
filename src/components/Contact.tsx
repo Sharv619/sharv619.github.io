@@ -40,6 +40,7 @@ export default function Contact() {
                 href={url}
                 target="_blank"
                 rel="noopener noreferrer"
+                aria-label={`Open Himanshu Lade ${key} profile`}
                 whileHover={{ scale: 1.1, y: -5 }}
                 whileTap={{ scale: 0.95 }}
                 className="group flex min-h-32 flex-col items-center justify-center rounded-lg border border-white/10 bg-black/20 p-4 text-center transition-colors duration-300 hover:bg-white hover:text-stone-950"
@@ -78,6 +79,7 @@ export default function Contact() {
           >
             <a
               href={socialLinks.email}
+              aria-label="Email Himanshu Lade"
               className="mt-6 inline-flex w-full items-center justify-center rounded-md bg-teal-300 px-8 py-4 font-black text-stone-950 shadow-lg transition-colors duration-300 hover:bg-white"
             >
               <svg className="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">

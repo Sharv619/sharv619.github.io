@@ -112,7 +112,7 @@ export default function Projects({ selectedSkills, projects }: ProjectsProps) {
                 <div className="flex space-x-2">
                   <button
                     onClick={prevSlide}
-                    className="rounded-md bg-stone-950 p-2 text-white transition-colors duration-300 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 dark:bg-white dark:text-stone-950 dark:hover:bg-indigo-200"
+                    className="inline-flex h-11 w-11 items-center justify-center rounded-md bg-stone-950 text-white transition-colors duration-300 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 dark:bg-white dark:text-stone-950 dark:hover:bg-indigo-200"
                     aria-label="Previous project"
                   >
                     <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -121,7 +121,7 @@ export default function Projects({ selectedSkills, projects }: ProjectsProps) {
                   </button>
                   <button
                     onClick={nextSlide}
-                    className="rounded-md bg-stone-950 p-2 text-white transition-colors duration-300 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 dark:bg-white dark:text-stone-950 dark:hover:bg-indigo-200"
+                    className="inline-flex h-11 w-11 items-center justify-center rounded-md bg-stone-950 text-white transition-colors duration-300 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 dark:bg-white dark:text-stone-950 dark:hover:bg-indigo-200"
                     aria-label="Next project"
                   >
                     <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -173,6 +173,7 @@ export default function Projects({ selectedSkills, projects }: ProjectsProps) {
               <div className="flex flex-col gap-3 sm:flex-row">
                 <Link
                   href={`/projects/${getProjectSlug(currentProject)}`}
+                  aria-label={`Read more about ${currentProject.title}`}
                   className="inline-block flex-1 rounded-md bg-stone-950 px-6 py-3 text-center font-bold text-white transition-colors duration-300 hover:bg-indigo-700 dark:bg-white dark:text-stone-950 dark:hover:bg-indigo-200"
                 >
                   Read More
@@ -181,6 +182,7 @@ export default function Projects({ selectedSkills, projects }: ProjectsProps) {
                   href={currentProject.githubUrl}
                   target="_blank"
                   rel="noopener noreferrer"
+                  aria-label={`Open source code for ${currentProject.title}`}
                   className="inline-block flex-1 rounded-md border border-stone-300 px-6 py-3 text-center font-bold text-stone-700 transition-colors duration-300 hover:bg-white dark:border-white/15 dark:text-stone-300 dark:hover:bg-white/10"
                 >
                   Source Code
@@ -195,13 +197,17 @@ export default function Projects({ selectedSkills, projects }: ProjectsProps) {
               <button
                 key={index}
                 onClick={() => goToSlide(index)}
-                className={`w-3 h-3 rounded-full transition-colors duration-300 ${
-                  index === activeIndex
-                    ? 'bg-indigo-600'
-                    : 'bg-stone-300 hover:bg-indigo-400 dark:bg-white/20'
-                }`}
+                className="inline-flex h-11 w-11 items-center justify-center rounded-full"
                 aria-label={`Go to project ${index + 1}`}
-              />
+              >
+                <span
+                  className={`block h-3 w-3 rounded-full transition-colors duration-300 ${
+                    index === activeIndex
+                      ? 'bg-indigo-600'
+                      : 'bg-stone-300 hover:bg-indigo-400 dark:bg-white/20'
+                  }`}
+                />
+              </button>
             ))}
           </div>
 
@@ -211,11 +217,12 @@ export default function Projects({ selectedSkills, projects }: ProjectsProps) {
               <button
                 key={index}
                 onClick={() => goToSlide(index)}
-                className={`p-3 rounded-md text-xs font-medium transition-colors duration-300 ${
+                className={`min-h-11 rounded-md p-3 text-xs font-medium transition-colors duration-300 ${
                   index === activeIndex
                     ? 'bg-indigo-700 text-white'
                     : 'bg-stone-100 text-stone-600 hover:bg-indigo-100 dark:bg-white/5 dark:text-stone-300 dark:hover:bg-indigo-900'
                 }`}
+                aria-label={`Show ${project.title}`}
               >
                 {project.title.length > 20 ? `${project.title.substring(0, 20)}...` : project.title}
               </button>

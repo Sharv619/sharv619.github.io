@@ -34,6 +34,15 @@ describe("Synthetic RAG", () => {
     expect(result.sources.some((source) => source.id === "portfolio")).toBe(true);
   });
 
+  it("answers hackathon questions", () => {
+    const result = getSyntheticRagResponse("hackathons");
+
+    expect(result.confidence).toBe("high");
+    expect(result.response).toContain("Pilly / MediMate Voice");
+    expect(result.response).toContain("LifeOS");
+    expect(result.sources.some((source) => source.id === "lifeos-personal-ai-calendar")).toBe(true);
+  });
+
   it("returns a safe fallback for unknown unrelated questions", () => {
     const result = getSyntheticRagResponse("Can you plan my vacation itinerary in Japan?");
 

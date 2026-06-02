@@ -1,7 +1,3 @@
-"use client";
-
-import { motion } from "framer-motion";
-
 interface EducationSectionProps {
   education: Array<{
     degree: string;
@@ -12,12 +8,7 @@ interface EducationSectionProps {
 
 export default function EducationSection({ education }: EducationSectionProps) {
   return (
-    <motion.div
-      initial={{ opacity: 0, y: 20 }}
-      animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.6, delay: 0.5 }}
-      className="bg-white dark:bg-gray-800 rounded-lg shadow-lg p-8 mb-8"
-    >
+    <div className="bg-white dark:bg-gray-800 rounded-lg shadow-lg p-8 mb-8">
       <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-6 flex items-center">
         <svg className="w-6 h-6 mr-3 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
@@ -27,11 +18,8 @@ export default function EducationSection({ education }: EducationSectionProps) {
       
       <div className="space-y-6">
         {education.map((edu, index) => (
-          <motion.div
+          <div
             key={index}
-            initial={{ opacity: 0, x: -20 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.6, delay: 0.6 + index * 0.1 }}
             className="relative pl-8 border-l-4 border-green-500 dark:border-green-400"
           >
             {/* Timeline Dot */}
@@ -48,11 +36,11 @@ export default function EducationSection({ education }: EducationSectionProps) {
                 {edu.duration}
               </span>
             </div>
-          </motion.div>
+          </div>
         ))}
       </div>
       
 
-    </motion.div>
+    </div>
   );
 }

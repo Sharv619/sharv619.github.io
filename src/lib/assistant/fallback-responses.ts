@@ -68,6 +68,8 @@ function isProjectIntent(message: string): boolean {
     "github",
     "case study",
     "case studies",
+    "hackathon",
+    "hackathons",
     "ai projects",
     "ml projects",
     "ai ml",
@@ -82,6 +84,9 @@ function isProjectIntent(message: string): boolean {
     "portfolio",
     "chatbot",
     "assistant",
+    "mistral",
+    "deepmind",
+    "unsw",
   ]);
 }
 

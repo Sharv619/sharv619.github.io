@@ -29,13 +29,13 @@ export default function Skills({ projects, supplementalSkills = [], selectedSkil
           className="lg:self-center"
         >
           <p className="mb-3 text-sm font-bold uppercase tracking-[0.18em] text-teal-700 dark:text-teal-300">
-            Skills map
+            Skills
           </p>
           <h2 className="text-balance text-4xl font-black leading-tight text-stone-950 sm:text-5xl dark:text-white">
-            Click a skill. The lab changes with it.
+            Tools I have used in real work.
           </h2>
           <p className="mt-5 text-lg leading-8 text-stone-700 dark:text-stone-300">
-            Derived from project technologies, repo topics, manifests, and certifications.
+            Click any skill to filter the project lab.
           </p>
           {selectedSkills.length > 0 && (
             <div className="mt-6 rounded-lg border border-teal-700/20 bg-white p-4 dark:border-teal-300/20 dark:bg-white/5">

@@ -1,5 +1,47 @@
 [
   {
+    "id": "hackathon-work",
+    "title": "Hackathon Work",
+    "tags": [
+      "hackathon",
+      "hackathons",
+      "mistral",
+      "unsw",
+      "google",
+      "deepmind",
+      "pilly",
+      "medimate",
+      "network-guardian-ai",
+      "lifeos"
+    ],
+    "questions": [
+      "What hackathons has Himanshu done?",
+      "Tell me about Himanshu's hackathon work",
+      "Has Himanshu done hackathons?",
+      "What did Himanshu build at hackathons?"
+    ],
+    "answer": "Himanshu's hackathon work includes Pilly / MediMate Voice from a Google AI hackathon context, Network Guardian AI linked to a Google DeepMind Hackathon entry, and LifeOS, a Mistral AI x UNSW Founders Hackathon winner.",
+    "sources": [
+      {
+        "id": "pilly-medimate-voice",
+        "section": "Flagship Case Studies",
+        "title": "Pilly / MediMate Voice"
+      },
+      {
+        "id": "network-guardian-ai",
+        "section": "Knowledge Base: Projects",
+        "title": "Network Guardian AI",
+        "url": "https://github.com/Sharv619/network-guardian-ai"
+      },
+      {
+        "id": "lifeos-personal-ai-calendar",
+        "section": "Projects",
+        "title": "LifeOS - Personal AI Calendar"
+      }
+    ],
+    "priority": 10
+  },
+  {
     "id": "profile-himanshu-lade",
     "title": "Himanshu Lade Profile",
     "tags": [

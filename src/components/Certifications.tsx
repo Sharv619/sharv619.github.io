@@ -62,7 +62,8 @@ export default function Certifications() {
                   href={certification.credentialUrl}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="mt-5 inline-flex font-bold text-rose-700 transition-colors duration-300 hover:text-rose-900 dark:text-rose-300 dark:hover:text-rose-200"
+                  aria-label={`View credential for ${certification.title} from ${certification.issuer}`}
+                  className="mt-5 inline-flex min-h-11 items-center font-bold text-rose-700 transition-colors duration-300 hover:text-rose-900 dark:text-rose-300 dark:hover:text-rose-200"
                 >
                   View Credential
                 </a>

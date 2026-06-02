@@ -43,6 +43,13 @@ export default function SourceCard({ sources }: SourceCardProps) {
   if (!sources || sources.length === 0) return null;
 
   const visibleSources = isExpanded ? sources : sources.slice(0, 3);
+  const formatSimilarity = (similarity: number): string | null => {
+    if (similarity <= 0 || similarity > 1) {
+      return null;
+    }
+
+    return `${Math.round(similarity * 100)}%`;
+  };
 
   return (
     <div className="mt-3">
@@ -61,15 +68,16 @@ export default function SourceCard({ sources }: SourceCardProps) {
           const icon = sectionIcons[source.section] || "📄";
           const colorClass = sectionColors[source.section] || "from-gray-500/20 to-gray-600/10 border-gray-500/30";
           const sourceLabel = source.title || source.section;
+          const similarityLabel = source.similarity ? formatSimilarity(source.similarity) : null;
           const sourceContent = (
             <>
               <span className="text-sm">{icon}</span>
               <span className="text-xs text-gray-200 font-medium">
                 {sourceLabel}
               </span>
-              {source.similarity && (
+              {similarityLabel && (
                 <span className="text-xs text-gray-400 ml-1">
-                  {Math.round(source.similarity * 100)}%
+                  {similarityLabel}
                 </span>
               )}
             </>

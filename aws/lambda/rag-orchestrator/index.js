@@ -3,6 +3,7 @@ const { S3Client, GetObjectCommand } = require("@aws-sdk/client-s3");
 
 const AWS_REGION = process.env.AWS_REGION || "us-east-1";
 const KB_S3_BUCKET = process.env.KB_S3_BUCKET || "sharv619-knowledge-base";
+const KB_JSON_S3_KEY = process.env.KB_JSON_S3_KEY || "knowledge-base.json";
 const SYNTHETIC_RAG_S3_KEY = process.env.SYNTHETIC_RAG_S3_KEY || "synthetic-rag-index.json";
 const GUARDRAIL_ID = process.env.GUARDRAIL_ID;
 const GUARDRAIL_VERSION = process.env.GUARDRAIL_VERSION || "DRAFT";
@@ -15,6 +16,7 @@ const ALLOWED_ORIGINS = (process.env.ALLOWED_ORIGINS || "http://localhost:3000,h
 
 const MAX_INPUT_LENGTH = getIntegerEnv("MAX_INPUT_LENGTH", 1000);
 const MAX_POLISH_TOKENS = getIntegerEnv("MAX_POLISH_TOKENS", 500);
+const SHORT_RESPONSE_LIMIT = getIntegerEnv("SHORT_RESPONSE_LIMIT", 200);
 const HIGH_CONFIDENCE_THRESHOLD = getIntegerEnv("HIGH_CONFIDENCE_THRESHOLD", 12);
 const MEDIUM_CONFIDENCE_THRESHOLD = getIntegerEnv("MEDIUM_CONFIDENCE_THRESHOLD", 5);
 const INDEX_CACHE_TTL_MS = getIntegerEnv("INDEX_CACHE_TTL_SECONDS", 600) * 1000;
@@ -49,6 +51,7 @@ const STOP_WORDS = new Set([
 const bedrockRuntime = new BedrockRuntimeClient({ region: AWS_REGION });
 const s3 = new S3Client({ region: AWS_REGION });
 const indexCache = { expiresAt: 0, entries: [] };
+const knowledgeBaseCache = { expiresAt: 0, value: null };
 
 exports.handler = async (event) => {
   const headers = getCorsHeaders(event);
@@ -78,11 +81,41 @@ exports.handler = async (event) => {
       }, headers);
     }
 
+    if (isGreeting(validation.message)) {
+      return jsonResponse(200, {
+        response: "Hey, I'm Himanshu's portfolio assistant. Ask me about his projects, skills, experience, or AWS work.",
+        sources: [],
+        metadata: {
+          mode: "synthetic-rag",
+          confidence: "high",
+          bedrockUsed: false,
+          chunksRetrieved: 0,
+        },
+      }, headers);
+    }
+
     const entries = await getSyntheticRagIndex();
     const matches = searchSyntheticRagIndex(inputGuard.filteredContent || validation.message, entries);
     const confidence = getSyntheticRagConfidence(matches);
 
     if (confidence === "low" || matches.length === 0) {
+      const knowledgeBaseAnswer = await getKnowledgeBaseAnswer(inputGuard.filteredContent || validation.message);
+
+      if (knowledgeBaseAnswer) {
+        return jsonResponse(200, {
+          response: isLongQuestion(validation.message)
+            ? knowledgeBaseAnswer.response
+            : toShortAnswer(knowledgeBaseAnswer.response),
+          sources: knowledgeBaseAnswer.sources,
+          metadata: {
+            mode: "knowledge-base",
+            confidence: "medium",
+            bedrockUsed: false,
+            chunksRetrieved: knowledgeBaseAnswer.sources.length,
+          },
+        }, headers);
+      }
+
       return jsonResponse(200, {
         response: "I don't have enough portfolio context to answer that safely. Ask me about Himanshu's experience, projects, skills, AWS work, or AI workflow prototypes.",
         sources: [],
@@ -95,7 +128,7 @@ exports.handler = async (event) => {
       }, headers);
     }
 
-    const directAnswer = buildDirectAnswer(matches);
+    const directAnswer = buildDirectAnswer(validation.message, matches);
     const sources = buildSources(matches);
     const shouldPolish = confidence === "medium" && ENABLE_BEDROCK_POLISH;
     const response = shouldPolish
@@ -205,6 +238,184 @@ async function getSyntheticRagIndex() {
   indexCache.entries = entries;
   indexCache.expiresAt = now + INDEX_CACHE_TTL_MS;
   return entries;
+}
+
+async function getKnowledgeBase() {
+  const now = Date.now();
+  if (knowledgeBaseCache.expiresAt > now && knowledgeBaseCache.value) {
+    return knowledgeBaseCache.value;
+  }
+
+  const command = new GetObjectCommand({
+    Bucket: KB_S3_BUCKET,
+    Key: KB_JSON_S3_KEY,
+  });
+  const response = await s3.send(command);
+  const body = await streamToString(response.Body);
+  const knowledgeBase = JSON.parse(body);
+
+  if (!knowledgeBase || typeof knowledgeBase !== "object") {
+    throw new Error("Knowledge base must be an object");
+  }
+
+  knowledgeBaseCache.value = knowledgeBase;
+  knowledgeBaseCache.expiresAt = now + INDEX_CACHE_TTL_MS;
+  return knowledgeBase;
+}
+
+async function getKnowledgeBaseAnswer(message) {
+  const knowledgeBase = await getKnowledgeBase().catch((error) => {
+    console.error("Knowledge base fallback failed:", error);
+    return null;
+  });
+
+  if (!knowledgeBase) {
+    return null;
+  }
+
+  const tokens = tokenizeSyntheticQuery(message);
+  if (tokens.length === 0) {
+    return null;
+  }
+
+  const documents = buildKnowledgeBaseDocuments(knowledgeBase);
+  const matches = documents
+    .map((document) => ({
+      document,
+      score: scoreKnowledgeBaseDocument(document, tokens),
+    }))
+    .filter((match) => match.score > 0)
+    .sort((left, right) => right.score - left.score)
+    .slice(0, 3);
+
+  if (matches.length === 0) {
+    return null;
+  }
+
+  const topDocument = matches[0].document;
+  const response = buildKnowledgeBaseResponse(topDocument, matches);
+  const sources = matches.map((match) => ({
+    id: match.document.id,
+    section: match.document.section,
+    title: match.document.title,
+    url: match.document.url,
+  }));
+
+  return { response, sources };
+}
+
+function buildKnowledgeBaseDocuments(knowledgeBase) {
+  const documents = [];
+
+  if (knowledgeBase.personal) {
+    documents.push({
+      id: "kb-personal",
+      section: "Knowledge Base: Personal",
+      title: knowledgeBase.personal.name || "Personal Profile",
+      answer: [
+        knowledgeBase.personal.name,
+        knowledgeBase.personal.title,
+        knowledgeBase.personal.tagline,
+        knowledgeBase.personal.location,
+        knowledgeBase.personal.availability,
+        knowledgeBase.personal.bio,
+        knowledgeBase.personal.contact?.email,
+      ].filter(Boolean).join(". "),
+      searchText: JSON.stringify(knowledgeBase.personal),
+    });
+  }
+
+  for (const item of Array.isArray(knowledgeBase.experience) ? knowledgeBase.experience : []) {
+    documents.push({
+      id: item.id || item.company,
+      section: "Knowledge Base: Experience",
+      title: item.company || item.role || "Experience",
+      answer: `${item.company}: ${item.role} (${item.duration}). ${(item.achievements || []).slice(0, 3).join(" ")}`,
+      searchText: JSON.stringify(item),
+    });
+  }
+
+  for (const project of Array.isArray(knowledgeBase.projects) ? knowledgeBase.projects : []) {
+    documents.push({
+      id: project.id || project.name,
+      section: "Knowledge Base: Projects",
+      title: project.name || "Project",
+      url: project.links?.github || project.links?.live,
+      answer: `${project.name}: ${project.description || project.tagline || ""} ${project.hackathon ? `Hackathon: ${project.hackathon}.` : ""} ${project.outcome || ""} Stack: ${(project.techStack || []).join(", ")}.`,
+      searchText: JSON.stringify(project),
+    });
+  }
+
+  if (knowledgeBase.skills) {
+    for (const [category, skills] of Object.entries(knowledgeBase.skills)) {
+      if (!Array.isArray(skills)) {
+        continue;
+      }
+
+      documents.push({
+        id: `skills-${category}`,
+        section: "Knowledge Base: Skills",
+        title: formatKnowledgeBaseTitle(category),
+        answer: `${formatKnowledgeBaseTitle(category)}: ${skills.join(", ")}.`,
+        searchText: `${category} ${skills.join(" ")}`,
+      });
+    }
+  }
+
+  for (const item of Array.isArray(knowledgeBase.education) ? knowledgeBase.education : []) {
+    documents.push({
+      id: `education-${item.institution || item.degree}`,
+      section: "Knowledge Base: Education",
+      title: item.institution || item.degree || "Education",
+      answer: `${item.degree} at ${item.institution}, ${item.location} (${item.year}).`,
+      searchText: JSON.stringify(item),
+    });
+  }
+
+  return documents;
+}
+
+function scoreKnowledgeBaseDocument(document, tokens) {
+  const normalizedTitle = normalizeSyntheticQuery(document.title || "");
+  const normalizedSection = normalizeSyntheticQuery(document.section || "");
+  const normalizedText = normalizeSyntheticQuery(document.searchText || document.answer || "");
+  let score = 0;
+
+  for (const token of tokens) {
+    if (normalizedTitle.includes(token)) {
+      score += 5;
+    }
+
+    if (normalizedSection.includes(token)) {
+      score += 3;
+    }
+
+    if (normalizedText.includes(token)) {
+      score += 1;
+    }
+  }
+
+  return score;
+}
+
+function buildKnowledgeBaseResponse(topDocument, matches) {
+  const supporting = matches
+    .slice(1)
+    .map((match) => match.document.title)
+    .filter(Boolean);
+
+  if (supporting.length === 0) {
+    return topDocument.answer;
+  }
+
+  return `${topDocument.answer}\n\nRelated: ${supporting.join(", ")}.`;
+}
+
+function formatKnowledgeBaseTitle(value) {
+  return String(value)
+    .replace(/([a-z])([A-Z])/g, "$1 $2")
+    .replace(/[-_]+/g, " ")
+    .replace(/\b\w/g, (letter) => letter.toUpperCase());
 }
 
 function streamToString(stream) {
@@ -327,8 +538,13 @@ function getSyntheticRagConfidence(matches) {
   return "low";
 }
 
-function buildDirectAnswer(matches) {
+function buildDirectAnswer(message, matches) {
   const [topMatch, ...supportingMatches] = matches;
+
+  if (!isLongQuestion(message)) {
+    return toShortAnswer(topMatch.entry.answer);
+  }
+
   const supporting = supportingMatches
     .filter((match) => match.score >= MEDIUM_CONFIDENCE_THRESHOLD)
     .map((match) => `Related context: ${match.entry.title}.`)
@@ -365,7 +581,7 @@ ${directAnswer}
 Retrieved portfolio context:
 ${context}
 
-Rewrite the draft only if useful. Do not add unsupported claims.`,
+Rewrite the draft only if useful. If the question is short or casual, keep the answer under ${SHORT_RESPONSE_LIMIT} characters. Do not add unsupported claims.`,
           },
         ],
       },
@@ -378,6 +594,43 @@ Rewrite the draft only if useful. Do not add unsupported claims.`,
   });
   const response = await bedrockRuntime.send(command);
   return response.output?.message?.content?.[0]?.text || directAnswer;
+}
+
+function isGreeting(message) {
+  const compact = String(message).toLowerCase().replace(/[^a-z]/g, "");
+  return ["hi", "hey", "hello", "helo", "helloo"].includes(compact);
+}
+
+function isLongQuestion(message) {
+  const trimmed = String(message).trim();
+  return trimmed.length >= 120
+    || /\b(explain|detail|detailed|deep dive|architecture|compare|why|how did|how does|walk me through)\b/i.test(trimmed)
+    || /\b(implementation|technical|tradeoff|tradeoffs|decision|decisions|strategy)\b/i.test(trimmed);
+}
+
+function toShortAnswer(response) {
+  if (response.length <= SHORT_RESPONSE_LIMIT) {
+    return response;
+  }
+
+  const firstParagraph = response.split(/\n{2,}/)[0]?.trim() || response.trim();
+  const firstSentence = firstParagraph.match(/^.+?[.!?](?:\s|$)/)?.[0]?.trim();
+  const concise = firstSentence && firstSentence.length <= SHORT_RESPONSE_LIMIT
+    ? firstSentence
+    : firstParagraph;
+
+  if (concise.length <= SHORT_RESPONSE_LIMIT) {
+    return concise;
+  }
+
+  const truncated = concise.slice(0, SHORT_RESPONSE_LIMIT + 1);
+  const boundary = Math.max(
+    truncated.lastIndexOf(" "),
+    truncated.lastIndexOf(","),
+    truncated.lastIndexOf(";")
+  );
+
+  return `${truncated.slice(0, boundary > 120 ? boundary : SHORT_RESPONSE_LIMIT - 3).trim()}...`;
 }
 
 function buildSources(matches) {

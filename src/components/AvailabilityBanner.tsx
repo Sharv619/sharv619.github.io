@@ -52,14 +52,15 @@ export default function AvailabilityBanner() {
               <div className="flex items-center space-x-3">
                 <a
                   href="#contact"
-                  className="inline-flex items-center px-3 py-1.5 border border-white/30 text-xs font-medium rounded-md text-white hover:bg-white/10 transition-colors duration-200"
+                  aria-label="Contact Himanshu Lade about availability"
+                  className="inline-flex min-h-11 items-center rounded-md border border-white/30 px-3 py-2 text-xs font-medium text-white transition-colors duration-200 hover:bg-white/10"
                   onClick={dismissBanner}
                 >
                   Connect
                 </a>
                 <button
                   onClick={dismissBanner}
-                  className="flex-shrink-0 p-1 rounded-md hover:bg-white/10 transition-colors duration-200"
+                  className="inline-flex h-11 w-11 flex-shrink-0 items-center justify-center rounded-md transition-colors duration-200 hover:bg-white/10"
                   aria-label="Dismiss"
                 >
                   <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">

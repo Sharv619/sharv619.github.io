@@ -120,7 +120,8 @@ export default function FeaturedCaseStudies({ caseStudies, compact = false }: Fe
                 <div className="mt-auto flex flex-wrap gap-3 pt-6">
                   <Link
                     href={`/case-studies/${caseStudy.slug}`}
-                    className="inline-flex items-center rounded-md bg-stone-950 px-4 py-2 text-sm font-bold text-white transition-colors duration-200 hover:bg-teal-800 dark:bg-white dark:text-stone-950 dark:hover:bg-teal-200"
+                    aria-label={`Read case study: ${caseStudy.title}`}
+                    className="inline-flex min-h-11 items-center rounded-md bg-stone-950 px-4 py-2 text-sm font-bold text-white transition-colors duration-200 hover:bg-teal-800 dark:bg-white dark:text-stone-950 dark:hover:bg-teal-200"
                   >
                     Read case study
                   </Link>
@@ -129,7 +130,8 @@ export default function FeaturedCaseStudies({ caseStudies, compact = false }: Fe
                       href={caseStudy.links.github}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="inline-flex items-center rounded-md border border-stone-300 px-4 py-2 text-sm font-bold text-stone-800 transition-colors duration-200 hover:bg-stone-100 dark:border-white/15 dark:text-stone-200 dark:hover:bg-white/10"
+                      aria-label={`Open GitHub repository for ${caseStudy.title}`}
+                      className="inline-flex min-h-11 items-center rounded-md border border-stone-300 px-4 py-2 text-sm font-bold text-stone-800 transition-colors duration-200 hover:bg-stone-100 dark:border-white/15 dark:text-stone-200 dark:hover:bg-white/10"
                     >
                       GitHub
                     </a>
@@ -139,7 +141,8 @@ export default function FeaturedCaseStudies({ caseStudies, compact = false }: Fe
                       href={caseStudy.links.githubOffline}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="inline-flex items-center rounded-md border border-stone-300 px-4 py-2 text-sm font-bold text-stone-800 transition-colors duration-200 hover:bg-stone-100 dark:border-white/15 dark:text-stone-200 dark:hover:bg-white/10"
+                      aria-label={`Open offline repository notes for ${caseStudy.title}`}
+                      className="inline-flex min-h-11 items-center rounded-md border border-stone-300 px-4 py-2 text-sm font-bold text-stone-800 transition-colors duration-200 hover:bg-stone-100 dark:border-white/15 dark:text-stone-200 dark:hover:bg-white/10"
                     >
                       Offline repo
                     </a>
@@ -149,7 +152,8 @@ export default function FeaturedCaseStudies({ caseStudies, compact = false }: Fe
                       href={caseStudy.links.npm}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="inline-flex items-center rounded-md border border-stone-300 px-4 py-2 text-sm font-bold text-stone-800 transition-colors duration-200 hover:bg-stone-100 dark:border-white/15 dark:text-stone-200 dark:hover:bg-white/10"
+                      aria-label={`Open npm package for ${caseStudy.title}`}
+                      className="inline-flex min-h-11 items-center rounded-md border border-stone-300 px-4 py-2 text-sm font-bold text-stone-800 transition-colors duration-200 hover:bg-stone-100 dark:border-white/15 dark:text-stone-200 dark:hover:bg-white/10"
                     >
                       npm
                     </a>

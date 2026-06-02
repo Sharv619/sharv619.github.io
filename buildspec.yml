@@ -16,7 +16,8 @@ phases:
   post_build:
     commands:
       - test -f out/index.html
-      - aws s3 sync out s3://sharv619-portfolio-site --delete
+      - aws s3 sync out s3://sharv619-portfolio-site --delete --cache-control "public,max-age=3600"
+      - test ! -d out/_next/static || aws s3 sync out/_next/static s3://sharv619-portfolio-site/_next/static --cache-control "public,max-age=31536000,immutable"
 
 artifacts:
   base-directory: out

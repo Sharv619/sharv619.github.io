@@ -1,7 +1,3 @@
-"use client";
-
-import { motion } from "framer-motion";
-
 interface ResumeHeaderProps {
   data: {
     name: string;
@@ -15,12 +11,7 @@ interface ResumeHeaderProps {
 
 export default function ResumeHeader({ data }: ResumeHeaderProps) {
   return (
-    <motion.div
-      initial={{ opacity: 0, y: 20 }}
-      animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.6 }}
-      className="bg-white dark:bg-gray-800 rounded-lg shadow-lg p-8 mb-8"
-    >
+    <div className="bg-white dark:bg-gray-800 rounded-lg shadow-lg p-8 mb-8">
       <div className="flex flex-col md:flex-row md:items-end md:justify-between">
         <div className="flex-1">
           <h1 className="text-4xl font-bold text-gray-900 dark:text-white mb-2">
@@ -54,6 +45,7 @@ export default function ResumeHeader({ data }: ResumeHeaderProps) {
             href={`https://${data.linkedin}`}
             target="_blank"
             rel="noopener noreferrer"
+            aria-label="Open Himanshu Lade LinkedIn profile"
             className="flex items-center px-4 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-700 transition-colors duration-300 text-sm font-medium"
           >
             <svg className="w-4 h-4 mr-2" fill="currentColor" viewBox="0 0 24 24">
@@ -65,6 +57,7 @@ export default function ResumeHeader({ data }: ResumeHeaderProps) {
             href={`https://${data.github}`}
             target="_blank"
             rel="noopener noreferrer"
+            aria-label="Open Himanshu Lade GitHub profile"
             className="flex items-center px-4 py-2 bg-gray-800 text-white rounded-md hover:bg-gray-700 transition-colors duration-300 text-sm font-medium"
           >
             <svg className="w-4 h-4 mr-2" fill="currentColor" viewBox="0 0 24 24">
@@ -74,6 +67,6 @@ export default function ResumeHeader({ data }: ResumeHeaderProps) {
           </a>
         </div>
       </div>
-    </motion.div>
+    </div>
   );
 }

@@ -130,6 +130,7 @@ export default function ProjectsPageClient({ projects }: ProjectsPageClientProps
                           href={project.liveUrl}
                           target="_blank"
                           rel="noopener noreferrer"
+                          aria-label={`View live demo for ${project.title}`}
                           className="inline-flex items-center px-6 py-3 bg-blue-600 hover:bg-blue-700 text-white font-semibold rounded-lg transition-colors duration-300"
                         >
                           View Live Demo →
@@ -139,6 +140,7 @@ export default function ProjectsPageClient({ projects }: ProjectsPageClientProps
                         href={project.githubUrl}
                         target="_blank"
                         rel="noopener noreferrer"
+                        aria-label={`View source code for ${project.title}`}
                         className="inline-flex items-center px-6 py-3 border border-gray-300 dark:border-gray-600 text-gray-700 dark:text-gray-300 rounded-lg hover:bg-gray-50 dark:hover:bg-gray-800 transition-colors duration-300"
                       >
                         View Source Code →

@@ -52,7 +52,7 @@ export const personalInfo: PersonalInfo = {
   email: "himanshulade@hotmail.com",
   location: "Sydney, Australia",
   bio: "Software Engineer focused on backend systems, production reliability, cloud deployment, and AI-assisted workflow automation.",
-  avatar: "/avatar.png", // Add your photo to public/
+  avatar: "/avatar-960.webp",
 };
 
 export const socialLinks = {

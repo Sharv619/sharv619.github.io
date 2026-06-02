@@ -75,7 +75,7 @@ export default function ProjectsSection({ projects, sourceLabel = "Curated resum
           <div className="flex space-x-2">
             <button
               onClick={prevSlide}
-              className="p-2 bg-blue-600 text-white rounded-full hover:bg-blue-700 transition-colors"
+              className="inline-flex h-11 w-11 items-center justify-center rounded-full bg-blue-600 text-white transition-colors hover:bg-blue-700"
               aria-label="Previous project"
             >
               <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -84,7 +84,7 @@ export default function ProjectsSection({ projects, sourceLabel = "Curated resum
             </button>
             <button
               onClick={nextSlide}
-              className="p-2 bg-blue-600 text-white rounded-full hover:bg-blue-700 transition-colors"
+              className="inline-flex h-11 w-11 items-center justify-center rounded-full bg-blue-600 text-white transition-colors hover:bg-blue-700"
               aria-label="Next project"
             >
               <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -157,6 +157,7 @@ export default function ProjectsSection({ projects, sourceLabel = "Curated resum
                 href={currentProject.githubUrl}
                 target="_blank"
                 rel="noopener noreferrer"
+                aria-label={`Open GitHub repository for ${currentProject.title}`}
                 className="inline-flex items-center rounded-md bg-gray-900 px-4 py-2 text-sm font-semibold text-white transition-colors hover:bg-gray-700 dark:bg-white dark:text-gray-900 dark:hover:bg-gray-200"
               >
                 GitHub
@@ -167,6 +168,7 @@ export default function ProjectsSection({ projects, sourceLabel = "Curated resum
                 href={currentProject.liveUrl}
                 target="_blank"
                 rel="noopener noreferrer"
+                aria-label={`Open live project for ${currentProject.title}`}
                 className="inline-flex items-center rounded-md border border-gray-300 px-4 py-2 text-sm font-semibold text-gray-800 transition-colors hover:bg-gray-50 dark:border-gray-600 dark:text-gray-200 dark:hover:bg-gray-700"
               >
                 Live
@@ -180,13 +182,17 @@ export default function ProjectsSection({ projects, sourceLabel = "Curated resum
             <button
               key={index}
               onClick={() => setCurrentIndex(index)}
-              className={`w-3 h-3 rounded-full transition-colors ${
-                index === currentIndex
-                  ? 'bg-blue-600'
-                  : 'bg-gray-300 dark:bg-gray-600 hover:bg-blue-400'
-              }`}
+              className="inline-flex h-11 w-11 items-center justify-center rounded-full"
               aria-label={`Go to project ${index + 1}`}
-            />
+            >
+              <span
+                className={`block h-3 w-3 rounded-full transition-colors ${
+                  index === currentIndex
+                    ? 'bg-blue-600'
+                    : 'bg-gray-300 hover:bg-blue-400 dark:bg-gray-600'
+                }`}
+              />
+            </button>
           ))}
         </div>
       </div>

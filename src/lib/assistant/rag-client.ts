@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { getFallbackResponse } from "./fallback-responses";
+import { formatAssistantResponse } from "./response-style";
 
 interface Message {
   role: "user" | "assistant";
@@ -156,7 +157,7 @@ export function createUseAssistantChat(): () => UseAssistantChatReturn {
         setMessages((prev) =>
           prev.map((msg, idx) =>
             idx === prev.length - 1
-              ? { ...msg, content: result.response }
+              ? { ...msg, content: formatAssistantResponse(userMessage, result.response) }
               : msg
           )
         );

@@ -26,7 +26,7 @@ export default function ThemeToggle() {
       disabled={!mounted}
       aria-label={`Switch to ${nextTheme} mode`}
       title={`Switch to ${nextTheme} mode`}
-      className="inline-flex h-10 w-10 shrink-0 items-center justify-center rounded-md border border-stone-300 bg-white/80 text-stone-800 shadow-sm backdrop-blur transition-colors duration-200 hover:border-stone-950 hover:bg-stone-950 hover:text-white disabled:pointer-events-none disabled:opacity-60 dark:border-white/15 dark:bg-white/5 dark:text-stone-100 dark:hover:bg-white dark:hover:text-stone-950"
+      className="inline-flex h-11 w-11 shrink-0 items-center justify-center rounded-md border border-stone-300 bg-white/80 text-stone-800 shadow-sm backdrop-blur transition-colors duration-200 hover:border-stone-950 hover:bg-stone-950 hover:text-white disabled:pointer-events-none disabled:opacity-60 dark:border-white/15 dark:bg-white/5 dark:text-stone-100 dark:hover:bg-white dark:hover:text-stone-950"
     >
       {isDark ? (
         <svg aria-hidden="true" className="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">

@@ -46,6 +46,7 @@ export default function Experience() {
                     href={exp.link}
                     target="_blank"
                     rel="noopener noreferrer"
+                    aria-label={`Open ${exp.company} website`}
                     className="font-bold text-teal-700 hover:text-teal-900 dark:text-teal-300 dark:hover:text-teal-200"
                   >
                     {exp.company}

@@ -77,6 +77,7 @@ export default function Navigation() {
           <div className="hidden md:flex items-center gap-3">
             <a
               href="/resume"
+              aria-label="Open Himanshu Lade resume page"
               className="rounded-md border border-stone-300 bg-white/70 px-4 py-2 text-sm font-semibold text-stone-900 transition-colors duration-200 hover:border-stone-950 hover:bg-stone-950 hover:text-white dark:border-white/15 dark:bg-white/5 dark:text-white dark:hover:bg-white dark:hover:text-stone-950"
             >
               Resume
@@ -97,7 +98,7 @@ export default function Navigation() {
 
             <button
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-              className="rounded-md border border-stone-300 bg-white/70 p-2 text-stone-800 dark:border-white/10 dark:bg-white/5 dark:text-stone-200"
+              className="inline-flex h-11 w-11 items-center justify-center rounded-md border border-stone-300 bg-white/70 text-stone-800 dark:border-white/10 dark:bg-white/5 dark:text-stone-200"
               aria-label="Toggle navigation"
             >
               <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -143,6 +144,7 @@ export default function Navigation() {
 
               <a
                 href="/resume"
+                aria-label="Open Himanshu Lade resume page"
                 className="block w-full rounded-md border border-stone-300 bg-white/70 px-4 py-3 text-center text-sm font-semibold text-stone-900 dark:border-white/15 dark:bg-white/5 dark:text-white"
               >
                 Resume
