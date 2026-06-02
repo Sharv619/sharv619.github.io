@@ -29,27 +29,29 @@ const studyAccents = [
 
 export default function FeaturedCaseStudies({ caseStudies, compact = false }: FeaturedCaseStudiesProps) {
   return (
-    <section id="case-studies" className="border-y border-stone-200 bg-[#f7f4ed] py-20 dark:border-white/10 dark:bg-[#101010]">
-      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section id="case-studies" className="flex items-center border-y border-stone-200 bg-[#f7f4ed] py-20 dark:border-white/10 dark:bg-[#101010]">
+      <div className="mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-8">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
           viewport={{ once: true }}
-          className="mb-12 max-w-3xl"
+          className="mb-10 grid gap-6 lg:grid-cols-[0.78fr_1.22fr] lg:items-end"
         >
-          <p className="mb-3 text-sm font-bold uppercase tracking-[0.18em] text-teal-700 dark:text-teal-300">
-            Selected work
-          </p>
-          <h2 className="text-balance text-4xl font-black leading-tight text-stone-950 sm:text-5xl dark:text-white">
-            Flagship Case Studies
-          </h2>
-          <p className="mt-5 text-lg leading-8 text-stone-700 dark:text-stone-300">
-            Curated proof points that explain production impact, constraints, tradeoffs, and personal contribution beyond raw GitHub metadata.
+          <div>
+            <p className="mb-3 text-sm font-bold uppercase tracking-[0.18em] text-teal-700 dark:text-teal-300">
+              Selected work
+            </p>
+            <h2 className="text-balance text-4xl font-black leading-tight text-stone-950 sm:text-5xl dark:text-white">
+              Three pieces of proof, not three generic cards.
+            </h2>
+          </div>
+          <p className="max-w-2xl text-lg leading-8 text-stone-700 lg:justify-self-end dark:text-stone-300">
+            The important part is the shape of the work: messy production recovery, responsible AI boundaries, and developer tooling with real distribution paths.
           </p>
         </motion.div>
 
-        <div className="grid grid-cols-1 gap-6 md:grid-cols-2 xl:grid-cols-3">
+        <div className="grid grid-cols-1 gap-4 lg:grid-cols-3">
           {caseStudies.map((caseStudy, index) => (
             <motion.article
               key={caseStudy.slug}
@@ -57,13 +59,13 @@ export default function FeaturedCaseStudies({ caseStudies, compact = false }: Fe
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: index * 0.1 }}
               viewport={{ once: true }}
-              className="group flex min-h-[560px] flex-col overflow-hidden rounded-lg border border-stone-300 bg-white shadow-sm transition duration-300 hover:-translate-y-1 hover:shadow-2xl hover:shadow-stone-900/10 dark:border-white/10 dark:bg-[#171715] dark:hover:shadow-black/30"
+              className="group flex min-h-[500px] flex-col overflow-hidden rounded-lg border border-stone-300 bg-white shadow-sm transition duration-300 hover:-translate-y-1 hover:shadow-2xl hover:shadow-stone-900/10 dark:border-white/10 dark:bg-[#171715] dark:hover:shadow-black/30"
             >
               <div className={`relative overflow-hidden bg-gradient-to-br ${studyAccents[index % studyAccents.length].panel} p-5 text-white`}>
                 <div className="absolute inset-0 opacity-20">
                   <div className="h-full w-full bg-[linear-gradient(to_right,#ffffff_1px,transparent_1px),linear-gradient(to_bottom,#ffffff_1px,transparent_1px)] bg-[size:28px_28px]" />
                 </div>
-                <div className="relative flex min-h-40 flex-col justify-between">
+                <div className="relative flex min-h-32 flex-col justify-between">
                   <div className="flex items-center justify-between gap-3">
                     <span className="text-xs font-bold uppercase tracking-[0.18em] text-white/70">
                       0{index + 1}
@@ -81,7 +83,7 @@ export default function FeaturedCaseStudies({ caseStudies, compact = false }: Fe
                 </div>
               </div>
 
-              <div className="flex flex-1 flex-col p-6">
+              <div className="flex flex-1 flex-col p-5">
                 <h3 className="text-2xl font-black leading-tight text-stone-950 dark:text-white">
                   {caseStudy.title}
                 </h3>
@@ -92,7 +94,7 @@ export default function FeaturedCaseStudies({ caseStudies, compact = false }: Fe
 
                 {!compact && (
                   <div className="mt-5 space-y-3">
-                    {caseStudy.impact.slice(0, 2).map((impact) => (
+                    {caseStudy.impact.slice(0, 1).map((impact) => (
                       <div key={impact} className="border-l-2 border-stone-300 pl-3 text-sm leading-6 text-stone-700 dark:border-white/15 dark:text-stone-300">
                         {impact}
                       </div>
@@ -101,7 +103,7 @@ export default function FeaturedCaseStudies({ caseStudies, compact = false }: Fe
                 )}
 
                 <div className="mt-6 flex flex-wrap gap-2">
-                  {caseStudy.techStack.slice(0, 5).map((tech) => (
+                  {caseStudy.techStack.slice(0, 4).map((tech) => (
                     <span
                       key={tech}
                       className={`rounded-full px-3 py-1 text-xs font-bold ${studyAccents[index % studyAccents.length].chip}`}

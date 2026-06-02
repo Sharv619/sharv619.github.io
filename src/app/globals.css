@@ -41,6 +41,7 @@
 
 html {
   scroll-behavior: smooth;
+  scroll-padding-top: 0;
 }
 
 body {
@@ -56,4 +57,29 @@ body {
 
 .text-balance {
   text-wrap: balance;
+}
+
+@media (min-width: 768px) {
+  html {
+    scroll-snap-type: y mandatory;
+  }
+
+  .portfolio-scroll-shell > section {
+    min-height: 100svh;
+    scroll-snap-align: start;
+    scroll-snap-stop: always;
+  }
+}
+
+.portfolio-grid {
+  background-image:
+    linear-gradient(to right, rgba(15, 118, 110, 0.08) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(15, 118, 110, 0.08) 1px, transparent 1px);
+  background-size: 42px 42px;
+}
+
+.dark .portfolio-grid {
+  background-image:
+    linear-gradient(to right, rgba(45, 212, 191, 0.1) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(45, 212, 191, 0.1) 1px, transparent 1px);
 }

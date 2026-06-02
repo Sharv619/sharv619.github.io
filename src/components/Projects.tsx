@@ -46,27 +46,46 @@ export default function Projects({ selectedSkills, projects }: ProjectsProps) {
   const currentProject = visibleProjects[activeIndex];
 
   return (
-    <section id="projects" className="py-20 bg-white dark:bg-gray-900">
-      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section id="projects" className="flex items-center bg-white py-20 dark:bg-[#151513]">
+      <div className="mx-auto grid w-full max-w-7xl grid-cols-1 gap-10 px-4 sm:px-6 lg:grid-cols-[0.62fr_1.38fr] lg:px-8">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
           viewport={{ once: true }}
-          className="text-center mb-16"
+          className="lg:self-center"
         >
-          <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 dark:text-white mb-4">
-            GitHub Project Lab
+          <p className="mb-3 text-sm font-bold uppercase tracking-[0.18em] text-indigo-700 dark:text-indigo-300">
+            GitHub lab
+          </p>
+          <h2 className="text-balance text-4xl font-black leading-tight text-stone-950 sm:text-5xl dark:text-white">
+            A workbench, not a trophy shelf.
           </h2>
-          <p className="text-lg text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">
+          <p className="mt-5 text-lg leading-8 text-stone-700 dark:text-stone-300">
             Automated project cards generated from public GitHub repositories at build time. These show builder breadth; flagship case studies above provide deeper hiring proof.
           </p>
-          <div className="w-24 h-1 bg-blue-600 mx-auto"></div>
+          {hasProjects && (
+            <div className="mt-8 grid grid-cols-3 gap-3">
+              <div className="border-l-2 border-indigo-500 bg-[#f7f4ed] p-3 dark:bg-white/5">
+                <p className="text-2xl font-black text-stone-950 dark:text-white">{visibleProjects.length}</p>
+                <p className="text-xs font-bold uppercase tracking-[0.12em] text-stone-500 dark:text-stone-400">repos</p>
+              </div>
+              <div className="border-l-2 border-teal-500 bg-[#f7f4ed] p-3 dark:bg-white/5">
+                <p className="text-2xl font-black text-stone-950 dark:text-white">{activeIndex + 1}</p>
+                <p className="text-xs font-bold uppercase tracking-[0.12em] text-stone-500 dark:text-stone-400">active</p>
+              </div>
+              <div className="border-l-2 border-rose-500 bg-[#f7f4ed] p-3 dark:bg-white/5">
+                <p className="text-2xl font-black text-stone-950 dark:text-white">{selectedSkills.length}</p>
+                <p className="text-xs font-bold uppercase tracking-[0.12em] text-stone-500 dark:text-stone-400">filters</p>
+              </div>
+            </div>
+          )}
         </motion.div>
 
+        <div>
         {!hasProjects && (
-          <div className="bg-gray-50 dark:bg-gray-800 rounded-lg p-8 text-center">
-            <p className="text-gray-600 dark:text-gray-300">
+          <div className="rounded-lg border border-stone-300 bg-[#f7f4ed] p-8 text-center dark:border-white/10 dark:bg-white/5">
+            <p className="text-stone-700 dark:text-stone-300">
               {projects.length === 0
                 ? "No GitHub repositories are currently tagged for the portfolio project feed."
                 : "No projects match the selected skills."}
@@ -83,17 +102,17 @@ export default function Projects({ selectedSkills, projects }: ProjectsProps) {
             animate={{ opacity: 1, x: 0 }}
             exit={{ opacity: 0, x: -100 }}
             transition={{ duration: 0.5 }}
-            className="bg-gray-50 dark:bg-gray-800 rounded-lg overflow-hidden shadow-lg"
+            className="overflow-hidden rounded-lg border border-stone-300 bg-[#f7f4ed] shadow-lg dark:border-white/10 dark:bg-[#101010]"
           >
-            <div className="p-8">
+            <div className="p-6 sm:p-8">
               <div className="flex items-center justify-between mb-4">
-                <span className="text-sm text-gray-500 dark:text-gray-400">
+                <span className="rounded-md bg-stone-950 px-3 py-1 text-sm font-black text-white dark:bg-white dark:text-stone-950">
                   {activeIndex + 1} of {visibleProjects.length}
                 </span>
                 <div className="flex space-x-2">
                   <button
                     onClick={prevSlide}
-                    className="p-2 bg-blue-600 text-white rounded-full hover:bg-blue-700 transition-colors duration-300 focus:outline-none focus:ring-2 focus:ring-blue-500"
+                    className="rounded-md bg-stone-950 p-2 text-white transition-colors duration-300 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 dark:bg-white dark:text-stone-950 dark:hover:bg-indigo-200"
                     aria-label="Previous project"
                   >
                     <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -102,7 +121,7 @@ export default function Projects({ selectedSkills, projects }: ProjectsProps) {
                   </button>
                   <button
                     onClick={nextSlide}
-                    className="p-2 bg-blue-600 text-white rounded-full hover:bg-blue-700 transition-colors duration-300 focus:outline-none focus:ring-2 focus:ring-blue-500"
+                    className="rounded-md bg-stone-950 p-2 text-white transition-colors duration-300 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 dark:bg-white dark:text-stone-950 dark:hover:bg-indigo-200"
                     aria-label="Next project"
                   >
                     <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -112,7 +131,7 @@ export default function Projects({ selectedSkills, projects }: ProjectsProps) {
                 </div>
               </div>
 
-              <h3 className="text-2xl font-semibold text-gray-900 dark:text-white mb-4">
+              <h3 className="mb-4 text-3xl font-black leading-tight text-stone-950 dark:text-white">
                 {currentProject.title}
                 {currentProject.archived && (
                   <span className="ml-3 align-middle text-xs px-2 py-1 rounded-full bg-amber-100 text-amber-800 dark:bg-amber-900 dark:text-amber-200">
@@ -120,30 +139,30 @@ export default function Projects({ selectedSkills, projects }: ProjectsProps) {
                   </span>
                 )}
               </h3>
-              <p className="text-gray-600 dark:text-gray-300 mb-6 leading-relaxed text-lg">
+              <p className="mb-6 max-h-40 overflow-y-auto pr-2 text-lg leading-8 text-stone-700 dark:text-stone-300">
                 {currentProject.description}
               </p>
 
               {currentProject.technicalChallenge && (
                 <div className="mb-6">
-                  <h4 className="text-lg font-medium text-gray-700 dark:text-gray-300 mb-2">
+                  <h4 className="mb-2 text-sm font-black uppercase tracking-[0.16em] text-stone-500 dark:text-stone-400">
                     Technical Challenge:
                   </h4>
-                  <p className="text-gray-600 dark:text-gray-300 leading-relaxed">
+                  <p className="border-l-2 border-indigo-500 pl-4 leading-7 text-stone-700 dark:text-stone-300">
                     {currentProject.technicalChallenge}
                   </p>
                 </div>
               )}
 
               <div className="mb-6">
-                <h4 className="text-lg font-medium text-gray-700 dark:text-gray-300 mb-3">
+                <h4 className="mb-3 text-sm font-black uppercase tracking-[0.16em] text-stone-500 dark:text-stone-400">
                   Technologies:
                 </h4>
                 <div className="flex flex-wrap gap-3">
                   {currentProject.technologies.map((tech, techIndex) => (
                     <span
                       key={techIndex}
-                      className="px-4 py-2 bg-blue-100 dark:bg-blue-900 text-blue-800 dark:text-blue-200 text-sm rounded-full font-medium"
+                      className="rounded-md bg-white px-3 py-2 text-sm font-bold text-indigo-800 shadow-sm dark:bg-white/10 dark:text-indigo-200"
                     >
                       {tech}
                     </span>
@@ -151,10 +170,10 @@ export default function Projects({ selectedSkills, projects }: ProjectsProps) {
                 </div>
               </div>
 
-              <div className="flex space-x-4">
+              <div className="flex flex-col gap-3 sm:flex-row">
                 <Link
                   href={`/projects/${getProjectSlug(currentProject)}`}
-                  className="flex-1 text-center px-6 py-3 bg-blue-600 text-white rounded-md hover:bg-blue-700 transition-colors duration-300 inline-block font-medium"
+                  className="inline-block flex-1 rounded-md bg-stone-950 px-6 py-3 text-center font-bold text-white transition-colors duration-300 hover:bg-indigo-700 dark:bg-white dark:text-stone-950 dark:hover:bg-indigo-200"
                 >
                   Read More
                 </Link>
@@ -162,7 +181,7 @@ export default function Projects({ selectedSkills, projects }: ProjectsProps) {
                   href={currentProject.githubUrl}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex-1 text-center px-6 py-3 border border-gray-300 dark:border-gray-600 text-gray-700 dark:text-gray-300 rounded-md hover:bg-gray-50 dark:hover:bg-gray-800 transition-colors duration-300 inline-block font-medium"
+                  className="inline-block flex-1 rounded-md border border-stone-300 px-6 py-3 text-center font-bold text-stone-700 transition-colors duration-300 hover:bg-white dark:border-white/15 dark:text-stone-300 dark:hover:bg-white/10"
                 >
                   Source Code
                 </a>
@@ -171,15 +190,15 @@ export default function Projects({ selectedSkills, projects }: ProjectsProps) {
           </motion.div>
 
           {/* Dot Navigation */}
-          <div className="flex justify-center mt-8 space-x-2">
+          <div className="mt-6 flex justify-center space-x-2">
             {visibleProjects.map((_, index) => (
               <button
                 key={index}
                 onClick={() => goToSlide(index)}
                 className={`w-3 h-3 rounded-full transition-colors duration-300 ${
                   index === activeIndex
-                    ? 'bg-blue-600'
-                    : 'bg-gray-300 dark:bg-gray-600 hover:bg-blue-400'
+                    ? 'bg-indigo-600'
+                    : 'bg-stone-300 hover:bg-indigo-400 dark:bg-white/20'
                 }`}
                 aria-label={`Go to project ${index + 1}`}
               />
@@ -187,15 +206,15 @@ export default function Projects({ selectedSkills, projects }: ProjectsProps) {
           </div>
 
           {/* Project List Preview */}
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-2 mt-8">
+          <div className="mt-6 grid max-h-36 grid-cols-2 gap-2 overflow-y-auto pr-1 md:grid-cols-4">
             {visibleProjects.map((project, index) => (
               <button
                 key={index}
                 onClick={() => goToSlide(index)}
                 className={`p-3 rounded-md text-xs font-medium transition-colors duration-300 ${
                   index === activeIndex
-                    ? 'bg-blue-600 text-white'
-                    : 'bg-gray-100 dark:bg-gray-700 text-gray-600 dark:text-gray-300 hover:bg-blue-100 dark:hover:bg-blue-900'
+                    ? 'bg-indigo-700 text-white'
+                    : 'bg-stone-100 text-stone-600 hover:bg-indigo-100 dark:bg-white/5 dark:text-stone-300 dark:hover:bg-indigo-900'
                 }`}
               >
                 {project.title.length > 20 ? `${project.title.substring(0, 20)}...` : project.title}
@@ -204,6 +223,7 @@ export default function Projects({ selectedSkills, projects }: ProjectsProps) {
           </div>
         </div>
         )}
+        </div>
       </div>
     </section>
   );

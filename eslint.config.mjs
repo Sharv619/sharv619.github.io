@@ -13,6 +13,8 @@ const eslintConfig = defineConfig([
     "build/**",
     "next-env.d.ts",
     "aws/**/*.js",
+    "aws/nova-act/.venv/**",
+    "aws/nova-act/__pycache__/**",
   ]),
 ]);
 

@@ -43,7 +43,7 @@ export default function HomePageClient({ projects }: HomePageClientProps) {
   };
 
   return (
-    <div className="min-h-screen">
+    <div className="portfolio-scroll-shell min-h-screen">
       <Navigation />
       <Hero />
       <FeaturedCaseStudies caseStudies={caseStudies} />

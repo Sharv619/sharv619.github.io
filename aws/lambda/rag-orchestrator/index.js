@@ -394,7 +394,6 @@ function buildSources(matches) {
           section: source.section,
           title: source.title,
           url: source.url,
-          similarity: Number(match.score.toFixed(2)),
         });
       }
     }
