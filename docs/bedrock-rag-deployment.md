@@ -61,14 +61,20 @@ Objects:
 ```text
 knowledge-base.json
 synthetic-rag-index.json
+case-studies/*.md
+rag/internal/*.md
 ```
 
-Upload the synthetic index after edits:
+Public case-study markdown is recruiter-facing source content. Internal RAG notes are for admin/internal assistant mode only and must not be rendered on public pages.
+
+Upload curated artifacts after edits:
 
 ```bash
 npm run synthetic-rag:generate
-aws s3 cp src/lib/synthetic-rag-index.json s3://sharv619-knowledge-base/synthetic-rag-index.json --region us-east-1
+node aws/scripts/sync-knowledge-base.js
 ```
+
+Synthetic RAG remains the v1 strategy. The assistant searches curated case-study entries and approved portfolio knowledge instead of using vector infrastructure. Public claims should stay prototype-safe: no invented users, revenue, uptime, production security impact, medical outcomes, usage numbers, or unverified metrics.
 
 ## Lambda Environment
 

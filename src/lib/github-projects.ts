@@ -11,6 +11,13 @@ const PAGE_SIZE = 100;
 const ENRICHMENT_CONCURRENCY = 4;
 const ALL_PROJECTS_TOPICS = new Set(["all", "*"]);
 const HIDDEN_TECHNOLOGY_KEYS = new Set(["go template", "makefile", "mako", "perl", "smarty"]);
+const CASE_STUDY_SLUG_BY_REPO_NAME: Record<string, string> = {
+  "backpocket-os-ai": "backpocket-os-ai-offline",
+  "backpocket-os-ai-offline": "backpocket-os-ai-offline",
+  "codeflow-commander---nexus-gateway": "codeflow-commander",
+  "codeflow-hook": "codeflow-hook",
+  "network-guardian-ai": "network-guardian-ai",
+};
 
 const TECHNOLOGY_LABELS: Record<string, string> = {
   "@ai-sdk/google": "Google AI SDK",
@@ -353,6 +360,7 @@ export function normalizeRepositoryProject(
     languageBreakdown: enrichment.languages,
     evidenceProfile: evidence.profile,
     evidenceRecommendations: evidence.recommendations,
+    caseStudySlug: CASE_STUDY_SLUG_BY_REPO_NAME[repo.name],
   };
 }
 

@@ -44,6 +44,7 @@ export interface Project {
   languageBreakdown?: Record<string, number>;
   evidenceProfile?: ProjectEvidenceProfile;
   evidenceRecommendations?: PortfolioRecommendation[];
+  caseStudySlug?: string;
 }
 
 export const personalInfo: PersonalInfo = {
@@ -86,6 +87,7 @@ export const projects = [
     technologies: ["Python", "FastAPI", "React", "Scikit-learn", "Gemini API", "Docker", "Machine Learning"],
     liveUrl: "https://github.com/Sharv619/network-guardian-ai",
     githubUrl: "https://github.com/Sharv619/network-guardian-ai",
+    caseStudySlug: "network-guardian-ai",
     technicalChallenge: "Exploring how entropy scoring and anomaly detection could surface suspicious traffic patterns while keeping the system understandable and prototype-safe.",
     architectureDetails: `AI-Powered Network Threat Detection System with 3-stage ML pipeline.
 
@@ -124,6 +126,7 @@ export const projects = [
     technologies: ["Node.js", "TypeScript", "Gemini API", "RAG", "Vector Search", "Docker"],
     liveUrl: "https://www.npmjs.com/package/codeflow-hook",
     githubUrl: "https://github.com/Sharv619/codeflow-hook",
+    caseStudySlug: "codeflow-hook",
     technicalChallenge: "Creating abstraction layer for multi-provider AI support while maintaining fast execution.",
     architectureDetails: `Multi-Agent AI Code Review Tool.
 
@@ -139,6 +142,7 @@ export const projects = [
     technologies: ["Node.js", "TypeScript", "AI APIs", "Git Hooks", "CLI Tool"],
     liveUrl: "https://codeflow-commander-nexus-gateway-si.vercel.app/",
     githubUrl: "https://github.com/Sharv619/codeflow-commander---nexus-gateway",
+    caseStudySlug: "codeflow-commander",
     technicalChallenge: "Integrating multiple AI providers into a responsive CLI was challenging. I created an abstraction layer with async processing and automatic model selection based on task complexity, maintaining under-1s execution for common operations.",
     architectureDetails: `Built as a distributed, event-driven CLI tool implementing GitOps principles with AI-enhanced code quality gates.
 
