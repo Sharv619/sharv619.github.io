@@ -67,7 +67,7 @@ export default function Hero() {
                 View projects
               </a>
               <a
-                href="/himanshu_lade_resume.docx.pdf"
+                href="/himanshu_lade_resume_v3.pdf"
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="Open Himanshu Lade resume PDF"

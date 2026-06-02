@@ -1,114 +1,69 @@
-import { resumeData } from "@/lib/resumeData";
-import ResumeHeader from "@/components/ResumeHeader";
-import ProfessionalSummary from "@/components/ProfessionalSummary";
-import TechnicalSkills from "@/components/TechnicalSkills";
-import ExperienceSection from "@/components/ExperienceSection";
-import ProjectsSection from "@/components/ProjectsSection";
-import EducationSection from "@/components/EducationSection";
-import { getPortfolioProjects } from "@/lib/github-projects";
-import type { Project } from "@/lib/data";
+import Navigation from "@/components/Navigation";
+
+const RESUME_PDF_PATH = "/himanshu_lade_resume_v3.pdf";
 
 export const metadata = {
-  title: "Himanshu Lade - Resume",
-  description: "Professional resume of Himanshu Lade, Software Engineer focused on backend systems, production reliability, cloud deployment, and AI-assisted workflow automation.",
+  title: "Himanshu Lade - Resume PDF",
+  description: "PDF resume for Himanshu Lade, Software Engineer focused on backend systems, production reliability, cloud deployment, and AI-assisted workflow automation.",
   keywords: ["resume", "CV", "Himanshu Lade", "Software Engineer", "portfolio", "developer"],
 };
 
-interface ResumeProject {
-  title: string;
-  description: string;
-  techStack: string[];
-  achievements: string[];
-  githubUrl?: string;
-  liveUrl?: string;
-  updatedAt?: string;
-  status?: string;
-  stats?: string;
-}
-
-function mapGitHubProjectToResumeProject(project: Project): ResumeProject {
-  const signals = [
-    project.primaryLanguage ? `Primary language: ${project.primaryLanguage}` : "",
-    project.pushedAt || project.updatedAt ? "Recently active public repository" : "",
-    project.evidenceProfile?.signals.some((signal) => signal.key === "github-actions" && signal.present)
-      ? "Includes GitHub Actions workflow evidence"
-      : "",
-    project.evidenceProfile?.signals.some((signal) => signal.key === "docker" && signal.present)
-      ? "Includes Docker/deployment evidence"
-      : "",
-  ].filter(Boolean);
-
-  const achievements = signals.length > 0
-    ? signals.slice(0, 2)
-    : [
-        "Pulled from Himanshu's public GitHub repository feed",
-        "Technology stack inferred from repository metadata, languages, topics, and manifests",
-      ];
-
-  return {
-    title: project.title,
-    description: project.description,
-    techStack: project.technologies.slice(0, 7),
-    achievements,
-    githubUrl: project.githubUrl,
-    liveUrl: project.liveUrl,
-    updatedAt: project.pushedAt || project.updatedAt,
-    status: project.archived ? "Archived" : "Active",
-    stats: `${project.stars || 0} stars · ${project.forks || 0} forks`,
-  };
-}
-
-function mapStaticResumeProject(project: typeof resumeData.projects[number]): ResumeProject {
-  return {
-    ...project,
-    status: "Curated",
-  };
-}
-
-async function getResumeProjects(): Promise<{ projects: ResumeProject[]; sourceLabel: string }> {
-  const githubProjects = await getPortfolioProjects();
-  const activeProjects = githubProjects
-    .filter((project) => !project.archived)
-    .slice(0, 6)
-    .map(mapGitHubProjectToResumeProject);
-
-  if (activeProjects.length > 0) {
-    return {
-      projects: activeProjects,
-      sourceLabel: "Live GitHub feed",
-    };
-  }
-
-  return {
-    projects: resumeData.projects.map(mapStaticResumeProject),
-    sourceLabel: "Curated fallback",
-  };
-}
-
-export default async function ResumePage() {
-  const { projects, sourceLabel } = await getResumeProjects();
-
+export default function ResumePage() {
   return (
-    <div className="min-h-screen bg-gradient-to-br from-gray-50 to-gray-100 dark:from-gray-900 dark:to-gray-800 py-12 px-4 sm:px-6 lg:px-8">
-      <div className="max-w-4xl mx-auto">
-        {/* Resume Header */}
-        <ResumeHeader data={resumeData.personalInfo} />
-        
-        {/* Professional Summary */}
-        <ProfessionalSummary summary={resumeData.professionalSummary} />
-        
-        {/* Technical Skills */}
-        <TechnicalSkills skills={resumeData.technicalSkills} />
-        
-        {/* Professional Experience */}
-        <ExperienceSection experience={resumeData.experience} />
-        
-        {/* Notable Projects */}
-        <ProjectsSection projects={projects} sourceLabel={sourceLabel} />
-        
-        {/* Education */}
-        <EducationSection education={resumeData.education} />
-      </div>
-    </div>
+    <main className="min-h-screen bg-[#f7f4ed] text-stone-950 dark:bg-[#101010] dark:text-white">
+      <Navigation />
+
+      <section className="mx-auto flex min-h-screen w-full max-w-6xl flex-col px-4 pb-6 pt-24 sm:px-6 lg:px-8">
+        <div className="mb-4 flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
+          <div>
+            <p className="mb-2 text-sm font-bold uppercase tracking-[0.18em] text-teal-700 dark:text-teal-300">
+              Resume
+            </p>
+            <h1 className="text-3xl font-black tracking-tight sm:text-4xl">
+              Himanshu Lade Resume
+            </h1>
+          </div>
+
+          <div className="flex flex-col gap-3 sm:flex-row">
+            <a
+              href={RESUME_PDF_PATH}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="rounded-md border border-stone-300 bg-white px-4 py-2 text-center text-sm font-bold text-stone-900 transition-colors hover:bg-stone-950 hover:text-white dark:border-white/15 dark:bg-white/5 dark:text-white dark:hover:bg-white dark:hover:text-stone-950"
+            >
+              Open PDF
+            </a>
+            <a
+              href={RESUME_PDF_PATH}
+              download
+              className="rounded-md bg-teal-700 px-4 py-2 text-center text-sm font-bold text-white transition-colors hover:bg-teal-800 dark:bg-teal-300 dark:text-stone-950 dark:hover:bg-teal-200"
+            >
+              Download
+            </a>
+          </div>
+        </div>
+
+        <div className="min-h-[72vh] flex-1 overflow-hidden rounded-lg border border-stone-300 bg-white shadow-sm dark:border-white/10 dark:bg-white/5">
+          <object
+            data={`${RESUME_PDF_PATH}#view=FitH`}
+            type="application/pdf"
+            className="h-[78vh] w-full"
+            aria-label="Himanshu Lade resume PDF"
+          >
+            <div className="flex h-[78vh] flex-col items-center justify-center gap-4 p-6 text-center">
+              <p className="max-w-md text-stone-700 dark:text-stone-300">
+                Your browser could not display the PDF inline.
+              </p>
+              <a
+                href={RESUME_PDF_PATH}
+                className="rounded-md bg-teal-700 px-4 py-2 text-sm font-bold text-white transition-colors hover:bg-teal-800 dark:bg-teal-300 dark:text-stone-950"
+              >
+                Open resume PDF
+              </a>
+            </div>
+          </object>
+        </div>
+      </section>
+    </main>
   );
 }
