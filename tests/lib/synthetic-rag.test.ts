@@ -16,6 +16,33 @@ describe("Synthetic RAG", () => {
     expect(result.sources.some((source) => source.id === "codeflow-hook")).toBe(true);
   });
 
+  it("answers Network Guardian case study questions with prototype-safe language", () => {
+    const result = getSyntheticRagResponse("What ML techniques did Himanshu use in Network Guardian?");
+
+    expect(result.confidence).toBe("high");
+    expect(result.response).toContain("Isolation Forest");
+    expect(result.response).toContain("prototype");
+    expect(result.sources.some((source) => source.id === "case-study-network-guardian-ai")).toBe(true);
+  });
+
+  it("answers BackPocket Offline case study questions", () => {
+    const result = getSyntheticRagResponse("Has Himanshu built local-first AI tools?");
+
+    expect(result.confidence).toBe("high");
+    expect(result.response).toContain("BackPocket OS AI Offline");
+    expect(result.response).toContain("operator");
+    expect(result.sources.some((source) => source.id === "case-study-backpocket-os-ai-offline")).toBe(true);
+  });
+
+  it("keeps Pilly healthcare answers safety-bounded", () => {
+    const result = getSyntheticRagResponse("Does Himanshu understand responsible AI in healthcare contexts?");
+
+    expect(result.confidence).toBe("high");
+    expect(result.response).toContain("not medical advice");
+    expect(result.response).toContain("does not provide diagnosis");
+    expect(result.sources.some((source) => source.id === "case-study-pilly-medimate-voice")).toBe(true);
+  });
+
   it("answers an Ask Jay experience question", () => {
     const result = getSyntheticRagResponse("What did Himanshu do at Ask Jay?");
 

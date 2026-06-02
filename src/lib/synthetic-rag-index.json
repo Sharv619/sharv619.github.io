@@ -455,5 +455,228 @@
       }
     ],
     "priority": 8
+  },
+  {
+    "id": "case-study-network-guardian-ai",
+    "title": "Network Guardian AI Case Study",
+    "type": "case-study",
+    "visibility": "public",
+    "tags": [
+      "case-study",
+      "network-guardian-ai",
+      "network-security",
+      "fastapi",
+      "react",
+      "sqlite",
+      "adguard",
+      "ollama",
+      "gemini",
+      "isolation-forest",
+      "entropy",
+      "local-ai"
+    ],
+    "questions": [
+      "What is Network Guardian AI?",
+      "Has Himanshu built network security tools?",
+      "What ML techniques did Himanshu use in Network Guardian?",
+      "Does Himanshu use local AI or Ollama?",
+      "Tell me the Network Guardian AI case study"
+    ],
+    "answer": "Network Guardian AI is a prototype case study for AI-assisted network traffic review. Himanshu built a FastAPI and React workflow around AdGuard DNS logs, SQLite history, tenant-aware access, JWT/API-key authentication, local entropy scoring, Isolation Forest anomaly detection, and optional Gemini/Ollama escalation. It should be framed as a prototype review workflow, not a production security product or verified detection system.",
+    "sources": [
+      {
+        "id": "case-study-network-guardian-ai",
+        "section": "Public Case Study",
+        "title": "Network Guardian AI",
+        "url": "/case-studies/network-guardian-ai"
+      },
+      {
+        "id": "network-guardian-ai",
+        "section": "GitHub",
+        "title": "Network Guardian AI",
+        "url": "https://github.com/Sharv619/network-guardian-ai"
+      }
+    ],
+    "confidence": "repo-reviewed",
+    "priority": 10,
+    "relatedProjectSlug": "network-guardian-ai",
+    "relatedCaseStudySlug": "network-guardian-ai"
+  },
+  {
+    "id": "case-study-backpocket-os-ai-offline",
+    "title": "BackPocket OS AI Offline Case Study",
+    "type": "case-study",
+    "visibility": "public",
+    "tags": [
+      "case-study",
+      "backpocket",
+      "backpocket-os-ai-offline",
+      "local-first-ai",
+      "fastapi",
+      "flutter",
+      "sqlite",
+      "gmail",
+      "ollama",
+      "gemini",
+      "rag",
+      "small-business",
+      "human-in-the-loop"
+    ],
+    "questions": [
+      "What is BackPocket OS?",
+      "Has Himanshu built local-first AI tools?",
+      "What is Himanshu’s small-business AI assistant project?",
+      "What is Himanshu's small-business AI assistant project?",
+      "Does Himanshu understand human-in-the-loop workflows?",
+      "Tell me the BackPocket OS AI Offline case study"
+    ],
+    "answer": "BackPocket OS AI Offline is Himanshu's local-first small-business AI workflow prototype and design pivot. It explores a voice-first, operator-approved business OS where AI can draft, classify, and organize work such as email triage, quote workflows, lead tracking, invoices, documents, and follow-ups, while the business owner approves outbound or destructive actions. It is a prototype/product direction, not a verified production SaaS platform.",
+    "sources": [
+      {
+        "id": "case-study-backpocket-os-ai-offline",
+        "section": "Public Case Study",
+        "title": "BackPocket OS AI Offline",
+        "url": "/case-studies/backpocket-os-ai-offline"
+      },
+      {
+        "id": "backpocket-os-ai-offline-github",
+        "section": "GitHub",
+        "title": "BackPocket OS AI Offline",
+        "url": "https://github.com/Sharv619/backpocket-os-ai-offline"
+      }
+    ],
+    "confidence": "repo-reviewed",
+    "priority": 10,
+    "relatedProjectSlug": "backpocket-os-ai-offline",
+    "relatedCaseStudySlug": "backpocket-os-ai-offline"
+  },
+  {
+    "id": "case-study-codeflow-commander",
+    "title": "CodeFlow Commander / Nexus Gateway Case Study",
+    "type": "case-study",
+    "visibility": "public",
+    "tags": [
+      "case-study",
+      "codeflow",
+      "codeflow-commander",
+      "nexus-gateway",
+      "developer-tools",
+      "git-hooks",
+      "ai-review",
+      "security",
+      "cli",
+      "node.js",
+      "typescript"
+    ],
+    "questions": [
+      "What is CodeFlow Commander?",
+      "Has Himanshu built developer tooling?",
+      "Does Himanshu have AI code review projects?",
+      "What is codeflow-hook?",
+      "Tell me the CodeFlow Commander case study"
+    ],
+    "answer": "CodeFlow Commander / Nexus Gateway is a developer-tooling prototype exploring git hooks, AI-assisted review agents, CI simulation, CLI workflows, and security hardening. The case study is strongest as a systems-design story: attaching AI review to the developer workflow before CI while keeping automation bounded, auditable, and subordinate to human ownership.",
+    "sources": [
+      {
+        "id": "case-study-codeflow-commander",
+        "section": "Public Case Study",
+        "title": "CodeFlow Commander / Nexus Gateway",
+        "url": "/case-studies/codeflow-commander"
+      },
+      {
+        "id": "codeflow-commander-github",
+        "section": "GitHub",
+        "title": "CodeFlow Commander / Nexus Gateway",
+        "url": "https://github.com/Sharv619/codeflow-commander---nexus-gateway"
+      }
+    ],
+    "confidence": "repo-reviewed",
+    "priority": 9,
+    "relatedProjectSlug": "codeflow-commander-nexus-gateway",
+    "relatedCaseStudySlug": "codeflow-commander"
+  },
+  {
+    "id": "case-study-codeflow-hook",
+    "title": "codeflow-hook Case Study",
+    "type": "case-study",
+    "visibility": "public",
+    "tags": [
+      "case-study",
+      "codeflow-hook",
+      "npm",
+      "cli",
+      "git-hooks",
+      "ai-code-review",
+      "developer-tools"
+    ],
+    "questions": [
+      "What is codeflow-hook?",
+      "Has Himanshu published an npm package?",
+      "Does Himanshu have AI code review projects?",
+      "Tell me the codeflow-hook case study"
+    ],
+    "answer": "codeflow-hook is Himanshu's published AI-assisted code review CLI / npm package direction. It packages the narrower CodeFlow idea as a git-hook workflow for structured pre-commit review feedback around security, architecture, and quality. It should be described as prototype-stage developer tooling and not as a replacement for CI, tests, or human review.",
+    "sources": [
+      {
+        "id": "case-study-codeflow-hook",
+        "section": "Public Case Study",
+        "title": "codeflow-hook",
+        "url": "/case-studies/codeflow-hook"
+      },
+      {
+        "id": "codeflow-hook-npm",
+        "section": "Package",
+        "title": "codeflow-hook npm",
+        "url": "https://www.npmjs.com/package/codeflow-hook"
+      }
+    ],
+    "confidence": "partial",
+    "priority": 9,
+    "relatedProjectSlug": "codeflow-hook",
+    "relatedCaseStudySlug": "codeflow-hook"
+  },
+  {
+    "id": "case-study-pilly-medimate-voice",
+    "title": "Pilly / MediMate Voice Case Study",
+    "type": "case-study",
+    "visibility": "public",
+    "tags": [
+      "case-study",
+      "pilly",
+      "medimate",
+      "firebase",
+      "firestore",
+      "cloud-functions",
+      "healthtech",
+      "senior-care",
+      "voice",
+      "responsible-ai",
+      "hackathon"
+    ],
+    "questions": [
+      "What did Himanshu build at the Google AI hackathon?",
+      "What is Pilly / MediMate Voice?",
+      "Has Himanshu built Firebase apps?",
+      "Does Himanshu understand responsible AI in healthcare contexts?",
+      "Tell me the Pilly case study"
+    ],
+    "answer": "Pilly / MediMate Voice is a Firebase-backed responsible-AI medication support hackathon prototype. Himanshu's case-study framing covers Firestore logs, Cloud Function-first workflows, Gemini response classification, deterministic fallback behavior, reminder-response states, and caregiver visibility. It is not medical advice, not a medical device, not for real patient data, and does not provide diagnosis, dosage advice, or medical decisions.",
+    "sources": [
+      {
+        "id": "case-study-pilly-medimate-voice",
+        "section": "Public Case Study",
+        "title": "Pilly / MediMate Voice",
+        "url": "/case-studies/pilly-medimate-voice"
+      },
+      {
+        "id": "healthcare-safety-boundary",
+        "section": "Claim Guardrails",
+        "title": "Healthcare Safety Boundary"
+      }
+    ],
+    "confidence": "portfolio-source",
+    "priority": 9,
+    "relatedProjectSlug": "pilly-medimate-voice",
+    "relatedCaseStudySlug": "pilly-medimate-voice"
   }
 ]

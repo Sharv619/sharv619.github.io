@@ -10,11 +10,16 @@ export interface SyntheticRagSource {
 export interface SyntheticRagEntry {
   id: string;
   title: string;
+  type?: "case-study" | "project" | "experience" | "skills" | "philosophy" | string;
+  visibility?: "public" | "internal" | string;
   tags: string[];
   questions: string[];
   answer: string;
   sources: SyntheticRagSource[];
+  confidence?: string;
   priority: number;
+  relatedProjectSlug?: string;
+  relatedCaseStudySlug?: string;
 }
 
 export interface SyntheticRagMatch {

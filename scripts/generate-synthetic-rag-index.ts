@@ -18,6 +18,10 @@ function validateIndex() {
     if (!entry.title || entry.tags.length === 0 || entry.questions.length === 0 || !entry.answer || entry.sources.length === 0) {
       throw new Error(`Synthetic RAG entry is incomplete: ${entry.id}`);
     }
+
+    if (entry.type === "case-study" && (!entry.visibility || !entry.confidence || !entry.relatedProjectSlug || !entry.relatedCaseStudySlug)) {
+      throw new Error(`Synthetic RAG case-study entry is missing metadata: ${entry.id}`);
+    }
   }
 }
 

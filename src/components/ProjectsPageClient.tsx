@@ -145,6 +145,15 @@ export default function ProjectsPageClient({ projects }: ProjectsPageClientProps
                       >
                         View Source Code →
                       </a>
+                      {project.caseStudySlug && (
+                        <a
+                          href={`/case-studies/${project.caseStudySlug}`}
+                          aria-label={`View case study for ${project.title}`}
+                          className="inline-flex items-center px-6 py-3 border border-gray-300 dark:border-gray-600 text-gray-700 dark:text-gray-300 rounded-lg hover:bg-gray-50 dark:hover:bg-gray-800 transition-colors duration-300"
+                        >
+                          View Case Study →
+                        </a>
+                      )}
                     </div>
                   </div>
                 </motion.div>
