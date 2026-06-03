@@ -73,6 +73,7 @@ export default function ProjectDetailClient({ project }: ProjectDetailClientProp
               <span className="text-xs font-bold uppercase tracking-[0.18em] text-teal-200">Project file</span>
               <span className="h-3 w-3 rounded-full bg-teal-300" />
             </div>
+<<<<<<< HEAD
             <div className="grid grid-cols-1 gap-3">
               {metadata.map(([label, value]) => (
                 <div key={label} className="rounded-md border border-white/10 bg-white/[0.06] p-4">
@@ -80,6 +81,67 @@ export default function ProjectDetailClient({ project }: ProjectDetailClientProp
                   <p className="mt-2 text-sm font-bold leading-6 text-white">{value}</p>
                 </div>
               ))}
+=======
+
+            {/* Architecture Details */}
+            <div className="p-8">
+              <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-6">
+                Architecture & Technical Implementation
+              </h3>
+              <div className="prose prose-lg dark:prose-invert max-w-none">
+                {project.architectureDetails.split('\n\n').map((paragraph, paraIndex) => (
+                  <div key={paraIndex} className="mb-6">
+                    {paragraph.split('\n').map((line, lineIndex) => (
+                      <p key={lineIndex} className={`text-gray-600 dark:text-gray-300 leading-relaxed mb-2 ${line.startsWith('•') ? 'ml-4' : ''} ${line.includes('**') ? 'font-semibold' : ''}`}>
+                        {line.startsWith('•') && (
+                          <span className="inline-block w-2 h-2 bg-blue-600 rounded-full mt-2 mr-2 flex-shrink-0"></span>
+                        )}
+                        <span className={line.includes('**') ? 'font-semibold' : ''}>
+                          {line.replace(/\*\*(.*?)\*\*/g, '$1')}
+                        </span>
+                      </p>
+                    ))}
+                  </div>
+                ))}
+              </div>
+
+              {/* Links */}
+              <div className="flex flex-wrap gap-4 pt-8 mt-8 border-t border-gray-200 dark:border-gray-700">
+                {project.liveUrl && (
+                  <a
+                    href={project.liveUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center px-6 py-3 bg-blue-600 hover:bg-blue-700 text-white font-semibold rounded-lg transition-colors duration-300"
+                  >
+                    View Live Demo →
+                  </a>
+                )}
+                <a
+                  href={project.githubUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center px-6 py-3 border border-gray-300 dark:border-gray-600 text-gray-700 dark:text-gray-300 rounded-lg hover:bg-gray-50 dark:hover:bg-gray-800 transition-colors duration-300"
+                >
+                  View Source Code →
+                </a>
+                {project.caseStudySlug && (
+                  <Link
+                    href={`/case-studies/${project.caseStudySlug}`}
+                    aria-label={`View case study for ${project.title}`}
+                    className="inline-flex items-center px-6 py-3 border border-gray-300 dark:border-gray-600 text-gray-700 dark:text-gray-300 rounded-lg hover:bg-gray-50 dark:hover:bg-gray-800 transition-colors duration-300"
+                  >
+                    View Case Study →
+                  </Link>
+                )}
+                <Link
+                  href="/projects"
+                  className="inline-flex items-center px-6 py-3 border border-gray-300 dark:border-gray-600 text-gray-700 dark:text-gray-300 rounded-lg hover:bg-gray-50 dark:hover:bg-gray-800 transition-colors duration-300"
+                >
+                  View All Projects →
+                </Link>
+              </div>
+>>>>>>> main
             </div>
           </motion.aside>
         </div>

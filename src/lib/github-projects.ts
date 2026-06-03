@@ -13,13 +13,17 @@ const ENRICHMENT_CONCURRENCY = 4;
 const ALL_PROJECTS_TOPICS = new Set(["all", "*"]);
 const HIDDEN_TECHNOLOGY_KEYS = new Set(["go template", "makefile", "mako", "perl", "smarty"]);
 const CASE_STUDY_SLUG_BY_REPO_NAME: Record<string, string> = {
+<<<<<<< HEAD
   "Build_wit_AI": "pilly-medimate-voice",
+=======
+>>>>>>> main
   "backpocket-os-ai": "backpocket-os-ai-offline",
   "backpocket-os-ai-offline": "backpocket-os-ai-offline",
   "codeflow-commander---nexus-gateway": "codeflow-commander",
   "codeflow-hook": "codeflow-hook",
   "network-guardian-ai": "network-guardian-ai",
 };
+<<<<<<< HEAD
 
 const PROJECT_PAGE_OVERRIDES_BY_REPO_NAME: Record<string, Partial<Project>> = {
   "Build_wit_AI": {
@@ -206,6 +210,8 @@ Status:
 • npm package / source verification pending. Avoid exact usage, download, or source claims until verified.`,
   },
 };
+=======
+>>>>>>> main
 
 const TECHNOLOGY_LABELS: Record<string, string> = {
   "@ai-sdk/google": "Google AI SDK",
@@ -555,6 +561,7 @@ export function normalizeRepositoryProject(
     languageBreakdown: enrichment.languages,
     evidenceProfile: evidence.profile,
     evidenceRecommendations: evidence.recommendations,
+<<<<<<< HEAD
     caseStudySlug: override?.caseStudySlug || CASE_STUDY_SLUG_BY_REPO_NAME[repo.name],
     portfolioSummary: override?.portfolioSummary,
     readmeMarkdown: enrichment.readme,
@@ -564,6 +571,9 @@ export function normalizeRepositoryProject(
     priority: override?.priority,
     status: override?.status,
     role: override?.role,
+=======
+    caseStudySlug: CASE_STUDY_SLUG_BY_REPO_NAME[repo.name],
+>>>>>>> main
   };
 }
 
