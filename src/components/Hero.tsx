@@ -1,6 +1,5 @@
 "use client";
 
-import Image from "next/image";
 import { motion } from "framer-motion";
 import { personalInfo, socialLinks } from "@/lib/data";
 import { careerPositioning } from "@/lib/career-positioning";
@@ -93,20 +92,14 @@ export default function Hero() {
           transition={{ duration: 0.7, delay: 0.15 }}
           className="relative"
         >
-          <div className="relative overflow-hidden rounded-lg border border-stone-300 bg-stone-950 p-4 shadow-2xl shadow-stone-950/20 dark:border-white/10">
-            <div className="relative aspect-[4/5] overflow-hidden rounded-md bg-stone-800">
-              <Image
-                src={personalInfo.avatar}
-                alt="Himanshu Lade - Software Engineer"
-                fill
-                sizes="(min-width: 1024px) 42vw, 92vw"
-                className="object-cover"
-                priority
-                placeholder="blur"
-                blurDataURL="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQEAYABgAAD/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0o MCUDBKRYGB0/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoK"
-              />
-            </div>
-            <div className="grid grid-cols-1 gap-3 pt-4 sm:grid-cols-3">
+          <div className="relative overflow-hidden rounded-lg border border-stone-300 bg-stone-950 p-5 shadow-2xl shadow-stone-950/20 dark:border-white/10 sm:p-6">
+            <p className="text-xs font-black uppercase tracking-[0.18em] text-teal-200">
+              What this site should prove
+            </p>
+            <p className="mt-4 text-2xl font-black leading-tight text-white">
+              Not just a list of projects. A record of systems, constraints, and work that survived contact with reality.
+            </p>
+            <div className="mt-6 grid grid-cols-1 gap-3 sm:grid-cols-3 lg:grid-cols-1 xl:grid-cols-3">
               {proofPoints.map((point) => (
                 <div key={point.label} className="rounded-md border border-white/10 bg-white/[0.06] p-4">
                   <p className="text-xs font-semibold uppercase tracking-[0.16em] text-teal-200">{point.label}</p>
