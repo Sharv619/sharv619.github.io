@@ -146,7 +146,7 @@ export default function AssistantChat({ isOpen, onClose }: AssistantChatProps) {
                 <p className="text-2xl mb-2">👋</p>
                 <p className="font-medium text-gray-300">Hey! I&apos;m Assistant</p>
                 <p className="text-sm mt-2">
-                  Ask me about Himanshu&apos;s projects, skills, or experience!
+                  Ask me about Himanshu&apos;s projects, skills, or experience. This assistant uses synthetic RAG over curated portfolio evidence and improves its routing as questions are asked; try &quot;What projects use RAG?&quot;, &quot;What did Himanshu do at Ask Jay?&quot;, or &quot;Which repos use React?&quot;
                 </p>
               </div>
             )}

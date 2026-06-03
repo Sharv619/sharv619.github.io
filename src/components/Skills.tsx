@@ -32,7 +32,7 @@ export default function Skills({ projects, supplementalSkills = [], selectedSkil
             Skills & Technologies
           </h2>
           <p className="text-sm text-gray-600 dark:text-gray-400 mb-4">
-            Derived from project technologies, repo topics, manifests, and certifications.
+            Select a skill to see the GitHub repositories where I used it.
           </p>
           <div className="w-24 h-1 bg-blue-600 mx-auto"></div>
         </motion.div>
