@@ -200,6 +200,12 @@
         "title": "Pilly / MediMate Voice"
       },
       {
+        "id": "build-wit-ai",
+        "section": "GitHub",
+        "title": "Build_wit_AI / Pilly",
+        "url": "https://github.com/Sharv619/Build_wit_AI"
+      },
+      {
         "id": "healthcare-safety-boundary",
         "section": "Claim Guardrails",
         "title": "Healthcare Safety Boundary"
@@ -340,6 +346,58 @@
       }
     ],
     "priority": 5
+  },
+  {
+    "id": "project-rag-projects-overview",
+    "title": "RAG Projects Overview",
+    "type": "project",
+    "visibility": "public",
+    "tags": [
+      "rag",
+      "retrieval",
+      "ai-projects",
+      "portfolio-assistant",
+      "backpocket",
+      "lifeos",
+      "codeflow",
+      "synthetic-rag",
+      "local-first-ai"
+    ],
+    "questions": [
+      "Tell me about RAG projects",
+      "Which projects use RAG?",
+      "What RAG projects has Himanshu built?",
+      "Does Himanshu have retrieval augmented generation projects?",
+      "Which ones use RAG?"
+    ],
+    "answer": "RAG projects: AWS Bedrock-ready portfolio assistant, BackPocket OS AI Offline, LifeOS, and CodeFlow's developer-context review direction.",
+    "sources": [
+      {
+        "id": "project-aws-bedrock-rag-assistant",
+        "section": "Project",
+        "title": "AWS Bedrock RAG Assistant",
+        "url": "/projects/sharv619-github-io"
+      },
+      {
+        "id": "case-study-backpocket-os-ai-offline",
+        "section": "Public Case Study",
+        "title": "BackPocket OS AI Offline",
+        "url": "/case-studies/backpocket-os-ai-offline"
+      },
+      {
+        "id": "lifeos-personal-ai-calendar",
+        "section": "Hackathon Project",
+        "title": "LifeOS"
+      },
+      {
+        "id": "case-study-codeflow-commander",
+        "section": "Public Case Study",
+        "title": "CodeFlow Commander / Nexus Gateway",
+        "url": "/case-studies/codeflow-commander"
+      }
+    ],
+    "confidence": "portfolio-source",
+    "priority": 10
   },
   {
     "id": "project-aws-bedrock-rag-assistant",
@@ -596,6 +654,47 @@
     "relatedCaseStudySlug": "codeflow-commander"
   },
   {
+    "id": "project-codeflow-sentinel",
+    "title": "CodeFlow Sentinel",
+    "type": "project",
+    "visibility": "public",
+    "tags": [
+      "codeflow",
+      "codeflow-sentinel",
+      "developer-tools",
+      "ai-code-review",
+      "security",
+      "git-hooks",
+      "cli"
+    ],
+    "questions": [
+      "What does codeflow-sentinel do?",
+      "What is CodeFlow Sentinel?",
+      "Tell me about CodeFlow Sentinel",
+      "How does CodeFlow Sentinel relate to CodeFlow Commander?",
+      "What are CodeFlow capabilities?"
+    ],
+    "answer": "CodeFlow Sentinel is the CodeFlow security/review-agent framing: AI-assisted checks for risky code patterns and security concerns before git/CI handoff. Prototype-stage, not a production scanner.",
+    "sources": [
+      {
+        "id": "case-study-codeflow-commander",
+        "section": "Public Case Study",
+        "title": "CodeFlow Commander / Nexus Gateway",
+        "url": "/case-studies/codeflow-commander"
+      },
+      {
+        "id": "case-study-codeflow-hook",
+        "section": "Public Case Study",
+        "title": "codeflow-hook",
+        "url": "/case-studies/codeflow-hook"
+      }
+    ],
+    "confidence": "portfolio-source",
+    "priority": 10,
+    "relatedProjectSlug": "codeflow-commander",
+    "relatedCaseStudySlug": "codeflow-commander"
+  },
+  {
     "id": "case-study-codeflow-hook",
     "title": "codeflow-hook Case Study",
     "type": "case-study",
@@ -669,6 +768,18 @@
         "url": "/case-studies/pilly-medimate-voice"
       },
       {
+        "id": "build-wit-ai",
+        "section": "GitHub",
+        "title": "Build_wit_AI / Pilly",
+        "url": "https://github.com/Sharv619/Build_wit_AI"
+      },
+      {
+        "id": "medimate-live-demo",
+        "section": "Live Demo",
+        "title": "MediMate Voice Demo",
+        "url": "https://medimate-voice-demo.web.app"
+      },
+      {
         "id": "healthcare-safety-boundary",
         "section": "Claim Guardrails",
         "title": "Healthcare Safety Boundary"
@@ -676,7 +787,7 @@
     ],
     "confidence": "portfolio-source",
     "priority": 9,
-    "relatedProjectSlug": "pilly-medimate-voice",
+    "relatedProjectSlug": "build-wit-ai",
     "relatedCaseStudySlug": "pilly-medimate-voice"
   }
 ]

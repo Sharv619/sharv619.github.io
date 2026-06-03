@@ -1,5 +1,6 @@
 import { projects as fallbackProjects, slugify } from "./data";
 import { enrichGitHubProjectEvidence } from "./github-evidence-enrichment";
+import { decodeGitHubBase64Content, getReadmeSourceUrl } from "./github-readme";
 import type { Project } from "./data";
 import type { GitHubEvidenceMetadata } from "./github-evidence-enrichment";
 
@@ -12,11 +13,198 @@ const ENRICHMENT_CONCURRENCY = 4;
 const ALL_PROJECTS_TOPICS = new Set(["all", "*"]);
 const HIDDEN_TECHNOLOGY_KEYS = new Set(["go template", "makefile", "mako", "perl", "smarty"]);
 const CASE_STUDY_SLUG_BY_REPO_NAME: Record<string, string> = {
+  "Build_wit_AI": "pilly-medimate-voice",
   "backpocket-os-ai": "backpocket-os-ai-offline",
   "backpocket-os-ai-offline": "backpocket-os-ai-offline",
   "codeflow-commander---nexus-gateway": "codeflow-commander",
   "codeflow-hook": "codeflow-hook",
   "network-guardian-ai": "network-guardian-ai",
+};
+
+const PROJECT_PAGE_OVERRIDES_BY_REPO_NAME: Record<string, Partial<Project>> = {
+  "Build_wit_AI": {
+    title: "Pilly / MediMate Voice",
+    description: "Firebase-backed hackathon prototype for responsible medication reminders, senior-friendly responses, caregiver visibility, and deterministic AI fallback behavior.",
+    portfolioSummary: "Hackathon prototype for senior-friendly medication reminder workflows with Firebase, caregiver visibility, and explicit responsible-AI safety boundaries.",
+    technologies: ["Firebase", "Firestore", "Cloud Functions", "TypeScript", "HTML", "Tailwind CSS", "Gemini", "Voice", "Responsible AI"],
+    slug: "build-wit-ai",
+    liveUrl: "https://medimate-voice-demo.web.app",
+    status: "Hackathon prototype",
+    role: "Team contributor",
+    featured: true,
+    priority: 80,
+    architectureDetails: `Pilly / MediMate Voice is a hackathon MVP for medication reminder support with explicit safety boundaries.
+
+Problem:
+• Seniors and caregivers need simple visibility around reminders, snoozes, refusals, missed-dose states, and help requests.
+• The AI boundary matters because the system must not diagnose, recommend dosage, or make medical decisions.
+
+What I built / designed:
+• A Firebase-backed reminder workflow around event-based medication prompts such as breakfast, dinner, bedtime, leaving home, and post-discharge check-ins.
+• A senior-friendly response flow using large controls, typed input, and voice input.
+• Caregiver-facing visibility into medication logs, notifications, refusal reasons, and help requests.
+• Trusted Family Voice Reminder support using caregiver-provided audio with explicit consent messaging.
+
+Technical highlights:
+• Firebase Hosting frontend with HTML, Tailwind CDN, and vanilla JavaScript.
+• Firestore collections for households, users, medications, logs, routine events, notifications, script uploads, and voice reminder metadata.
+• Cloud Function-first workflows for medication response recording, event completion, leaving-home simulation, and response classification.
+• Gemini response classification from Cloud Functions only, with deterministic fallback when no API key is configured.
+• Firebase Storage for caregiver-uploaded or recorded family reminder audio.
+
+Safety boundary:
+• Hackathon prototype only. Not medical advice, not a medical device, not for real patient data, and not a replacement for clinicians, pharmacists, emergency services, or prescribed care plans.`,
+  },
+  "backpocket-os-ai": {
+    title: "BackPocket OS AI",
+    description: "Local-first AI operations assistant prototype for small-business admin workflows, focused on email triage, quotes, records, and human-approved actions.",
+    portfolioSummary: "Small-business AI operating-system prototype focused on turning admin inputs into structured, human-approved workflows.",
+    technologies: ["Python", "FastAPI", "Flutter", "SQLite", "Gmail", "Ollama", "Gemini", "RAG", "Docker"],
+    status: "Prototype / design pivot",
+    role: "Solo builder / product architect",
+    featured: true,
+    priority: 95,
+    architectureDetails: `BackPocket OS AI explores a practical business operating system for small operators who need help turning messy admin inputs into structured work.
+
+Problem:
+• Small businesses lose time across quotes, invoices, Gmail follow-ups, job notes, payments, documents, and lead tracking.
+• Generic AI assistants are too disconnected from the operational workflow and too risky if they act without review.
+
+What I built / designed:
+• A local-first assistant direction where Pip can draft, classify, and organize work while the operator approves outbound or destructive actions.
+• Backend workflow direction around FastAPI, local storage, Gmail/Drive-style integrations, and structured business records.
+• A product pivot toward offline-first ownership, privacy, and human-in-the-loop review instead of a generic cloud chatbot.
+
+Technical highlights:
+• Email triage pipeline direction for classify, draft, approve, send/archive, and notify.
+• Local-first storage direction using SQLite first, with a self-hosted PostgreSQL path later.
+• AI fallback strategy across local Ollama, hosted model fallback, and Gemini.
+• Workflow modeling for leads, quotes, invoices, payments, job files, ABN/GST checks, and document search.
+• RAG/document intelligence direction for retrieving relevant business context before drafting.
+
+Status:
+• Prototype / design pivot. This page avoids production, revenue, uptime, or usage claims until they are verified.`,
+  },
+  "backpocket-os-ai-offline": {
+    title: "BackPocket OS AI Offline",
+    description: "Offline-first BackPocket OS pivot for operator-owned AI workflows, with local data ownership, approval gates, and small-business admin automation.",
+    portfolioSummary: "Offline-first product pivot for operator-owned AI workflows, local records, approval gates, and small-business admin automation.",
+    technologies: ["Python", "FastAPI", "Flutter", "SQLite", "Gmail", "Ollama", "Gemini", "RAG", "Docker"],
+    status: "Prototype / design pivot",
+    role: "Solo builder / product architect",
+    featured: true,
+    priority: 100,
+    architectureDetails: `BackPocket OS AI Offline is the local-first pivot direction for BackPocket OS.
+
+Problem:
+• Small operators need admin leverage without handing business context fully to a cloud-only assistant.
+• The important workflow is not just chat; it is turning requests, documents, reminders, and follow-ups into approved operational actions.
+
+What I built / designed:
+• A voice-first and approval-first assistant concept for quotes, email triage, lead tracking, job notes, and document search.
+• A local storage direction where sensitive workflow context can remain operator-owned.
+• A fallback AI design using local inference first where possible, then hosted providers when needed.
+
+Technical highlights:
+• FastAPI backend direction with local persistence.
+• SQLite-first storage model with later PostgreSQL/self-hosted path.
+• Gmail/Drive/Sheets integration planning.
+• Human approval boundaries before emails, quotes, payments, or destructive updates.
+• RAG-assisted document context for business records.
+
+Status:
+• Prototype / design pivot. It should be discussed as a product exploration, not a verified production SaaS platform.`,
+  },
+  "network-guardian-ai": {
+    title: "Network Guardian AI",
+    description: "AI-assisted network traffic review prototype using anomaly signals, entropy-style scoring, FastAPI, React, SQLite, and local/hosted AI summaries.",
+    portfolioSummary: "Network-security prototype that makes traffic signals easier to inspect with anomaly detection, entropy-style features, and grounded AI summaries.",
+    technologies: ["Python", "FastAPI", "React", "SQLite", "AdGuard", "Ollama", "Gemini", "Isolation Forest", "Entropy"],
+    status: "Prototype",
+    role: "Solo builder",
+    featured: true,
+    priority: 90,
+    architectureDetails: `Network Guardian AI is a prototype for making network traffic easier to inspect and explain.
+
+Problem:
+• Network events can be noisy, difficult to prioritize, and hard to explain quickly without structured signals.
+• AI summaries are useful only when they stay grounded in observable data and avoid overstating security impact.
+
+What I built / designed:
+• A FastAPI and React prototype for reviewing traffic signals and producing AI-assisted summaries.
+• A detection direction using anomaly-style scoring, entropy-oriented features, and structured event storage.
+• A privacy-aware AI path that can use local models such as Ollama, with hosted model fallback where appropriate.
+
+Technical highlights:
+• FastAPI backend for ingestion and analysis endpoints.
+• React interface for reviewing network and security signals.
+• SQLite-backed prototype storage.
+• Isolation Forest-style anomaly detection direction.
+• Entropy-style scoring for suspicious or unusual patterns.
+• Local/hosted AI summary boundary using Ollama and Gemini.
+
+Status:
+• Prototype. It should not be described as a production security control or a verified threat-detection system.`,
+  },
+  "codeflow-commander---nexus-gateway": {
+    title: "CodeFlow Commander / Nexus Gateway",
+    description: "Developer-tooling prototype exploring AI-assisted code review workflows, git hook automation, security checks, CLI ergonomics, and review orchestration.",
+    portfolioSummary: "Developer-tooling prototype for AI-assisted review orchestration across git hook workflows, CLI commands, and security-oriented feedback.",
+    technologies: ["Node.js", "TypeScript", "CLI", "Git Hooks", "AI Review", "Security", "Developer Tools"],
+    status: "Prototype / platform exploration",
+    role: "Solo builder",
+    featured: true,
+    priority: 85,
+    architectureDetails: `CodeFlow Commander / Nexus Gateway explores AI-assisted developer tooling around review workflows.
+
+Problem:
+• Developers need fast pre-commit and review feedback, but generic AI chat workflows are hard to integrate into normal git habits.
+• Automated review needs clear boundaries so AI assists judgment without pretending to replace engineering ownership.
+
+What I built / designed:
+• A developer-tooling prototype around git hook workflows, review orchestration, and structured code feedback.
+• A platform direction for connecting CLI commands, review rules, security checks, and AI-assisted analysis.
+• A safer review flow where generated findings are framed as suggestions requiring developer review.
+
+Technical highlights:
+• Node.js / TypeScript CLI direction.
+• Git hook integration and staged-file analysis.
+• AI review orchestration for code quality, security, and maintainability prompts.
+• Provider-agnostic review direction for future model flexibility.
+• Nexus Gateway framing for routing review tasks through a consistent command surface.
+
+Status:
+• Prototype / platform exploration. It should not be described as a mature production review platform without further verification.`,
+  },
+  "codeflow-hook": {
+    title: "codeflow-hook",
+    description: "NPM package and CLI direction for AI-assisted git hook code review, with source verification pending for the public repository.",
+    portfolioSummary: "Package-facing CLI direction for AI-assisted git hook review, framed as developer support rather than automated production judgment.",
+    technologies: ["Node.js", "TypeScript", "npm", "CLI", "Git Hooks", "AI Code Review", "Developer Tools"],
+    status: "npm package / source verification pending",
+    role: "Solo builder",
+    featured: true,
+    priority: 75,
+    architectureDetails: `codeflow-hook is the package-facing developer-tooling project for AI-assisted review in git workflows.
+
+Problem:
+• Developers often want review feedback before commit, but manual AI prompting is slow and detached from staged changes.
+• A useful tool needs to fit inside existing CLI and git habits while keeping final judgment with the developer.
+
+What I built / designed:
+• A git hook / CLI package direction for running structured AI-assisted review around local code changes.
+• A package-facing workflow that can be installed and invoked from normal development environments.
+• A review boundary where findings are assistive suggestions, not automatic production decisions.
+
+Technical highlights:
+• npm package distribution direction.
+• CLI commands for developer workflow integration.
+• Git hook positioning for pre-commit or local review flows.
+• AI-assisted code review prompts with source verification still required for the public repo.
+
+Status:
+• npm package / source verification pending. Avoid exact usage, download, or source claims until verified.`,
+  },
 };
 
 const TECHNOLOGY_LABELS: Record<string, string> = {
@@ -315,9 +503,13 @@ export function normalizeRepositoryProject(
 ): Project {
   const topic = enrichment.topic || PORTFOLIO_TOPIC;
   const readmeSummary = summarizeReadme(enrichment.readme);
-  const title = formatRepositoryTitle(repo.name);
-  const technologies = mergeTechnologies(repo.language, enrichment.languages, repo.topics, topic, enrichment.manifestSkills);
-  const description = repo.description?.trim() || readmeSummary || `${title} is a public GitHub project by Himanshu Lade.`;
+  const override = PROJECT_PAGE_OVERRIDES_BY_REPO_NAME[repo.name];
+  const title = override?.title || formatRepositoryTitle(repo.name);
+  const detectedTechnologies = mergeTechnologies(repo.language, enrichment.languages, repo.topics, topic, enrichment.manifestSkills);
+  const technologies = override?.technologies
+    ? uniqueTechnologies([...override.technologies, ...detectedTechnologies])
+    : detectedTechnologies;
+  const description = override?.description || repo.description?.trim() || readmeSummary || `${title} is a public GitHub project by Himanshu Lade.`;
   const topics = repo.topics?.filter((repoTopic) => shouldIncludeAllProjects(topic) || repoTopic !== topic) || [];
   const formattedTopics = topics.map(formatTopic);
   const lastUpdated = repo.pushed_at || repo.updated_at;
@@ -331,7 +523,7 @@ export function normalizeRepositoryProject(
     repo.archived ? "Status: Archived" : "Status: Active",
   ];
   const evidence = enrichGitHubProjectEvidence({
-    slug: slugify(title),
+    slug: override?.slug || slugify(title),
     repoName: repo.name,
     description,
     readme: enrichment.readme,
@@ -349,10 +541,10 @@ export function normalizeRepositoryProject(
     title,
     description,
     technologies,
-    liveUrl: repo.homepage?.trim() || "",
+    liveUrl: override?.liveUrl || repo.homepage?.trim() || "",
     githubUrl: repo.html_url,
-    slug: slugify(title),
-    architectureDetails: `${description}\n\nGitHub Signals:\n${githubSignals.map((line) => `• ${line}`).join("\n")}`,
+    slug: override?.slug || slugify(title),
+    architectureDetails: `${override?.architectureDetails || description}\n\nGitHub Signals:\n${githubSignals.map((line) => `• ${line}`).join("\n")}`,
     archived: repo.archived,
     updatedAt: repo.updated_at,
     pushedAt: repo.pushed_at || undefined,
@@ -363,7 +555,15 @@ export function normalizeRepositoryProject(
     languageBreakdown: enrichment.languages,
     evidenceProfile: evidence.profile,
     evidenceRecommendations: evidence.recommendations,
-    caseStudySlug: CASE_STUDY_SLUG_BY_REPO_NAME[repo.name],
+    caseStudySlug: override?.caseStudySlug || CASE_STUDY_SLUG_BY_REPO_NAME[repo.name],
+    portfolioSummary: override?.portfolioSummary,
+    readmeMarkdown: enrichment.readme,
+    readmeSourceUrl: getReadmeSourceUrl(repo.html_url),
+    screenshots: override?.screenshots,
+    featured: override?.featured,
+    priority: override?.priority,
+    status: override?.status,
+    role: override?.role,
   };
 }
 
@@ -401,6 +601,18 @@ function normalizeTechnologyLabel(value: string): string {
 
 export function sortPortfolioProjects(projects: Project[]): Project[] {
   return [...projects].sort((left, right) => {
+    const featuredDelta = Number(Boolean(right.featured)) - Number(Boolean(left.featured));
+
+    if (featuredDelta !== 0) {
+      return featuredDelta;
+    }
+
+    const priorityDelta = (right.priority || 0) - (left.priority || 0);
+
+    if (priorityDelta !== 0) {
+      return priorityDelta;
+    }
+
     const rightDate = Date.parse(right.pushedAt || right.updatedAt || "");
     const leftDate = Date.parse(left.pushedAt || left.updatedAt || "");
 
@@ -414,7 +626,7 @@ export async function getPortfolioProjects(options: GetPortfolioProjectsOptions 
   const useFallback = options.useFallback ?? true;
   const source = options.source || getPortfolioProjectSource();
 
-  if (source === "fallback" || (source === "auto" && isProductionBuild())) {
+  if (source === "fallback" || (source === "auto" && isProductionBuild() && !process.env.GITHUB_TOKEN)) {
     return fallbackProjects;
   }
 
@@ -513,7 +725,7 @@ async function fetchRepositoryReadme(username: string, repoName: string): Promis
     return "";
   }
 
-  return Buffer.from(readme.content.replace(/\n/g, ""), "base64").toString("utf8");
+  return decodeGitHubBase64Content(readme);
 }
 
 async function fetchRepositoryLanguages(username: string, repoName: string): Promise<GitHubLanguages> {

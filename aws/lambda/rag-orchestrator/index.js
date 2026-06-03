@@ -94,12 +94,14 @@ exports.handler = async (event) => {
       }, headers);
     }
 
+    const history = normalizeHistory(body.history);
+    const retrievalMessage = expandQueryWithHistory(inputGuard.filteredContent || validation.message, history);
     const entries = await getSyntheticRagIndex();
-    const matches = searchSyntheticRagIndex(inputGuard.filteredContent || validation.message, entries);
+    const matches = searchSyntheticRagIndex(retrievalMessage, entries);
     const confidence = getSyntheticRagConfidence(matches);
 
     if (confidence === "low" || matches.length === 0) {
-      const knowledgeBaseAnswer = await getKnowledgeBaseAnswer(inputGuard.filteredContent || validation.message);
+      const knowledgeBaseAnswer = await getKnowledgeBaseAnswer(retrievalMessage);
 
       if (knowledgeBaseAnswer) {
         return jsonResponse(200, {
@@ -191,6 +193,42 @@ function parseRequestBody(event) {
   } catch {
     return {};
   }
+}
+
+function normalizeHistory(history) {
+  if (!Array.isArray(history)) {
+    return [];
+  }
+
+  return history
+    .filter((item) => (
+      item
+      && (item.role === "user" || item.role === "assistant")
+      && typeof item.content === "string"
+      && item.content.trim()
+    ))
+    .slice(-6)
+    .map((item) => ({
+      role: item.role,
+      content: item.content.trim().slice(0, 800),
+    }));
+}
+
+function expandQueryWithHistory(message, history) {
+  const trimmed = String(message).trim();
+
+  if (!isFollowUpQuestion(trimmed) || history.length === 0) {
+    return trimmed;
+  }
+
+  const previousUserMessage = [...history].reverse().find((item) => item.role === "user")?.content;
+  const previousAssistantMessage = [...history].reverse().find((item) => item.role === "assistant")?.content;
+  const context = [previousUserMessage, previousAssistantMessage]
+    .filter(Boolean)
+    .join("\n")
+    .slice(0, 900);
+
+  return context ? `${context}\nFollow-up question: ${trimmed}` : trimmed;
 }
 
 function validateMessage(message) {
@@ -606,6 +644,16 @@ function isLongQuestion(message) {
   return trimmed.length >= 120
     || /\b(explain|detail|detailed|deep dive|architecture|compare|why|how did|how does|walk me through)\b/i.test(trimmed)
     || /\b(implementation|technical|tradeoff|tradeoffs|decision|decisions|strategy)\b/i.test(trimmed);
+}
+
+function isFollowUpQuestion(message) {
+  const normalized = normalizeSyntheticQuery(message);
+  const tokens = tokenizeSyntheticQuery(message);
+
+  return tokens.length <= 3 && (
+    /^(which|what|why|how|who|where)\b/.test(normalized) ||
+    /\b(ones|more|details|capability|capabilities|examples|which ones)\b/.test(normalized)
+  );
 }
 
 function toShortAnswer(response) {

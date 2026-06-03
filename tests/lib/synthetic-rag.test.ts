@@ -2,6 +2,7 @@ import { describe, expect, it } from "vitest";
 
 import {
   getSyntheticRagResponse,
+  expandSyntheticRagQuery,
   searchSyntheticRagIndex,
   validateSyntheticRagInput,
 } from "@/lib/assistant/synthetic-rag";
@@ -59,6 +60,37 @@ describe("Synthetic RAG", () => {
     expect(result.response).toContain("AWS Bedrock");
     expect(result.response).toContain("Synthetic RAG");
     expect(result.sources.some((source) => source.id === "portfolio")).toBe(true);
+  });
+
+  it("answers RAG project overview questions with multiple projects", () => {
+    const result = getSyntheticRagResponse("tell me about RAG projects");
+
+    expect(result.confidence).toBe("high");
+    expect(result.response).toContain("portfolio assistant");
+    expect(result.response).toContain("BackPocket OS AI Offline");
+    expect(result.response).toContain("LifeOS");
+    expect(result.sources.some((source) => source.id === "case-study-backpocket-os-ai-offline")).toBe(true);
+  });
+
+  it("expands short follow-up questions with recent chat context", () => {
+    const expanded = expandSyntheticRagQuery("which ones?", [
+      { role: "user", content: "tell me about RAG projects" },
+      { role: "assistant", content: "Himanshu has RAG-related projects including the portfolio assistant and BackPocket." },
+    ]);
+    const result = getSyntheticRagResponse(expanded);
+
+    expect(expanded).toContain("tell me about RAG projects");
+    expect(result.confidence).toBe("high");
+    expect(result.response).toContain("RAG projects");
+  });
+
+  it("answers CodeFlow Sentinel capability questions safely", () => {
+    const result = getSyntheticRagResponse("what does codeflow-sentinel do?");
+
+    expect(result.confidence).toBe("high");
+    expect(result.response).toContain("CodeFlow Sentinel");
+    expect(result.response.toLowerCase()).toContain("prototype-stage");
+    expect(result.sources.some((source) => source.id === "case-study-codeflow-commander")).toBe(true);
   });
 
   it("answers hackathon questions", () => {

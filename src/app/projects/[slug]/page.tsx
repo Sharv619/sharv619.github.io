@@ -2,6 +2,7 @@ import { notFound } from "next/navigation";
 import ProjectDetailClient from "@/components/ProjectDetailClient";
 import { slugify } from "@/lib/data";
 import { getPortfolioProjects } from "@/lib/github-projects";
+import { toPublicProject } from "@/lib/public-project";
 
 export const dynamicParams = false;
 
@@ -26,5 +27,5 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
     notFound();
   }
 
-  return <ProjectDetailClient project={project} />;
+  return <ProjectDetailClient project={toPublicProject(project)} />;
 }

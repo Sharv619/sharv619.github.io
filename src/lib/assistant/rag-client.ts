@@ -106,6 +106,14 @@ export function getModelForComplexity(complexity: QueryComplexity): string {
  * Send message to RAG assistant with smart routing
  */
 export async function sendChatMessage(message: string, sessionId?: string): Promise<RAGResponse> {
+  return sendChatMessageWithHistory(message, sessionId);
+}
+
+export async function sendChatMessageWithHistory(
+  message: string,
+  sessionId?: string,
+  history: Message[] = []
+): Promise<RAGResponse> {
   // Analyze complexity for smart routing
   const complexity = analyzeQueryComplexity(message);
   const preferredModel = getModelForComplexity(complexity);
@@ -118,6 +126,7 @@ export async function sendChatMessage(message: string, sessionId?: string): Prom
     body: JSON.stringify({
       message,
       sessionId: sessionId || crypto.randomUUID(),
+      history: history.slice(-6),
       // Smart routing hints sent to backend
       complexity,
       preferredModel,

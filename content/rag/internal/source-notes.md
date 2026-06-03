@@ -37,4 +37,6 @@ The unauthenticated public clone returned an empty repository. Current public cl
 
 ## Pilly / MediMate Voice
 
-No public repository was found under the likely names checked during review. Current public claims are based on local portfolio source-of-truth, guardrails, and existing curated case-study data. Any stronger implementation detail should wait for private repo verification.
+Public repository: `Sharv619/Build_wit_AI`
+
+Reviewed README supports the Pilly / MediMate Voice framing: Firebase Hosting, Firestore, Firebase Storage, Cloud Functions, Gemini classification, deterministic fallback behavior, event-based medication reminders, caregiver visibility, and Trusted Family Voice Reminder boundaries. Keep all public copy hackathon-prototype safe and include the not-medical-advice boundary.

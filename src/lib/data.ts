@@ -45,6 +45,20 @@ export interface Project {
   evidenceProfile?: ProjectEvidenceProfile;
   evidenceRecommendations?: PortfolioRecommendation[];
   caseStudySlug?: string;
+  portfolioSummary?: string;
+  readmeMarkdown?: string;
+  readmeSourceUrl?: string;
+  screenshots?: ProjectScreenshot[];
+  featured?: boolean;
+  priority?: number;
+  status?: string;
+  role?: string;
+}
+
+export interface ProjectScreenshot {
+  src: string;
+  alt: string;
+  caption: string;
 }
 
 export const personalInfo: PersonalInfo = {

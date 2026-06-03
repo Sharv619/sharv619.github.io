@@ -4,9 +4,10 @@ import { useState, useRef, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import NeuralBackground from "./NeuralBackground";
 import SourceCard from "./SourceCard";
-import { sendChatMessage } from "@/lib/assistant/rag-client";
+import { sendChatMessageWithHistory } from "@/lib/assistant/rag-client";
 import { getKnowledgeBaseResponse } from "@/lib/assistant/fallback-responses";
 import { formatAssistantResponse } from "@/lib/assistant/response-style";
+import { expandSyntheticRagQuery } from "@/lib/assistant/synthetic-rag";
 
 interface Message {
   role: "user" | "assistant";
@@ -26,6 +27,7 @@ export default function AssistantChat({ isOpen, onClose }: AssistantChatProps) {
   const [isThinking, setIsThinking] = useState(false);
   const [useDemo, setUseDemo] = useState(!process.env.NEXT_PUBLIC_ASSISTANT_API);
   const messagesEndRef = useRef<HTMLDivElement>(null);
+  const sessionIdRef = useRef<string>(crypto.randomUUID());
 
   const scrollToBottom = () => {
     messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
@@ -71,7 +73,8 @@ export default function AssistantChat({ isOpen, onClose }: AssistantChatProps) {
         ]);
       } else if (useDemo) {
         await new Promise((resolve) => setTimeout(resolve, 1000 + Math.random() * 1000));
-        const result = getKnowledgeBaseResponse(userMessage);
+        const expandedMessage = expandSyntheticRagQuery(userMessage, messages);
+        const result = getKnowledgeBaseResponse(expandedMessage);
         
         setMessages((prev) => [
           ...prev,
@@ -83,7 +86,7 @@ export default function AssistantChat({ isOpen, onClose }: AssistantChatProps) {
         ]);
       } else {
         // Real RAG mode
-        const result = await sendChatMessage(userMessage);
+        const result = await sendChatMessageWithHistory(userMessage, sessionIdRef.current, messages);
         
         setMessages((prev) => [
           ...prev,
