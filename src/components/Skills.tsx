@@ -58,7 +58,7 @@ export default function Skills({ projects, supplementalSkills = [], selectedSkil
           </div>
         )}
 
-        <div className="grid max-h-[68svh] grid-cols-1 gap-4 overflow-y-auto pr-1 md:grid-cols-2 xl:grid-cols-3">
+        <div className="grid grid-cols-1 gap-4 md:grid-cols-2 xl:grid-cols-3">
           {skillCategories.map((category, categoryIndex) => (
             <motion.div
               key={category.title}
@@ -66,12 +66,13 @@ export default function Skills({ projects, supplementalSkills = [], selectedSkil
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: categoryIndex * 0.1 }}
               viewport={{ once: true }}
-              className="rounded-lg border border-stone-300 bg-white p-5 shadow-sm dark:border-white/10 dark:bg-[#171715]"
+              className="flex h-72 flex-col rounded-lg border border-stone-300 bg-white p-5 shadow-sm dark:border-white/10 dark:bg-[#171715]"
             >
-              <h3 className="mb-4 text-xl font-black text-stone-950 dark:text-white">
+              <h3 className="mb-4 shrink-0 text-xl font-black text-stone-950 dark:text-white">
                 {category.title}
               </h3>
-              <div className="flex flex-wrap gap-2">
+              <div className="min-h-0 flex-1 overflow-y-auto pr-1">
+                <div className="flex flex-wrap gap-2">
                 {category.items.map((skill) => (
                   <button
                     key={skill}
@@ -81,6 +82,7 @@ export default function Skills({ projects, supplementalSkills = [], selectedSkil
                     {skill}
                   </button>
                 ))}
+                </div>
               </div>
             </motion.div>
           ))}

@@ -1,6 +1,5 @@
 "use client";
 
-import Image from "next/image";
 import { motion } from "framer-motion";
 import { personalInfo, socialLinks } from "@/lib/data";
 import { careerPositioning } from "@/lib/career-positioning";
@@ -101,20 +100,8 @@ export default function Hero() {
           className="relative"
         >
           <div className="relative overflow-hidden rounded-lg border border-stone-300 bg-stone-950 shadow-2xl shadow-stone-950/20 dark:border-white/10">
-            <div className="grid grid-cols-1 gap-0 sm:grid-cols-[0.92fr_1.08fr] lg:grid-cols-1 xl:grid-cols-[0.92fr_1.08fr]">
-              <div className="relative aspect-[4/5] min-h-[420px] overflow-hidden bg-stone-800">
-              <Image
-                src={personalInfo.avatar}
-                alt="Himanshu Lade - Software Engineer"
-                fill
-                sizes="(min-width: 1280px) 470px, (min-width: 1024px) 42vw, 92vw"
-                className="object-cover"
-                priority
-                placeholder="blur"
-                blurDataURL="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQEAYABgAAD/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0o MCUDBKRYGB0/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoK"
-              />
-              </div>
-              <div className="flex flex-col justify-between p-5">
+            <div>
+              <div className="flex flex-col justify-between p-5 sm:p-6">
                 <div>
                   <p className="text-xs font-black uppercase tracking-[0.18em] text-teal-200">
                     What this site should prove
