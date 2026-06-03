@@ -35,7 +35,7 @@ export default function Skills({ projects, supplementalSkills = [], selectedSkil
             Tools I have used in real work.
           </h2>
           <p className="mt-5 text-lg leading-8 text-stone-700 dark:text-stone-300">
-            Click any skill to filter the project lab.
+            Select a skill to see the GitHub repositories where I used it.
           </p>
           {selectedSkills.length > 0 && (
             <div className="mt-6 rounded-lg border border-teal-700/20 bg-white p-4 dark:border-teal-300/20 dark:bg-white/5">
