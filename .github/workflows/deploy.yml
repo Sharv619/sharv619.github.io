@@ -53,6 +53,21 @@ jobs:
         with:
           path: ./out
 
+      - name: Configure AWS credentials
+        if: ${{ vars.AWS_ROLE_TO_ASSUME != '' && vars.PORTFOLIO_S3_BUCKET != '' }}
+        uses: aws-actions/configure-aws-credentials@v4
+        with:
+          role-to-assume: ${{ vars.AWS_ROLE_TO_ASSUME }}
+          aws-region: ap-southeast-2
+
+      - name: Sync custom domain S3 site
+        if: ${{ vars.AWS_ROLE_TO_ASSUME != '' && vars.PORTFOLIO_S3_BUCKET != '' }}
+        run: aws s3 sync ./out "s3://${{ vars.PORTFOLIO_S3_BUCKET }}" --delete
+
+      - name: Invalidate custom domain CloudFront
+        if: ${{ vars.AWS_ROLE_TO_ASSUME != '' && vars.CLOUDFRONT_DISTRIBUTION_ID != '' }}
+        run: aws cloudfront create-invalidation --distribution-id "${{ vars.CLOUDFRONT_DISTRIBUTION_ID }}" --paths "/*"
+
   deploy:
     environment:
       name: github-pages
