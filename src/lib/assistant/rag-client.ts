@@ -37,13 +37,8 @@ const API_ENDPOINT = process.env.NEXT_PUBLIC_ASSISTANT_API ||
   "https://your-api-id.execute-api.us-east-1.amazonaws.com/prod/assistant";
 
 /**
- * Smart Routing Logic - mmcp-core inspired
- * 
- * Analyzes query complexity and routes to appropriate model:
- * - Simple queries -> Claude 3 Haiku (fast, cheap)
- * - Complex queries -> Claude 3.5 Sonnet (reasoning depth)
- * 
- * This reduces costs while maintaining quality for simple questions.
+ * Query complexity is kept as metadata only. The Lambda uses Synthetic RAG by
+ * default and blocks accidental paid model polishing unless explicitly enabled.
  */
 
 type QueryComplexity = "simple" | "medium" | "complex";
@@ -93,12 +88,10 @@ export function analyzeQueryComplexity(message: string): QueryComplexity {
 export function getModelForComplexity(complexity: QueryComplexity): string {
   switch (complexity) {
     case "simple":
-      return "claude-3-haiku"; // Fast, cheap
     case "complex":
-      return "claude-3-5-sonnet"; // Reasoning depth
     case "medium":
     default:
-      return "claude-3-haiku"; // Balance
+      return "synthetic-rag";
   }
 }
 

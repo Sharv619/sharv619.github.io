@@ -12,10 +12,10 @@ interface ProjectsProps {
 
 function getProjectSlug(project: Project): string {
   return project.slug || project.title.toLowerCase()
-    .replace(/\s+/g, '-')
-    .replace(/\([^)]*\)/g, '') // Remove parentheses
-    .replace(/[&]/g, '') // Remove &
-    .replace(/-+/g, '-') // Replace multiple hyphens with single
+    .replace(/\s+/g, "-")
+    .replace(/\([^)]*\)/g, "")
+    .replace(/[&]/g, "")
+    .replace(/-+/g, "-")
     .trim();
 }
 
@@ -30,6 +30,7 @@ export default function Projects({ selectedSkills, projects }: ProjectsProps) {
       );
   const hasProjects = visibleProjects.length > 0;
   const activeIndex = hasProjects ? Math.min(currentIndex, visibleProjects.length - 1) : 0;
+  const currentProject = visibleProjects[activeIndex];
 
   const nextSlide = () => {
     setCurrentIndex(activeIndex === visibleProjects.length - 1 ? 0 : activeIndex + 1);
@@ -43,49 +44,28 @@ export default function Projects({ selectedSkills, projects }: ProjectsProps) {
     setCurrentIndex(index);
   };
 
-  const currentProject = visibleProjects[activeIndex];
-
   return (
-    <section id="projects" className="flex items-center bg-white py-20 dark:bg-[#151513]">
-      <div className="mx-auto grid w-full max-w-7xl grid-cols-1 gap-10 px-4 sm:px-6 lg:grid-cols-[0.62fr_1.38fr] lg:px-8">
+    <section id="projects" className="py-20 bg-white dark:bg-gray-900">
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
           viewport={{ once: true }}
-          className="lg:self-center"
+          className="text-center mb-12"
         >
-          <p className="mb-3 text-sm font-bold uppercase tracking-[0.18em] text-indigo-700 dark:text-indigo-300">
-            GitHub lab
-          </p>
-          <h2 className="text-balance text-4xl font-black leading-tight text-stone-950 sm:text-5xl dark:text-white">
-            A workbench, not a trophy shelf.
+          <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 dark:text-white mb-4">
+            GitHub Project Lab
           </h2>
-          <p className="mt-5 text-lg leading-8 text-stone-700 dark:text-stone-300">
-            Automated project cards generated from public GitHub repositories at build time. These show builder breadth; flagship case studies above provide deeper hiring proof.
+          <p className="text-lg text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">
+            Automated project cards generated from public GitHub repositories at build time. Use the skills below to filter projects by technology.
           </p>
-          {hasProjects && (
-            <div className="mt-8 grid grid-cols-3 gap-3">
-              <div className="border-l-2 border-indigo-500 bg-[#f7f4ed] p-3 dark:bg-white/5">
-                <p className="text-2xl font-black text-stone-950 dark:text-white">{visibleProjects.length}</p>
-                <p className="text-xs font-bold uppercase tracking-[0.12em] text-stone-500 dark:text-stone-400">repos</p>
-              </div>
-              <div className="border-l-2 border-teal-500 bg-[#f7f4ed] p-3 dark:bg-white/5">
-                <p className="text-2xl font-black text-stone-950 dark:text-white">{activeIndex + 1}</p>
-                <p className="text-xs font-bold uppercase tracking-[0.12em] text-stone-500 dark:text-stone-400">active</p>
-              </div>
-              <div className="border-l-2 border-rose-500 bg-[#f7f4ed] p-3 dark:bg-white/5">
-                <p className="text-2xl font-black text-stone-950 dark:text-white">{selectedSkills.length}</p>
-                <p className="text-xs font-bold uppercase tracking-[0.12em] text-stone-500 dark:text-stone-400">filters</p>
-              </div>
-            </div>
-          )}
+          <div className="w-24 h-1 bg-blue-600 mx-auto mt-6" />
         </motion.div>
 
-        <div>
         {!hasProjects && (
-          <div className="rounded-lg border border-stone-300 bg-[#f7f4ed] p-8 text-center dark:border-white/10 dark:bg-white/5">
-            <p className="text-stone-700 dark:text-stone-300">
+          <div className="bg-gray-50 dark:bg-gray-800 rounded-lg p-8 text-center shadow-lg">
+            <p className="text-gray-600 dark:text-gray-300">
               {projects.length === 0
                 ? "No GitHub repositories are currently tagged for the portfolio project feed."
                 : "No projects match the selected skills."}
@@ -94,25 +74,18 @@ export default function Projects({ selectedSkills, projects }: ProjectsProps) {
         )}
 
         {hasProjects && (
-        <div className="relative">
-          {/* Main Project Card */}
-          <motion.div
-            key={activeIndex}
-            initial={{ opacity: 0, x: 100 }}
-            animate={{ opacity: 1, x: 0 }}
-            exit={{ opacity: 0, x: -100 }}
-            transition={{ duration: 0.5 }}
-            className="overflow-hidden rounded-lg border border-stone-300 bg-[#f7f4ed] shadow-lg dark:border-white/10 dark:bg-[#101010]"
-          >
-            <div className="p-6 sm:p-8">
-              <div className="flex items-center justify-between mb-4">
-                <span className="rounded-md bg-stone-950 px-3 py-1 text-sm font-black text-white dark:bg-white dark:text-stone-950">
-                  {activeIndex + 1} of {visibleProjects.length}
-                </span>
+          <div className="bg-gray-50 dark:bg-gray-800 rounded-lg overflow-hidden shadow-lg">
+            <div className="p-8">
+              <div className="mb-6 flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
+                <div className="flex flex-wrap gap-3 text-sm text-gray-500 dark:text-gray-400">
+                  <span>{visibleProjects.length} repositories</span>
+                  <span>{activeIndex + 1} of {visibleProjects.length}</span>
+                  <span>{selectedSkills.length} active filters</span>
+                </div>
                 <div className="flex space-x-2">
                   <button
                     onClick={prevSlide}
-                    className="inline-flex h-11 w-11 items-center justify-center rounded-md bg-stone-950 text-white transition-colors duration-300 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 dark:bg-white dark:text-stone-950 dark:hover:bg-indigo-200"
+                    className="inline-flex h-11 w-11 items-center justify-center rounded-full bg-blue-600 text-white transition-colors hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500"
                     aria-label="Previous project"
                   >
                     <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -121,7 +94,7 @@ export default function Projects({ selectedSkills, projects }: ProjectsProps) {
                   </button>
                   <button
                     onClick={nextSlide}
-                    className="inline-flex h-11 w-11 items-center justify-center rounded-md bg-stone-950 text-white transition-colors duration-300 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 dark:bg-white dark:text-stone-950 dark:hover:bg-indigo-200"
+                    className="inline-flex h-11 w-11 items-center justify-center rounded-full bg-blue-600 text-white transition-colors hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500"
                     aria-label="Next project"
                   >
                     <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -131,106 +104,110 @@ export default function Projects({ selectedSkills, projects }: ProjectsProps) {
                 </div>
               </div>
 
-              <h3 className="mb-4 text-3xl font-black leading-tight text-stone-950 dark:text-white">
-                {currentProject.title}
-                {currentProject.archived && (
-                  <span className="ml-3 align-middle text-xs px-2 py-1 rounded-full bg-amber-100 text-amber-800 dark:bg-amber-900 dark:text-amber-200">
-                    Archived
-                  </span>
+              <motion.div
+                key={activeIndex}
+                initial={{ opacity: 0, x: 50 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ duration: 0.4 }}
+                className="border border-gray-200 dark:border-gray-700 rounded-lg p-6 bg-white dark:bg-gray-900"
+              >
+                <div className="flex flex-col lg:flex-row lg:items-start lg:justify-between gap-4 mb-4">
+                  <div>
+                    <div className="mb-2 flex flex-wrap items-center gap-2">
+                      <h3 className="text-xl sm:text-2xl font-semibold text-gray-900 dark:text-white">
+                        {currentProject.title}
+                      </h3>
+                      {currentProject.archived && (
+                        <span className="rounded-full bg-amber-100 px-2 py-1 text-xs font-semibold text-amber-800 dark:bg-amber-900 dark:text-amber-200">
+                          Archived
+                        </span>
+                      )}
+                    </div>
+                    <p className="text-gray-600 dark:text-gray-300 leading-relaxed">
+                      {currentProject.description}
+                    </p>
+                  </div>
+                  <div className="flex flex-wrap gap-2 lg:justify-end">
+                    {currentProject.technologies.slice(0, 10).map((tech) => (
+                      <span
+                        key={tech}
+                        className="px-3 py-1 bg-blue-100 dark:bg-blue-900 text-blue-800 dark:text-blue-200 rounded-full text-sm font-medium"
+                      >
+                        {tech}
+                      </span>
+                    ))}
+                  </div>
+                </div>
+
+                {currentProject.technicalChallenge && (
+                  <div className="mt-6 p-4 bg-gray-50 dark:bg-gray-800 rounded-lg">
+                    <h4 className="mb-2 text-sm font-semibold uppercase tracking-wide text-gray-700 dark:text-gray-200">
+                      Technical Challenge
+                    </h4>
+                    <p className="text-gray-700 dark:text-gray-300 leading-relaxed text-sm">
+                      {currentProject.technicalChallenge}
+                    </p>
+                  </div>
                 )}
-              </h3>
-              <p className="mb-6 max-h-40 overflow-y-auto pr-2 text-lg leading-8 text-stone-700 dark:text-stone-300">
-                {currentProject.description}
-              </p>
 
-              {currentProject.technicalChallenge && (
-                <div className="mb-6">
-                  <h4 className="mb-2 text-sm font-black uppercase tracking-[0.16em] text-stone-500 dark:text-stone-400">
-                    Technical Challenge:
-                  </h4>
-                  <p className="border-l-2 border-indigo-500 pl-4 leading-7 text-stone-700 dark:text-stone-300">
-                    {currentProject.technicalChallenge}
-                  </p>
+                <div className="mt-5 flex flex-wrap gap-3">
+                  <Link
+                    href={`/projects/${getProjectSlug(currentProject)}`}
+                    aria-label={`Read more about ${currentProject.title}`}
+                    className="inline-flex items-center rounded-md bg-gray-900 px-4 py-2 text-sm font-semibold text-white transition-colors hover:bg-gray-700 dark:bg-white dark:text-gray-900 dark:hover:bg-gray-200"
+                  >
+                    Read More
+                  </Link>
+                  <a
+                    href={currentProject.githubUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label={`Open source code for ${currentProject.title}`}
+                    className="inline-flex items-center rounded-md border border-gray-300 px-4 py-2 text-sm font-semibold text-gray-800 transition-colors hover:bg-gray-50 dark:border-gray-600 dark:text-gray-200 dark:hover:bg-gray-800"
+                  >
+                    Source Code
+                  </a>
                 </div>
-              )}
+              </motion.div>
 
-              <div className="mb-6">
-                <h4 className="mb-3 text-sm font-black uppercase tracking-[0.16em] text-stone-500 dark:text-stone-400">
-                  Technologies:
-                </h4>
-                <div className="flex flex-wrap gap-3">
-                  {currentProject.technologies.map((tech, techIndex) => (
+              <div className="flex justify-center mt-6 space-x-2">
+                {visibleProjects.map((project, index) => (
+                  <button
+                    key={project.githubUrl || project.title}
+                    onClick={() => goToSlide(index)}
+                    className="inline-flex h-11 w-11 items-center justify-center rounded-full"
+                    aria-label={`Go to project ${index + 1}`}
+                  >
                     <span
-                      key={techIndex}
-                      className="rounded-md bg-white px-3 py-2 text-sm font-bold text-indigo-800 shadow-sm dark:bg-white/10 dark:text-indigo-200"
-                    >
-                      {tech}
-                    </span>
-                  ))}
-                </div>
+                      className={`block h-3 w-3 rounded-full transition-colors ${
+                        index === activeIndex
+                          ? "bg-blue-600"
+                          : "bg-gray-300 hover:bg-blue-400 dark:bg-gray-600"
+                      }`}
+                    />
+                  </button>
+                ))}
               </div>
 
-              <div className="flex flex-col gap-3 sm:flex-row">
-                <Link
-                  href={`/projects/${getProjectSlug(currentProject)}`}
-                  aria-label={`Read more about ${currentProject.title}`}
-                  className="inline-block flex-1 rounded-md bg-stone-950 px-6 py-3 text-center font-bold text-white transition-colors duration-300 hover:bg-indigo-700 dark:bg-white dark:text-stone-950 dark:hover:bg-indigo-200"
-                >
-                  Read More
-                </Link>
-                <a
-                  href={currentProject.githubUrl}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  aria-label={`Open source code for ${currentProject.title}`}
-                  className="inline-block flex-1 rounded-md border border-stone-300 px-6 py-3 text-center font-bold text-stone-700 transition-colors duration-300 hover:bg-white dark:border-white/15 dark:text-stone-300 dark:hover:bg-white/10"
-                >
-                  Source Code
-                </a>
+              <div className="mt-6 grid max-h-36 grid-cols-2 gap-2 overflow-y-auto pr-1 md:grid-cols-4">
+                {visibleProjects.map((project, index) => (
+                  <button
+                    key={project.githubUrl || project.title}
+                    onClick={() => goToSlide(index)}
+                    className={`min-h-11 rounded-md p-3 text-xs font-medium transition-colors ${
+                      index === activeIndex
+                        ? "bg-blue-600 text-white"
+                        : "bg-white text-gray-600 hover:bg-blue-50 dark:bg-gray-900 dark:text-gray-300 dark:hover:bg-gray-700"
+                    }`}
+                    aria-label={`Show ${project.title}`}
+                  >
+                    {project.title.length > 20 ? `${project.title.substring(0, 20)}...` : project.title}
+                  </button>
+                ))}
               </div>
             </div>
-          </motion.div>
-
-          {/* Dot Navigation */}
-          <div className="mt-6 flex justify-center space-x-2">
-            {visibleProjects.map((_, index) => (
-              <button
-                key={index}
-                onClick={() => goToSlide(index)}
-                className="inline-flex h-11 w-11 items-center justify-center rounded-full"
-                aria-label={`Go to project ${index + 1}`}
-              >
-                <span
-                  className={`block h-3 w-3 rounded-full transition-colors duration-300 ${
-                    index === activeIndex
-                      ? 'bg-indigo-600'
-                      : 'bg-stone-300 hover:bg-indigo-400 dark:bg-white/20'
-                  }`}
-                />
-              </button>
-            ))}
           </div>
-
-          {/* Project List Preview */}
-          <div className="mt-6 grid max-h-36 grid-cols-2 gap-2 overflow-y-auto pr-1 md:grid-cols-4">
-            {visibleProjects.map((project, index) => (
-              <button
-                key={index}
-                onClick={() => goToSlide(index)}
-                className={`min-h-11 rounded-md p-3 text-xs font-medium transition-colors duration-300 ${
-                  index === activeIndex
-                    ? 'bg-indigo-700 text-white'
-                    : 'bg-stone-100 text-stone-600 hover:bg-indigo-100 dark:bg-white/5 dark:text-stone-300 dark:hover:bg-indigo-900'
-                }`}
-                aria-label={`Show ${project.title}`}
-              >
-                {project.title.length > 20 ? `${project.title.substring(0, 20)}...` : project.title}
-              </button>
-            ))}
-          </div>
-        </div>
         )}
-        </div>
       </div>
     </section>
   );

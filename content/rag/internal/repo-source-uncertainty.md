@@ -16,18 +16,11 @@ These notes are internal RAG support material and must not be imported into publ
 - Network Guardian AI: public repo markdown directly supports the public case study.
 - BackPocket OS AI Offline: public repo markdown directly supports the local-first pivot direction.
 - CodeFlow Commander / Nexus Gateway: public repo markdown directly supports the developer-tooling and phase-based case study.
-<<<<<<< HEAD
 - Pilly / MediMate Voice: public repo `Sharv619/Build_wit_AI` supports the Firebase-backed hackathon prototype framing.
-=======
->>>>>>> main
 
 ## Medium Confidence
 
 - codeflow-hook: package and portfolio evidence exists, but the public source repo was unavailable as a populated unauthenticated clone. Mark as requiring source verification internally.
-<<<<<<< HEAD
-=======
-- Pilly / MediMate Voice: local portfolio evidence and guardrails exist, but the source repository was not found publicly. Mark as hackathon prototype and not medical advice.
->>>>>>> main
 
 ## Public Copy Constraints
 

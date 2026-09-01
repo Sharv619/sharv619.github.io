@@ -19,46 +19,44 @@ export default function Skills({ projects, supplementalSkills = [], selectedSkil
   );
 
   return (
-    <section id="skills" className="flex items-center bg-[#f7f4ed] py-20 dark:bg-[#101010]">
-      <div className="mx-auto grid w-full max-w-7xl grid-cols-1 gap-10 px-4 sm:px-6 lg:grid-cols-[0.58fr_1.42fr] lg:px-8">
+    <section id="skills" className="py-20 bg-gray-50 dark:bg-gray-800">
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
           viewport={{ once: true }}
-          className="lg:self-center"
+          className="text-center mb-12"
         >
-          <p className="mb-3 text-sm font-bold uppercase tracking-[0.18em] text-teal-700 dark:text-teal-300">
-            Skills
-          </p>
-          <h2 className="text-balance text-4xl font-black leading-tight text-stone-950 sm:text-5xl dark:text-white">
-            Tools I have used in real work.
+          <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 dark:text-white mb-4">
+            Skills & Technologies
           </h2>
-          <p className="mt-5 text-lg leading-8 text-stone-700 dark:text-stone-300">
-            Select a skill to see the GitHub repositories where I used it.
+          <p className="text-lg text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">
+            Select a skill to filter the GitHub project lab by the repositories where it appears.
           </p>
-          {selectedSkills.length > 0 && (
-            <div className="mt-6 rounded-lg border border-teal-700/20 bg-white p-4 dark:border-teal-300/20 dark:bg-white/5">
-              <p className="text-sm font-bold uppercase tracking-[0.16em] text-stone-500 dark:text-stone-400">
-                Active filters
-              </p>
-              <p className="mt-2 text-lg font-black text-stone-950 dark:text-white">
-                {selectedSkills.join(", ")}
-              </p>
-            </div>
-          )}
+          <div className="w-24 h-1 bg-blue-600 mx-auto mt-6" />
         </motion.div>
 
-        <div>
+        {selectedSkills.length > 0 && (
+          <div className="bg-white dark:bg-gray-900 rounded-lg shadow-lg p-6 mb-8">
+            <p className="text-sm font-semibold uppercase tracking-wide text-gray-500 dark:text-gray-400">
+              Active filters
+            </p>
+            <p className="mt-2 text-lg font-semibold text-gray-900 dark:text-white">
+              {selectedSkills.join(", ")}
+            </p>
+          </div>
+        )}
+
         {skillCategories.length === 0 && (
-          <div className="rounded-lg border border-stone-300 bg-white p-8 text-center shadow-lg dark:border-white/10 dark:bg-white/5">
-            <p className="text-stone-700 dark:text-stone-300">
+          <div className="bg-white dark:bg-gray-900 rounded-lg shadow-lg p-8 text-center">
+            <p className="text-gray-600 dark:text-gray-300">
               No project technologies are currently available.
             </p>
           </div>
         )}
 
-        <div className="grid grid-cols-1 gap-4 md:grid-cols-2 xl:grid-cols-3">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           {skillCategories.map((category, categoryIndex) => (
             <motion.div
               key={category.title}
@@ -66,27 +64,32 @@ export default function Skills({ projects, supplementalSkills = [], selectedSkil
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: categoryIndex * 0.1 }}
               viewport={{ once: true }}
-              className="flex h-72 flex-col rounded-lg border border-stone-300 bg-white p-5 shadow-sm dark:border-white/10 dark:bg-[#171715]"
+              className="bg-white dark:bg-gray-900 rounded-lg shadow-lg p-6"
             >
-              <h3 className="mb-4 shrink-0 text-xl font-black text-stone-950 dark:text-white">
+              <h3 className="text-lg font-semibold text-gray-800 dark:text-gray-200 border-b-2 border-gray-200 dark:border-gray-700 pb-2 mb-4">
                 {category.title}
               </h3>
-              <div className="min-h-0 flex-1 overflow-y-auto pr-1">
-                <div className="flex flex-wrap gap-2">
-                {category.items.map((skill) => (
-                  <button
-                    key={skill}
-                    onClick={() => onSkillToggle(skill)}
-                    className={`rounded-md px-3 py-2 text-sm font-bold transition-colors duration-300 ${selectedSkills.includes(skill) ? 'bg-teal-700 text-white hover:bg-teal-800 dark:bg-teal-300 dark:text-stone-950' : 'bg-[#f7f4ed] text-teal-900 hover:bg-teal-100 dark:bg-white/5 dark:text-teal-100 dark:hover:bg-teal-300/15'}`}
-                  >
-                    {skill}
-                  </button>
-                ))}
-                </div>
+              <div className="flex flex-wrap gap-2">
+                {category.items.map((skill) => {
+                  const isSelected = selectedSkills.includes(skill);
+
+                  return (
+                    <button
+                      key={skill}
+                      onClick={() => onSkillToggle(skill)}
+                      className={`px-3 py-1 rounded-full text-sm font-medium transition-colors ${
+                        isSelected
+                          ? "bg-blue-600 text-white hover:bg-blue-700"
+                          : "bg-blue-100 dark:bg-blue-900 text-blue-800 dark:text-blue-200 hover:bg-blue-200 dark:hover:bg-blue-800"
+                      }`}
+                    >
+                      {skill}
+                    </button>
+                  );
+                })}
               </div>
             </motion.div>
           ))}
-        </div>
         </div>
       </div>
     </section>

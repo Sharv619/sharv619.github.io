@@ -1,9 +1,20 @@
 "use client";
 
 import { motion } from "framer-motion";
+import { useEffect } from "react";
 import { socialLinks } from "@/lib/data";
 
+const EMAIL_USER = "hl";
+const EMAIL_DOMAIN = "himanshulade.com";
+
 export default function Contact() {
+  useEffect(() => {
+    const href = `mailto:${EMAIL_USER}@${EMAIL_DOMAIN}`;
+    for (const el of document.querySelectorAll<HTMLAnchorElement>("a[data-email-href]")) {
+      el.setAttribute("href", href);
+    }
+  }, []);
+
   return (
     <section id="contact" className="portfolio-grid flex items-center bg-stone-950 py-20 text-white dark:bg-black">
       <div className="mx-auto grid w-full max-w-7xl grid-cols-1 gap-10 px-4 sm:px-6 lg:grid-cols-[0.78fr_1.22fr] lg:px-8">
@@ -24,6 +35,9 @@ export default function Contact() {
             Open to junior–mid roles in software engineering, full-stack development, platform/DevOps, and applied AI.
             I&apos;m looking for learning-heavy environments where I can grow and contribute to real systems.
           </p>
+          <p className="mt-4 max-w-2xl text-lg leading-8 text-stone-300">
+            Also open to freelance / contract work — full-stack builds, AI-assisted tooling, and cloud deployment.
+          </p>
         </motion.div>
 
         <motion.div
@@ -37,7 +51,8 @@ export default function Contact() {
             {Object.entries(socialLinks).map(([key, url]) => (
               <motion.a
                 key={key}
-                href={url}
+                href={key === "email" ? undefined : url}
+                data-email-href={key === "email" ? "" : undefined}
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label={`Open Himanshu Lade ${key} profile`}
@@ -78,7 +93,8 @@ export default function Contact() {
             viewport={{ once: true }}
           >
             <a
-              href={socialLinks.email}
+              href={undefined}
+              data-email-href=""
               aria-label="Email Himanshu Lade"
               className="mt-6 inline-flex w-full items-center justify-center rounded-md bg-teal-300 px-8 py-4 font-black text-stone-950 shadow-lg transition-colors duration-300 hover:bg-white"
             >

@@ -654,7 +654,6 @@
     "relatedCaseStudySlug": "codeflow-commander"
   },
   {
-<<<<<<< HEAD
     "id": "project-codeflow-sentinel",
     "title": "CodeFlow Sentinel",
     "type": "project",
@@ -696,8 +695,6 @@
     "relatedCaseStudySlug": "codeflow-commander"
   },
   {
-=======
->>>>>>> main
     "id": "case-study-codeflow-hook",
     "title": "codeflow-hook Case Study",
     "type": "case-study",
@@ -771,7 +768,6 @@
         "url": "/case-studies/pilly-medimate-voice"
       },
       {
-<<<<<<< HEAD
         "id": "build-wit-ai",
         "section": "GitHub",
         "title": "Build_wit_AI / Pilly",
@@ -784,8 +780,6 @@
         "url": "https://medimate-voice-demo.web.app"
       },
       {
-=======
->>>>>>> main
         "id": "healthcare-safety-boundary",
         "section": "Claim Guardrails",
         "title": "Healthcare Safety Boundary"
@@ -793,11 +787,7 @@
     ],
     "confidence": "portfolio-source",
     "priority": 9,
-<<<<<<< HEAD
     "relatedProjectSlug": "build-wit-ai",
-=======
-    "relatedProjectSlug": "pilly-medimate-voice",
->>>>>>> main
     "relatedCaseStudySlug": "pilly-medimate-voice"
   }
 ]

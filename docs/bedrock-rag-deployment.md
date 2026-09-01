@@ -40,13 +40,14 @@ Before deploying runtime resources, create AWS Budget alerts at:
 
 Keep the Lambda small and bounded:
 
-- Runtime: Node.js 20.x
+- Runtime: Node.js 22.x
 - Memory: 512 MB
 - Timeout: 10-15 seconds
 - VPC: none
 - API Gateway: HTTP API, not REST API
-- Model: low-cost chat model by default
-- Output cap: 500 tokens for Bedrock polish
+- Model polish: disabled by default
+- Cost guardrail: strict, Anthropic models blocked unless explicitly opted in
+- Output cap: 200 tokens if polish is manually re-enabled
 
 ## S3 Artifacts
 
@@ -86,12 +87,12 @@ KB_S3_BUCKET=sharv619-knowledge-base
 SYNTHETIC_RAG_S3_KEY=synthetic-rag-index.json
 GUARDRAIL_ID=9zrd4735ed2k
 GUARDRAIL_VERSION=DRAFT
-SIMPLE_CHAT_MODEL=anthropic.claude-3-haiku-20240307-v1:0
-COMPLEX_CHAT_MODEL=anthropic.claude-3-haiku-20240307-v1:0
-ENABLE_BEDROCK_POLISH=true
-ALLOWED_ORIGINS=http://localhost:3000,https://sharv619.github.io
+SIMPLE_CHAT_MODEL=amazon.nova-micro-v1:0
+ENABLE_BEDROCK_POLISH=false
+COST_GUARDRAIL_MODE=strict
+ALLOWED_ORIGINS=http://localhost:3000,https://sharv619.github.io,https://himanshulade.com,https://www.himanshulade.com
 MAX_INPUT_LENGTH=1000
-MAX_POLISH_TOKENS=500
+MAX_POLISH_TOKENS=200
 HIGH_CONFIDENCE_THRESHOLD=12
 MEDIUM_CONFIDENCE_THRESHOLD=5
 INDEX_CACHE_TTL_SECONDS=600
@@ -127,6 +128,12 @@ npm install
 npm run package
 ```
 
+Apply the cost guardrail from the repo instead of using the AWS Console:
+
+```bash
+npm run aws:lambda:guardrail
+```
+
 Create the Lambda once if it does not exist, then update code with:
 
 ```bash
@@ -142,7 +149,7 @@ Create an HTTP API:
 
 - Route: `POST /assistant`
 - Integration: `Assistant-RAG-Orchestrator`
-- CORS origins: `http://localhost:3000` and `https://sharv619.github.io`
+- CORS origins: `http://localhost:3000`, `https://sharv619.github.io`, `https://himanshulade.com`, `https://www.himanshulade.com`
 - Headers: `Content-Type`
 - Methods: `POST`, `OPTIONS`
 

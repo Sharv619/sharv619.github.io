@@ -85,7 +85,7 @@ CREATE EXTENSION IF NOT EXISTS vector;
 ### 5.1 Create Function
 1. Go to Lambda → Create function
 2. Name: `Assistant-RAG-Orchestrator`
-3. Runtime: Node.js 20.x
+3. Runtime: Node.js 22.x
 4. Create
 
 ### 5.2 Add Environment Variables:
@@ -98,6 +98,9 @@ DB_NAME=assistant_kb
 DB_USER=admin
 DB_PASSWORD=your_password
 GUARDRAIL_ID=your-guardrail-id
+ENABLE_BEDROCK_POLISH=false
+COST_GUARDRAIL_MODE=strict
+SIMPLE_CHAT_MODEL=amazon.nova-micro-v1:0
 ```
 
 ### 5.3 Upload Code
@@ -106,6 +109,12 @@ cd aws/lambda/rag-orchestrator
 zip -r function.zip .
 # Upload via Lambda console or:
 aws lambda update-function-code --function-name Assistant-RAG-Orchestrator --zip-file fileb://function.zip
+```
+
+Apply the no-console cost guardrail:
+
+```bash
+npm run aws:lambda:guardrail
 ```
 
 ### 5.4 Add Permissions

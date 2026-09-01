@@ -15,9 +15,9 @@
 ## AI & LLM
 - `@ai-sdk/google ^2` + `@google/generative-ai ^0.24` — Gemini API (demo mode)
 - `ai ^5` — Vercel AI SDK
-- `@aws-sdk/client-bedrock-runtime ^3` — AWS Bedrock (Claude 3 Haiku / 3.5 Sonnet, Titan Embeddings)
+- `@aws-sdk/client-bedrock-runtime ^3` — AWS Bedrock guardrails and optional low-cost polish
 - `@aws-sdk/client-s3 ^3` — S3 knowledge base storage
-- Bedrock models: `amazon.titan-embed-text-v2:0`, `anthropic.claude-3-haiku-20240307-v1:0`, `anthropic.claude-3-5-sonnet-20241022-v2:0`
+- Bedrock model polish is disabled by default. If re-enabled, `amazon.nova-micro-v1:0` is the safe fallback model; Anthropic models are blocked unless explicitly opted in.
 
 ## MCP
 - `@modelcontextprotocol/sdk ^1.28` — MCP server over stdio transport
@@ -57,7 +57,7 @@
 | `AWS_ACCESS_KEY_ID` / `AWS_SECRET_ACCESS_KEY` / `AWS_REGION` | AWS credentials |
 | `KB_S3_BUCKET` | S3 bucket for knowledge base |
 | `GUARDRAIL_ID` / `GUARDRAIL_VERSION` | Bedrock guardrail config |
-| `EMBEDDING_MODEL` / `SIMPLE_CHAT_MODEL` / `COMPLEX_CHAT_MODEL` | Bedrock model IDs |
+| `SIMPLE_CHAT_MODEL` / `ENABLE_BEDROCK_POLISH` / `COST_GUARDRAIL_MODE` | Optional Bedrock polish config |
 | `LAMBDA_FUNCTION_NAME` | Lambda function name |
 | `DB_HOST` / `DB_PORT` / `DB_NAME` / `DB_USER` / `DB_PASSWORD` | PostgreSQL (not active in v1) |
 

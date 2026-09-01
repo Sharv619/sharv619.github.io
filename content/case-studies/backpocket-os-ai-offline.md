@@ -19,11 +19,8 @@ sourceConfidence: "repo-reviewed"
 lastReviewed: "2026-06-03"
 featured: true
 priority: 1
-<<<<<<< HEAD
 aliases:
   - "backpocket-os-ai"
-=======
->>>>>>> main
 links:
   github: "https://github.com/Sharv619/backpocket-os-ai"
   githubOffline: "https://github.com/Sharv619/backpocket-os-ai-offline"

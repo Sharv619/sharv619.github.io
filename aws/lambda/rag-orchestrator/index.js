@@ -7,8 +7,10 @@ const KB_JSON_S3_KEY = process.env.KB_JSON_S3_KEY || "knowledge-base.json";
 const SYNTHETIC_RAG_S3_KEY = process.env.SYNTHETIC_RAG_S3_KEY || "synthetic-rag-index.json";
 const GUARDRAIL_ID = process.env.GUARDRAIL_ID;
 const GUARDRAIL_VERSION = process.env.GUARDRAIL_VERSION || "DRAFT";
-const SIMPLE_CHAT_MODEL = process.env.SIMPLE_CHAT_MODEL || "anthropic.claude-3-haiku-20240307-v1:0";
-const ENABLE_BEDROCK_POLISH = process.env.ENABLE_BEDROCK_POLISH !== "false";
+const SIMPLE_CHAT_MODEL = process.env.SIMPLE_CHAT_MODEL || "amazon.nova-micro-v1:0";
+const ENABLE_BEDROCK_POLISH = process.env.ENABLE_BEDROCK_POLISH === "true";
+const COST_GUARDRAIL_MODE = (process.env.COST_GUARDRAIL_MODE || "strict").toLowerCase();
+const ALLOW_ANTHROPIC_MODELS = process.env.ALLOW_ANTHROPIC_MODELS === "true";
 const ALLOWED_ORIGINS = (process.env.ALLOWED_ORIGINS || "http://localhost:3000,https://sharv619.github.io")
   .split(",")
   .map((origin) => origin.trim())
@@ -132,7 +134,13 @@ exports.handler = async (event) => {
 
     const directAnswer = buildDirectAnswer(validation.message, matches);
     const sources = buildSources(matches);
-    const shouldPolish = confidence === "medium" && ENABLE_BEDROCK_POLISH;
+    const polishGuardrail = getPolishCostGuardrail(SIMPLE_CHAT_MODEL);
+    const shouldPolish = confidence === "medium" && ENABLE_BEDROCK_POLISH && polishGuardrail.allowed;
+
+    if (confidence === "medium" && ENABLE_BEDROCK_POLISH && !polishGuardrail.allowed) {
+      console.warn("Bedrock polish blocked by cost guardrail", polishGuardrail);
+    }
+
     const response = shouldPolish
       ? await polishAnswer(validation.message, matches, directAnswer).catch((error) => {
         console.error("Bedrock polish failed:", error);
@@ -149,6 +157,7 @@ exports.handler = async (event) => {
           mode: "synthetic-rag",
           confidence,
           bedrockUsed: shouldPolish,
+          costGuardrail: polishGuardrail.reason,
           chunksRetrieved: matches.length,
         },
       }, headers);
@@ -162,6 +171,7 @@ exports.handler = async (event) => {
         confidence,
         bedrockUsed: shouldPolish,
         modelUsed: shouldPolish ? SIMPLE_CHAT_MODEL : "none",
+        costGuardrail: polishGuardrail.reason,
         chunksRetrieved: matches.length,
       },
     }, headers);
@@ -574,6 +584,30 @@ function getSyntheticRagConfidence(matches) {
   }
 
   return "low";
+}
+
+function getPolishCostGuardrail(modelId) {
+  if (!ENABLE_BEDROCK_POLISH) {
+    return { allowed: false, reason: "polish-disabled" };
+  }
+
+  if (COST_GUARDRAIL_MODE === "off") {
+    return { allowed: true, reason: "cost-guardrail-off" };
+  }
+
+  const normalizedModel = String(modelId || "").trim().toLowerCase();
+
+  if (normalizedModel.startsWith("anthropic.") && !ALLOW_ANTHROPIC_MODELS) {
+    return { allowed: false, reason: "anthropic-model-blocked" };
+  }
+
+  const lowCostModelPrefixes = ["amazon.nova-micro", "amazon.nova-lite"];
+
+  if (COST_GUARDRAIL_MODE === "strict" && !lowCostModelPrefixes.some((prefix) => normalizedModel.startsWith(prefix))) {
+    return { allowed: false, reason: "model-not-in-low-cost-allowlist" };
+  }
+
+  return { allowed: true, reason: "model-allowed" };
 }
 
 function buildDirectAnswer(message, matches) {

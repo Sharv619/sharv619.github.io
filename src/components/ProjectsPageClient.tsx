@@ -147,11 +147,7 @@ export default function ProjectsPageClient({ projects }: ProjectsPageClientProps
                       </a>
                       {project.caseStudySlug && (
                         <a
-<<<<<<< HEAD
                           href={`/projects/${getProjectAnchor(project)}/case-study`}
-=======
-                          href={`/case-studies/${project.caseStudySlug}`}
->>>>>>> main
                           aria-label={`View case study for ${project.title}`}
                           className="inline-flex items-center px-6 py-3 border border-gray-300 dark:border-gray-600 text-gray-700 dark:text-gray-300 rounded-lg hover:bg-gray-50 dark:hover:bg-gray-800 transition-colors duration-300"
                         >

@@ -12,20 +12,16 @@ import { getOrderedFlagshipCaseStudies } from "@/lib/flagship-case-studies";
 import type { Project } from "@/lib/data";
 
 const Projects = dynamic(() => import("@/components/Projects"), {
-  ssr: false,
   loading: () => <div className="py-20 text-center">Loading Projects...</div>
 });
 const FeaturedCaseStudies = dynamic(() => import("@/components/FeaturedCaseStudies"), {
-  ssr: false,
   loading: () => <div className="py-20 text-center">Loading Case Studies...</div>
 });
 const Skills = dynamic(() => import("@/components/Skills"), {
-  ssr: false,
   loading: () => <div className="py-20 text-center">Loading Skills...</div>
 });
-const Certifications = dynamic(() => import("@/components/Certifications"), {
-  ssr: false,
-});
+const Certifications = dynamic(() => import("@/components/Certifications"));
+const LinkedInPosts = dynamic(() => import("@/components/LinkedInPosts"));
 
 interface HomePageClientProps {
   projects: Project[];
@@ -57,6 +53,7 @@ export default function HomePageClient({ projects }: HomePageClientProps) {
         onSkillToggle={handleSkillToggle}
       />
       <Certifications />
+      <LinkedInPosts />
       <Contact />
     </div>
   );
