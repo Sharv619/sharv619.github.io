@@ -4,8 +4,10 @@ import { useState, useRef, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import NeuralBackground from "./NeuralBackground";
 import SourceCard from "./SourceCard";
-import { sendChatMessage } from "@/lib/assistant/rag-client";
+import { sendChatMessageWithHistory } from "@/lib/assistant/rag-client";
 import { getKnowledgeBaseResponse } from "@/lib/assistant/fallback-responses";
+import { formatAssistantResponse } from "@/lib/assistant/response-style";
+import { expandSyntheticRagQuery } from "@/lib/assistant/synthetic-rag";
 
 interface Message {
   role: "user" | "assistant";
@@ -25,9 +27,21 @@ export default function AssistantChat({ isOpen, onClose }: AssistantChatProps) {
   const [isThinking, setIsThinking] = useState(false);
   const [useDemo, setUseDemo] = useState(!process.env.NEXT_PUBLIC_ASSISTANT_API);
   const messagesEndRef = useRef<HTMLDivElement>(null);
+  const sessionIdRef = useRef<string>(crypto.randomUUID());
 
   const scrollToBottom = () => {
     messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
+  };
+
+  const getLocalFirstResponse = (message: string) => {
+    const normalized = message.toLowerCase().replace(/[^a-z0-9\s]/g, " ").trim();
+    const compact = normalized.replace(/\s/g, "");
+
+    if (["hi", "hey", "hello", "helo", "helloo"].includes(compact) || /\bhackathons?\b/.test(normalized)) {
+      return getKnowledgeBaseResponse(message);
+    }
+
+    return null;
   };
 
   useEffect(() => {
@@ -46,27 +60,39 @@ export default function AssistantChat({ isOpen, onClose }: AssistantChatProps) {
     setMessages((prev) => [...prev, { role: "user", content: userMessage }]);
 
     try {
-      if (useDemo) {
+      const localFirstResponse = getLocalFirstResponse(userMessage);
+
+      if (localFirstResponse) {
+        setMessages((prev) => [
+          ...prev,
+          {
+            role: "assistant",
+            content: formatAssistantResponse(userMessage, localFirstResponse.response),
+            sources: localFirstResponse.sources,
+          },
+        ]);
+      } else if (useDemo) {
         await new Promise((resolve) => setTimeout(resolve, 1000 + Math.random() * 1000));
-        const result = getKnowledgeBaseResponse(userMessage);
+        const expandedMessage = expandSyntheticRagQuery(userMessage, messages);
+        const result = getKnowledgeBaseResponse(expandedMessage);
         
         setMessages((prev) => [
           ...prev,
           {
             role: "assistant",
-            content: result.response,
+            content: formatAssistantResponse(userMessage, result.response),
             sources: result.sources,
           },
         ]);
       } else {
         // Real RAG mode
-        const result = await sendChatMessage(userMessage);
+        const result = await sendChatMessageWithHistory(userMessage, sessionIdRef.current, messages);
         
         setMessages((prev) => [
           ...prev,
           {
             role: "assistant",
-            content: result.response,
+            content: formatAssistantResponse(userMessage, result.response),
             sources: result.sources,
           },
         ]);

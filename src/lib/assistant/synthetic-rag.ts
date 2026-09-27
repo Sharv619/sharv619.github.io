@@ -36,6 +36,11 @@ export interface SyntheticRagResult {
   sources: SyntheticRagSource[];
 }
 
+export interface SyntheticRagHistoryMessage {
+  role: "user" | "assistant";
+  content: string;
+}
+
 const STOP_WORDS = new Set([
   "about",
   "after",
@@ -118,6 +123,23 @@ export function searchSyntheticRagIndex(message: string, limit = 3): SyntheticRa
       return right.entry.priority - left.entry.priority;
     })
     .slice(0, limit);
+}
+
+export function expandSyntheticRagQuery(message: string, history: SyntheticRagHistoryMessage[] = []): string {
+  const trimmed = message.trim();
+
+  if (!isFollowUpQuestion(trimmed) || history.length === 0) {
+    return trimmed;
+  }
+
+  const previousUserMessage = [...history].reverse().find((item) => item.role === "user")?.content;
+  const previousAssistantMessage = [...history].reverse().find((item) => item.role === "assistant")?.content;
+  const context = [previousUserMessage, previousAssistantMessage]
+    .filter(Boolean)
+    .join("\n")
+    .slice(0, 900);
+
+  return context ? `${context}\nFollow-up question: ${trimmed}` : trimmed;
 }
 
 export function scoreSyntheticRagEntry(entry: SyntheticRagEntry, normalizedQuery: string, queryTokens: string[]): number {
@@ -212,6 +234,16 @@ export function getSyntheticRagResponse(message: string): SyntheticRagResult {
     response: topEntry.answer,
     sources: topEntry.sources,
   };
+}
+
+function isFollowUpQuestion(message: string): boolean {
+  const normalized = normalizeSyntheticQuery(message);
+  const tokens = tokenizeSyntheticQuery(message);
+
+  return tokens.length <= 3 && (
+    /^(which|what|why|how|who|where)\b/.test(normalized) ||
+    /\b(ones|more|details|capability|capabilities|examples|which ones)\b/.test(normalized)
+  );
 }
 
 export function getSyntheticRagIndex(): SyntheticRagEntry[] {

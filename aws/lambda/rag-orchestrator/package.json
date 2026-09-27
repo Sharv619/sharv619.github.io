@@ -5,7 +5,8 @@
   "main": "index.js",
   "scripts": {
     "package": "zip -r function.zip . -x function.zip",
-    "deploy": "npm run package && aws lambda update-function-code --function-name Assistant-RAG-Orchestrator --zip-file fileb://function.zip"
+    "deploy": "npm run package && aws lambda update-function-code --function-name Assistant-RAG-Orchestrator --zip-file fileb://function.zip",
+    "guardrail": "node ../../scripts/apply-lambda-cost-guardrail.js"
   },
   "dependencies": {
     "@aws-sdk/client-bedrock-runtime": "^3.600.0",

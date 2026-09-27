@@ -22,16 +22,16 @@ describe('Smart Routing', () => {
   });
 
   describe('getModelForComplexity', () => {
-    it('returns haiku for simple queries', () => {
-      expect(getModelForComplexity('simple')).toBe('claude-3-haiku');
+    it('returns synthetic rag for simple queries', () => {
+      expect(getModelForComplexity('simple')).toBe('synthetic-rag');
     });
 
-    it('returns sonnet for complex queries', () => {
-      expect(getModelForComplexity('complex')).toBe('claude-3-5-sonnet');
+    it('returns synthetic rag for complex queries', () => {
+      expect(getModelForComplexity('complex')).toBe('synthetic-rag');
     });
 
-    it('returns haiku for medium queries', () => {
-      expect(getModelForComplexity('medium')).toBe('claude-3-haiku');
+    it('returns synthetic rag for medium queries', () => {
+      expect(getModelForComplexity('medium')).toBe('synthetic-rag');
     });
   });
 });

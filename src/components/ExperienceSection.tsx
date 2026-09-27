@@ -1,7 +1,3 @@
-"use client";
-
-import { motion } from "framer-motion";
-
 interface ExperienceSectionProps {
   experience: Array<{
     title: string;
@@ -14,12 +10,7 @@ interface ExperienceSectionProps {
 
 export default function ExperienceSection({ experience }: ExperienceSectionProps) {
   return (
-    <motion.div
-      initial={{ opacity: 0, y: 20 }}
-      animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.6, delay: 0.3 }}
-      className="bg-white dark:bg-gray-800 rounded-lg shadow-lg p-8 mb-8"
-    >
+    <div className="bg-white dark:bg-gray-800 rounded-lg shadow-lg p-8 mb-8">
       <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-6 flex items-center">
         <svg className="w-6 h-6 mr-3 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
@@ -29,11 +20,8 @@ export default function ExperienceSection({ experience }: ExperienceSectionProps
       
       <div className="space-y-8">
         {experience.map((exp, index) => (
-          <motion.div
+          <div
             key={index}
-            initial={{ opacity: 0, x: -20 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.6, delay: 0.4 + index * 0.1 }}
             className="relative pl-8 border-l-4 border-blue-500 dark:border-blue-400"
           >
             {/* Timeline Dot */}
@@ -73,9 +61,9 @@ export default function ExperienceSection({ experience }: ExperienceSectionProps
                 ))}
               </div>
             </div>
-          </motion.div>
+          </div>
         ))}
       </div>
-    </motion.div>
+    </div>
   );
 }

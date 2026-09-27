@@ -361,3 +361,11 @@ npx snyk report
 ---
 
 **Version:** 4.0.0
+
+## 12. Changelog Rule for AI Agents
+
+- After making repository changes, append exactly one entry for the whole change session to `changelogs.md`.
+- Use simple English and this exact format: `- [(DD/MM/YYYY),HH:MM,SS]{Summary of all changes made in this session.}`
+- Use the current Australia/Sydney local date and time, including seconds.
+- Update the existing session entry if more changes are made before the session ends. Do not add duplicate entries for the same session.
+- Do not add a changelog entry when no repository files were changed.

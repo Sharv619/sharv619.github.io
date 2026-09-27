@@ -2,6 +2,13 @@ import Navigation from "@/components/Navigation";
 import Contact from "@/components/Contact";
 import FeaturedCaseStudies from "@/components/FeaturedCaseStudies";
 import { getOrderedFlagshipCaseStudies } from "@/lib/flagship-case-studies";
+import { createPageMetadata } from "@/lib/seo";
+
+export const metadata = createPageMetadata({
+  title: "Engineering Case Studies - Himanshu Lade",
+  description: "Engineering case studies covering production recovery, responsible AI, and developer tooling.",
+  path: "/case-studies/",
+});
 
 export default function CaseStudiesPage() {
   const caseStudies = getOrderedFlagshipCaseStudies();

@@ -7,6 +7,10 @@ Recent experience includes production recovery and marketplace platform work at 
 
 I also build prototypes and open-source tools to explore responsible AI workflows, developer tooling, and small-business automation. I label these clearly as MVPs, prototypes, or experiments when they are not production systems.
 
+### Hosting and optional AWS backend
+
+The public website is hosted with **GitHub Pages + Cloudflare**, not AWS, and uses `https://www.himanshulade.com/` as its canonical domain. AWS is used only for the optional chatbot/Synthetic RAG backend. See [`AWS_CURRENT_ARCHITECTURE.md`](./AWS_CURRENT_ARCHITECTURE.md) for the current resource inventory, recovery checklist, and intentionally unused services.
+
 ---
 ### 🛠️ Technologies & Tools I Use
 
@@ -61,7 +65,7 @@ The portfolio separates flagship case studies from the broader GitHub project fe
 - **Pilly / MediMate Voice** - Firebase-backed responsible-AI medication support MVP. Not a medical product; no diagnosis, dosage advice, or real patient data.
 - **codeflow-hook** - Open-source AI-assisted code review CLI published as an npm package with early usage traction.
 
-The website project feed is automated from public, non-fork GitHub repositories owned by `Sharv619`. By default it uses `PORTFOLIO_GITHUB_TOPIC=all`; set this to a specific topic such as `portfolio` if the feed should be curated. Keep repo descriptions/READMEs useful, and the next GitHub Pages rebuild will refresh the portfolio pages. The deploy workflow also runs on a daily schedule so project metadata updates without manually editing `src/lib/data.ts`. Set the GitHub Actions variable `NEXT_PUBLIC_ASSISTANT_API` to the RAG Lambda endpoint when the deployed chatbot should use the live GitHub-backed assistant instead of demo mode.
+The website project feed is automated from public, non-fork GitHub repositories owned by `Sharv619`. By default it uses `PORTFOLIO_GITHUB_TOPIC=all`; set this to a specific topic such as `portfolio` if the feed should be curated. Keep repo descriptions/READMEs useful, and the next GitHub Pages rebuild will refresh the portfolio pages. The deploy workflow also runs on a daily schedule so project metadata updates without manually editing `src/lib/data.ts`. Set the GitHub Actions variable `NEXT_PUBLIC_ASSISTANT_API` to the RAG Lambda endpoint when the deployed chatbot should use the live optional AWS assistant instead of demo mode.
 
 Automation details for repo push refreshes and certifications live in `docs/automation.md`.
 

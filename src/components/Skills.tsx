@@ -12,14 +12,22 @@ interface SkillsProps {
   onSkillToggle: (skill: string) => void;
 }
 
-export default function Skills({ projects, supplementalSkills = [], selectedSkills, onSkillToggle }: SkillsProps) {
+export default function Skills({
+  projects,
+  supplementalSkills = [],
+  selectedSkills,
+  onSkillToggle,
+}: SkillsProps) {
   const skillCategories = useMemo(
     () => deriveSkillCategories(projects, supplementalSkills),
     [projects, supplementalSkills]
   );
 
   return (
-    <section id="skills" className="py-20 bg-gray-50 dark:bg-gray-800">
+    <section
+      id="skills"
+      className="py-20 bg-gray-50 dark:bg-gray-800"
+    >
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -34,7 +42,7 @@ export default function Skills({ projects, supplementalSkills = [], selectedSkil
           <p className="text-sm text-gray-600 dark:text-gray-400 mb-4">
             Select a skill to see the GitHub repositories where I used it.
           </p>
-          <div className="w-24 h-1 bg-blue-600 mx-auto"></div>
+          <div className="w-24 h-1 bg-blue-600 mx-auto" />
         </motion.div>
 
         {skillCategories.length === 0 && (
@@ -64,7 +72,11 @@ export default function Skills({ projects, supplementalSkills = [], selectedSkil
                   <button
                     key={skill}
                     onClick={() => onSkillToggle(skill)}
-                    className={`px-3 py-2 rounded-md text-sm font-medium transition-colors duration-300 ${selectedSkills.includes(skill) ? 'bg-blue-600 text-white hover:bg-blue-700' : 'bg-blue-100 dark:bg-blue-900 text-blue-800 dark:text-blue-200 hover:bg-blue-200 dark:hover:bg-blue-800'}`}
+                    className={`px-3 py-2 rounded-md text-sm font-medium transition-colors duration-300 ${
+                      selectedSkills.includes(skill)
+                        ? "bg-blue-600 text-white hover:bg-blue-700"
+                        : "bg-blue-100 dark:bg-blue-900 text-blue-800 dark:text-blue-200 hover:bg-blue-200 dark:hover:bg-blue-800"
+                    }`}
                   >
                     {skill}
                   </button>

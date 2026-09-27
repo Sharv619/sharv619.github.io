@@ -45,22 +45,36 @@ export interface Project {
   evidenceProfile?: ProjectEvidenceProfile;
   evidenceRecommendations?: PortfolioRecommendation[];
   caseStudySlug?: string;
+  portfolioSummary?: string;
+  readmeMarkdown?: string;
+  readmeSourceUrl?: string;
+  screenshots?: ProjectScreenshot[];
+  featured?: boolean;
+  priority?: number;
+  status?: string;
+  role?: string;
+}
+
+export interface ProjectScreenshot {
+  src: string;
+  alt: string;
+  caption: string;
 }
 
 export const personalInfo: PersonalInfo = {
   name: "Himanshu Lade",
   title: "Software Engineer",
-  email: "himanshulade@hotmail.com",
+  email: "hl@himanshulade.com",
   location: "Sydney, Australia",
   bio: "Software Engineer focused on backend systems, production reliability, cloud deployment, and AI-assisted workflow automation.",
-  avatar: "/avatar.png", // Add your photo to public/
+  avatar: "/avatar-960.webp",
 };
 
 export const socialLinks = {
   github: "https://github.com/Sharv619",
   linkedin: "https://linkedin.com/in/himanshu-lade",
   twitter: "https://twitter.com/lifeofhimanshoe",
-  email: "mailto:himanshulade@hotmail.com",
+  email: "mailto:hl@himanshulade.com",
 };
 
 export const experience = [

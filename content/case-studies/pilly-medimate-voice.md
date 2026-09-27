@@ -18,6 +18,11 @@ safetyBoundary: "not medical advice"
 lastReviewed: "2026-06-03"
 featured: true
 priority: 5
+aliases:
+  - "build-wit-ai"
+links:
+  github: "https://github.com/Sharv619/Build_wit_AI"
+  liveDemo: "https://medimate-voice-demo.web.app"
 ---
 
 # Pilly / MediMate Voice
@@ -63,7 +68,8 @@ Pilly / MediMate Voice is a hackathon prototype. It is not medical advice, not a
 
 ## Links
 
-- Public source link: unavailable in current public portfolio content.
+- GitHub: https://github.com/Sharv619/Build_wit_AI
+- Live demo: https://medimate-voice-demo.web.app
 
 ## Screenshots
 

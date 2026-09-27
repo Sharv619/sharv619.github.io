@@ -102,12 +102,14 @@ export default function CaseStudyDetailClient({ caseStudy }: CaseStudyDetailClie
           <div className="flex flex-wrap gap-4 border-t border-stone-300 pt-8 dark:border-white/10 lg:col-span-2">
             <Link
               href="/case-studies"
+              aria-label="View all flagship case studies"
               className="inline-flex items-center rounded-md bg-stone-950 px-6 py-3 font-bold text-white transition-colors duration-200 hover:bg-teal-800 dark:bg-white dark:text-stone-950 dark:hover:bg-teal-200"
             >
               All Case Studies
             </Link>
             <Link
               href="/projects"
+              aria-label="View GitHub project lab"
               className="inline-flex items-center rounded-md border border-stone-300 px-6 py-3 font-bold text-stone-800 transition-colors duration-200 hover:bg-white dark:border-white/15 dark:text-stone-200 dark:hover:bg-white/10"
             >
               GitHub Project Lab
@@ -117,6 +119,7 @@ export default function CaseStudyDetailClient({ caseStudy }: CaseStudyDetailClie
                 href={caseStudy.links.github}
                 target="_blank"
                 rel="noopener noreferrer"
+                aria-label={`Open GitHub repository for ${caseStudy.title}`}
                 className="inline-flex items-center rounded-md border border-stone-300 px-6 py-3 font-bold text-stone-800 transition-colors duration-200 hover:bg-white dark:border-white/15 dark:text-stone-200 dark:hover:bg-white/10"
               >
                 GitHub
@@ -127,6 +130,7 @@ export default function CaseStudyDetailClient({ caseStudy }: CaseStudyDetailClie
                 href={caseStudy.links.githubOffline}
                 target="_blank"
                 rel="noopener noreferrer"
+                aria-label={`Open offline repository notes for ${caseStudy.title}`}
                 className="inline-flex items-center rounded-md border border-stone-300 px-6 py-3 font-bold text-stone-800 transition-colors duration-200 hover:bg-white dark:border-white/15 dark:text-stone-200 dark:hover:bg-white/10"
               >
                 Offline repo
@@ -137,6 +141,7 @@ export default function CaseStudyDetailClient({ caseStudy }: CaseStudyDetailClie
                 href={caseStudy.links.npm}
                 target="_blank"
                 rel="noopener noreferrer"
+                aria-label={`Open npm package for ${caseStudy.title}`}
                 className="inline-flex items-center rounded-md border border-stone-300 px-6 py-3 font-bold text-stone-800 transition-colors duration-200 hover:bg-white dark:border-white/15 dark:text-stone-200 dark:hover:bg-white/10"
               >
                 npm

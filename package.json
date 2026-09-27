@@ -11,23 +11,30 @@
     "test:run": "vitest --run",
     "test:watch": "vitest --watch",
     "test:ui": "vitest --ui",
+    "nova-act:run": "python3 aws/nova-act/workflow.py",
+    "aws:lambda:guardrail": "node aws/scripts/apply-lambda-cost-guardrail.js",
+    "aws:guardrail:deploy-runner": "node aws/scripts/deploy-guardrail-runner.js",
     "github:scrape": "tsx scripts/export-github-projects.ts",
     "synthetic-rag:generate": "tsx scripts/generate-synthetic-rag-index.ts",
     "mcp:start": "tsx src/mcp/index.ts",
     "mcp:inspect": "npx @modelcontextprotocol/inspector tsx src/mcp/index.ts"
   },
   "dependencies": {
-    "@ai-sdk/google": "^2.0.32",
+    "@ai-sdk/google": "^3.0.80",
+    "@aws-sdk/client-bedrock-runtime": "^3.1058.0",
     "@aws-sdk/client-s3": "^3.1057.0",
     "@google/generative-ai": "^0.24.1",
     "@modelcontextprotocol/sdk": "^1.28.0",
-    "ai": "^5.0.93",
+    "ai": "^6.0.193",
     "codeflow-hook": "^2.1.0",
     "dotenv": "^17.4.2",
     "framer-motion": "^12.23.24",
     "next": "^16.2.1",
     "react": "19.2.0",
     "react-dom": "19.2.0",
+    "react-markdown": "^10.1.0",
+    "rehype-sanitize": "^6.0.0",
+    "remark-gfm": "^4.0.1",
     "zod": "^4.3.6"
   },
   "devDependencies": {
@@ -44,5 +51,8 @@
     "tsx": "^4.21.0",
     "typescript": "^5",
     "vitest": "^4.1.1"
+  },
+  "overrides": {
+    "postcss": "8.5.15"
   }
 }

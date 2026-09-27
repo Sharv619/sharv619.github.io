@@ -1,19 +1,10 @@
-"use client";
-
-import { motion } from "framer-motion";
-
 interface ProfessionalSummaryProps {
   summary: string;
 }
 
 export default function ProfessionalSummary({ summary }: ProfessionalSummaryProps) {
   return (
-    <motion.div
-      initial={{ opacity: 0, y: 20 }}
-      animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.6, delay: 0.1 }}
-      className="bg-white dark:bg-gray-800 rounded-lg shadow-lg p-8 mb-8"
-    >
+    <div className="bg-white dark:bg-gray-800 rounded-lg shadow-lg p-8 mb-8">
       <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-6 flex items-center">
         <svg className="w-6 h-6 mr-3 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
@@ -59,6 +50,6 @@ export default function ProfessionalSummary({ summary }: ProfessionalSummaryProp
           {summary}
         </p>
       </div>
-    </motion.div>
+    </div>
   );
 }

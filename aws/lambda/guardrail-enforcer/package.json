@@ -1,0 +1,7 @@
+{
+  "name": "guardrail-enforcer",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Scheduled Lambda that re-applies the RAG orchestrator cost guardrail on drift.",
+  "main": "index.js"
+}

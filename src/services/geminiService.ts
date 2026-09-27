@@ -12,15 +12,12 @@ export class GeminiService {
   private portfolioData: PortfolioData;
 
   constructor() {
-    // Pure mock implementation with portfolio data injection
     this.portfolioData = { experience, projects, skills, about };
-    console.log("🚀 AI Career Co-Pilot: Mock Mode - Portfolio Data Injected (Real implementation: Private Repository)");
   }
 
   async sendMessage(message: string, _systemPrompt?: string): Promise<string> {
     void _systemPrompt;
 
-    // Simulate processing delay for realism
     await new Promise(resolve => setTimeout(resolve, 300 + Math.random() * 500));
 
     const messageLower = message.toLowerCase().trim();
@@ -62,10 +59,8 @@ export class GeminiService {
     return "Thanks for your message. This demo can answer questions about Himanshu's experience, projects, skills, and case studies.";
   }
 
-  // Create a new chat session (for starting fresh conversations)
   resetChat() {
     this.conversationHistory = [];
-    console.log("🤖 Chat session reset - Demo AI Career Co-Pilot");
   }
 }
 

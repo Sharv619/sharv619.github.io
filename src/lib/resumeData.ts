@@ -41,7 +41,7 @@ export const resumeData: ResumeData = {
     name: "HIMANSHU LADE",
     location: "Sydney, Australia",
     phone: "+61 434 069 483",
-    email: "himanshulade@hotmail.com",
+    email: "hl@himanshulade.com",
     linkedin: "linkedin.com/in/himanshu-lade",
     github: "github.com/Sharv619"
   },

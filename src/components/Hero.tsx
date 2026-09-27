@@ -12,9 +12,14 @@ export default function Hero() {
   ];
 
   return (
-    <section id="home" className="relative flex min-h-screen items-center overflow-hidden bg-[#f7f4ed] pt-20 text-stone-950 dark:bg-[#101010] dark:text-white">
+    <section
+      id="home"
+      className="relative flex min-h-screen items-center overflow-hidden bg-[#f7f4ed] pt-20 text-stone-950 dark:bg-[#101010] dark:text-white"
+    >
       <div className="absolute inset-0 opacity-[0.18] dark:opacity-[0.14]">
-        <div className="h-full w-full bg-[linear-gradient(to_right,#78716c_1px,transparent_1px),linear-gradient(to_bottom,#78716c_1px,transparent_1px)] bg-[size:44px_44px]" />
+        <div
+          className="h-full w-full bg-[linear-gradient(to_right,#78716c_1px,transparent_1px),linear-gradient(to_bottom,#78716c_1px,transparent_1px)] bg-[size:44px_44px]"
+        />
       </div>
       <div className="relative mx-auto grid max-w-7xl grid-cols-1 gap-12 px-4 pb-16 pt-10 sm:px-6 lg:grid-cols-[1.08fr_0.92fr] lg:items-center lg:px-8 lg:pb-20">
         <motion.div
@@ -50,7 +55,12 @@ export default function Hero() {
                 className="inline-flex items-center justify-center rounded-md bg-stone-950 px-6 py-4 text-base font-bold text-white shadow-lg shadow-stone-950/10 transition-colors duration-200 hover:bg-teal-800 dark:bg-white dark:text-stone-950 dark:hover:bg-teal-200"
               >
                 <svg className="mr-3 h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z" />
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"
+                  />
                 </svg>
                 Start a conversation
               </a>
@@ -61,7 +71,7 @@ export default function Hero() {
                 View projects
               </a>
               <a
-                href="/himanshu_lade_resume.docx.pdf"
+                href="/himanshu_lade_resume_v3.pdf"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center justify-center rounded-md border border-transparent px-4 py-4 text-base font-bold text-stone-700 transition-colors duration-200 hover:text-teal-800 dark:text-stone-300 dark:hover:text-teal-200"
