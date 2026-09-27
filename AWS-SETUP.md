@@ -1,5 +1,10 @@
 # 🚀 AWS SETUP CHECKLIST - Deployment Phase
 
+> [!IMPORTANT]
+> This file contains historical setup notes for an older, heavier architecture. Sections covering RDS, PostgreSQL/pgvector, VPC-connected Lambda, Vercel, or Netlify do not describe the current deployment. The current website is hosted by GitHub Pages + Cloudflare, and AWS is used only for the optional lightweight Synthetic RAG assistant. Use [`AWS_CURRENT_ARCHITECTURE.md`](./AWS_CURRENT_ARCHITECTURE.md) as the source of truth and [`docs/bedrock-rag-deployment.md`](./docs/bedrock-rag-deployment.md) for current deployment guidance.
+
+The historical steps below are preserved for context. Do not provision their resources unless a new architecture decision explicitly requires them.
+
 ## Phase 1: AWS Account Setup
 
 ### 1.1 Create AWS Account (if not already)
@@ -14,10 +19,11 @@ aws iam create-user --user-name portfolio-deploy
 # Create access key
 aws iam create-access-key --user-name portfolio-deploy
 
-# Attach policies
-aws iam attach-user-policy --user-name portfolio-deploy --policy-arn arn:aws:iam::aws:policy/AdministratorAccess
+# The historical draft used AdministratorAccess here. Do not attach it.
+# Define a least-privilege deployment policy for the required resources instead.
 ```
-**Or use your root credentials (not recommended for production)**
+
+**Never use root credentials for deployment.**
 
 ---
 
@@ -45,7 +51,7 @@ https://console.aws.amazon.com/bedrock/home?region=us-east-1#/model-access
 ### 3.1 Via Console
 1. Go to S3 → Create bucket
 2. Name: `sharv619-knowledge-base` (must be unique)
-3. Uncheck "Block all public access"
+3. Keep "Block all public access" enabled because the knowledge artifacts are private backend inputs
 4. Enable "Versioning"
 
 ### 3.2 Or via CLI
@@ -56,6 +62,8 @@ aws s3 mb s3://sharv619-knowledge-base --region us-east-1
 ---
 
 ## Phase 4: Create RDS Database (pgvector)
+
+> Historical only. RDS and pgvector are not part of the current architecture and should not be provisioned for this project.
 
 ### 4.1 Go to RDS Console
 https://console.aws.amazon.com/rds/home?region=us-east-1#/create
@@ -155,7 +163,9 @@ node aws/scripts/sync-knowledge-base.js
 
 ---
 
-## Phase 8: Deploy Frontend
+## Phase 8: Deploy Frontend (Historical)
+
+> The current frontend deploys through GitHub Pages and Cloudflare. The Vercel and Netlify options below are retained only as historical alternatives.
 
 ### 8.1 Vercel (Recommended)
 ```bash
