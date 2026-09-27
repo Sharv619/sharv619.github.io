@@ -6,32 +6,33 @@ import { careerPositioning } from "@/lib/career-positioning";
 
 export default function Hero() {
   const proofPoints = [
-    { label: "Recovery", value: "NDA-safe production incident work" },
-    { label: "Performance", value: "25s load path brought under 3s" },
-    { label: "Shipping", value: "700+ regional landing pages deployed" },
+    { label: "Production recovery", value: "NDA-safe incident work" },
+    { label: "Performance", value: "25s to under 3s" },
+    { label: "Delivery", value: "700+ landing pages" },
   ];
 
   return (
-    <section id="home" className="portfolio-grid relative flex items-center overflow-hidden bg-[#f7f4ed] pt-20 text-stone-950 dark:bg-[#101010] dark:text-white">
-      <div className="absolute inset-x-0 top-0 h-2 bg-[linear-gradient(90deg,#0f766e,#f59e0b,#e11d48,#4f46e5)]" />
-      <div className="absolute left-0 top-24 hidden h-[calc(100%-6rem)] w-16 border-r border-stone-200/80 bg-white/30 backdrop-blur-sm lg:block dark:border-white/10 dark:bg-white/[0.03]">
-        <div className="flex h-full flex-col items-center justify-between py-8 text-[10px] font-black uppercase tracking-[0.24em] text-stone-500 dark:text-stone-400">
-          <span className="[writing-mode:vertical-rl]">Portfolio OS</span>
-          <span className="[writing-mode:vertical-rl]">Sydney</span>
-        </div>
+    <section
+      id="home"
+      className="relative flex min-h-screen items-center overflow-hidden bg-[#f7f4ed] pt-20 text-stone-950 dark:bg-[#101010] dark:text-white"
+    >
+      <div className="absolute inset-0 opacity-[0.18] dark:opacity-[0.14]">
+        <div
+          className="h-full w-full bg-[linear-gradient(to_right,#78716c_1px,transparent_1px),linear-gradient(to_bottom,#78716c_1px,transparent_1px)] bg-[size:44px_44px]"
+        />
       </div>
-      <div className="relative mx-auto grid w-full max-w-7xl grid-cols-1 gap-10 px-4 pb-10 pt-8 sm:px-6 lg:grid-cols-[1.05fr_0.95fr] lg:items-center lg:px-8 lg:pb-12">
+      <div className="relative mx-auto grid max-w-7xl grid-cols-1 gap-12 px-4 pb-16 pt-10 sm:px-6 lg:grid-cols-[1.08fr_0.92fr] lg:items-center lg:px-8 lg:pb-20">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
-          className="space-y-7"
+          className="space-y-8"
         >
           <div className="space-y-4">
-            <p className="inline-flex rounded-md border border-teal-700/20 bg-white/70 px-3 py-1 text-sm font-bold text-teal-900 shadow-sm dark:border-teal-300/20 dark:bg-white/5 dark:text-teal-200">
-              Software Engineer in Sydney · backend, reliability, applied AI
+            <p className="inline-flex rounded-md border border-teal-700/20 bg-teal-700/10 px-3 py-1 text-sm font-semibold text-teal-900 dark:border-teal-300/20 dark:bg-teal-300/10 dark:text-teal-200">
+              Software Engineer in Sydney
             </p>
-            <h1 className="max-w-4xl text-balance text-5xl font-black leading-[0.92] tracking-normal text-stone-950 sm:text-6xl lg:text-8xl dark:text-white">
+            <h1 className="max-w-4xl text-balance text-5xl font-black leading-[0.96] tracking-normal text-stone-950 sm:text-6xl lg:text-7xl dark:text-white">
               {personalInfo.name}
             </h1>
             <p className="max-w-3xl text-balance text-2xl font-semibold leading-tight text-stone-800 sm:text-3xl dark:text-stone-100">
@@ -54,13 +55,17 @@ export default function Hero() {
                 className="inline-flex items-center justify-center rounded-md bg-stone-950 px-6 py-4 text-base font-bold text-white shadow-lg shadow-stone-950/10 transition-colors duration-200 hover:bg-teal-800 dark:bg-white dark:text-stone-950 dark:hover:bg-teal-200"
               >
                 <svg className="mr-3 h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z" />
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"
+                  />
                 </svg>
                 Start a conversation
               </a>
               <a
                 href="#projects"
-                aria-label="View Himanshu Lade's GitHub project feed"
                 className="inline-flex items-center justify-center rounded-md border border-stone-300 bg-white/60 px-6 py-4 text-base font-bold text-stone-900 transition-colors duration-200 hover:border-stone-950 hover:bg-stone-950 hover:text-white dark:border-white/15 dark:bg-white/5 dark:text-white dark:hover:bg-white dark:hover:text-stone-950"
               >
                 View projects
@@ -69,7 +74,6 @@ export default function Hero() {
                 href="/himanshu_lade_resume_v3.pdf"
                 target="_blank"
                 rel="noopener noreferrer"
-                aria-label="Open Himanshu Lade resume PDF"
                 className="inline-flex items-center justify-center rounded-md border border-transparent px-4 py-4 text-base font-bold text-stone-700 transition-colors duration-200 hover:text-teal-800 dark:text-stone-300 dark:hover:text-teal-200"
               >
                 Resume PDF
@@ -83,8 +87,7 @@ export default function Hero() {
                   href={url}
                   target="_blank"
                   rel="noopener noreferrer"
-                  aria-label={`Open Himanshu Lade ${key} profile`}
-                  className="inline-flex min-h-11 items-center rounded-md border border-stone-300 bg-white/50 px-4 py-2 font-semibold capitalize text-stone-700 transition-colors duration-200 hover:border-teal-700 hover:text-teal-800 dark:border-white/10 dark:bg-white/5 dark:text-stone-300 dark:hover:border-teal-300 dark:hover:text-teal-200"
+                  className="rounded-md border border-stone-300 bg-white/50 px-3 py-2 font-semibold capitalize text-stone-700 transition-colors duration-200 hover:border-teal-700 hover:text-teal-800 dark:border-white/10 dark:bg-white/5 dark:text-stone-300 dark:hover:border-teal-300 dark:hover:text-teal-200"
                 >
                   {key}
                 </a>
@@ -99,26 +102,20 @@ export default function Hero() {
           transition={{ duration: 0.7, delay: 0.15 }}
           className="relative"
         >
-          <div className="relative overflow-hidden rounded-lg border border-stone-300 bg-stone-950 shadow-2xl shadow-stone-950/20 dark:border-white/10">
-            <div>
-              <div className="flex flex-col justify-between p-5 sm:p-6">
-                <div>
-                  <p className="text-xs font-black uppercase tracking-[0.18em] text-teal-200">
-                    What this site should prove
-                  </p>
-                  <p className="mt-4 text-2xl font-black leading-tight text-white">
-                    Not just a list of projects. A record of systems, constraints, and work that survived contact with reality.
-                  </p>
+          <div className="relative overflow-hidden rounded-lg border border-stone-300 bg-stone-950 p-5 shadow-2xl shadow-stone-950/20 dark:border-white/10 sm:p-6">
+            <p className="text-xs font-black uppercase tracking-[0.18em] text-teal-200">
+              What this site should prove
+            </p>
+            <p className="mt-4 text-2xl font-black leading-tight text-white">
+              Not just a list of projects. A record of systems, constraints, and work that survived contact with reality.
+            </p>
+            <div className="mt-6 grid grid-cols-1 gap-3 sm:grid-cols-3 lg:grid-cols-1 xl:grid-cols-3">
+              {proofPoints.map((point) => (
+                <div key={point.label} className="rounded-md border border-white/10 bg-white/[0.06] p-4">
+                  <p className="text-xs font-semibold uppercase tracking-[0.16em] text-teal-200">{point.label}</p>
+                  <p className="mt-2 text-sm font-bold leading-snug text-white">{point.value}</p>
                 </div>
-                <div className="mt-6 grid grid-cols-1 gap-3">
-                  {proofPoints.map((point) => (
-                    <div key={point.label} className="border-l-2 border-teal-300 bg-white/[0.06] p-4">
-                      <p className="text-xs font-semibold uppercase tracking-[0.16em] text-teal-200">{point.label}</p>
-                      <p className="mt-2 text-sm font-bold leading-snug text-white">{point.value}</p>
-                    </div>
-                  ))}
-                </div>
-              </div>
+              ))}
             </div>
           </div>
         </motion.div>
