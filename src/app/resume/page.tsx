@@ -1,12 +1,13 @@
 import Navigation from "@/components/Navigation";
+import { createPageMetadata } from "@/lib/seo";
 
 const RESUME_PDF_PATH = "/himanshu_lade_resume_v3.pdf";
 
-export const metadata = {
+export const metadata = createPageMetadata({
   title: "Himanshu Lade - Resume PDF",
   description: "PDF resume for Himanshu Lade, Software Engineer focused on backend systems, production reliability, cloud deployment, and AI-assisted workflow automation.",
-  keywords: ["resume", "CV", "Himanshu Lade", "Software Engineer", "portfolio", "developer"],
-};
+  path: "/resume/",
+});
 
 export default function ResumePage() {
   return (
