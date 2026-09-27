@@ -25,3 +25,4 @@ Run `npm run build` to regenerate the static `out/` export. Pushing to `main`, t
 4. Open the sitemap and confirm every `<loc>` uses the branded domain and no URL contains `#`.
 5. View the homepage source and confirm canonical and `og:url` values use the branded domain.
 6. Submit `https://www.himanshulade.com/sitemap.xml` in Google Search Console for the canonical-domain property and request reindexing of the homepage and key routes.
+7. Ensure the deployed Lambda `ALLOWED_ORIGINS` environment variable includes both `https://www.himanshulade.com` and `https://himanshulade.com`, then redeploy the Lambda if its current value does not.

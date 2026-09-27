@@ -11,7 +11,7 @@ const SIMPLE_CHAT_MODEL = process.env.SIMPLE_CHAT_MODEL || "amazon.nova-micro-v1
 const ENABLE_BEDROCK_POLISH = process.env.ENABLE_BEDROCK_POLISH === "true";
 const COST_GUARDRAIL_MODE = (process.env.COST_GUARDRAIL_MODE || "strict").toLowerCase();
 const ALLOW_ANTHROPIC_MODELS = process.env.ALLOW_ANTHROPIC_MODELS === "true";
-const ALLOWED_ORIGINS = (process.env.ALLOWED_ORIGINS || "http://localhost:3000,https://sharv619.github.io")
+const ALLOWED_ORIGINS = (process.env.ALLOWED_ORIGINS || "http://localhost:3000,https://www.himanshulade.com,https://himanshulade.com,https://sharv619.github.io")
   .split(",")
   .map((origin) => origin.trim())
   .filter(Boolean);
