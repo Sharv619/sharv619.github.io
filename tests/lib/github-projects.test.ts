@@ -4,6 +4,7 @@ import {
   extractPythonDependencySkills,
   extractPyprojectSkills,
   extractWorkflowSkills,
+  getPortfolioProjects,
   isPortfolioRepository,
   mergeTechnologies,
   normalizeRepositoryProject,
@@ -30,6 +31,14 @@ const baseRepo: GitHubRepository = {
 };
 
 describe('github-projects', () => {
+  it('uses the generated snapshot for a complete network-free production feed', async () => {
+    const projects = await getPortfolioProjects({ source: 'snapshot' });
+
+    expect(projects.length).toBeGreaterThan(7);
+    expect(new Set(projects.map((project) => project.slug)).size).toBe(projects.length);
+    expect(projects.every((project) => project.githubUrl.startsWith('https://github.com/Sharv619/'))).toBe(true);
+  });
+
   it('includes public non-fork repos when configured for all projects', () => {
     expect(isPortfolioRepository(baseRepo)).toBe(true);
     expect(isPortfolioRepository({ ...baseRepo, fork: true })).toBe(false);

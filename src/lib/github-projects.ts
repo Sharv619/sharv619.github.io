@@ -1,4 +1,5 @@
 import { projects as fallbackProjects, slugify } from "./data";
+import generatedGitHubProjects from "./generated-github-projects.json";
 import { enrichGitHubProjectEvidence } from "./github-evidence-enrichment";
 import { decodeGitHubBase64Content, getReadmeSourceUrl } from "./github-readme";
 import type { Project } from "./data";
@@ -402,7 +403,7 @@ interface GetPortfolioProjectsOptions {
   username?: string;
   topic?: string;
   useFallback?: boolean;
-  source?: "auto" | "github" | "fallback";
+  source?: "auto" | "github" | "snapshot" | "fallback";
 }
 
 const githubProjectCache = new Map<string, Promise<Project[]>>();
@@ -626,8 +627,16 @@ export async function getPortfolioProjects(options: GetPortfolioProjectsOptions 
   const useFallback = options.useFallback ?? true;
   const source = options.source || getPortfolioProjectSource();
 
-  if (source === "fallback" || (source === "auto" && isProductionBuild() && !process.env.GITHUB_TOKEN)) {
+  if (source === "snapshot") {
+    return getGeneratedGitHubProjects();
+  }
+
+  if (source === "fallback") {
     return fallbackProjects;
+  }
+
+  if (source === "auto" && isProductionBuild() && !process.env.GITHUB_TOKEN) {
+    return getGeneratedGitHubProjects();
   }
 
   try {
@@ -683,14 +692,20 @@ async function fetchGitHubProjects(username: string, topic: string): Promise<Pro
   return sortPortfolioProjects(projects);
 }
 
-function getPortfolioProjectSource(): "auto" | "github" | "fallback" {
+function getPortfolioProjectSource(): "auto" | "github" | "snapshot" | "fallback" {
   const source = process.env.PORTFOLIO_GITHUB_SOURCE?.trim().toLowerCase();
 
-  if (source === "github" || source === "fallback") {
+  if (source === "github" || source === "snapshot" || source === "fallback") {
     return source;
   }
 
   return "auto";
+}
+
+function getGeneratedGitHubProjects(): Project[] {
+  const projects = generatedGitHubProjects as unknown as Project[];
+
+  return projects.length > 0 ? projects : fallbackProjects;
 }
 
 function isProductionBuild(): boolean {

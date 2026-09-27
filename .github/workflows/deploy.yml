@@ -34,12 +34,17 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
-      - name: Build
-        run: npm run build
+      - name: Generate GitHub project snapshot
+        run: npm run github:snapshot
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           PORTFOLIO_GITHUB_USERNAME: Sharv619
           PORTFOLIO_GITHUB_TOPIC: all
+
+      - name: Build
+        run: npm run build
+        env:
+          PORTFOLIO_GITHUB_SOURCE: snapshot
           NEXT_PUBLIC_ASSISTANT_API: ${{ vars.NEXT_PUBLIC_ASSISTANT_API }}
 
       - name: Add .nojekyll file

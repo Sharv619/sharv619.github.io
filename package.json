@@ -15,6 +15,7 @@
     "aws:lambda:guardrail": "node aws/scripts/apply-lambda-cost-guardrail.js",
     "aws:guardrail:deploy-runner": "node aws/scripts/deploy-guardrail-runner.js",
     "github:scrape": "tsx scripts/export-github-projects.ts",
+    "github:snapshot": "tsx scripts/generate-github-project-snapshot.ts",
     "synthetic-rag:generate": "tsx scripts/generate-synthetic-rag-index.ts",
     "mcp:start": "tsx src/mcp/index.ts",
     "mcp:inspect": "npx @modelcontextprotocol/inspector tsx src/mcp/index.ts"
