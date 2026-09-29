@@ -38,8 +38,8 @@ export default function HomePageClient({ projects }: HomePageClientProps) {
         projects={projects}
         supplementalSkills={certificationSkills}
       />
-      <LinkedInPosts />
       <Certifications />
+      <LinkedInPosts />
       <Contact />
     </div>
   );
