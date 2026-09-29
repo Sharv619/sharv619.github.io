@@ -17,7 +17,7 @@ export default function ProfessionalSummary({ summary }: ProfessionalSummaryProp
         <div className="bg-gradient-to-r from-green-500 to-green-600 text-white p-4 rounded-lg shadow-md">
           <div className="flex items-center justify-between">
             <div>
-              <div className="text-2xl font-bold">25s→&lt;3s</div>
+              <div className="text-2xl font-bold">25s→3s</div>
               <div className="text-sm opacity-90">Load Time</div>
             </div>
             <div className="text-4xl">🛡️</div>
@@ -27,7 +27,7 @@ export default function ProfessionalSummary({ summary }: ProfessionalSummaryProp
         <div className="bg-gradient-to-r from-blue-500 to-blue-600 text-white p-4 rounded-lg shadow-md">
           <div className="flex items-center justify-between">
             <div>
-              <div className="text-2xl font-bold">30%</div>
+              <div className="text-2xl font-bold">33%</div>
               <div className="text-sm opacity-90">ACS Page Load</div>
             </div>
             <div className="text-4xl">⚡</div>
@@ -38,7 +38,7 @@ export default function ProfessionalSummary({ summary }: ProfessionalSummaryProp
           <div className="flex items-center justify-between">
             <div>
               <div className="text-2xl font-bold">15+</div>
-              <div className="text-sm opacity-90">Auth Issues</div>
+              <div className="text-sm opacity-90">OWASP Fixes</div>
             </div>
             <div className="text-4xl">📊</div>
           </div>

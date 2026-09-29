@@ -92,7 +92,7 @@
       "What production recovery work has Himanshu done?",
       "What is his most production-relevant experience?"
     ],
-    "answer": "At Ask Jay Services, Himanshu worked as a Founding Engineer / Principal Technical Lead from May 2025 to August 2025. He supported NDA-safe production recovery after a security incident, helped restore service functionality, improved load times from roughly 25 seconds to under 3 seconds, built marketplace and course-management features, created Docker and GitHub Actions CI/CD workflows, and helped launch 700+ SEO-oriented landing pages.",
+    "answer": "At Ask Jay Services, Himanshu worked as a Software Engineer from May 2025 to October 2025. He recovered a production system from ransomware within three weeks of starting the engagement, restored 100% of the data with zero loss, reduced page load time from 25 seconds to 3 seconds over 30 hours, built a shift-booking automation bot and a three-sided Flutter marketplace, and established CI/CD and production deployment practices.",
     "sources": [
       {
         "id": "ask-jay",
@@ -126,7 +126,7 @@
       "What internship experience does Himanshu have?",
       "Has Himanshu worked on MERN applications?"
     ],
-    "answer": "Himanshu worked as a Web Developer Intern at the Australian Computer Society from September 2023 to February 2024. He improved average page load time by 30% for a MERN application serving 10,000+ users, reviewed and resolved 15+ authentication issues using OWASP guidance, and collaborated in Agile sprints with QA engineers and product owners.",
+    "answer": "Himanshu worked as a Web Developer Intern at the Australian Computer Society from September 2023 to February 2024. He improved MERN application frontend performance by 33% across a production application serving 200+ active users, remediated 15+ OWASP Top 10 vulnerabilities before production release, and built internal tooling with React, Node.js, Express, and MongoDB.",
     "sources": [
       {
         "id": "acs",

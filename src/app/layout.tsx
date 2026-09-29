@@ -54,6 +54,10 @@ export default function RootLayout({
             `,
           }}
         />
+        <link rel="preconnect" href="https://raw.githubusercontent.com" />
+        <link rel="preconnect" href="https://github.com" />
+        <link rel="preconnect" href="https://cdn.jsdelivr.net" />
+        <meta name="theme-color" content="#ffffff" />
       </head>
       <body
         className={`${inter.variable} font-sans antialiased`}

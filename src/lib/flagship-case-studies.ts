@@ -33,12 +33,12 @@ export const flagshipCaseStudies: FlagshipCaseStudy[] = [
     category: "Production & Infrastructure",
     status: "case-study",
     priority: 1,
-    oneLiner: "NDA-safe production recovery case study covering infrastructure restoration, database hardening, CI/CD setup, and performance optimization for a service marketplace.",
-    problem: "A production service marketplace needed recovery after a security incident, safer access boundaries, and performance improvements without exposing internal client details.",
+    oneLiner: "NDA-safe ransomware recovery case study covering data restoration, infrastructure hardening, CI/CD setup, and performance optimization for a service marketplace.",
+    problem: "A production service marketplace needed recovery after a ransomware incident, safer access boundaries, and performance improvements without exposing private client details.",
     solution: "Restored service functionality, rebuilt safer cloud access patterns, hardened database access, rotated credentials, introduced Docker and GitHub Actions deployment workflows, and tuned the application path that was causing slow page loads.",
     impact: [
-      "Restored production service functionality after a security incident.",
-      "Reduced load times from roughly 25 seconds to under 3 seconds.",
+      "Restored 100% of production data with zero loss.",
+      "Reduced page load time from 25 seconds to 3 seconds.",
       "Moved deployment work toward repeatable Docker and GitHub Actions workflows.",
     ],
     technicalHighlights: [

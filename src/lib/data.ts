@@ -87,16 +87,16 @@ export const experience = [
   },
   {
     company: "Ask Jay Services",
-    position: "Founding Engineer / Principal Technical Lead",
-    duration: "May 2025 - Aug 2025",
-    description: "• Supported production recovery after a security incident, restoring service functionality while keeping public details NDA-safe.\n\n• Improved load times from roughly 25s to under 3s through frontend, backend, and database-path optimisation.\n\n• Built marketplace and course-management platform features across frontend and backend workflows.\n\n• Created Docker and GitHub Actions CI/CD workflows to make deployments more repeatable.\n\n• Built and deployed 700+ SEO-oriented landing pages for regional service coverage.",
+    position: "Software Engineer",
+    duration: "May 2025 - Oct 2025",
+    description: "• Recovered a production system from ransomware within three weeks of starting the engagement, restoring 100% of the data with zero loss and reducing page load time from 25 seconds to 3 seconds over 30 hours.\n\n• Built a shift-booking automation bot and a three-sided Flutter marketplace for service providers, requesters, and administrators.\n\n• Established CI/CD pipelines, GitHub Actions workflows, and production deployment practices for a greenfield stack.",
     link: "https://askjay.com.au",
   },
   {
     company: "ACS Australian Computer Society",
     position: "Web Developer Intern",
     duration: "Sep 2023 - Feb 2024",
-    description: "• Improved average page load time by 30% for a MERN + TypeScript platform serving 10,000+ users through React optimisation and code splitting.\n\n• Reviewed and resolved 15+ authentication issues using OWASP guidance, strengthening application security posture.\n\n• Collaborated in Agile development sprints with senior engineers, QA, and stakeholders to deliver scoped features.",
+    description: "• Improved MERN application frontend performance by 33% across a production application serving 200+ active users.\n\n• Remediated 15+ OWASP Top 10 web application security vulnerabilities before production release.\n\n• Built internal tooling with React, Node.js, Express, and MongoDB.",
     link: "https://www.acs.org.au",
   },
 ];
@@ -215,7 +215,7 @@ This project demonstrates full-stack application development with authentication
   },
   {
     title: "Production Incident Response Case Study",
-    description: "Problem: A production service needed recovery after a security incident, with safer access boundaries and performance improvements.\n\nSolution: Supported service restoration, cloud/database hardening, credential rotation, deployment workflow improvements, and stakeholder communication.\n\nOutcome: Restored service functionality and improved load times from roughly 25s to under 3s while keeping client details NDA-safe.",
+    description: "Problem: A production service needed recovery after a ransomware incident, alongside safer access boundaries and performance improvements.\n\nSolution: Recovered the system and its data, rebuilt safer cloud and database access, improved deployment workflows, and traced the slow application path.\n\nOutcome: Restored 100% of the data with zero loss and reduced page load time from 25 seconds to 3 seconds while keeping private implementation details NDA-safe.",
     technologies: ["AWS EC2", "MongoDB Atlas", "Docker", "CI/CD", "Incident Management"],
     liveUrl: "#",
     githubUrl: "https://github.com/Sharv619/production-incident-response-case-study",
@@ -282,9 +282,9 @@ export const about = {
   title: "About Me",
   content: `I build practical software systems around backend workflows, production reliability, cloud deployment, and AI-assisted automation.
 
-My recent work includes production recovery and marketplace platform work at Ask Jay Services, where I helped restore service functionality after a security incident, improved load times from roughly 25 seconds to under 3 seconds, and built Docker + GitHub Actions deployment workflows.
+My recent work includes ransomware recovery, automation, and marketplace engineering at Ask Jay Services, where I restored production data, reduced page load time from 25 seconds to 3 seconds, and established CI/CD and deployment workflows.
 
-At ACS, I worked on a MERN platform serving 10,000+ users, improving average page load time by 30% and reviewing 15+ authentication issues using OWASP guidance.
+At ACS, I improved frontend performance by 33% across a MERN application serving 200+ active users, remediated 15+ OWASP Top 10 vulnerabilities, and built internal tooling.
 
 I also build prototypes and open-source tools around responsible AI workflows, code review automation, and small-business operations. I label these clearly as MVPs, prototypes, or experiments when they are not production systems.`,
 };

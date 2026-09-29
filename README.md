@@ -3,7 +3,7 @@
 
 I'm a software engineer in Sydney building practical systems around real workflows: production recovery, CI/CD, cloud deployment, internal tools, and AI-assisted automation. My strongest work sits at the intersection of shipping features, debugging production issues, and making systems easier to operate.
 
-Recent experience includes production recovery and marketplace platform work at Ask Jay Services, where I helped restore service functionality after a security incident, improved load times from roughly 25 seconds to under 3 seconds, and built Docker + GitHub Actions deployment workflows.
+Recent experience includes ransomware recovery, automation, and marketplace engineering at Ask Jay Services, where I restored 100% of production data with zero loss, reduced page load time from 25 seconds to 3 seconds, and established CI/CD and production deployment practices.
 
 I also build prototypes and open-source tools to explore responsible AI workflows, developer tooling, and small-business automation. I label these clearly as MVPs, prototypes, or experiments when they are not production systems.
 
@@ -52,8 +52,8 @@ The public website is hosted with **GitHub Pages + Cloudflare**, not AWS, and us
 ---
 ### Recent Experience Highlights
 
-- **Ask Jay Services:** Founding Engineer / Principal Technical Lead, May-Aug 2025. Production recovery and marketplace platform work, including service restoration, load-time improvement from roughly 25 seconds to under 3 seconds, and Docker + GitHub Actions deployment workflows.
-- **Australian Computer Society:** Web Developer Intern, Sep 2023-Feb 2024. Worked on a MERN platform serving 10,000+ users, improved average page load time by 30%, and reviewed/resolved 15+ authentication issues using OWASP guidance.
+- **Ask Jay Services:** Software Engineer, May-Oct 2025. Recovered a production system from ransomware with 100% data restored and zero loss, reduced page load time from 25 seconds to 3 seconds, built a shift-booking bot and three-sided Flutter marketplace, and established CI/CD practices.
+- **Australian Computer Society:** Web Developer Intern, Sep 2023-Feb 2024. Improved MERN frontend performance by 33% for a production application serving 200+ active users, remediated 15+ OWASP Top 10 vulnerabilities, and built internal tooling.
 
 ---
 
