@@ -21,7 +21,7 @@ export default function Experience() {
             Where the proof came from.
           </h2>
           <p className="mt-5 text-lg leading-8 text-stone-700 dark:text-stone-300">
-            The story is not just titles. It is recovery, performance, access boundaries, and delivery under constraints.
+            The story is not just titles. It is recovery, performance, public-facing audits, access boundaries, and delivery under constraints.
           </p>
         </motion.div>
 
