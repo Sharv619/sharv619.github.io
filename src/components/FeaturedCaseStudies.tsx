@@ -43,11 +43,11 @@ export default function FeaturedCaseStudies({ caseStudies, compact = false }: Fe
               Selected work
             </p>
             <h2 className="text-balance text-4xl font-black leading-tight text-stone-950 sm:text-5xl dark:text-white">
-              Three pieces of proof, not three generic cards.
+              Three case studies with the constraints left in.
             </h2>
           </div>
           <p className="max-w-2xl text-lg leading-8 text-stone-700 lg:justify-self-end dark:text-stone-300">
-            The important part is the shape of the work: messy production recovery, responsible AI boundaries, and developer tooling with real distribution paths.
+            Production recovery, responsible AI boundaries, and developer tooling. Each is labelled by what it is, what I owned, and what the evidence supports.
           </p>
         </motion.div>
 

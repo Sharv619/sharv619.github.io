@@ -16,11 +16,20 @@ const inter = Inter({
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
   ...createPageMetadata({
-    title: `${personalInfo.name} - ${personalInfo.title}`,
+    title: `${personalInfo.name} | Full-Stack AI & Systems Engineer Australia`,
     description: personalInfo.bio,
     path: "/",
   }),
-  keywords: ["developer", "portfolio", "software engineer", "web development", "react", "nextjs"],
+  keywords: [
+    "Himanshu Lade",
+    "full-stack AI engineer Australia",
+    "software engineer Sydney",
+    "local-first AI developer Australia",
+    "workflow automation engineer",
+    "technical SEO specialist Australia",
+    "production recovery engineer",
+    "reliability engineer Sydney",
+  ],
   authors: [{ name: personalInfo.name }],
   icons: {
     icon: [

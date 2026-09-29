@@ -4,8 +4,8 @@ import { toPublicProjects } from "@/lib/public-project";
 import { createPageMetadata } from "@/lib/seo";
 
 export const metadata = createPageMetadata({
-  title: "Projects & Case Studies - Himanshu Lade",
-  description: "GitHub-backed software engineering projects and curated case studies by Himanshu Lade.",
+  title: "Software Projects & Proof-of-Work Lab | Himanshu Lade",
+  description: "Public repositories, engineering case studies, local-first AI prototypes, workflow automation, and personal infrastructure by Sydney engineer Himanshu Lade.",
   path: "/projects/",
 });
 

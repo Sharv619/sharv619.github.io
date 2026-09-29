@@ -1,6 +1,6 @@
 {
   "version": "3.0.0",
-  "lastUpdated": "2026-03-26",
+  "lastUpdated": "2026-09-29",
   "metadata": {
     "title": "Himanshu Lade - Career Knowledge Base",
     "description": "RAG-ready knowledge base for AI Assistant",
@@ -8,11 +8,11 @@
   },
   "personal": {
     "name": "Himanshu Lade",
-    "title": "Software Engineer",
-    "tagline": "Focused on backend systems, production reliability, cloud deployment, and AI-assisted workflow automation",
+    "title": "Full-Stack Systems & AI Engineer",
+    "tagline": "Local-first AI, practical automation, production recovery, and systems that remove friction",
     "location": "Sydney, Australia",
     "availability": "Open to opportunities",
-    "bio": "Software Engineer focused on backend systems, production reliability, cloud deployment, and AI-assisted workflow automation. Experience includes ransomware recovery, page-load improvement from 25s to 3s, Docker/GitHub Actions CI/CD, and open-source AI-assisted developer tooling.",
+    "bio": "Sydney-based full-stack systems and AI engineer working across local-first AI, workflow automation, production recovery, technical SEO, and practical software. Experience includes ransomware recovery, page-load improvement from 25s to 3s, Docker and GitHub Actions delivery workflows, and open-source AI-assisted developer tooling.",
     "contact": {
       "email": "hl@himanshulade.com",
       "phone": "+61 434 069 483",

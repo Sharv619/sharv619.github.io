@@ -104,7 +104,7 @@ function formatProjectEvidence({ project, profile, recommendations }: EvidenceRe
 **Last updated:** ${profile.lastUpdated || "Unknown"}
 
 **Evidence signals:**
-${profile.signals.map((signal) => `- ${signal.present ? "Present" : "Missing"}: ${signal.label} (${signal.source}, ${signal.confidence})${signal.notes ? ` — ${signal.notes}` : ""}`).join("\n")}
+${profile.signals.map((signal) => `- ${signal.present ? "Present" : "Missing"}: ${signal.label} (${signal.source}, ${signal.confidence})${signal.notes ? `; ${signal.notes}` : ""}`).join("\n")}
 
 **Missing evidence:**
 ${profile.missingEvidence.length > 0 ? profile.missingEvidence.map((item) => `- ${item}`).join("\n") : "- None detected"}

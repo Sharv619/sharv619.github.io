@@ -38,6 +38,7 @@ export function createPageMetadata({
       url,
       siteName: SITE_NAME,
       type: "website",
+      locale: "en_AU",
       images: [
         {
           url: DEFAULT_OG_IMAGE,
@@ -51,5 +52,10 @@ export function createPageMetadata({
       description,
       images: [DEFAULT_OG_IMAGE],
     },
+    robots: {
+      index: true,
+      follow: true,
+    },
+    category: "technology",
   };
 }

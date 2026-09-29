@@ -17,7 +17,6 @@ const FeaturedCaseStudies = dynamic(() => import("@/components/FeaturedCaseStudi
   loading: () => <div className="py-20 text-center">Loading Case Studies...</div>
 });
 const Certifications = dynamic(() => import("@/components/Certifications"));
-const LinkedInPosts = dynamic(() => import("@/components/LinkedInPosts"));
 
 interface HomePageClientProps {
   projects: Project[];
@@ -39,7 +38,6 @@ export default function HomePageClient({ projects }: HomePageClientProps) {
         supplementalSkills={certificationSkills}
       />
       <Certifications />
-      <LinkedInPosts />
       <Contact />
     </div>
   );

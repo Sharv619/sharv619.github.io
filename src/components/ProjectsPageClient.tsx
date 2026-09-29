@@ -31,10 +31,10 @@ export default function ProjectsPageClient({ projects }: ProjectsPageClientProps
             className="text-center"
           >
             <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-gray-900 dark:text-white mb-6">
-              Projects & Case Studies
+              Proof-of-Work Lab
             </h1>
             <p className="text-xl sm:text-2xl text-gray-600 dark:text-gray-300 max-w-4xl mx-auto leading-relaxed">
-              Flagship case studies explain production impact, constraints, and personal contribution. The GitHub project feed below stays automated from public repo metadata.
+              Case studies explain the constraints and my contribution. The repository feed keeps the wider trail of prototypes, tools, and experiments connected to public evidence.
             </p>
           </motion.div>
         </div>
@@ -47,10 +47,10 @@ export default function ProjectsPageClient({ projects }: ProjectsPageClientProps
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
             <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 dark:text-white mb-4">
-              GitHub-Powered Project Feed
+              Public repository evidence
             </h2>
             <p className="text-lg text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">
-              Most cards below are generated from public GitHub metadata at build time. Flagship case studies are manually curated to explain impact, constraints, and role.
+              Generated from original public GitHub repositories at build time. Status labels keep prototypes, packages, archived work, and case studies distinct.
             </p>
             <div className="w-24 h-1 bg-blue-600 mx-auto mt-6"></div>
           </div>
@@ -78,11 +78,9 @@ export default function ProjectsPageClient({ projects }: ProjectsPageClientProps
                       <div>
                         <h2 className="text-2xl sm:text-3xl font-bold text-gray-900 dark:text-white mb-2">
                           {project.title}
-                          {project.archived && (
-                            <span className="ml-3 align-middle text-xs px-2 py-1 rounded-full bg-amber-100 text-amber-800 dark:bg-amber-900 dark:text-amber-200">
-                              Archived
-                            </span>
-                          )}
+                          <span className="ml-3 inline-flex align-middle text-xs px-2 py-1 rounded-full bg-teal-100 text-teal-900 dark:bg-teal-300/15 dark:text-teal-100">
+                            {project.status || (project.archived ? "Archived repository" : "Public repository")}
+                          </span>
                         </h2>
                         <p className="text-lg text-gray-600 dark:text-gray-300 leading-relaxed">
                           {project.description}

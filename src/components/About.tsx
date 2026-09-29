@@ -21,7 +21,7 @@ export default function About() {
                   Human touch
                 </p>
                 <p className="mt-3 text-lg font-semibold leading-7 text-stone-800 dark:text-stone-200">
-                  I want the portfolio to feel like someone who has been in the room during incidents, handoffs, and awkward production tradeoffs.
+                  I care about the awkward middle: incidents, handoffs, localhost experiments, and the tradeoffs between a clever idea and a useful system.
                 </p>
               </div>
             }

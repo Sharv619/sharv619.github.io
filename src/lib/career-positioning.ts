@@ -10,8 +10,8 @@ export interface CareerPositioning {
 }
 
 export const careerPositioning: CareerPositioning = {
-  headline: "Software Engineer focused on backend systems, production reliability, cloud deployment, and AI-assisted workflow automation.",
-  subheadline: "I build practical software systems around messy real-world workflows, from production recovery and CI/CD hardening to responsible AI prototypes and developer tooling.",
+  headline: "Full-stack systems and AI engineer building practical automation, reliable software, and local-first tools.",
+  subheadline: "The live site is my public evidence layer. Localhost is where small utilities, local models, and infrastructure experiments begin.",
   targetRoles: [
     "Software Engineer",
     "Full-Stack Developer",
@@ -32,7 +32,7 @@ export const careerPositioning: CareerPositioning = {
     },
     {
       title: "Responsible AI / Human-in-the-Loop Systems",
-      description: "Building AI-assisted workflows with explicit safety boundaries, deterministic fallbacks, and operator visibility.",
+      description: "Building local-first and AI-assisted workflows with explicit safety boundaries, deterministic fallbacks, and human approval.",
       projectSlugs: ["pilly-medimate-voice"],
     },
     {
@@ -42,12 +42,12 @@ export const careerPositioning: CareerPositioning = {
     },
     {
       title: "Business Workflow Automation",
-      description: "Turning fragmented operational inputs into clearer systems for follow-up, records, and delivery.",
+      description: "Turning fragmented operational inputs into practical systems for follow-up, records, and delivery.",
       projectSlugs: ["backpocket-os", "reliboard"],
     },
     {
       title: "Knowledge & Content Systems",
-      description: "Organizing writing, project evidence, and retrieval-friendly knowledge into maintainable software surfaces.",
+      description: "Organizing writing, project evidence, and reusable patterns from past builds into maintainable software surfaces.",
       projectSlugs: ["sharvilak-writes"],
     },
   ],

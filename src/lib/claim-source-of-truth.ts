@@ -1,7 +1,7 @@
 export const verifiedClaims = {
   profile: {
-    headline: "Software Engineer focused on backend systems, production reliability, cloud deployment, and AI-assisted workflow automation.",
-    summary: "Himanshu builds practical software systems around backend workflows, production recovery, cloud deployment, and AI-assisted tooling.",
+    headline: "Full-stack systems and AI engineer focused on local-first AI, practical automation, production recovery, and reliable delivery.",
+    summary: "Himanshu builds practical software systems that remove friction across production recovery, workflow automation, technical SEO, and AI-assisted tooling.",
   },
   experience: {
     askJay: {

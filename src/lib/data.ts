@@ -63,10 +63,10 @@ export interface ProjectScreenshot {
 
 export const personalInfo: PersonalInfo = {
   name: "Himanshu Lade",
-  title: "Software Engineer",
+  title: "Full-Stack Systems & AI Engineer",
   email: "hl@himanshulade.com",
   location: "Sydney, Australia",
-  bio: "Software Engineer focused on backend systems, production reliability, cloud deployment, and AI-assisted workflow automation.",
+  bio: "Sydney-based full-stack systems and AI engineer building local-first AI, workflow automation, production recovery, and practical software across Australia.",
   avatar: "/avatar-960.webp",
 };
 
@@ -279,19 +279,19 @@ export const skills = {
 };
 
 export const about = {
-  title: "About Me",
-  content: `I build practical software systems around backend workflows, production reliability, cloud deployment, and AI-assisted automation.
+  title: "Systems, evidence, and the useful small stuff.",
+  content: `I am a Sydney-based full-stack systems and AI engineer. I work across production recovery, backend and frontend delivery, technical SEO, workflow automation, and local-first AI.
 
-My recent work includes ransomware recovery, automation, and marketplace engineering at Ask Jay Services, where I restored production data, reduced page load time from 25 seconds to 3 seconds, and established CI/CD and deployment workflows.
+My production work includes ransomware recovery, marketplace engineering, performance work that reduced load time from 25 seconds to 3 seconds, and CI/CD and deployment workflows.
 
-At ACS, I improved frontend performance by 33% across a MERN application serving 200+ active users, remediated 15+ OWASP Top 10 vulnerabilities, and built internal tooling.
+Away from the public site, I maintain a private engineering layer: local models, small Python utilities, Tailscale and SSH paths, and localhost experiments that remove friction from my own work.
 
-I also build prototypes and open-source tools around responsible AI workflows, code review automation, and small-business operations. I label these clearly as MVPs, prototypes, or experiments when they are not production systems.`,
+The useful parts become public proof through repositories, case studies, audits, and project notes. Prototypes stay labelled as prototypes; production evidence stays tied to work I can support.`,
 };
 
 export const howIWork = {
   title: "How I Work",
-  content: `I approach engineering with a focus on learning through building and debugging. I'm comfortable owning small systems end-to-end and prefer reliability and clarity over cleverness. I believe in shipping early, iterating often, and always considering the production impact of my decisions. I'm particularly interested in AI as an assistive tool that enhances human judgment rather than replacing it.`,
+  content: `Start with the friction. Build the smallest useful system. Test the boundary, document what worked, and keep the evidence close to the code. I use AI for retrieval, drafting, and review, while consequential decisions stay human-owned.`,
 };
 
 export const slugify = (text: string) => {
