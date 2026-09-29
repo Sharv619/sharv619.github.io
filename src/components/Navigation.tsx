@@ -25,7 +25,7 @@ export default function Navigation() {
     { name: "Experience", href: "#experience" },
     { name: "Projects", href: "#projects" },
     { name: "Weekend Grind", href: "#workflows" },
-    { name: "Random Builds", href: "#workflows" },
+    { name: "LinkedIn", href: "#linkedin" },
     { name: "Contact", href: "#contact" },
   ];
 

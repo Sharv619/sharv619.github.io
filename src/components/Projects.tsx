@@ -67,7 +67,7 @@ export default function Projects({ projects, supplementalSkills = [] }: Projects
           className="text-center mb-12"
         >
           <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 dark:text-white mb-4">
-            Projects, Skills & Random Builds
+            Projects, Skills & Weekend Builds
           </h2>
           <p className="text-lg text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">
             Explore public GitHub work, filter it by the technologies behind it, and see the random weekend builds I ship when momentum hits.
