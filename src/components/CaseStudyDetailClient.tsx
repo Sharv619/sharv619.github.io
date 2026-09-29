@@ -109,10 +109,10 @@ export default function CaseStudyDetailClient({ caseStudy }: CaseStudyDetailClie
             </Link>
             <Link
               href="/projects"
-              aria-label="View GitHub project lab"
+              aria-label="View the proof-of-work lab"
               className="inline-flex items-center rounded-md border border-stone-300 px-6 py-3 font-bold text-stone-800 transition-colors duration-200 hover:bg-white dark:border-white/15 dark:text-stone-200 dark:hover:bg-white/10"
             >
-              GitHub Project Lab
+              Proof-of-Work Lab
             </Link>
             {caseStudy.links?.github && (
               <a

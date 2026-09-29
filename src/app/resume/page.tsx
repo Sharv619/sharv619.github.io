@@ -4,8 +4,8 @@ import { createPageMetadata } from "@/lib/seo";
 const RESUME_PDF_PATH = "/himanshu_lade_resume_v3.pdf";
 
 export const metadata = createPageMetadata({
-  title: "Himanshu Lade - Resume PDF",
-  description: "PDF resume for Himanshu Lade, Software Engineer focused on backend systems, production reliability, cloud deployment, and AI-assisted workflow automation.",
+  title: "Himanshu Lade Resume | Full-Stack AI Engineer Sydney",
+  description: "Resume for Sydney-based full-stack systems and AI engineer Himanshu Lade, covering production recovery, automation, technical SEO, and software delivery.",
   path: "/resume/",
 });
 

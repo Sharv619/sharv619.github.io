@@ -5,8 +5,8 @@ import { getOrderedFlagshipCaseStudies } from "@/lib/flagship-case-studies";
 import { createPageMetadata } from "@/lib/seo";
 
 export const metadata = createPageMetadata({
-  title: "Engineering Case Studies - Himanshu Lade",
-  description: "Engineering case studies covering production recovery, responsible AI, and developer tooling.",
+  title: "Engineering Case Studies | Himanshu Lade Australia",
+  description: "Evidence-based engineering case studies covering production recovery, reliability, responsible AI, workflow automation, and developer tooling.",
   path: "/case-studies/",
 });
 
@@ -26,10 +26,10 @@ export default function CaseStudiesPage() {
               Engineering evidence
             </p>
             <h1 className="text-balance text-5xl font-black leading-[0.96] text-stone-950 sm:text-6xl lg:text-7xl dark:text-white">
-            Flagship Case Studies
+              Engineering under real constraints
             </h1>
             <p className="mt-6 max-w-3xl text-xl leading-8 text-stone-700 dark:text-stone-300">
-              Curated engineering stories for the strongest hiring proof: production recovery, responsible AI, and AI developer tooling.
+              Evidence-based stories about production recovery, responsible AI boundaries, and developer tooling—without sanding away the limitations.
             </p>
           </div>
           <div className="grid grid-cols-3 gap-3">

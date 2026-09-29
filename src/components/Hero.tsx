@@ -1,14 +1,11 @@
-"use client";
-
-import { motion } from "framer-motion";
 import { personalInfo, socialLinks } from "@/lib/data";
 import { careerPositioning } from "@/lib/career-positioning";
 
 export default function Hero() {
   const proofPoints = [
-    { label: "Production recovery", value: "NDA-safe incident work" },
-    { label: "Performance", value: "25s to 3s" },
-    { label: "Recovery", value: "100% data restored" },
+    { label: "Public evidence", value: "Repos, case studies, audits" },
+    { label: "Private engineering", value: "Local AI, scripts, infrastructure" },
+    { label: "Production work", value: "Recovery, performance, delivery" },
   ];
 
   return (
@@ -22,15 +19,10 @@ export default function Hero() {
         />
       </div>
       <div className="relative mx-auto grid max-w-7xl grid-cols-1 gap-12 px-4 pb-16 pt-10 sm:px-6 lg:grid-cols-[1.08fr_0.92fr] lg:items-center lg:px-8 lg:pb-20">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
-          className="space-y-8"
-        >
+        <div className="space-y-8">
           <div className="space-y-4">
             <p className="inline-flex rounded-md border border-teal-700/20 bg-teal-700/10 px-3 py-1 text-sm font-semibold text-teal-900 dark:border-teal-300/20 dark:bg-teal-300/10 dark:text-teal-200">
-              Software Engineer in Sydney
+              Full-Stack & AI Engineer · Sydney, Australia
             </p>
             <h1 className="max-w-4xl text-balance text-5xl font-black leading-[0.96] tracking-normal text-stone-950 sm:text-6xl lg:text-7xl dark:text-white">
               {personalInfo.name}
@@ -43,12 +35,7 @@ export default function Hero() {
             </p>
           </div>
 
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ delay: 0.6, duration: 0.6 }}
-            className="space-y-6"
-          >
+          <div className="space-y-6">
             <div className="flex flex-col gap-3 sm:flex-row">
               <a
                 href="#contact"
@@ -93,21 +80,16 @@ export default function Hero() {
                 </a>
               ))}
             </div>
-          </motion.div>
-        </motion.div>
+          </div>
+        </div>
 
-        <motion.div
-          initial={{ opacity: 0, y: 24 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.7, delay: 0.15 }}
-          className="relative"
-        >
+        <div className="relative">
           <div className="relative overflow-hidden rounded-lg border border-stone-300 bg-stone-950 p-5 shadow-2xl shadow-stone-950/20 dark:border-white/10 sm:p-6">
             <p className="text-xs font-black uppercase tracking-[0.18em] text-teal-200">
-              What this site should prove
+              Two layers, one engineering practice
             </p>
             <p className="mt-4 text-2xl font-black leading-tight text-white">
-              Not just a list of projects. A record of systems, constraints, and work that survived contact with reality.
+              Public proof on the live site. Private experiments on localhost. Useful patterns move between both.
             </p>
             <div className="mt-6 grid grid-cols-1 gap-3 sm:grid-cols-3 lg:grid-cols-1 xl:grid-cols-3">
               {proofPoints.map((point) => (
@@ -118,7 +100,7 @@ export default function Hero() {
               ))}
             </div>
           </div>
-        </motion.div>
+        </div>
       </div>
     </section>
   );

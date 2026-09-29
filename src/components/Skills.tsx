@@ -33,13 +33,13 @@ export default function Skills({
       <div className="mb-5 flex flex-col gap-3 sm:flex-row sm:items-end sm:justify-between">
         <div>
           <p className="text-xs font-bold uppercase tracking-[0.2em] text-blue-700 dark:text-blue-300">
-            Evidence filters
+            Project mapping
           </p>
           <h3 id="skills-heading" className="mt-2 text-2xl font-bold text-stone-950 dark:text-white">
-            Skills & Technologies
+            Skills mapped to work
           </h3>
           <p className="mt-2 text-sm text-stone-600 dark:text-stone-300">
-            Select one or more skills to show the public repositories where they appear.
+            Choose a technology to see the public repositories where it appears in the code or project evidence.
           </p>
         </div>
         {selectedSkills.length > 0 && (

@@ -32,11 +32,11 @@ export default function Contact() {
             Let&apos;s make the next system less fragile.
           </h2>
           <p className="mt-6 max-w-2xl text-lg leading-8 text-stone-300">
-            Open to junior–mid roles in software engineering, full-stack development, platform/DevOps, and applied AI.
-            I&apos;m looking for learning-heavy environments where I can grow and contribute to real systems.
+            Open to software engineering roles across full-stack systems, platform and reliability work, workflow automation, and applied AI.
+            I value teams where I can keep learning while contributing to real systems and clear delivery outcomes.
           </p>
           <p className="mt-4 max-w-2xl text-lg leading-8 text-stone-300">
-            Also open to freelance / contract work — full-stack builds, AI-assisted tooling, and cloud deployment.
+            Also open to freelance or contract work across full-stack builds, practical automation, technical SEO, and cloud delivery.
           </p>
         </motion.div>
 

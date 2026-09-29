@@ -20,7 +20,7 @@ describe('RAG Client', () => {
       const result = getKnowledgeBaseResponse('what do you do?');
 
       expect(result.response).toContain("Himanshu");
-      expect(result.response).toContain("Software Engineer");
+      expect(result.response).toContain("Full-Stack Systems & AI Engineer");
       expect(result.sources.some((source) => source.id === 'personal')).toBe(true);
     });
 

@@ -67,10 +67,10 @@ export default function Projects({ projects, supplementalSkills = [] }: Projects
           className="text-center mb-12"
         >
           <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 dark:text-white mb-4">
-            Projects, Skills & Weekend Builds
+            Projects, Skills & Automations
           </h2>
           <p className="text-lg text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">
-            Explore public GitHub work, filter it by the technologies behind it, and see the random weekend builds I ship when momentum hits.
+            One evidence system for public repositories, project-mapped skills, case-study context, and the small tools I use in daily work.
           </p>
           <div className="w-24 h-1 bg-blue-600 mx-auto mt-6" />
         </motion.div>
@@ -95,10 +95,10 @@ export default function Projects({ projects, supplementalSkills = [] }: Projects
               <div className="mb-6 flex flex-col gap-2 sm:flex-row sm:items-end sm:justify-between">
                 <div>
                   <p className="text-xs font-bold uppercase tracking-[0.2em] text-blue-700 dark:text-blue-300">
-                    Repository evidence
+                    Public proof
                   </p>
                   <h3 id="repository-evidence-heading" className="mt-2 text-2xl font-bold text-stone-950 dark:text-white">
-                    GitHub Project Lab
+                    Proof-of-Work Lab
                   </h3>
                 </div>
                 <p className="max-w-xs text-sm text-stone-500 dark:text-stone-400 sm:text-right">
@@ -159,11 +159,9 @@ export default function Projects({ projects, supplementalSkills = [] }: Projects
                       <h3 className="text-xl sm:text-2xl font-semibold text-gray-900 dark:text-white">
                         {currentProject.title}
                       </h3>
-                      {currentProject.archived && (
-                        <span className="rounded-full bg-amber-100 px-2 py-1 text-xs font-semibold text-amber-800 dark:bg-amber-900 dark:text-amber-200">
-                          Archived
-                        </span>
-                      )}
+                      <span className="rounded-full bg-teal-100 px-2 py-1 text-xs font-semibold text-teal-900 dark:bg-teal-300/15 dark:text-teal-100">
+                        {currentProject.status || (currentProject.archived ? "Archived repository" : "Public repository")}
+                      </span>
                     </div>
                     <p className="text-gray-600 dark:text-gray-300 leading-relaxed">
                       {currentProject.description}
@@ -195,10 +193,10 @@ export default function Projects({ projects, supplementalSkills = [] }: Projects
                 <div className="mt-5 flex flex-wrap gap-3">
                   <Link
                     href={`/projects/${getProjectSlug(currentProject)}`}
-                    aria-label={`Read more about ${currentProject.title}`}
+                    aria-label={`Read project notes for ${currentProject.title}`}
                     className="inline-flex items-center rounded-md bg-gray-900 px-4 py-2 text-sm font-semibold text-white transition-colors hover:bg-gray-700 dark:bg-white dark:text-gray-900 dark:hover:bg-gray-200"
                   >
-                    Read More
+                    Read {currentProject.title}
                   </Link>
                   <a
                     href={currentProject.githubUrl}
@@ -255,7 +253,7 @@ export default function Projects({ projects, supplementalSkills = [] }: Projects
           <div className="border-t border-stone-200 bg-white px-5 py-4 dark:border-white/10 dark:bg-gray-900 sm:px-6">
             <p className="text-sm leading-relaxed text-stone-600 dark:text-stone-300">
               <span className="font-bold text-stone-900 dark:text-white">How it works:</span>{" "}
-              Select a skill to filter the GitHub projects. Pick multiple to broaden results, then open a project to explore its full stack and implementation details.
+              Skills are evidence filters, not self-rated badges. Select one or more to see the repositories where they appear, then open a project for its implementation notes and status.
             </p>
           </div>
         </div>
@@ -263,13 +261,13 @@ export default function Projects({ projects, supplementalSkills = [] }: Projects
         <div id="workflows" className="mt-12">
           <div className="mb-5 max-w-3xl">
             <p className="text-xs font-bold uppercase tracking-[0.2em] text-teal-700 dark:text-teal-300">
-              Weekend grind
+              Personal infrastructure
             </p>
             <h3 className="mt-2 text-2xl font-bold text-stone-950 dark:text-white">
               Weekend Build Sprints
             </h3>
             <p className="mt-2 text-sm leading-relaxed text-stone-600 dark:text-stone-300">
-              Small weekend sprints are my work mode: find one annoying task, wire together a practical fix, and ship it while the momentum is there. That build-and-verify rush keeps me sharp.
+              Small tools, daily use. Most start as a weekend build sprint: find one repeated annoyance, make the smallest reliable fix, and keep it close to the workflow it supports.
             </p>
           </div>
 
