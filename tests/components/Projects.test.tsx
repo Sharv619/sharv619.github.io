@@ -26,11 +26,11 @@ describe("Projects", () => {
   it("keeps project filters, repository evidence, and personal workflows in one segment", () => {
     render(<Projects projects={projects} />);
 
-    expect(screen.getByRole("heading", { name: "Projects, Skills & Automations" })).toBeInTheDocument();
+    expect(screen.getByRole("heading", { name: "Projects, Skills & Random Builds" })).toBeInTheDocument();
     expect(screen.getByRole("heading", { name: "Skills & Technologies" })).toBeInTheDocument();
     expect(screen.getByRole("heading", { name: "GitHub Project Lab" })).toBeInTheDocument();
     expect(screen.getByText("2 repositories")).toBeInTheDocument();
-    expect(screen.getByText(/Select a skill to see the projects where I used it/)).toBeInTheDocument();
+    expect(screen.getByText(/Select a skill to filter the GitHub projects/)).toBeInTheDocument();
     expect(screen.getByRole("heading", { name: "Weekend Build Sprints" })).toBeInTheDocument();
     expect(screen.getByText(/That build-and-verify rush keeps me sharp/)).toBeInTheDocument();
     expect(screen.getByRole("heading", { name: "Headphone -1 / +1 Control" })).toBeInTheDocument();
