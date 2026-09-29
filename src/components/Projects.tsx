@@ -67,10 +67,10 @@ export default function Projects({ projects, supplementalSkills = [] }: Projects
           className="text-center mb-12"
         >
           <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 dark:text-white mb-4">
-            Projects, Skills & Automations
+            Projects, Skills & Random Builds
           </h2>
           <p className="text-lg text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">
-            Explore public GitHub work, filter it by the technologies behind it, and see the repeatable workflows I use to move from evidence to delivery.
+            Explore public GitHub work, filter it by the technologies behind it, and see the random weekend builds I ship when momentum hits.
           </p>
           <div className="w-24 h-1 bg-blue-600 mx-auto mt-6" />
         </motion.div>
@@ -255,7 +255,7 @@ export default function Projects({ projects, supplementalSkills = [] }: Projects
           <div className="border-t border-stone-200 bg-white px-5 py-4 dark:border-white/10 dark:bg-gray-900 sm:px-6">
             <p className="text-sm leading-relaxed text-stone-600 dark:text-stone-300">
               <span className="font-bold text-stone-900 dark:text-white">How it works:</span>{" "}
-              Select a skill to see the projects where I used it. Pick multiple skills to broaden the results, then open a project to explore its full stack and implementation details.
+              Select a skill to filter the GitHub projects. Pick multiple to broaden results, then open a project to explore its full stack and implementation details.
             </p>
           </div>
         </div>

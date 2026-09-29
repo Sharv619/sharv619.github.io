@@ -1,6 +1,12 @@
 "use client";
 
-import AssistantChat from "./AssistantChat";
+import dynamic from "next/dynamic";
+
+// Dynamically import AssistantChat to reduce bundle size and delay loading of heavy components.
+const AssistantChat = dynamic(() => import("./AssistantChat"), {
+  ssr: false,
+  loading: () => null,
+});
 
 interface ChatbotWidgetProps {
   isOpen: boolean;

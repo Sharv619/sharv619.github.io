@@ -26,10 +26,10 @@ export default function ProjectDetailClient({ project }: ProjectDetailClientProp
   const overview = project.portfolioSummary || sections.overview || project.description;
   const statusLabel = project.status || (project.archived ? "Archived" : project.caseStudySlug ? "Prototype" : "Active");
   const metadata = [
-    ["Primary language", project.primaryLanguage || "Not specified"],
-    ["Updated", formatDate(project.pushedAt || project.updatedAt)],
-    ["Role", project.role || "GitHub project"],
-    ["Source", project.caseStudySlug ? "Curated + GitHub" : "GitHub-backed"],
+    ["Built mostly with", project.primaryLanguage || "Not specified"],
+    ["Last touched", formatDate(project.pushedAt || project.updatedAt)],
+    ["My part", project.role || "Personal build"],
+    ["Notes from", project.caseStudySlug ? "My write-up + repo" : "Public repository"],
   ];
   const markdownComponents = createMarkdownComponents(project.githubUrl);
 
@@ -49,7 +49,7 @@ export default function ProjectDetailClient({ project }: ProjectDetailClientProp
           >
             <div className="mb-6 flex flex-wrap items-center gap-3">
               <span className="text-sm font-black uppercase tracking-[0.18em] text-teal-700 dark:text-teal-300">
-                GitHub project
+                From my build archive
               </span>
               <span className="rounded-full border border-stone-300 bg-white/70 px-3 py-1 text-sm font-bold capitalize text-stone-700 shadow-sm dark:border-white/10 dark:bg-white/5 dark:text-stone-300">
                 {statusLabel}
@@ -70,7 +70,7 @@ export default function ProjectDetailClient({ project }: ProjectDetailClientProp
             className="rounded-lg border border-stone-300 bg-stone-950 p-5 text-white shadow-2xl shadow-stone-950/20 dark:border-white/10"
           >
             <div className="mb-5 flex items-center justify-between">
-              <span className="text-xs font-bold uppercase tracking-[0.18em] text-teal-200">Project file</span>
+              <span className="text-xs font-bold uppercase tracking-[0.18em] text-teal-200">At a glance</span>
               <span className="h-3 w-3 rounded-full bg-teal-300" />
             </div>
             <div className="grid grid-cols-1 gap-3">
@@ -93,7 +93,7 @@ export default function ProjectDetailClient({ project }: ProjectDetailClientProp
               aria-label={`View case study for ${project.title}`}
               className="inline-flex min-h-11 items-center rounded-md bg-stone-950 px-5 py-2 text-sm font-bold text-white transition-colors duration-200 hover:bg-teal-800 dark:bg-white dark:text-stone-950 dark:hover:bg-teal-200"
             >
-              View Case Study
+              Read the longer notes
             </Link>
           )}
           {project.liveUrl && (
@@ -104,7 +104,7 @@ export default function ProjectDetailClient({ project }: ProjectDetailClientProp
               aria-label={`View live demo for ${project.title}`}
               className="inline-flex min-h-11 items-center rounded-md border border-stone-300 px-5 py-2 text-sm font-bold text-stone-800 transition-colors duration-200 hover:bg-stone-100 dark:border-white/15 dark:text-stone-200 dark:hover:bg-white/10"
             >
-              Live Demo
+              Try the build
             </a>
           )}
           <a
@@ -114,14 +114,14 @@ export default function ProjectDetailClient({ project }: ProjectDetailClientProp
             aria-label={`View source code for ${project.title}`}
             className="inline-flex min-h-11 items-center rounded-md border border-stone-300 px-5 py-2 text-sm font-bold text-stone-800 transition-colors duration-200 hover:bg-stone-100 dark:border-white/15 dark:text-stone-200 dark:hover:bg-white/10"
           >
-            GitHub
+            Open the repo
           </a>
           <Link
             href="/projects"
             aria-label="View all GitHub-powered portfolio projects"
             className="inline-flex min-h-11 items-center rounded-md border border-stone-300 px-5 py-2 text-sm font-bold text-stone-800 transition-colors duration-200 hover:bg-stone-100 dark:border-white/15 dark:text-stone-200 dark:hover:bg-white/10"
           >
-            All Projects
+            Back to projects
           </Link>
         </div>
       </section>
@@ -130,10 +130,10 @@ export default function ProjectDetailClient({ project }: ProjectDetailClientProp
         <div className="mx-auto grid max-w-7xl grid-cols-1 gap-10 px-4 py-16 sm:px-6 lg:grid-cols-[360px_1fr] lg:px-8">
           <aside className="lg:sticky lg:top-28 lg:self-start">
             <p className="mb-3 text-sm font-bold uppercase tracking-[0.18em] text-teal-700 dark:text-teal-300">
-              Project readout
+              Build journal
             </p>
             <h2 className="text-balance text-4xl font-black leading-tight">
-              Repository signal, shaped into a portfolio page.
+              How this one came together.
             </h2>
             <p className="mt-5 text-base leading-7 text-stone-700 dark:text-stone-300">
               {overview}
@@ -150,7 +150,7 @@ export default function ProjectDetailClient({ project }: ProjectDetailClientProp
             </div>
           </aside>
 
-          <div className="space-y-5">
+          <div className="border-y border-stone-300 dark:border-white/15">
             {sections.details.map((section, index) => (
               <ReadoutSection key={`${section.title}-${index}`} section={section} index={index} />
             ))}
@@ -163,16 +163,16 @@ export default function ProjectDetailClient({ project }: ProjectDetailClientProp
           <div className="mb-8 flex flex-col gap-3 sm:flex-row sm:items-end sm:justify-between">
             <div>
               <p className="mb-3 text-sm font-bold uppercase tracking-[0.18em] text-teal-700 dark:text-teal-300">
-                Screenshots
+                Visual notes
               </p>
-              <h2 className="text-3xl font-black leading-tight">Visual proof from the project.</h2>
+              <h2 className="text-3xl font-black leading-tight">What the build looked like.</h2>
             </div>
             {project.caseStudySlug && (
               <Link
                 href={`/projects/${projectSlug}/case-study`}
                 className="inline-flex min-h-11 items-center rounded-md border border-stone-300 px-5 py-2 text-sm font-bold text-stone-800 transition-colors duration-200 hover:bg-stone-100 dark:border-white/15 dark:text-stone-200 dark:hover:bg-white/10"
               >
-                Open Curated Case Study
+                Read the longer notes
               </Link>
             )}
           </div>
@@ -195,7 +195,7 @@ export default function ProjectDetailClient({ project }: ProjectDetailClientProp
             </div>
           ) : (
             <div className="rounded-lg border border-dashed border-stone-300 bg-[#f7f4ed] p-6 text-sm font-medium text-stone-700 dark:border-white/15 dark:bg-white/5 dark:text-stone-300">
-              Screenshots are not attached yet. The repository README below is rendered as raw repo proof, while the case study remains the curated hiring narrative.
+              I have not added screenshots to this entry yet. The original README is still below if you want the less-polished version of the story.
             </div>
           )}
         </div>
@@ -205,11 +205,11 @@ export default function ProjectDetailClient({ project }: ProjectDetailClientProp
         <div className="mx-auto grid max-w-7xl grid-cols-1 gap-10 px-4 sm:px-6 lg:grid-cols-[300px_1fr] lg:px-8">
           <aside className="lg:sticky lg:top-28 lg:self-start">
             <p className="mb-3 text-sm font-bold uppercase tracking-[0.18em] text-teal-700 dark:text-teal-300">
-              Repository README
+              From the repo
             </p>
-            <h2 className="text-3xl font-black leading-tight">Raw documentation proof.</h2>
+            <h2 className="text-3xl font-black leading-tight">The original notes.</h2>
             <p className="mt-4 text-base leading-7 text-stone-700 dark:text-stone-300">
-              This section renders the public GitHub README safely. It does not replace the curated case study.
+              This is the public README as I wrote it while working on the project. It can be rougher and more technical than the journal above.
             </p>
             {project.readmeSourceUrl && (
               <a
@@ -235,7 +235,7 @@ export default function ProjectDetailClient({ project }: ProjectDetailClientProp
             </article>
           ) : (
             <div className="rounded-lg border border-dashed border-stone-300 bg-white p-6 text-sm font-medium text-stone-700 dark:border-white/15 dark:bg-white/[0.04] dark:text-stone-300">
-              README content is not available for this repository right now. The curated portfolio summary and GitHub metadata are still shown above.
+              This repository does not have README content available here yet. The build journal and repository link above still show what exists.
             </div>
           )}
         </div>
@@ -309,41 +309,38 @@ function createMarkdownComponents(githubUrl: string): Components {
 }
 
 function ReadoutSection({ section, index }: { section: DetailSection; index: number }) {
-  const tones = [
-    "border-teal-600 bg-teal-50 text-teal-950 dark:border-teal-300 dark:bg-teal-300/10 dark:text-teal-100",
-    "border-indigo-500 bg-indigo-50 text-indigo-950 dark:border-indigo-300 dark:bg-indigo-300/10 dark:text-indigo-100",
-    "border-amber-500 bg-amber-50 text-amber-950 dark:border-amber-300 dark:bg-amber-300/10 dark:text-amber-100",
-    "border-stone-400 bg-white text-stone-900 dark:border-white/15 dark:bg-white/5 dark:text-stone-100",
-  ];
-
   return (
     <motion.section
       initial={{ opacity: 0, y: 16 }}
       whileInView={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.45 }}
       viewport={{ once: true }}
-      className={`rounded-lg border-l-4 p-6 shadow-sm ${tones[index % tones.length]}`}
+      className="grid gap-5 border-b border-stone-300 py-8 last:border-b-0 dark:border-white/15 md:grid-cols-[72px_220px_1fr]"
     >
-      <h3 className="text-2xl font-black">{section.title}</h3>
-      <div className="mt-5 grid grid-cols-1 gap-3 md:grid-cols-2">
+      <p className="font-mono text-sm font-bold text-teal-700 dark:text-teal-300">
+        {String(index + 1).padStart(2, "0")}
+      </p>
+      <h3 className="text-2xl font-black leading-tight text-stone-950 dark:text-white">{section.title}</h3>
+      <div className="space-y-4">
         {section.lines.map((line) => (
-          <p key={line} className="rounded-md bg-white/70 p-4 text-sm font-medium leading-6 text-current shadow-sm dark:bg-black/15">
-            {line}
-          </p>
+          <div key={line} className="grid grid-cols-[10px_1fr] gap-3">
+            <span className="mt-2 h-1.5 w-1.5 rounded-full bg-amber-500" />
+            <p className="text-base leading-7 text-stone-700 dark:text-stone-300">{line}</p>
+          </div>
         ))}
       </div>
     </motion.section>
   );
 }
 
-function parseArchitectureDetails(details: string): { overview: string; details: DetailSection[] } {
+export function parseArchitectureDetails(details: string): { overview: string; details: DetailSection[] } {
   const blocks = details.split(/\n{2,}/).map((block) => block.trim()).filter(Boolean);
   const overview = blocks[0] || "";
   const parsed = blocks.slice(1).map((block) => {
     const lines = block.split("\n").map((line) => cleanLine(line)).filter(Boolean);
     const firstLine = lines[0] || "Details";
     const isHeading = firstLine.endsWith(":") || !firstLine.startsWith("•");
-    const title = cleanTitle(isHeading ? firstLine : "Details");
+    const title = formatJournalSectionTitle(cleanTitle(isHeading ? firstLine : "Details"));
     const sectionLines = (isHeading ? lines.slice(1) : lines).map((line) => line.replace(/^•\s*/, "")).filter(Boolean);
 
     return {
@@ -354,8 +351,23 @@ function parseArchitectureDetails(details: string): { overview: string; details:
 
   return {
     overview,
-    details: parsed.length > 0 ? parsed : [{ title: "Details", lines: [overview] }],
+    details: parsed.length > 0 ? parsed : [{ title: "Build notes", lines: [overview] }],
   };
+}
+
+export function formatJournalSectionTitle(title: string): string {
+  const titles: Record<string, string> = {
+    Problem: "Why I started it",
+    Solution: "What I tried",
+    Outcome: "Where it landed",
+    "What I built / designed": "What took shape",
+    "Technical highlights": "Under the hood",
+    Status: "Where it stands",
+    "GitHub Signals": "Repo notes",
+    Details: "Build notes",
+  };
+
+  return titles[title] || title;
 }
 
 function cleanLine(line: string): string {
