@@ -12,7 +12,7 @@
     "tagline": "Focused on backend systems, production reliability, cloud deployment, and AI-assisted workflow automation",
     "location": "Sydney, Australia",
     "availability": "Open to opportunities",
-    "bio": "Software Engineer focused on backend systems, production reliability, cloud deployment, and AI-assisted workflow automation. Experience includes production recovery, load-time improvement from roughly 25s to under 3s, Docker/GitHub Actions CI/CD, and open-source AI-assisted developer tooling.",
+    "bio": "Software Engineer focused on backend systems, production reliability, cloud deployment, and AI-assisted workflow automation. Experience includes ransomware recovery, page-load improvement from 25s to 3s, Docker/GitHub Actions CI/CD, and open-source AI-assisted developer tooling.",
     "contact": {
       "email": "hl@himanshulade.com",
       "phone": "+61 434 069 483",
@@ -24,24 +24,22 @@
     {
       "id": "ask-jay",
       "company": "Ask Jay Services",
-      "role": "Founding Engineer / Principal Technical Lead",
+      "role": "Software Engineer",
       "type": "Contract",
-      "duration": "May 2025 - Aug 2025",
+      "duration": "May 2025 - Oct 2025",
       "location": "Wollongong, Australia",
       "achievements": [
-        "Supported production recovery after a security incident, restoring service functionality while keeping public details NDA-safe",
-        "Improved load times from roughly 25s to under 3s through infrastructure, backend, frontend, and database-path optimization",
-        "Built marketplace and course-management platform features across frontend and backend workflows",
-        "Created Docker and GitHub Actions CI/CD workflows to make deployments more repeatable",
-        "Launched 700+ SEO-optimized landing pages to drive regional expansion and organic traffic growth"
+        "Recovered a production system from ransomware within three weeks of starting the engagement: 100% data restored, zero loss, and page load time reduced from 25 seconds to 3 seconds over 30 hours",
+        "Built a shift-booking automation bot and a three-sided Flutter marketplace for service providers, requesters, and administrators",
+        "Established CI/CD pipelines, GitHub Actions workflows, and production deployment practices for a greenfield stack"
       ],
       "techStack": ["AWS", "React", "Flutter", "Docker", "GitHub Actions", "Node.js", "PostgreSQL"],
       "highlights": ["Disaster Recovery", "Performance Optimization", "Full-Stack Development", "CI/CD", "Security Hardening"],
       "impact": {
         "metrics": [
-          "Service functionality restored after production incident",
-          "Load times improved from roughly 25s to under 3s",
-          "700+ landing pages deployed"
+          "100% of production data restored with zero loss",
+          "Page load time reduced from 25s to 3s",
+          "Recovery and performance work completed over 30 hours"
         ]
       }
     },
@@ -51,19 +49,19 @@
       "role": "Web Developer Intern",
       "type": "Internship",
       "duration": "Sep 2023 – Feb 2024",
-      "location": "Wollongong, Australia",
+      "location": "Remote, Australia",
       "achievements": [
-        "Improved average page load time by 30% for MERN stack application serving 10,000+ users through React optimization and code splitting",
-        "Reviewed and resolved 15+ authentication issues using OWASP guidance, strengthening application security posture",
-        "Collaborated in Agile development sprints with QA engineers and product owners to deliver features on time with high quality standards"
+        "Improved MERN application frontend performance by 33% across a production application serving 200+ active users",
+        "Remediated 15+ OWASP Top 10 web application security vulnerabilities before production release",
+        "Built internal tooling with React, Node.js, Express, and MongoDB"
       ],
       "techStack": ["React", "Node.js", "MongoDB", "Express", "JavaScript"],
-      "highlights": ["Security", "Performance", "Agile", "Team Collaboration"],
+      "highlights": ["Security", "Performance", "Internal Tooling", "MERN"],
       "impact": {
         "metrics": [
-          "30% average page load time reduction",
-          "15+ authentication issues reviewed/resolved",
-          "10,000+ users served"
+          "33% frontend performance improvement",
+          "15+ OWASP Top 10 vulnerabilities remediated",
+          "200+ active users served"
         ]
       }
     }

@@ -635,7 +635,7 @@ export async function getPortfolioProjects(options: GetPortfolioProjectsOptions 
     return fallbackProjects;
   }
 
-  if (source === "auto" && isProductionBuild() && !process.env.GITHUB_TOKEN) {
+  if (isProductionBuild()) {
     return getGeneratedGitHubProjects();
   }
 
@@ -699,7 +699,7 @@ function getPortfolioProjectSource(): "auto" | "github" | "snapshot" | "fallback
     return source;
   }
 
-  return "auto";
+  return "snapshot";
 }
 
 function getGeneratedGitHubProjects(): Project[] {
@@ -709,7 +709,8 @@ function getGeneratedGitHubProjects(): Project[] {
 }
 
 function isProductionBuild(): boolean {
-  return process.env.NEXT_PHASE === "phase-production-build"
+  return process.env.NODE_ENV === "production"
+    || process.env.NEXT_PHASE === "phase-production-build"
     || process.env.npm_lifecycle_event === "build";
 }
 

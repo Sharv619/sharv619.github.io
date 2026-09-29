@@ -1,4 +1,4 @@
-import { describe, expect, it } from 'vitest';
+import { afterEach, describe, expect, it, vi } from 'vitest';
 import {
   extractPackageJsonSkills,
   extractPythonDependencySkills,
@@ -31,12 +31,27 @@ const baseRepo: GitHubRepository = {
 };
 
 describe('github-projects', () => {
+  afterEach(() => {
+    vi.unstubAllEnvs();
+  });
+
   it('uses the generated snapshot for a complete network-free production feed', async () => {
     const projects = await getPortfolioProjects({ source: 'snapshot' });
 
     expect(projects.length).toBeGreaterThan(7);
     expect(new Set(projects.map((project) => project.slug)).size).toBe(projects.length);
     expect(projects.every((project) => project.githubUrl.startsWith('https://github.com/Sharv619/'))).toBe(true);
+  });
+
+  it('keeps production builds on the complete snapshot even when local settings request GitHub', async () => {
+    vi.stubEnv('NODE_ENV', 'production');
+    vi.stubEnv('GITHUB_TOKEN', 'invalid-token');
+    vi.stubEnv('PORTFOLIO_GITHUB_SOURCE', 'github');
+
+    const projects = await getPortfolioProjects();
+
+    expect(projects.length).toBeGreaterThan(7);
+    expect(new Set(projects.map((project) => project.slug)).size).toBe(projects.length);
   });
 
   it('includes public non-fork repos when configured for all projects', () => {

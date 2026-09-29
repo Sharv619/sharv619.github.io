@@ -8,16 +8,15 @@ Software Engineer focused on backend systems, production reliability, cloud depl
 
 ## Ask Jay Services
 
-- Title: Founding Engineer / Principal Technical Lead
-- Dates: May-Aug 2025
-- Scope: Production recovery and marketplace platform work
+- Title: Software Engineer
+- Dates: May-Oct 2025
+- Scope: Production recovery, automation, marketplace engineering, and deployment workflows
 - Approved claims:
-  - Supported production recovery after a security incident.
-  - Restored production service functionality while keeping public details NDA-safe.
-  - Improved load times from roughly 25 seconds to under 3 seconds.
-  - Built marketplace and course-management platform features.
-  - Created Docker and GitHub Actions CI/CD workflows.
-  - Built and deployed 700+ SEO-oriented landing pages.
+  - Recovered a production system from ransomware within three weeks of starting the engagement.
+  - Restored 100% of production data with zero loss.
+  - Reduced page load time from 25 seconds to 3 seconds over 30 hours.
+  - Built a shift-booking automation bot and a three-sided Flutter marketplace.
+  - Established CI/CD pipelines, GitHub Actions workflows, and production deployment practices.
 - Needs evidence before public use:
   - Around 90% deployment time reduction.
   - Exact uptime claims.
@@ -28,9 +27,9 @@ Software Engineer focused on backend systems, production reliability, cloud depl
 - Title: Web Developer Intern
 - Dates: Sep 2023-Feb 2024
 - Approved claims:
-  - Worked on a MERN platform serving 10,000+ users.
-  - Improved average page load time by 30%.
-  - Reviewed and resolved 15+ authentication issues using OWASP guidance.
+  - Improved MERN application frontend performance by 33% across a production application serving 200+ active users.
+  - Remediated 15+ OWASP Top 10 web application security vulnerabilities before production release.
+  - Built internal tooling with React, Node.js, Express, and MongoDB.
 
 ## Pilly / MediMate Voice
 

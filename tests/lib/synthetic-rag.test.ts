@@ -49,7 +49,8 @@ describe("Synthetic RAG", () => {
 
     expect(result.confidence).toBe("high");
     expect(result.response).toContain("Ask Jay Services");
-    expect(result.response).toContain("25 seconds");
+    expect(result.response).toContain("May 2025 to October 2025");
+    expect(result.response).toContain("100% of the data");
     expect(result.sources.some((source) => source.id === "ask-jay")).toBe(true);
   });
 

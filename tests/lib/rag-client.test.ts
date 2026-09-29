@@ -56,7 +56,8 @@ describe('RAG Client', () => {
     it('returns experience for job queries', () => {
       const response = getFallbackResponse('tell me about his experience');
       expect(response).toContain('Ask Jay Services');
-      expect(response).toContain('production recovery');
+      expect(response).toContain('May-Oct 2025');
+      expect(response).toContain('100% of its data with zero loss');
     });
 
     it('returns default for unknown queries', () => {

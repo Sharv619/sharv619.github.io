@@ -3,7 +3,7 @@ import { formatAssistantResponse, isLongQuestion } from '../../src/lib/assistant
 
 describe('assistant response style', () => {
   it('keeps short-question answers under 200 characters', () => {
-    const response = 'Himanshu worked as a Web Developer Intern at the Australian Computer Society from September 2023 to February 2024. He improved average page load time by 30% for a MERN application serving 10,000+ users, reviewed authentication issues, and collaborated in Agile sprints.';
+    const response = 'Himanshu worked as a Web Developer Intern at the Australian Computer Society from September 2023 to February 2024. He improved MERN frontend performance by 33% for an application serving 200+ active users and remediated OWASP vulnerabilities.';
 
     const formatted = formatAssistantResponse('hi', response);
 

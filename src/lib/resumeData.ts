@@ -59,11 +59,9 @@ export const resumeData: ResumeData = {
       location: "Wollongong",
       duration: verifiedClaims.experience.askJay.duration,
       achievements: [
-        "Supported production recovery after a security incident, restoring service functionality while keeping public details NDA-safe",
-        "Improved load times from roughly 25s to under 3s through infrastructure, backend, frontend, and database-path optimization",
-        "Built marketplace and course-management platform features across frontend and backend workflows",
-        "Created Docker and GitHub Actions CI/CD workflows to make deployments more repeatable",
-        "Built and deployed 700+ SEO-oriented landing pages while working across production recovery, platform features, and deployment workflows as a multi-hat engineering contributor"
+        "Recovered a production system from ransomware within three weeks of starting the engagement: 100% data restored, zero loss, and page load time reduced from 25 seconds to 3 seconds over 30 hours",
+        "Built a shift-booking automation bot and a three-sided Flutter marketplace for service providers, requesters, and administrators",
+        "Established CI/CD pipelines, GitHub Actions workflows, and production deployment practices for a greenfield stack"
       ]
     },
     {
@@ -72,9 +70,9 @@ export const resumeData: ResumeData = {
       location: "Sydney, Australia",
       duration: "Sep 2023 – Feb 2024",
       achievements: [
-        "Improved average page load time by 30% for MERN stack application serving 10,000+ users through React optimization and code splitting",
-        "Reviewed and resolved 15+ authentication issues using OWASP guidance, strengthening application security posture",
-        "Collaborated in Agile development sprints with QA engineers and product owners to deliver features on time with high quality standards"
+        "Improved MERN application frontend performance by 33% across a production application serving 200+ active users",
+        "Remediated 15+ OWASP Top 10 web application security vulnerabilities before production release",
+        "Built internal tooling with React, Node.js, Express, and MongoDB"
       ]
     }
   ],

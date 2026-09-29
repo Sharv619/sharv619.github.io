@@ -3,11 +3,13 @@
 import { motion } from "framer-motion";
 import Link from "next/link";
 import { useState } from "react";
+import Skills from "@/components/Skills";
+import { personalAutomationWorkflows } from "@/lib/personal-workflows";
 import type { Project } from "@/lib/data";
 
 interface ProjectsProps {
-  selectedSkills: string[];
   projects: Project[];
+  supplementalSkills?: string[];
 }
 
 function getProjectSlug(project: Project): string {
@@ -19,13 +21,14 @@ function getProjectSlug(project: Project): string {
     .trim();
 }
 
-export default function Projects({ selectedSkills, projects }: ProjectsProps) {
+export default function Projects({ projects, supplementalSkills = [] }: ProjectsProps) {
   const [currentIndex, setCurrentIndex] = useState(0);
+  const [selectedSkills, setSelectedSkills] = useState<string[]>([]);
   const visibleProjects = selectedSkills.length === 0
     ? projects
     : projects.filter((project) =>
         project.technologies.some((tech) =>
-          selectedSkills.some((skill) => tech.toLowerCase().includes(skill.toLowerCase()))
+          selectedSkills.some((skill) => tech.toLowerCase() === skill.toLowerCase())
         )
       );
   const hasProjects = visibleProjects.length > 0;
@@ -44,6 +47,15 @@ export default function Projects({ selectedSkills, projects }: ProjectsProps) {
     setCurrentIndex(index);
   };
 
+  const handleSkillToggle = (skill: string) => {
+    setSelectedSkills((currentSkills) =>
+      currentSkills.includes(skill)
+        ? currentSkills.filter((currentSkill) => currentSkill !== skill)
+        : [...currentSkills, skill]
+    );
+    setCurrentIndex(0);
+  };
+
   return (
     <section id="projects" className="py-20 bg-white dark:bg-gray-900">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -55,32 +67,62 @@ export default function Projects({ selectedSkills, projects }: ProjectsProps) {
           className="text-center mb-12"
         >
           <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 dark:text-white mb-4">
-            GitHub Project Lab
+            Projects, Skills & Automations
           </h2>
           <p className="text-lg text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">
-            Automated project cards generated from public GitHub repositories at build time. Use the skills below to filter projects by technology.
+            Explore public GitHub work, filter it by the technologies behind it, and see the repeatable workflows I use to move from evidence to delivery.
           </p>
           <div className="w-24 h-1 bg-blue-600 mx-auto mt-6" />
         </motion.div>
 
-        {!hasProjects && (
-          <div className="bg-gray-50 dark:bg-gray-800 rounded-lg p-8 text-center shadow-lg">
-            <p className="text-gray-600 dark:text-gray-300">
-              {projects.length === 0
-                ? "No GitHub repositories are currently tagged for the portfolio project feed."
-                : "No projects match the selected skills."}
-            </p>
-          </div>
-        )}
+        <div className="overflow-hidden rounded-xl border border-stone-200 bg-white shadow-lg dark:border-white/10 dark:bg-gray-900">
+          <div className="grid lg:grid-cols-[minmax(0,2fr)_minmax(0,3fr)]">
+            <Skills
+              projects={projects}
+              supplementalSkills={supplementalSkills}
+              selectedSkills={selectedSkills}
+              onSkillToggle={handleSkillToggle}
+              onClearSkills={() => {
+                setSelectedSkills([]);
+                setCurrentIndex(0);
+              }}
+            />
 
-        {hasProjects && (
-          <div className="bg-gray-50 dark:bg-gray-800 rounded-lg overflow-hidden shadow-lg">
-            <div className="p-8">
+            <div
+              className="border-t border-stone-200 bg-gray-50 p-5 dark:border-white/10 dark:bg-gray-800 sm:p-6 lg:border-l lg:border-t-0"
+              aria-labelledby="repository-evidence-heading"
+            >
+              <div className="mb-6 flex flex-col gap-2 sm:flex-row sm:items-end sm:justify-between">
+                <div>
+                  <p className="text-xs font-bold uppercase tracking-[0.2em] text-blue-700 dark:text-blue-300">
+                    Repository evidence
+                  </p>
+                  <h3 id="repository-evidence-heading" className="mt-2 text-2xl font-bold text-stone-950 dark:text-white">
+                    GitHub Project Lab
+                  </h3>
+                </div>
+                <p className="max-w-xs text-sm text-stone-500 dark:text-stone-400 sm:text-right">
+                  Generated from public, original repositories at build time.
+                </p>
+              </div>
+
+              {!hasProjects && (
+                <div className="rounded-lg border border-gray-200 bg-white p-8 text-center dark:border-gray-700 dark:bg-gray-900">
+                  <p className="text-gray-600 dark:text-gray-300">
+                    {projects.length === 0
+                      ? "No GitHub repositories are currently tagged for the portfolio project feed."
+                      : "No projects match the selected skills."}
+                  </p>
+                </div>
+              )}
+
+              {hasProjects && (
+                <div>
               <div className="mb-6 flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
                 <div className="flex flex-wrap gap-3 text-sm text-gray-500 dark:text-gray-400">
-                  <span>{visibleProjects.length} repositories</span>
+                  <span>{visibleProjects.length} {visibleProjects.length === 1 ? "repository" : "repositories"}</span>
                   <span>{activeIndex + 1} of {visibleProjects.length}</span>
-                  <span>{selectedSkills.length} active filters</span>
+                  <span>{selectedSkills.length} active {selectedSkills.length === 1 ? "filter" : "filters"}</span>
                 </div>
                 <div className="flex space-x-2">
                   <button
@@ -205,9 +247,73 @@ export default function Projects({ selectedSkills, projects }: ProjectsProps) {
                   </button>
                 ))}
               </div>
+                </div>
+              )}
             </div>
           </div>
-        )}
+
+          <div className="border-t border-stone-200 bg-white px-5 py-4 dark:border-white/10 dark:bg-gray-900 sm:px-6">
+            <p className="text-sm leading-relaxed text-stone-600 dark:text-stone-300">
+              <span className="font-bold text-stone-900 dark:text-white">How it works:</span>{" "}
+              Select a skill to see the projects where I used it. Pick multiple skills to broaden the results, then open a project to explore its full stack and implementation details.
+            </p>
+          </div>
+        </div>
+
+        <div id="workflows" className="mt-12">
+          <div className="mb-5 max-w-3xl">
+            <p className="text-xs font-bold uppercase tracking-[0.2em] text-teal-700 dark:text-teal-300">
+              Weekend grind
+            </p>
+            <h3 className="mt-2 text-2xl font-bold text-stone-950 dark:text-white">
+              Weekend Build Sprints
+            </h3>
+            <p className="mt-2 text-sm leading-relaxed text-stone-600 dark:text-stone-300">
+              Small weekend sprints are my work mode: find one annoying task, wire together a practical fix, and ship it while the momentum is there. That build-and-verify rush keeps me sharp.
+            </p>
+          </div>
+
+          <div className="grid gap-4 lg:grid-cols-3">
+            {personalAutomationWorkflows.map((workflow, workflowIndex) => (
+              <motion.article
+                key={workflow.title}
+                initial={{ opacity: 0, y: 16 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.45, delay: workflowIndex * 0.08 }}
+                viewport={{ once: true }}
+                className="flex h-full flex-col rounded-lg border border-gray-200 bg-white p-6 shadow-sm dark:border-gray-700 dark:bg-gray-900"
+              >
+                <p className="text-xs font-bold uppercase tracking-[0.16em] text-teal-700 dark:text-teal-300">
+                  {workflow.label}
+                </p>
+                <h4 className="text-lg font-bold text-stone-950 dark:text-white">
+                  {workflow.title}
+                </h4>
+                <p className="mt-2 text-sm leading-relaxed text-stone-600 dark:text-stone-300">
+                  {workflow.description}
+                </p>
+                <ul className="mt-5 flex flex-wrap gap-2" aria-label={`${workflow.title} technologies`}>
+                  {workflow.technologies.map((technology) => (
+                    <li
+                      key={technology}
+                      className="rounded-full bg-blue-100 px-3 py-1 text-xs font-semibold text-blue-800 dark:bg-blue-900 dark:text-blue-200"
+                    >
+                      {technology}
+                    </li>
+                  ))}
+                </ul>
+                <div className="mt-5 rounded-lg bg-gray-50 p-4 dark:bg-gray-800">
+                  <p className="text-xs font-semibold uppercase tracking-wide text-gray-600 dark:text-gray-300">
+                    How it works
+                  </p>
+                  <p className="mt-2 text-sm font-medium leading-relaxed text-gray-800 dark:text-gray-100">
+                    {workflow.detail}
+                  </p>
+                </div>
+              </motion.article>
+            ))}
+          </div>
+        </div>
       </div>
     </section>
   );

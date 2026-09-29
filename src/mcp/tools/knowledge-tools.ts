@@ -56,13 +56,13 @@ const DEFAULT_KB: KnowledgeBase = {
   experience: [
     {
       company: "Ask Jay Services",
-      role: "Founding Engineer / Principal Technical Lead",
-      duration: "May 2025 - Aug 2025",
+      role: "Software Engineer",
+      duration: "May 2025 - Oct 2025",
       achievements: [
-        "Supported production recovery after a security incident",
-        "Improved load times from roughly 25s to under 3s",
-        "Built marketplace and course-management platform features",
-        "Created CI/CD workflows with Docker and GitHub Actions"
+        "Recovered a production system from ransomware with 100% data restored and zero loss",
+        "Reduced page load time from 25s to 3s over 30 hours",
+        "Built a shift-booking bot and three-sided Flutter marketplace",
+        "Established CI/CD and production deployment practices"
       ]
     },
     {
@@ -70,9 +70,9 @@ const DEFAULT_KB: KnowledgeBase = {
       role: "Web Developer Intern",
       duration: "Sep 2023 - Feb 2024",
       achievements: [
-        "Improved average page load time by 30% for MERN stack app serving 10,000+ users",
-        "Reviewed and resolved 15+ authentication issues using OWASP guidance",
-        "Collaborated in Agile development sprints"
+        "Improved MERN frontend performance by 33% for a production app serving 200+ active users",
+        "Remediated 15+ OWASP Top 10 vulnerabilities before production release",
+        "Built internal tooling with React, Node.js, Express, and MongoDB"
       ]
     }
   ],

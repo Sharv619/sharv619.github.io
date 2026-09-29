@@ -7,8 +7,8 @@ import { careerPositioning } from "@/lib/career-positioning";
 export default function Hero() {
   const proofPoints = [
     { label: "Production recovery", value: "NDA-safe incident work" },
-    { label: "Performance", value: "25s to under 3s" },
-    { label: "Delivery", value: "700+ landing pages" },
+    { label: "Performance", value: "25s to 3s" },
+    { label: "Recovery", value: "100% data restored" },
   ];
 
   return (

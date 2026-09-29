@@ -5,7 +5,7 @@ import { motion } from "framer-motion";
 const edges = [
   {
     title: "Full-Stack Agility",
-    description: "I work across frontend, backend, and deployment workflows, with recent experience building marketplace and course-management platform features and Docker/GitHub Actions deployment paths.",
+    description: "I work across frontend, backend, and deployment workflows, with recent experience building automation, a three-sided Flutter marketplace, and Docker/GitHub Actions deployment paths.",
     icon: "🏗️"
   },
   {
@@ -15,7 +15,7 @@ const edges = [
   },
   {
     title: "DevOps & Performance Mastery",
-    description: "I helped improve production load times from roughly 25 seconds to under 3 seconds and built repeatable deployment workflows with Docker and GitHub Actions.",
+    description: "I recovered production data after a ransomware incident, reduced page load time from 25 seconds to 3 seconds, and built repeatable deployment workflows with Docker and GitHub Actions.",
     icon: "⚡"
   },
   {
