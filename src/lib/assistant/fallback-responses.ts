@@ -136,7 +136,7 @@ function buildProjectResponse(projects: KnowledgeProject[]): KnowledgeBaseRespon
       : "";
     const links = project.links?.github ? `\nGitHub: ${project.links.github}` : "";
 
-    return `**${project.name}** — ${project.description}\nStack: ${project.techStack.slice(0, 6).join(", ")}${achievements}${links}`;
+    return `**${project.name}**: ${project.description}\nStack: ${project.techStack.slice(0, 6).join(", ")}${achievements}${links}`;
   }).join("\n\n");
 
   return {
@@ -152,7 +152,7 @@ function buildProjectResponse(projects: KnowledgeProject[]): KnowledgeBaseRespon
 
 function buildExperienceResponse(experience: KnowledgeExperience[]): KnowledgeBaseResponse {
   const response = experience.map((item) => (
-    `**${item.company}** — ${item.role} (${item.duration})\n${formatList(item.achievements, 3)}`
+    `**${item.company}**: ${item.role} (${item.duration})\n${formatList(item.achievements, 3)}`
   )).join("\n\n");
 
   return {
@@ -190,7 +190,7 @@ function buildPersonalResponse(): KnowledgeBaseResponse {
 
 function buildEducationResponse(): KnowledgeBaseResponse {
   const response = knowledgeBase.education.map((item) => (
-    `**${item.degree}** — ${item.institution}, ${item.location} (${item.year})`
+    `**${item.degree}**: ${item.institution}, ${item.location} (${item.year})`
   )).join("\n\n");
 
   return {

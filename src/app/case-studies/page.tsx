@@ -29,7 +29,7 @@ export default function CaseStudiesPage() {
               Engineering under real constraints
             </h1>
             <p className="mt-6 max-w-3xl text-xl leading-8 text-stone-700 dark:text-stone-300">
-              Evidence-based stories about production recovery, responsible AI boundaries, and developer tooling—without sanding away the limitations.
+              Evidence-based stories about production recovery, responsible AI boundaries, and developer tooling, without sanding away the limitations.
             </p>
           </div>
           <div className="grid grid-cols-3 gap-3">

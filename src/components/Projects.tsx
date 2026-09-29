@@ -72,6 +72,10 @@ export default function Projects({ projects, supplementalSkills = [] }: Projects
           <p className="text-lg text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">
             One evidence system for public repositories, project-mapped skills, case-study context, and the small tools I use in daily work.
           </p>
+          <p className="mt-4 text-sm leading-relaxed text-stone-600 dark:text-stone-300 max-w-3xl mx-auto">
+            <span className="font-bold text-stone-900 dark:text-white">How it works:</span>{" "}
+            Skills are evidence filters, not self-rated badges. Select one or more to see the repositories where they appear, then open a project for its implementation notes and status.
+          </p>
           <div className="w-24 h-1 bg-blue-600 mx-auto mt-6" />
         </motion.div>
 
@@ -248,13 +252,6 @@ export default function Projects({ projects, supplementalSkills = [] }: Projects
                 </div>
               )}
             </div>
-          </div>
-
-          <div className="border-t border-stone-200 bg-white px-5 py-4 dark:border-white/10 dark:bg-gray-900 sm:px-6">
-            <p className="text-sm leading-relaxed text-stone-600 dark:text-stone-300">
-              <span className="font-bold text-stone-900 dark:text-white">How it works:</span>{" "}
-              Skills are evidence filters, not self-rated badges. Select one or more to see the repositories where they appear, then open a project for its implementation notes and status.
-            </p>
           </div>
         </div>
 

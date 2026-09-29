@@ -47,7 +47,7 @@ export default function FeaturedCaseStudies({ caseStudies, compact = false }: Fe
             </h2>
           </div>
           <p className="max-w-2xl text-lg leading-8 text-stone-700 lg:justify-self-end dark:text-stone-300">
-            Production recovery, responsible AI boundaries, and developer tooling—each labelled by what it is, what I owned, and what the evidence supports.
+            Production recovery, responsible AI boundaries, and developer tooling. Each is labelled by what it is, what I owned, and what the evidence supports.
           </p>
         </motion.div>
 

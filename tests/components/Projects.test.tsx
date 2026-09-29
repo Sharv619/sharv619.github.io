@@ -35,7 +35,7 @@ describe("Projects", () => {
     expect(screen.getByText(/Small tools, daily use/)).toBeInTheDocument();
     expect(screen.getByRole("heading", { name: "Headphone Step Control" })).toBeInTheDocument();
     expect(screen.getByRole("heading", { name: "Telegram Command Bridge" })).toBeInTheDocument();
-    expect(screen.getByRole("heading", { name: "Private Tailscale + SSH Path" })).toBeInTheDocument();
+    expect(screen.getByRole("heading", { name: "Termux + Tailscale SSH Path" })).toBeInTheDocument();
 
     fireEvent.click(screen.getByRole("button", { name: "Python" }));
 

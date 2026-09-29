@@ -22,10 +22,10 @@ export const personalAutomationWorkflows: PersonalAutomationWorkflow[] = [
     detail: "The bot translates a small command into the local action and keeps the interface lightweight.",
   },
   {
-    title: "Private Tailscale + SSH Path",
+    title: "Termux + Tailscale SSH Path",
     label: "Personal infrastructure",
-    description: "Tailscale and SSH connect the remote command to the local machine without exposing another public endpoint.",
-    technologies: ["Tailscale", "SSH", "Private network"],
-    detail: "Telegram message → bot command → private Tailscale network → SSH → local Python utility.",
+    description: "Termux gives me the remote terminal, while SSH reaches my main laptop through its private Tailscale network.",
+    technologies: ["Termux", "Tailscale", "SSH", "Private network"],
+    detail: "Termux → SSH over Tailscale → main laptop terminal → local Python utility.",
   },
 ];
