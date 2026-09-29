@@ -79,6 +79,13 @@ export const socialLinks = {
 
 export const experience = [
   {
+    company: "WebLyst",
+    position: "Senior Full-Stack Developer & Specialist",
+    duration: "Sep 2026 - Present",
+    description: "• Support small-business client work across custom software, technical SEO, performance, integrations, and deployment troubleshooting.\n\n• Produced a public-facing website audit covering page structure, redirects, metadata, schema, indexing, tracking, and performance checks.\n\n• Converted findings into a practical implementation checklist for developer handoff and client review.\n\n• Help scope work, estimate effort, and keep responsibilities clear across client, founder, and developer coordination.",
+    link: "https://weblyst.com.au",
+  },
+  {
     company: "Ask Jay Services",
     position: "Software Engineer",
     duration: "May 2025 - Oct 2025",
