@@ -59,3 +59,8 @@ knowledge_base.md
 mcp-context.json
 src/mcp/**/*.js
 lighthouse-local.json
+
+# assistant server (local workspace)
+/assistant-server/
+/test-event.json
+/src/lib/synthetic-rag-index.json.bak

@@ -789,5 +789,135 @@
     "priority": 9,
     "relatedProjectSlug": "build-wit-ai",
     "relatedCaseStudySlug": "pilly-medimate-voice"
+  },
+  {
+    "id": "screenshot-flutter-ml",
+    "title": "Screenshot Flutter ML",
+    "tags": [
+      "flutter",
+      "ml",
+      "tensorflow",
+      "screenshot",
+      "tool"
+    ],
+    "questions": [
+      "What is the Screenshot Flutter ML tool?",
+      "Tell me about the screenshot flutter ml project",
+      "What does the screenshot flutter ml do?"
+    ],
+    "answer": "Screenshot Flutter ML is a Flutter app that uses on-device ML to process screenshots for text extraction or UI element detection. It built to quickly extract information from screenshots without sending data to the cloud, keeping processing local and private.",
+    "sources": [
+      {
+        "id": "screenshot-flutter",
+        "section": "GitHub",
+        "title": "Screenshot Flutter",
+        "url": "https://github.com/Sharv619/screenshot-flutter"
+      }
+    ],
+    "priority": 6
+  },
+  {
+    "id": "stock-price-alerts",
+    "title": "Stock Price Alerts",
+    "tags": [
+      "stock",
+      "alert",
+      "python",
+      "twilio",
+      "tool"
+    ],
+    "questions": [
+      "What is the Stock Price Alerts tool?",
+      "Tell me about the stock price alerts project",
+      "How does the stock price alerts work?"
+    ],
+    "answer": "Stock Price Alerts is a simple script that checks stock prices and sends alerts when thresholds are crossed. It runs periodically to monitor watchlist and sends SMS notifications via Twilio when price moves beyond set limits.",
+    "sources": [
+      {
+        "id": "stock-price-alerts",
+        "section": "GitHub",
+        "title": "Stock Price Alerts",
+        "url": "https://github.com/Sharv619/stock-price-alerts"
+      }
+    ],
+    "priority": 6
+  },
+  {
+    "id": "reli-board",
+    "title": "Reli Board",
+    "tags": [
+      "project",
+      "management",
+      "kanban",
+      "jwt",
+      "docker",
+      "tool"
+    ],
+    "questions": [
+      "What is the Reli Board tool?",
+      "Tell me about the reli board project",
+      "What does the reli board do?"
+    ],
+    "answer": "Reli Board is a lightweight kanban board for personal task management with JWT auth and Docker containerization. It provides a simple interface for tracking tasks and projects, used for daily workflow organization.",
+    "sources": [
+      {
+        "id": "reli-board",
+        "section": "GitHub",
+        "title": "Reli Board",
+        "url": "https://github.com/Sharv619/reli-board"
+      }
+    ],
+    "priority": 6
+  },
+  {
+    "id": "rag-practice",
+    "title": "RAG Practice",
+    "tags": [
+      "rag",
+      "learning",
+      "experiment",
+      "vector",
+      "embedding"
+    ],
+    "questions": [
+      "What is the RAG Practice project?",
+      "Tell me about the rag practice project",
+      "What does the rag practice do?"
+    ],
+    "answer": "RAG Practice is a small project to practice Retrieval-Augmented Generation techniques with local vector storage. It experimented with chunking, embedding, and retrieval to build a context-aware Q&A system over personal notes.",
+    "sources": [
+      {
+        "id": "rag-practice",
+        "section": "GitHub",
+        "title": "RAG Practice",
+        "url": "https://github.com/Sharv619/rag"
+      }
+    ],
+    "priority": 6
+  },
+  {
+    "id": "localhost-playground",
+    "title": "Localhost Playground",
+    "tags": [
+      "experiment",
+      "sandbox",
+      "testing",
+      "tool"
+    ],
+    "questions": [
+      "What is the Localhost Playground?",
+      "Tell me about the localhost playground project",
+      "What does the localhost playground do?"
+    ],
+    "answer": "Localhost Playground is a temporary repo for testing new ideas, configurations, or code snippets before integrating elsewhere. It is used as a safe space to try out new libraries, frameworks, or architectural patterns without affecting main projects.",
+    "sources": [
+      {
+        "id": "localhost",
+        "section": "GitHub",
+        "title": "Localhost",
+        "url": "https://github.com/Sharv619/localhost"
+      }
+    ],
+    "priority": 6
   }
 ]

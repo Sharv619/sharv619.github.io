@@ -220,6 +220,7 @@ Available tools for project tracking:
 - [ ] Break the build (`npm run build` must pass)
 - [ ] Use `any` type in TypeScript
 - [ ] Leave console.log statements in production code
+- [ ] Create/hardcode data manually — all data will be imported via dedicated APIs (to be built) instead of being embedded in source files
 
 ### Pull Request Process
 1. Create feature branch from main
