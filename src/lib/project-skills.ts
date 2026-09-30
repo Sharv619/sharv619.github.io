@@ -12,6 +12,40 @@ interface SkillEntry {
   count: number;
 }
 
+const SKILL_ALIASES: Record<string, string> = {
+  "ai code review": "AI-Assisted Code Review",
+  "ai review": "AI-Assisted Code Review",
+  "ai sdk": "Vercel AI SDK",
+  "code review": "AI-Assisted Code Review",
+  "gemini api": "Gemini",
+  "google ai sdk": "Gemini",
+  "testing library": "React Testing Library",
+};
+
+const HIDDEN_SKILL_KEYS = new Set([
+  "ai",
+  "ai chatbot",
+  "developer tools",
+  "full stack",
+  "fullstack",
+  "npm",
+  "portfolio",
+  "project management",
+  "voice",
+]);
+
+const FLUTTER_SCAFFOLD_LANGUAGE_KEYS = new Set([
+  "batchfile",
+  "c",
+  "c++",
+  "cmake",
+  "kotlin",
+  "objective c",
+  "objective-c",
+  "swift",
+  "vbscript",
+]);
+
 const CATEGORY_TITLES: Record<SkillBucket, string> = {
   languages: "Languages",
   appStack: "Frameworks & App Stack",
@@ -68,6 +102,7 @@ const APP_STACK_TERMS = [
   "uvicorn",
   "vite",
   "web",
+  "zod",
 ];
 
 const AI_DATA_TERMS = [
@@ -84,6 +119,7 @@ const AI_DATA_TERMS = [
   "mistral",
   "ml",
   "numpy",
+  "ollama",
   "openai",
   "pandas",
   "prompt engineering",
@@ -93,13 +129,19 @@ const AI_DATA_TERMS = [
   "sentence transformers",
   "tensorflow",
   "vector",
+  "entropy",
+  "isolation forest",
 ];
 
 const INFRA_DATA_SECURITY_TERMS = [
+  "adguard",
   "aws",
   "ci/cd",
+  "cloud functions",
   "docker",
   "docker compose",
+  "firebase",
+  "firestore",
   "github pages",
   "github actions",
   "jwt",
@@ -108,6 +150,7 @@ const INFRA_DATA_SECURITY_TERMS = [
   "owasp",
   "postgres",
   "security",
+  "sqlite",
   "supabase",
   "terraform",
   "vercel",
@@ -129,7 +172,11 @@ export function deriveSkillCategories(projects: Project[], supplementalSkills: s
 
   projects.forEach((project) => {
     const languageKeys = getProjectLanguageKeys(project);
-    const projectSkills = new Set(project.technologies.map(normalizeSkill).filter(Boolean));
+    const projectSkills = new Set(
+      project.technologies
+        .map(canonicalizeSkill)
+        .filter((skill) => shouldShowProjectSkill(project, skill))
+    );
 
     projectSkills.forEach((skill) => {
       const bucket = classifySkill(skill, languageKeys);
@@ -137,7 +184,7 @@ export function deriveSkillCategories(projects: Project[], supplementalSkills: s
     });
   });
 
-  supplementalSkills.map(normalizeSkill).filter(Boolean).forEach((skill) => {
+  supplementalSkills.map(canonicalizeSkill).filter((skill) => skill && !isHiddenSkill(skill)).forEach((skill) => {
     const bucket = classifySkill(skill, new Set());
     addSkillToBucket(buckets[bucket], skill);
   });
@@ -146,6 +193,14 @@ export function deriveSkillCategories(projects: Project[], supplementalSkills: s
     title: CATEGORY_TITLES[bucket],
     items: sortSkills(buckets[bucket]),
   })).filter((category) => category.items.length > 0);
+}
+
+export function projectMatchesSkill(project: Project, selectedSkill: string): boolean {
+  const selectedKey = normalizeSkillKey(canonicalizeSkill(selectedSkill));
+
+  return project.technologies.some((technology) => (
+    normalizeSkillKey(canonicalizeSkill(technology)) === selectedKey
+  ));
 }
 
 function createBuckets(): Record<SkillBucket, Map<string, SkillEntry>> {
@@ -228,4 +283,31 @@ function normalizeSkill(skill: string): string {
 
 function normalizeSkillKey(skill: string): string {
   return normalizeSkill(skill).toLowerCase();
+}
+
+function canonicalizeSkill(skill: string): string {
+  const normalized = normalizeSkill(skill);
+
+  return SKILL_ALIASES[normalizeSkillKey(normalized)] || normalized;
+}
+
+function shouldShowProjectSkill(project: Project, skill: string): boolean {
+  if (!skill || isHiddenSkill(skill)) {
+    return false;
+  }
+
+  const skillKey = normalizeSkillKey(skill);
+  const projectSkillKeys = new Set(project.technologies.map(normalizeSkillKey));
+  const isFlutterProject = projectSkillKeys.has("flutter");
+  const primaryLanguageKey = normalizeSkillKey(project.primaryLanguage || "");
+
+  return !(
+    isFlutterProject
+    && FLUTTER_SCAFFOLD_LANGUAGE_KEYS.has(skillKey)
+    && skillKey !== primaryLanguageKey
+  );
+}
+
+function isHiddenSkill(skill: string): boolean {
+  return HIDDEN_SKILL_KEYS.has(normalizeSkillKey(skill));
 }

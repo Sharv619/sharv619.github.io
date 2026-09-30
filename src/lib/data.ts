@@ -1,5 +1,6 @@
 import type { ProjectEvidenceProfile } from "./evidence-signals";
 import type { PortfolioRecommendation } from "./portfolio-recommendations";
+import type { ProjectSkill } from "./project-skill-types";
 
 export interface PersonalInfo {
   name: string;
@@ -53,6 +54,7 @@ export interface Project {
   priority?: number;
   status?: string;
   role?: string;
+  skills?: ProjectSkill[];
 }
 
 export interface ProjectScreenshot {
