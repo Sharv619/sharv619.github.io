@@ -131,7 +131,7 @@ describe('project-skills', () => {
     expect(projectMatchesSkill(geminiApiProject, 'RAG')).toBe(false);
   });
 
-  describe('migration: skills field exists but does not affect current behavior', () => {
+  describe('migration: skills field is used when available', () => {
     it('Project type accepts optional skills field', () => {
       const projectWithSkills: Project = createProject({
         technologies: ['TypeScript', 'React'],
@@ -154,7 +154,7 @@ describe('project-skills', () => {
       expect(projectWithoutSkills.skills).toBeUndefined();
     });
 
-    it('deriveSkillCategories still reads from technologies, not skills', () => {
+    it('deriveSkillCategories reads from skills when available', () => {
       const project = createProject({
         technologies: ['TypeScript', 'React', 'Docker'],
         skills: [
@@ -164,13 +164,13 @@ describe('project-skills', () => {
 
       const categories = deriveSkillCategories([project]);
 
-      expect(categories.find((c) => c.title === 'Languages')?.items).toEqual(['TypeScript']);
-      expect(categories.find((c) => c.title === 'Frameworks & App Stack')?.items).toEqual(['React']);
-      expect(categories.find((c) => c.title === 'Infrastructure, Data & Security')?.items).toEqual(['Docker']);
-      expect(categories.find((c) => c.title === 'Languages')?.items).not.toContain('Python');
+      expect(categories.find((c) => c.title === 'Languages')?.items).toEqual(['Python']);
+      expect(categories.find((c) => c.title === 'Frameworks & App Stack')).toBeUndefined();
+      expect(categories.find((c) => c.title === 'Infrastructure, Data & Security')).toBeUndefined();
+      expect(categories.find((c) => c.title === 'Languages')?.items).not.toContain('TypeScript');
     });
 
-    it('projectMatchesSkill still matches against technologies, not skills', () => {
+    it('projectMatchesSkill matches against skills when available', () => {
       const project = createProject({
         technologies: ['TypeScript', 'React'],
         skills: [
@@ -178,9 +178,9 @@ describe('project-skills', () => {
         ],
       });
 
-      expect(projectMatchesSkill(project, 'TypeScript')).toBe(true);
-      expect(projectMatchesSkill(project, 'React')).toBe(true);
-      expect(projectMatchesSkill(project, 'Python')).toBe(false);
+      expect(projectMatchesSkill(project, 'TypeScript')).toBe(false);
+      expect(projectMatchesSkill(project, 'React')).toBe(false);
+      expect(projectMatchesSkill(project, 'Python')).toBe(true);
     });
 
     it('skills field accepts all SkillCategory values including uncategorized', () => {

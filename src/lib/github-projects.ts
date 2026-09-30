@@ -2,6 +2,7 @@ import { projects as fallbackProjects, slugify } from "./data";
 import generatedGitHubProjects from "./generated-github-projects.json";
 import { enrichGitHubProjectEvidence } from "./github-evidence-enrichment";
 import { decodeGitHubBase64Content, getReadmeSourceUrl } from "./github-readme";
+import { normalizeProjectSkills } from "./project-taxonomy";
 import type { Project } from "./data";
 import type { GitHubEvidenceMetadata } from "./github-evidence-enrichment";
 
@@ -538,10 +539,19 @@ export function normalizeRepositoryProject(
     metadata: enrichment.evidenceMetadata,
   });
 
+  const skills = normalizeProjectSkills({
+    primaryLanguage: repo.language,
+    languageBreakdown: enrichment.languages,
+    topics: topics,
+    manifestSkills: enrichment.manifestSkills,
+    overrideSkills: override?.technologies,
+  });
+
   return {
     title,
     description,
     technologies,
+    skills,
     liveUrl: override?.liveUrl || repo.homepage?.trim() || "",
     githubUrl: repo.html_url,
     slug: override?.slug || slugify(title),

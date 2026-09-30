@@ -1,6 +1,10 @@
 import type { ProjectEvidenceProfile } from "./evidence-signals";
 import type { PortfolioRecommendation } from "./portfolio-recommendations";
-import type { ProjectSkill } from "./project-skill-types";
+import type { ProjectSkill, SkillSource } from "./project-skill-types";
+
+function skill(key: string, label: string, category: ProjectSkill["category"], source: SkillSource = "override"): ProjectSkill {
+  return { key, label, category, sources: [{ source, rawValue: label }] };
+}
 
 export interface PersonalInfo {
   name: string;
@@ -108,6 +112,15 @@ export const projects = [
     title: "Network Guardian AI",
     description: "Problem: Network traffic analysis can be difficult to interpret quickly without structured anomaly signals.\n\nSolution: Explored AI-assisted network traffic analysis using entropy scoring, anomaly detection, FastAPI, and a React interface.\n\nOutcome: Built a prototype for privacy-aware traffic intelligence and security summaries without presenting it as a production security product.",
     technologies: ["Python", "FastAPI", "React", "Scikit-learn", "Gemini API", "Docker", "Machine Learning"],
+    skills: [
+      skill("python", "Python", "languages"),
+      skill("fastapi", "FastAPI", "appStack"),
+      skill("react", "React", "appStack"),
+      skill("scikit-learn", "Scikit-learn", "aiData"),
+      skill("gemini", "Gemini", "aiData"),
+      skill("docker", "Docker", "infraDataSecurity"),
+      skill("ml", "Machine Learning", "aiData"),
+    ],
     liveUrl: "https://github.com/Sharv619/network-guardian-ai",
     githubUrl: "https://github.com/Sharv619/network-guardian-ai",
     caseStudySlug: "network-guardian-ai",
@@ -131,6 +144,14 @@ export const projects = [
     title: "LifeOS - Personal AI Calendar",
     description: "Problem: Missing important events and failing to act on opportunities due to poor personal organization.\n\nSolution: Built RAG pipeline ingesting Google Calendar, Fit, and Drive data using sentence-transformers and Mistral-7B.\n\nOutcome: Winner at Mistral AI x UNSW Founders Hackathon with geolocation-triggered alert system.",
     technologies: ["Python", "FastAPI", "React", "RAG", "Mistral AI", "Google APIs", "sentence-transformers"],
+    skills: [
+      skill("python", "Python", "languages"),
+      skill("fastapi", "FastAPI", "appStack"),
+      skill("react", "React", "appStack"),
+      skill("rag", "RAG", "aiData"),
+      skill("mistral", "Mistral AI", "aiData"),
+      skill("sentence-transformers", "Sentence Transformers", "aiData"),
+    ],
     liveUrl: "#",
     githubUrl: "#",
     technicalChallenge: "Integrating multiple Google APIs while ensuring data privacy. Built geolocation-triggered alert system based on free time windows.",
@@ -147,6 +168,14 @@ export const projects = [
     title: "CodeFlow-Hook",
     description: "Problem: Developers need fast review feedback before commits, but generic AI chat workflows are hard to automate.\n\nSolution: Built an open-source AI-assisted code review CLI / npm package around git hook workflows and structured feedback.\n\nOutcome: Published a developer-tooling prototype with early usage traction.",
     technologies: ["Node.js", "TypeScript", "Gemini API", "RAG", "Vector Search", "Docker"],
+    skills: [
+      skill("nodejs", "Node.js", "appStack"),
+      skill("typescript", "TypeScript", "languages"),
+      skill("gemini", "Gemini", "aiData"),
+      skill("rag", "RAG", "aiData"),
+      skill("vector-db", "Vector Database", "aiData"),
+      skill("docker", "Docker", "infraDataSecurity"),
+    ],
     liveUrl: "https://www.npmjs.com/package/codeflow-hook",
     githubUrl: "https://github.com/Sharv619/codeflow-hook",
     caseStudySlug: "codeflow-hook",
@@ -163,6 +192,13 @@ export const projects = [
     title: "Codeflow Hook (npm package)",
     description: "Problem: Developers need fast review feedback before commits, but generic AI chat workflows are hard to automate.\n\nSolution: Built a CLI tool direction for AI-assisted code analysis, git hook management, and structured review feedback.\n\nOutcome: Published a developer-tooling prototype with early usage traction.",
     technologies: ["Node.js", "TypeScript", "AI APIs", "Git Hooks", "CLI Tool"],
+    skills: [
+      skill("nodejs", "Node.js", "appStack"),
+      skill("typescript", "TypeScript", "languages"),
+      skill("gemini", "Gemini", "aiData"),
+      skill("git-hooks", "Git Hooks", "other"),
+      skill("cli", "CLI", "other"),
+    ],
     liveUrl: "https://codeflow-commander-nexus-gateway-si.vercel.app/",
     githubUrl: "https://github.com/Sharv619/codeflow-commander---nexus-gateway",
     caseStudySlug: "codeflow-commander",
@@ -188,6 +224,15 @@ The system serves as an architectural blueprint for AI-augmented development too
     title: "ReliBoard",
     description: "Problem: Needed a secure, production-ready project management platform with proper access controls for team collaboration.\n\nSolution: Developed a full-stack application with JWT-based authentication, Role-Based Access Control (RBAC), and comprehensive testing.\n\nOutcome: Delivered an enterprise-grade platform with Docker containerization and 85%+ test coverage.",
     technologies: ["React", "Node.js", "MongoDB", "JWT", "Docker", "Jest", "Supertest"],
+    skills: [
+      skill("react", "React", "appStack"),
+      skill("nodejs", "Node.js", "appStack"),
+      skill("mongodb", "MongoDB", "infraDataSecurity"),
+      skill("jwt", "JWT", "infraDataSecurity"),
+      skill("docker", "Docker", "infraDataSecurity"),
+      skill("jest", "Jest", "quality"),
+      skill("supertest", "Supertest", "quality"),
+    ],
     liveUrl: "#",
     githubUrl: "https://github.com/Sharv619/reliboard",
     technicalChallenge: "Implementing RBAC with granular permissions while maintaining a clear API model was the main challenge. I focused on keeping role boundaries explicit and testable.",
@@ -219,6 +264,12 @@ This project demonstrates full-stack application development with authentication
     title: "Production Incident Response Case Study",
     description: "Problem: A production service needed recovery after a ransomware incident, alongside safer access boundaries and performance improvements.\n\nSolution: Recovered the system and its data, rebuilt safer cloud and database access, improved deployment workflows, and traced the slow application path.\n\nOutcome: Restored 100% of the data with zero loss and reduced page load time from 25 seconds to 3 seconds while keeping private implementation details NDA-safe.",
     technologies: ["AWS EC2", "MongoDB Atlas", "Docker", "CI/CD", "Incident Management"],
+    skills: [
+      skill("aws", "AWS", "infraDataSecurity"),
+      skill("mongodb", "MongoDB", "infraDataSecurity"),
+      skill("docker", "Docker", "infraDataSecurity"),
+      skill("github-actions", "GitHub Actions", "infraDataSecurity"),
+    ],
     liveUrl: "#",
     githubUrl: "https://github.com/Sharv619/production-incident-response-case-study",
     technicalChallenge: "Coordinating multi-system recovery while maintaining data integrity across distributed services required precise timing and rollback procedures. I developed a phased recovery approach that minimized risks and ensured complete system restoration.",
@@ -251,6 +302,13 @@ This case study uses NDA-safe language to demonstrate production recovery, relia
     title: "AI Career Co-Pilot (RAG Architecture)",
     description: "Problem: Generic career advice chatbots provided irrelevant responses due to lack of contextual understanding.\n\nSolution: Built a RAG-based system that embeds a 47-page knowledge base with intelligent document chunking and vector caching.\n\nOutcome: Enabled contextually accurate responses through real-time chat with sub-second response times.",
     technologies: ["React", "TypeScript", "Gemini API", "RAG Architecture", "localStorage"],
+    skills: [
+      skill("react", "React", "appStack"),
+      skill("typescript", "TypeScript", "languages"),
+      skill("gemini", "Gemini", "aiData"),
+      skill("rag", "RAG", "aiData"),
+      skill("vector-db", "Vector Database", "aiData"),
+    ],
     liveUrl: "https://ai-career-copilot.vercel.app",
     githubUrl: "https://github.com/Sharv619/ai-career-copilot",
     technicalChallenge: "Keeping retrieval useful and responsive in a browser-based RAG prototype was the main challenge. I explored vector caching, chunking, and context-window management to make the interaction smoother.",

@@ -15,6 +15,7 @@ const eslintConfig = defineConfig([
     "aws/**/*.js",
     "aws/nova-act/.venv/**",
     "aws/nova-act/__pycache__/**",
+    "assistant-server/**",
   ]),
 ]);
 

@@ -67,6 +67,7 @@ export const SKILL_DEFINITIONS: SkillDefinition[] = [
   { key: "kubernetes", label: "Kubernetes", category: "infraDataSecurity", aliases: ["k8s"], kind: "platform" },
   { key: "aws", label: "AWS", category: "infraDataSecurity", aliases: ["amazon web services", "aws ec2", "aws lambda", "aws actions", "amazonaws"], kind: "platform" },
   { key: "vercel", label: "Vercel", category: "infraDataSecurity", aliases: [], kind: "platform" },
+  { key: "vercel-ai-sdk", label: "Vercel AI SDK", category: "aiData", aliases: ["ai sdk", "vercel ai sdk", "@ai-sdk/react", "@ai-sdk/openai"], kind: "library" },
   { key: "github-actions", label: "GitHub Actions", category: "infraDataSecurity", aliases: ["github actions", "ci/cd", "ci cd", "ci-cd"], kind: "tool" },
   { key: "github-pages", label: "GitHub Pages", category: "infraDataSecurity", aliases: ["github pages", "deploy-pages", "configure-pages"], kind: "platform" },
   { key: "terraform", label: "Terraform", category: "infraDataSecurity", aliases: ["hcl"], kind: "tool" },

@@ -54,7 +54,8 @@ function mergeSources(candidates: SkillCandidate[]): SkillEvidence[] {
 
 export function normalizeCandidates(
   candidates: SkillCandidate[],
-  projectLanguageKeys: Set<string> = new Set()
+  projectLanguageKeys: Set<string> = new Set(),
+  explicitPrimaryLanguage?: string
 ): ProjectSkill[] {
   const groups = deduplicateCandidates(candidates);
   const results: ProjectSkill[] = [];
@@ -71,7 +72,7 @@ export function normalizeCandidates(
       continue;
     }
 
-    if (!shouldShowProjectSkill(projectLanguageKeys, key, category)) {
+    if (!shouldShowProjectSkill(projectLanguageKeys, key, category, explicitPrimaryLanguage)) {
       continue;
     }
 
@@ -111,6 +112,15 @@ export function normalizeProjectSkills(
     candidates.push({ rawValue: lang, source: "github-language" });
   }
 
+  // Detect Flutter from topics or overrideSkills for scaffold language hiding
+  const allSkills = [
+    ...(project.topics || []),
+    ...(project.overrideSkills || []),
+  ];
+  if (allSkills.some((s) => normalizeKey(s) === "flutter")) {
+    languageKeys.add("flutter");
+  }
+
   for (const topic of project.topics || []) {
     candidates.push({ rawValue: topic, source: "github-topic" });
   }
@@ -127,5 +137,5 @@ export function normalizeProjectSkills(
     candidates.push({ rawValue: skill, source: "supplemental" });
   }
 
-  return normalizeCandidates(candidates, languageKeys);
+  return normalizeCandidates(candidates, languageKeys, project.primaryLanguage || undefined);
 }

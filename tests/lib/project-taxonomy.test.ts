@@ -333,9 +333,9 @@ describe("visibility", () => {
   });
 
   it("identifies Flutter scaffold languages", () => {
-    expect(shouldShowProjectSkill(new Set(["flutter", "kotlin", "dart"]), "kotlin", "languages")).toBe(false);
-    expect(shouldShowProjectSkill(new Set(["flutter", "kotlin", "dart"]), "c++", "languages")).toBe(false);
-    expect(shouldShowProjectSkill(new Set(["flutter", "dart"]), "dart", "languages")).toBe(true);
-    expect(shouldShowProjectSkill(new Set(["kotlin", "dart"]), "kotlin", "languages")).toBe(true);
+    expect(shouldShowProjectSkill(new Set(["flutter", "kotlin", "dart"]), "kotlin", "languages", undefined)).toBe(false);
+    expect(shouldShowProjectSkill(new Set(["flutter", "kotlin", "dart"]), "c++", "languages", undefined)).toBe(false);
+    expect(shouldShowProjectSkill(new Set(["flutter", "dart"]), "dart", "languages", undefined)).toBe(true);
+    expect(shouldShowProjectSkill(new Set(["kotlin", "dart"]), "kotlin", "languages", undefined)).toBe(true);
   });
 });
