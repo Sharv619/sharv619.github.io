@@ -1,4 +1,5 @@
 import type { Project } from "./data";
+import { getSkillDefinition } from "@/lib/project-taxonomy";
 
 export interface SkillCategory {
   title: string;
@@ -114,7 +115,6 @@ const AI_DATA_TERMS = [
   "langchain",
   "llamaindex",
   "llm",
-  "machine learning",
   "mcp",
   "mistral",
   "ml",
@@ -172,10 +172,11 @@ export function deriveSkillCategories(projects: Project[], supplementalSkills: s
 
   projects.forEach((project) => {
     const languageKeys = getProjectLanguageKeys(project);
+    // Filter first, then canonicalize to avoid turning hidden skills into non-hidden ones via canonicalization
     const projectSkills = new Set(
       project.technologies
-        .map(canonicalizeSkill)
         .filter((skill) => shouldShowProjectSkill(project, skill))
+        .map(canonicalizeSkill)
     );
 
     projectSkills.forEach((skill) => {
@@ -222,8 +223,30 @@ function getProjectLanguageKeys(project: Project): Set<string> {
 }
 
 function classifySkill(skill: string, languageKeys: Set<string>): SkillBucket {
-  const key = normalizeSkillKey(skill);
+  // First check if it's a hidden skill
+  if (isHiddenSkill(skill)) {
+    // Hidden skills should not appear in any category
+    // We'll return a special value that will be filtered out later
+    return "hidden" as SkillBucket;
+  }
 
+  // Try to get the definition from the taxonomy
+  const normalized = normalizeSkillKey(skill);
+  const def = getSkillDefinition(normalized);
+  if (def) {
+    // Ensure the category is one of our expected SkillBucket values
+    // The taxonomy's category should match our SkillBucket strings
+    // But first check if this definition's category corresponds to a hidden skill
+    const category = def.category as SkillBucket;
+    // Check if the skill label itself is hidden
+    if (isHiddenSkill(def.label)) {
+      return "hidden" as SkillBucket;
+    }
+    return category;
+  }
+
+  // Fallback to original classification
+  const key = normalized; // Already normalized
   if (languageKeys.has(key) || LANGUAGE_NAMES.has(key)) {
     return "languages";
   }
@@ -249,25 +272,26 @@ function classifySkill(skill: string, languageKeys: Set<string>): SkillBucket {
 
 function matchesAnyTerm(key: string, terms: string[]): boolean {
   const tokens = new Set(key.split(/[^a-z0-9+#.]+/).filter(Boolean));
-
   return terms.some((term) => {
     if (term.length <= 2) {
       return tokens.has(term);
     }
-
     return key.includes(term);
   });
 }
 
 function addSkillToBucket(bucket: Map<string, SkillEntry>, skill: string): void {
+  // Don't add hidden skills
+  if (isHiddenSkill(skill)) {
+    return;
+  }
+  
   const key = normalizeSkillKey(skill);
   const existing = bucket.get(key);
-
   if (existing) {
     existing.count += 1;
     return;
   }
-
   bucket.set(key, { label: skill, count: 1 });
 }
 
@@ -286,26 +310,45 @@ function normalizeSkillKey(skill: string): string {
 }
 
 function canonicalizeSkill(skill: string): string {
-  const normalized = normalizeSkill(skill);
-
-  return SKILL_ALIASES[normalizeSkillKey(normalized)] || normalized;
+  // First check our explicit aliases
+  const normalized = normalizeSkillKey(skill);
+  const alias = SKILL_ALIASES[normalized];
+  if (alias) {
+    return alias;
+  }
+  
+  // Then check taxonomy
+  const def = getSkillDefinition(normalized);
+  if (def) {
+    return def.label;
+  }
+  
+  // Fallback to original skill
+  return skill;
 }
 
 function shouldShowProjectSkill(project: Project, skill: string): boolean {
-  if (!skill || isHiddenSkill(skill)) {
+  if (!skill) {
     return false;
   }
 
   const skillKey = normalizeSkillKey(skill);
+  
+  // Check if it's explicitly hidden
+  if (HIDDEN_SKILL_KEYS.has(skillKey)) {
+    return false;
+  }
+
+  // Check Flutter-specific hiding
   const projectSkillKeys = new Set(project.technologies.map(normalizeSkillKey));
   const isFlutterProject = projectSkillKeys.has("flutter");
   const primaryLanguageKey = normalizeSkillKey(project.primaryLanguage || "");
 
-  return !(
-    isFlutterProject
-    && FLUTTER_SCAFFOLD_LANGUAGE_KEYS.has(skillKey)
-    && skillKey !== primaryLanguageKey
-  );
+  if (isFlutterProject && FLUTTER_SCAFFOLD_LANGUAGE_KEYS.has(skillKey) && skillKey !== primaryLanguageKey) {
+    return false;
+  }
+
+  return true;
 }
 
 function isHiddenSkill(skill: string): boolean {
