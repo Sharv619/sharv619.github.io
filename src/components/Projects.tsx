@@ -5,6 +5,7 @@ import Link from "next/link";
 import { useState } from "react";
 import Skills from "@/components/Skills";
 import { personalAutomationWorkflows } from "@/lib/personal-workflows";
+import { projectMatchesSkill } from "@/lib/project-skills";
 import type { Project } from "@/lib/data";
 
 interface ProjectsProps {
@@ -27,9 +28,7 @@ export default function Projects({ projects, supplementalSkills = [] }: Projects
   const visibleProjects = selectedSkills.length === 0
     ? projects
     : projects.filter((project) =>
-        project.technologies.some((tech) =>
-          selectedSkills.some((skill) => tech.toLowerCase() === skill.toLowerCase())
-        )
+        selectedSkills.some((skill) => projectMatchesSkill(project, skill))
       );
   const hasProjects = visibleProjects.length > 0;
   const activeIndex = hasProjects ? Math.min(currentIndex, visibleProjects.length - 1) : 0;
