@@ -1,5 +1,3 @@
-"use client";
-
 import Navigation from "@/components/Navigation";
 import Contact from "@/components/Contact";
 import { personalAutomationWorkflows } from "@/lib/personal-workflows";

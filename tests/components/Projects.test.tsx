@@ -34,8 +34,8 @@ describe("Projects", () => {
     expect(screen.getByRole("heading", { name: "Weekend Build Sprints" })).toBeInTheDocument();
     expect(screen.getByText(/Small tools, daily use/)).toBeInTheDocument();
     expect(screen.getByRole("heading", { name: "Headphone Step Control" })).toBeInTheDocument();
-    expect(screen.getByRole("heading", { name: "Telegram Command Bridge" })).toBeInTheDocument();
     expect(screen.getByRole("heading", { name: "Termux + Tailscale SSH Path" })).toBeInTheDocument();
+    expect(screen.getByRole("heading", { name: "Screenshot Flutter ML" })).toBeInTheDocument();
 
     fireEvent.click(screen.getByRole("button", { name: "Python" }));
 
