@@ -15,7 +15,7 @@ function fetchReadme(repoUrl: string): Promise<string | null> {
   const [, owner, repo] = match;
   const apiUrl = `https://api.github.com/repos/${owner}/${repo}/readme`;
 
-  return new Promise((resolve, reject) => {
+  return new Promise((resolve) => {
     const req = https.request(apiUrl, (res) => {
       let data = "";
       res.on("data", (chunk) => (data += chunk));
@@ -28,14 +28,13 @@ function fetchReadme(repoUrl: string): Promise<string | null> {
           } else {
             resolve(null);
           }
-        } catch (e) {
+        } catch {
           resolve(null);
         }
       });
     });
 
-    req.on("error", (err) => {
-      console.warn(`Error fetching README for ${repoUrl}: ${err.message}`);
+    req.on("error", () => {
       resolve(null);
     });
 
