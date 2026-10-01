@@ -49,6 +49,8 @@ const SIMPLE_PATTERNS = [
   /^(list|show).*(skill|project|experience)/i,
   /^how many/i,
   /^(yes|no|okay|thanks|thank you)/i,
+  /^what.*tech.*stack/i,
+  /^list.*projects/i,
 ];
 
 const COMPLEX_PATTERNS = [
@@ -86,10 +88,14 @@ export function analyzeQueryComplexity(message: string): QueryComplexity {
 }
 
 export function getModelForComplexity(complexity: QueryComplexity): string {
+  // Read from environment variables, fallback to synthetic-rag
   switch (complexity) {
     case "simple":
-    case "complex":
+      return process.env.NEXT_PUBLIC_BEDROCK_MODEL_SIMPLE || "synthetic-rag";
     case "medium":
+      return process.env.NEXT_PUBLIC_BEDROCK_MODEL_MEDIUM || "synthetic-rag";
+    case "complex":
+      return process.env.NEXT_PUBLIC_BEDROCK_MODEL_COMPLEX || "synthetic-rag";
     default:
       return "synthetic-rag";
   }
@@ -117,12 +123,12 @@ export async function sendChatMessageWithHistory(
       "Content-Type": "application/json",
     },
     body: JSON.stringify({
-      message,
-      sessionId: sessionId || crypto.randomUUID(),
-      history: history.slice(-6),
-      // Smart routing hints sent to backend
-      complexity,
-      preferredModel,
+    message,
+    sessionId: sessionId || crypto.randomUUID(),
+    history: history.slice(-12),
+    // Smart routing hints sent to backend
+    complexity,
+    preferredModel,
     }),
   });
 
@@ -156,10 +162,10 @@ export function createUseAssistantChat(): () => UseAssistantChatReturn {
       try {
         const result = await sendChatMessage(userMessage);
         
-        setMessages((prev) =>
+        setMessages((prev) => 
           prev.map((msg, idx) =>
             idx === prev.length - 1
-              ? { ...msg, content: formatAssistantResponse(userMessage, result.response) }
+              ? { ...msg, content: formatAssistantResponse(userMessage, result.response, result.sources || []) }
               : msg
           )
         );
