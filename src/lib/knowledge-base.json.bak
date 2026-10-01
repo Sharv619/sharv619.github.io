@@ -1,0 +1,222 @@
+{
+  "version": "3.0.0",
+  "lastUpdated": "2026-09-29",
+  "metadata": {
+    "title": "Himanshu Lade - Career Knowledge Base",
+    "description": "RAG-ready knowledge base for AI Assistant",
+    "author": "Himanshu Lade"
+  },
+  "personal": {
+    "name": "Himanshu Lade",
+    "title": "Full-Stack Systems & AI Engineer",
+    "tagline": "Local-first AI, practical automation, production recovery, and systems that remove friction",
+    "location": "Sydney, Australia",
+    "availability": "Open to opportunities",
+    "bio": "Sydney-based full-stack systems and AI engineer working across local-first AI, workflow automation, production recovery, technical SEO, and practical software. Experience includes ransomware recovery, page-load improvement from 25s to 3s, Docker and GitHub Actions delivery workflows, and open-source AI-assisted developer tooling.",
+    "contact": {
+      "email": "hl@himanshulade.com",
+      "phone": "+61 434 069 483",
+      "linkedin": "linkedin.com/in/himanshu-lade",
+      "github": "github.com/Sharv619"
+    }
+  },
+  "experience": [
+    {
+      "id": "ask-jay",
+      "company": "Ask Jay Services",
+      "role": "Software Engineer",
+      "type": "Contract",
+      "duration": "May 2025 - Oct 2025",
+      "location": "Wollongong, Australia",
+      "achievements": [
+        "Recovered a production system from ransomware within three weeks of starting the engagement: 100% data restored, zero loss, and page load time reduced from 25 seconds to 3 seconds over 30 hours",
+        "Built a shift-booking automation bot and a three-sided Flutter marketplace for service providers, requesters, and administrators",
+        "Established CI/CD pipelines, GitHub Actions workflows, and production deployment practices for a greenfield stack"
+      ],
+      "techStack": ["AWS", "React", "Flutter", "Docker", "GitHub Actions", "Node.js", "PostgreSQL"],
+      "highlights": ["Disaster Recovery", "Performance Optimization", "Full-Stack Development", "CI/CD", "Security Hardening"],
+      "impact": {
+        "metrics": [
+          "100% of production data restored with zero loss",
+          "Page load time reduced from 25s to 3s",
+          "Recovery and performance work completed over 30 hours"
+        ]
+      }
+    },
+    {
+      "id": "acs",
+      "company": "Australian Computer Society",
+      "role": "Web Developer Intern",
+      "type": "Internship",
+      "duration": "Sep 2023 – Feb 2024",
+      "location": "Remote, Australia",
+      "achievements": [
+        "Improved MERN application frontend performance by 33% across a production application serving 200+ active users",
+        "Remediated 15+ OWASP Top 10 web application security vulnerabilities before production release",
+        "Built internal tooling with React, Node.js, Express, and MongoDB"
+      ],
+      "techStack": ["React", "Node.js", "MongoDB", "Express", "JavaScript"],
+      "highlights": ["Security", "Performance", "Internal Tooling", "MERN"],
+      "impact": {
+        "metrics": [
+          "33% frontend performance improvement",
+          "15+ OWASP Top 10 vulnerabilities remediated",
+          "200+ active users served"
+        ]
+      }
+    }
+  ],
+  "projects": [
+    {
+      "id": "network-guardian-ai",
+      "name": "Network Guardian AI",
+      "tagline": "AI-Powered Network Threat Detection System",
+      "description": "Prototype exploring AI-assisted network traffic analysis and anomaly detection.",
+      "hackathon": "Google DeepMind Hackathon",
+      "outcome": "Explored how entropy scoring and anomaly detection could surface suspicious traffic patterns.",
+      "solution": "Built containerised prototype services with Docker Compose and FastAPI for network monitoring and threat-summary workflows.",
+      "techStack": ["Python", "FastAPI", "React", "Scikit-learn", "Gemini API", "Docker"],
+      "achievements": [
+        "Explored Shannon Entropy and Isolation Forests for traffic anomaly detection",
+        "Built containerised prototype services",
+        "Created AI-assisted security-summary workflows"
+      ],
+      "links": {
+        "github": "https://github.com/Sharv619/network-guardian-ai",
+        "live": null
+      },
+      "keywords": ["AI-assisted", "Cybersecurity", "Python", "FastAPI", "Docker", "Anomaly Detection", "Network Security"],
+      "type": "AI-assisted security prototype",
+      "status": "Prototype"
+    },
+    {
+      "id": "codeflow-hook",
+      "name": "CodeFlow-Hook",
+      "tagline": "Multi-Agent AI Code Review Tool",
+      "description": "Open-source CLI tool with multi-agent architecture for automated code review.",
+      "problem": "Manual code reviews were slow and inconsistent, causing bottlenecks in development workflows.",
+      "solution": "Built a CLI tool supporting multiple AI providers (Gemini, GPT, Claude) for automated code analysis, git hook management, and AI-powered reviews.",
+      "outcome": "Published an npm package for AI-assisted code review workflows with early usage traction.",
+      "technicalChallenge": "Integrating multiple AI providers into a responsive CLI was challenging. Created an abstraction layer with async processing and automatic model selection based on task complexity, maintaining under-1s execution for common operations.",
+      "techStack": ["Node.js", "TypeScript", "Gemini API", "RAG", "Vector Search", "Docker"],
+      "achievements": [
+        "Created abstraction layer for multi-provider AI support",
+        "Published npm package for AI-assisted code review workflows"
+      ],
+      "links": {
+        "github": "https://github.com/Sharv619/codeflow-hook",
+        "npm": "https://npmjs.com/package/codeflow-hook"
+      },
+      "keywords": ["Open Source", "AI-assisted", "Code Review", "RAG", "TypeScript", "CLI Tool"],
+      "type": "Developer Tool",
+      "status": "Published"
+    },
+    {
+      "id": "portfolio",
+      "name": "Personal Portfolio",
+      "tagline": "AI-Enhanced Personal Portfolio",
+      "description": "Modern personal portfolio with AI chatbot assistant and RAG-powered knowledge base.",
+      "techStack": ["Next.js", "React", "TypeScript", "Tailwind CSS", "AWS Bedrock", "Framer Motion"],
+      "achievements": [
+        "Built RAG-powered AI chatbot with neural visualization",
+        "Implemented AWS Bedrock integration with Titan Embeddings",
+        "Added Bedrock Guardrails for security"
+      ],
+      "links": {
+        "github": "https://github.com/Sharv619/sharv619.github.io",
+        "live": "https://www.himanshulade.com/"
+      },
+      "keywords": ["Portfolio", "Next.js", "React", "AWS", "RAG", "AI Chatbot"],
+      "type": "Web Application",
+      "status": "Live"
+    }
+  ],
+  "skills": {
+    "languages": [
+      "JavaScript (ES6+)",
+      "TypeScript",
+      "Python",
+      "Dart",
+      "SQL"
+    ],
+    "frameworks": [
+      "React.js",
+      "Next.js",
+      "Node.js",
+      "Express.js",
+      "Flutter",
+      "FastAPI",
+      "GraphQL"
+    ],
+    "cloudDevOps": [
+      "AWS (EC2, S3, Lambda, RDS)",
+      "Docker",
+      "GitHub Actions",
+      "CI/CD",
+      "Nginx",
+      "Redis"
+    ],
+    "aiData": [
+      "RAG Architecture",
+      "LLM Integration",
+      "Gemini API",
+      "Mistral AI",
+      "Isolation Forests",
+      "Shannon Entropy",
+      "Vector Search",
+      "sentence-transformers"
+    ]
+  },
+  "values": [
+    {
+      "id": "open-source",
+      "name": "Open Source Philosophy",
+      "description": "Believes in building in public and contributing to the developer community"
+    },
+    {
+      "id": "security-first",
+      "name": "Security-First Approach",
+      "description": "Implements security hardening and follows OWASP guidelines"
+    },
+    {
+      "id": "production-reliability",
+      "name": "Production Reliability",
+      "description": "Focuses on building systems that run reliably in production"
+    },
+    {
+      "id": "continuous-learning",
+      "name": "Continuous Learning",
+      "description": "Stays current with latest technologies and best practices"
+    }
+  ],
+  "education": [
+    {
+      "degree": "Master of Computer Science",
+      "institution": "University of Wollongong",
+      "location": "Wollongong, Australia",
+      "year": "2024-2026"
+    },
+    {
+      "degree": "Bachelor of Engineering in Computer Technology",
+      "institution": "Nagpur University",
+      "location": "Nagpur, India",
+      "year": "2019-2023"
+    }
+  ],
+  "chatbot": {
+    "name": "Assistant",
+    "personality": "Helpful, knowledgeable, conversational",
+    "capabilities": [
+      "Answer questions about Himanshu's experience and projects",
+      "Provide technical insights on his work",
+      "Discuss career opportunities",
+      "Share knowledge about his skills and background"
+    ],
+    "sampleQuestions": [
+      "What projects has Himanshu built?",
+      "Tell me about his AWS experience",
+      "What ML projects has he worked on?",
+      "What are his technical skills?"
+    ]
+  }
+}

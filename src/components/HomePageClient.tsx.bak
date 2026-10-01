@@ -6,6 +6,7 @@ import Hero from "@/components/Hero";
 import About from "@/components/About";
 import Experience from "@/components/Experience";
 import Contact from "@/components/Contact";
+import WeekendGrindSection from "@/components/WeekendGrindSection";
 import { certifications } from "@/lib/certifications";
 import { getOrderedFlagshipCaseStudies } from "@/lib/flagship-case-studies";
 import type { Project } from "@/lib/data";
@@ -38,6 +39,7 @@ export default function HomePageClient({ projects }: HomePageClientProps) {
         supplementalSkills={certificationSkills}
       />
       <Certifications />
+      <WeekendGrindSection />
       <Contact />
     </div>
   );
