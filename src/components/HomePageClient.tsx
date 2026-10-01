@@ -6,15 +6,16 @@ import Hero from "@/components/Hero";
 import About from "@/components/About";
 import Experience from "@/components/Experience";
 import Contact from "@/components/Contact";
+import WeekendGrindSection from "@/components/WeekendGrindSection";
 import { certifications } from "@/lib/certifications";
 import { getOrderedFlagshipCaseStudies } from "@/lib/flagship-case-studies";
 import type { Project } from "@/lib/data";
 
 const Projects = dynamic(() => import("@/components/Projects"), {
-  loading: () => <div className="py-20 text-center">Loading Projects...</div>
+  loading: () => <div className="py-20 text-center">Loading Projects...</div>,
 });
 const FeaturedCaseStudies = dynamic(() => import("@/components/FeaturedCaseStudies"), {
-  loading: () => <div className="py-20 text-center">Loading Case Studies...</div>
+  loading: () => <div className="py-20 text-center">Loading Case Studies...</div>,
 });
 const Certifications = dynamic(() => import("@/components/Certifications"));
 
@@ -38,6 +39,7 @@ export default function HomePageClient({ projects }: HomePageClientProps) {
         supplementalSkills={certificationSkills}
       />
       <Certifications />
+      <WeekendGrindSection />
       <Contact />
     </div>
   );
