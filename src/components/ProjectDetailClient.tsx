@@ -21,7 +21,6 @@ interface DetailSection {
 }
 
 export default function ProjectDetailClient({ project }: ProjectDetailClientProps) {
-  const projectSlug = project.slug || project.title.toLowerCase().replace(/\s+/g, "-").replace(/\([^)]*\)/g, "").trim();
   const sections = parseArchitectureDetails(project.architectureDetails);
   const overview = project.portfolioSummary || sections.overview || project.description;
   const statusLabel = project.status || (project.archived ? "Archived" : project.caseStudySlug ? "Prototype" : "Active");
@@ -89,7 +88,7 @@ export default function ProjectDetailClient({ project }: ProjectDetailClientProp
         <div className="mx-auto flex max-w-7xl flex-wrap gap-3 px-4 sm:px-6 lg:px-8">
           {project.caseStudySlug && (
             <Link
-              href={`/projects/${projectSlug}/case-study`}
+              href={`/case-studies/${project.caseStudySlug}`}
               aria-label={`View case study for ${project.title}`}
               className="inline-flex min-h-11 items-center rounded-md bg-stone-950 px-5 py-2 text-sm font-bold text-white transition-colors duration-200 hover:bg-teal-800 dark:bg-white dark:text-stone-950 dark:hover:bg-teal-200"
             >
@@ -169,7 +168,7 @@ export default function ProjectDetailClient({ project }: ProjectDetailClientProp
             </div>
             {project.caseStudySlug && (
               <Link
-                href={`/projects/${projectSlug}/case-study`}
+                href={`/case-studies/${project.caseStudySlug}`}
                 className="inline-flex min-h-11 items-center rounded-md border border-stone-300 px-5 py-2 text-sm font-bold text-stone-800 transition-colors duration-200 hover:bg-stone-100 dark:border-white/15 dark:text-stone-200 dark:hover:bg-white/10"
               >
                 Read the longer notes

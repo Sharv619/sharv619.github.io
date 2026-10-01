@@ -11,10 +11,6 @@ interface ProjectsPageClientProps {
   projects: Project[];
 }
 
-function getProjectAnchor(project: Project): string {
-  return project.slug || project.title.toLowerCase().replace(/\s+/g, '-').replace(/\([^)]*\)/g, '').trim();
-}
-
 export default function ProjectsPageClient({ projects }: ProjectsPageClientProps) {
   const caseStudies = getOrderedFlagshipCaseStudies();
 
@@ -107,7 +103,7 @@ export default function ProjectsPageClient({ projects }: ProjectsPageClientProps
                             </a>
                             {project.caseStudySlug && (
                               <a
-                                href={`/projects/${getProjectAnchor(project)}/case-study`}
+                                href={`/case-studies/${project.caseStudySlug}`}
                                 aria-label={`View case study for ${project.title}`}
                                 className="inline-flex items-center px-3 py-1.5 border border-gray-300 dark:border-gray-600 text-gray-700 dark:text-gray-300 rounded-sm hover:bg-gray-50 dark:hover:bg-gray-800 text-xs"
                                 >
