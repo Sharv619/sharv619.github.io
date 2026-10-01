@@ -1,6 +1,6 @@
 /**
  * Sync Synthetic RAG artifacts to S3.
- *
+ * 
  * v1 intentionally avoids RDS, OpenSearch, Bedrock Knowledge Bases, Bedrock
  * Agents, and managed vector databases. This script uploads the curated
  * knowledge artifacts used by the Lambda Synthetic RAG orchestrator.
@@ -21,6 +21,7 @@ const SYNTHETIC_RAG_S3_KEY = process.env.SYNTHETIC_RAG_S3_KEY || "synthetic-rag-
 const ROOT_DIR = path.join(__dirname, "../..");
 const PUBLIC_CASE_STUDIES_DIR = path.join(ROOT_DIR, "content/case-studies");
 const INTERNAL_RAG_DIR = path.join(ROOT_DIR, "content/rag/internal");
+const SOURCE_DIR = path.join(ROOT_DIR, "content/source"); // newly added for fetched READMEs
 const ARTIFACTS = [
   {
     key: "knowledge-base.json",
@@ -76,6 +77,7 @@ async function sync() {
     ...ARTIFACTS,
     ...getMarkdownArtifacts(PUBLIC_CASE_STUDIES_DIR, "case-studies"),
     ...getMarkdownArtifacts(INTERNAL_RAG_DIR, "rag/internal"),
+    ...getMarkdownArtifacts(SOURCE_DIR, "source"), // upload fetched READMEs
   ];
 
   for (const artifact of artifacts) {
