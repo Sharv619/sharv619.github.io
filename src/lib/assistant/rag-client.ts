@@ -125,7 +125,7 @@ export async function sendChatMessageWithHistory(
     body: JSON.stringify({
     message,
     sessionId: sessionId || crypto.randomUUID(),
-    history: history.slice(-12),
+    history: history.slice(-20),
     // Smart routing hints sent to backend
     complexity,
     preferredModel,
