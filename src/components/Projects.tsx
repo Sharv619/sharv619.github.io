@@ -278,11 +278,11 @@ export default function Projects({ projects, supplementalSkills = [] }: Projects
               )
               .slice(0, 3)
               .map((workflow, workflowIndex) => (
-                <WeekendGrindCard
-                  key={workflow.title}
-                  workflow={workflow}
-                  index={workflowIndex}
-                />
+                 <WeekendGrindCard
+                   key={workflow.title}
+                   workflow={workflow}
+                   index={workflowIndex}
+                 />
               ))}
           </div>
           <Link href="/weekend-grind" className="mt-6 flex items-center justify-center">

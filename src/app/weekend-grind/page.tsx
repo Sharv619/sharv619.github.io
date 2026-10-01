@@ -1,7 +1,7 @@
 import Navigation from "@/components/Navigation";
 import Contact from "@/components/Contact";
 import { personalAutomationWorkflows } from "@/lib/personal-workflows";
-import WeekendGrindCard from "@/components/WeekendGrindCard";
+import WeekendGrindList from "@/components/WeekendGrindList";
 
 export const metadata = {
   title: "Weekend Build Sprints | Himanshu Lade",
@@ -41,11 +41,7 @@ export default function WeekendGrindPage() {
       </section>
       <div className="px-4 sm:px-6 lg:px-8 pb-16">
         <div className="max-w-7xl mx-auto">
-          <div className="grid gap-6 lg:grid-cols-3">
-            {weekendGrinds.map((workflow, index) => (
-              <WeekendGrindCard key={workflow.title} workflow={workflow} index={index} />
-            ))}
-          </div>
+          <WeekendGrindList weekendGrinds={weekendGrinds} />
         </div>
       </div>
       <Contact />
