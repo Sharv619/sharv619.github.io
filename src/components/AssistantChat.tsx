@@ -67,9 +67,9 @@ export default function AssistantChat({ isOpen, onClose }: AssistantChatProps) {
           ...prev,
           {
             role: "assistant",
-            content: formatAssistantResponse(userMessage, localFirstResponse.response),
+            content: formatAssistantResponse(userMessage, localFirstResponse.response, localFirstResponse.sources),
             sources: localFirstResponse.sources,
-          },
+          }
         ]);
       } else if (useDemo) {
         await new Promise((resolve) => setTimeout(resolve, 1000 + Math.random() * 1000));
@@ -80,9 +80,9 @@ export default function AssistantChat({ isOpen, onClose }: AssistantChatProps) {
           ...prev,
           {
             role: "assistant",
-            content: formatAssistantResponse(userMessage, result.response),
+            content: formatAssistantResponse(userMessage, result.response, result.sources),
             sources: result.sources,
-          },
+          }
         ]);
       } else {
         // Real RAG mode
@@ -92,9 +92,9 @@ export default function AssistantChat({ isOpen, onClose }: AssistantChatProps) {
           ...prev,
           {
             role: "assistant",
-            content: formatAssistantResponse(userMessage, result.response),
+            content: formatAssistantResponse(userMessage, result.response, result.sources),
             sources: result.sources,
-          },
+          }
         ]);
       }
     } catch (error) {
