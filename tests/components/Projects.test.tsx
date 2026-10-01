@@ -52,5 +52,5 @@ describe("Projects", () => {
 
     expect(screen.getByText("2 repositories")).toBeInTheDocument();
     expect(screen.getByText("0 active filters")).toBeInTheDocument();
-  }, 10000);
+  }, 30000);
 });

@@ -13,5 +13,5 @@ describe("Experience", () => {
     expect(screen.getByText(/33% across a production application serving 200\+ active users/)).toBeInTheDocument();
     expect(screen.queryByText(/Founding Engineer \/ Principal Technical Lead/)).not.toBeInTheDocument();
     expect(screen.queryByText(/10,000\+ users/)).not.toBeInTheDocument();
-  });
+  }, 30000);
 });

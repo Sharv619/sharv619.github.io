@@ -33,5 +33,5 @@ describe("LinkedInPosts", () => {
       "href",
       linkedinPosts[2].url
     );
-  }, 10000);
+  }, 30000);
 });

@@ -63,4 +63,4 @@ lighthouse-local.json
 # assistant server (local workspace)
 /assistant-server/
 /test-event.json
-/src/lib/synthetic-rag-index.json.bak
+/src/lib/synthetic-rag-index.json.bak*
