@@ -1,6 +1,7 @@
 import type { ProjectEvidenceProfile } from "./evidence-signals";
 import type { PortfolioRecommendation } from "./portfolio-recommendations";
 import type { ProjectSkill, SkillSource } from "./project-skill-types";
+export type { ProjectSkill, SkillSource };
 
 function skill(key: string, label: string, category: ProjectSkill["category"], source: SkillSource = "override"): ProjectSkill {
   return { key, label, category, sources: [{ source, rawValue: label }] };
