@@ -56,7 +56,7 @@ export default function ProjectsPageClient({ projects }: ProjectsPageClientProps
                     </p>
                   </div>
                 ) : (
-                  <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+                  <div className="flex gap-6 overflow-x-auto snap-x snap-mandatory pb-4">
                     {projects.map((project, index) => (
                       <motion.div
                         key={project.githubUrl || project.title}
@@ -64,7 +64,7 @@ export default function ProjectsPageClient({ projects }: ProjectsPageClientProps
                         whileInView={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.6, delay: index * 0.1 }}
                         viewport={{ once: true }}
-                        className="rounded-lg border border-stone-300 bg-white/70 p-4 shadow-sm dark:border-white/10 dark:bg-white/5 cursor-pointer hover:shadow-md transition-shadow duration-300"
+                        className="w-[85vw] max-w-sm shrink-0 snap-center rounded-lg border border-stone-300 bg-white/70 p-4 shadow-sm dark:border-white/10 dark:bg-white/5 cursor-pointer hover:shadow-md transition-shadow duration-300"
                       >
                         <div className="space-y-4">
                           <h3 className="text-xl font-bold text-gray-900 dark:text-white">

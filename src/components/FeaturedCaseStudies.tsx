@@ -43,7 +43,7 @@ export default function FeaturedCaseStudies({ caseStudies, compact = false }: Fe
               Selected work
             </p>
             <h2 className="text-balance text-4xl font-black leading-tight text-stone-950 sm:text-5xl dark:text-white">
-              Three case studies with the constraints left in.
+              {`${caseStudies.length} case studies with the constraints left in.`}
             </h2>
           </div>
           <p className="max-w-2xl text-lg leading-8 text-stone-700 lg:justify-self-end dark:text-stone-300">

@@ -11,7 +11,7 @@ const POSITIONING_REPOS = [
     name: "Pilly / MediMate Voice",
     description: "Firebase-backed responsible-AI medication support MVP for seniors and caregivers, featuring event-based reminders, caregiver alerts, voice-friendly responses, and strict safety boundaries.",
     topics: ["firebase", "cloud-functions", "firestore", "responsible-ai", "healthcare-prototype", "medication-support", "caregiver-tools", "typescript", "gemini-api", "hackathon"],
-    direction: "Lead with the 12-hour hackathon MVP context, seniors/caregivers workflow, deterministic fallback behavior, and explicit non-medical safety boundaries.",
+    direction: "Lead with the 2-hour hackathon MVP context, seniors/caregivers workflow, deterministic fallback behavior, and explicit non-medical safety boundaries.",
     priority: "Flagship",
   },
   {

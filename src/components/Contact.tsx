@@ -45,9 +45,9 @@ export default function Contact() {
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.2 }}
           viewport={{ once: true }}
-          className="rounded-lg border border-white/10 bg-white/[0.06] p-6 shadow-2xl shadow-black/30 backdrop-blur"
+          className="flex flex-col items-center justify-center text-center"
         >
-          <div className="grid grid-cols-2 gap-3 sm:grid-cols-4">
+          <div className="grid grid-cols-2 justify-items-center gap-3 sm:grid-cols-4">
             {Object.entries(socialLinks).map(([key, url]) => (
               <motion.a
                 key={key}
@@ -91,12 +91,13 @@ export default function Contact() {
             whileInView={{ opacity: 1 }}
             transition={{ duration: 0.6, delay: 0.4 }}
             viewport={{ once: true }}
+            className="flex justify-center"
           >
             <a
               href={undefined}
               data-email-href=""
               aria-label="Email Himanshu Lade"
-              className="mt-6 inline-flex w-full items-center justify-center rounded-md bg-teal-300 px-8 py-4 font-black text-stone-950 shadow-lg transition-colors duration-300 hover:bg-white"
+              className="mt-6 inline-flex items-center justify-center rounded-md bg-teal-300 px-8 py-4 font-black text-stone-950 shadow-lg transition-colors duration-300 hover:bg-white"
             >
               <svg className="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />

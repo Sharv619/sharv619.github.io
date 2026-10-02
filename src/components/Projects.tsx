@@ -257,7 +257,7 @@ export default function Projects({ projects, supplementalSkills = [] }: Projects
         <div id="workflows" className="mt-12">
           <div className="mb-5 max-w-3xl">
             <p className="text-xs font-bold uppercase tracking-[0.2em] text-teal-700 dark:text-teal-300">
-              Personal infrastructure
+              Alter Ego Builds
             </p>
             <h3 className="mt-2 text-2xl font-bold text-stone-950 dark:text-white">
               Weekend Build Sprints

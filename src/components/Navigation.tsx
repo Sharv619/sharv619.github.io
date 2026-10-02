@@ -20,11 +20,11 @@ export default function Navigation() {
 
   const navItems = [
     { name: "Home", href: "#home" },
-    { name: "Work", href: "#case-studies" },
+    { name: "Work", href: "#experience" },
     { name: "About", href: "#about" },
-    { name: "Experience", href: "#experience" },
+    { name: "Experience", href: "#case-studies" },
     { name: "Projects", href: "#projects" },
-    { name: "Personal Infra", href: "#workflows" },
+    { name: "Alter Ego Builds", href: "#workflows" },
     { name: "Contact", href: "#contact" },
   ];
 

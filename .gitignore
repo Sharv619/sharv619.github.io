@@ -64,3 +64,5 @@ lighthouse-local.json
 /assistant-server/
 /test-event.json
 /src/lib/synthetic-rag-index.json.bak*
+docs/positioning.md
+oscar_reply.md
