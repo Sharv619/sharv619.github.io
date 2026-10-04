@@ -28,6 +28,8 @@ export interface PortfolioRagRetrieval {
   repositoryConfidence: RepoRagConfidence;
 }
 
+type RepositoryMatch = ReturnType<typeof searchRepoRagIndex>[number];
+
 const VERIFIED_AUTHORITY_BOOST = 5;
 
 function confidenceRank(confidence: PortfolioRagRetrieval["confidence"]): number {
@@ -67,16 +69,48 @@ function deduplicateEvidence(evidence: PortfolioRagEvidence[]): PortfolioRagEvid
   });
 }
 
+function diversifyRepositoryMatches(matches: RepositoryMatch[], limit: number): RepositoryMatch[] {
+  const selected: RepositoryMatch[] = [];
+  const selectedIds = new Set<string>();
+  const repositories = new Set<string>();
+
+  for (const match of matches) {
+    if (repositories.has(match.document.repositorySlug)) {
+      continue;
+    }
+
+    selected.push(match);
+    selectedIds.add(match.document.id);
+    repositories.add(match.document.repositorySlug);
+    if (selected.length === limit) {
+      return selected;
+    }
+  }
+
+  for (const match of matches) {
+    if (selectedIds.has(match.document.id)) {
+      continue;
+    }
+
+    selected.push(match);
+    if (selected.length === limit) {
+      break;
+    }
+  }
+
+  return selected;
+}
+
 export function retrievePortfolioEvidence(message: string, limit = 6): PortfolioRagRetrieval {
   const curatedMatches = searchSyntheticRagIndex(message, 3);
-  const repositoryMatches = searchRepoRagIndex(message, 5);
+  const repositoryMatches = diversifyRepositoryMatches(searchRepoRagIndex(message, 15), 5);
   const curatedConfidence = getSyntheticRagConfidence(curatedMatches);
   const repositoryConfidence = getRepoRagConfidence(repositoryMatches);
 
   const curatedEvidence: PortfolioRagEvidence[] = curatedMatches.map((match) => {
     const primarySource = match.entry.sources[0];
     return {
-      id: `curated-${match.entry.id}`,
+      id: primarySource?.id || match.entry.id,
       title: match.entry.title,
       section: primarySource?.section || "Curated Portfolio",
       content: match.entry.answer,

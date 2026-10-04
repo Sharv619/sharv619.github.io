@@ -1,4 +1,5 @@
 import knowledgeBase from "@/lib/knowledge-base.json";
+import { getPortfolioAnswer } from "@/lib/assistant/portfolio-answer";
 import { getSyntheticRagResponse } from "@/lib/assistant/synthetic-rag";
 
 interface KnowledgeBaseSource {
@@ -214,6 +215,14 @@ export function getKnowledgeBaseResponse(message: string): KnowledgeBaseResponse
   }
 
   if (isProjectIntent(lower)) {
+    const repoAwareResult = getPortfolioAnswer(message);
+    if (repoAwareResult.confidence !== "low") {
+      return {
+        response: repoAwareResult.response,
+        sources: repoAwareResult.sources,
+      };
+    }
+
     const syntheticResult = getSyntheticRagResponse(message);
     if (syntheticResult.confidence !== "low") {
       return {
@@ -236,6 +245,14 @@ export function getKnowledgeBaseResponse(message: string): KnowledgeBaseResponse
 
   if (isBroadSkillsIntent(lower)) {
     return buildSkillsResponse();
+  }
+
+  const repoAwareResult = getPortfolioAnswer(message);
+  if (repoAwareResult.confidence !== "low") {
+    return {
+      response: repoAwareResult.response,
+      sources: repoAwareResult.sources,
+    };
   }
 
   const syntheticResult = getSyntheticRagResponse(message);
