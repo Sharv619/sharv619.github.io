@@ -65,7 +65,7 @@ The portfolio separates flagship case studies from the broader GitHub project fe
 - **Pilly / MediMate Voice** - Firebase-backed responsible-AI medication support MVP. Not a medical product; no diagnosis, dosage advice, or real patient data.
 - **codeflow-hook** - Open-source AI-assisted code review CLI published as an npm package with early usage traction.
 
-The website project feed is automated from public, non-fork GitHub repositories owned by `Sharv619`. By default it uses `PORTFOLIO_GITHUB_TOPIC=all`; set this to a specific topic such as `portfolio` if the feed should be curated. Keep repo descriptions/READMEs useful, and the next GitHub Pages rebuild will refresh the portfolio pages. The deploy workflow also runs on a daily schedule so project metadata updates without manually editing `src/lib/data.ts`. Set the GitHub Actions variable `NEXT_PUBLIC_ASSISTANT_API` to the RAG Lambda endpoint when the deployed chatbot should use the live optional AWS assistant instead of demo mode.
+The website project feed and repo-aware assistant are generated from public, non-fork GitHub repositories owned by `Sharv619`. By default they use `PORTFOLIO_GITHUB_TOPIC=all`; set this to a specific topic such as `portfolio` if the feed should be curated. The daily GitHub Pages workflow refreshes repository metadata and README evidence, rebuilds the local BM25-style search index, and deploys the static site. The public assistant runs entirely in the browser and does not call AWS or an LLM.
 
 Automation details for repo push refreshes and certifications live in `docs/automation.md`.
 

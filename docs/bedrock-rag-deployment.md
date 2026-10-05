@@ -1,5 +1,7 @@
 # Synthetic RAG Deployment
 
+> Historical deployment reference: the public portfolio assistant now uses a static repo-aware index in the browser. The GitHub Pages build does not configure `NEXT_PUBLIC_ASSISTANT_API` or call this AWS backend. Retain these instructions only if the archived backend is deliberately restored after a cost review.
+
 This portfolio uses a hardened Synthetic RAG v1 path for the assistant. The goal is a cheap, inspectable assistant for recruiter and employer questions without always-on vector infrastructure.
 
 ## Architecture

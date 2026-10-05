@@ -41,11 +41,13 @@ jobs:
           PORTFOLIO_GITHUB_USERNAME: Sharv619
           PORTFOLIO_GITHUB_TOPIC: all
 
+      - name: Generate repository RAG index
+        run: npm run repo-rag:generate
+
       - name: Build
         run: npm run build
         env:
           PORTFOLIO_GITHUB_SOURCE: snapshot
-          NEXT_PUBLIC_ASSISTANT_API: ${{ vars.NEXT_PUBLIC_ASSISTANT_API }}
 
       - name: Add .nojekyll file
         run: touch ./out/.nojekyll

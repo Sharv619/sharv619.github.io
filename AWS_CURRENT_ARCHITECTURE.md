@@ -14,50 +14,31 @@ The public portfolio website is hosted with **GitHub Pages and Cloudflare**, not
 
 The AWS resources described below do not host the public website. The `sharv619-portfolio-site` S3 bucket appears to be an older or unused website-hosting artifact; the current GitHub workflow does not deploy the site to that bucket.
 
-## Optional AWS Assistant Backend
+## Active Repo-Aware Assistant
 
-AWS is used only for the optional portfolio assistant and its cost-control automation. The frontend can fall back to local curated responses when the live assistant API is unavailable.
+The public assistant is fully static and runs in the browser. The GitHub Pages workflow refreshes public repository metadata and README content, generates `repo-rag-index.json`, and bundles deterministic BM25-style retrieval with the site. The frontend does not use `NEXT_PUBLIC_ASSISTANT_API`, Lambda, API Gateway, S3 knowledge artifacts, Bedrock Guardrails, or model inference.
 
 ```text
-Browser on https://www.himanshulade.com/
-  |
-  | POST /assistant
-  v
-API Gateway: Assistant-API
-  |
-  | prod stage, expected route POST /assistant
-  v
-Lambda: Assistant-RAG-Orchestrator
-  |
-  +--> S3: sharv619-knowledge-base
-  |      +--> knowledge-base.json
-  |      +--> synthetic-rag-index.json
-  |      +--> case-study Markdown files
-  |      +--> Nova Act execution artifacts
-  |
-  +--> Bedrock Guardrail: Assistant-Guardrail
-  |
-  +--> Optional Nova Micro polishing
-
-EventBridge Scheduler: Assistant-Guardrail-Enforcer-Schedule
-  |
-  | every 1 hour
-  v
-Lambda: Assistant-Guardrail-Enforcer
-  |
-  +--> keeps expensive Bedrock options disabled
+GitHub public repositories
+  -> nightly GitHub project snapshot
+  -> sanitized README and metadata chunks
+  -> repo-rag-index.json
+  -> static GitHub Pages build
+  -> browser BM25 retrieval
+  -> curated and repository evidence merge
+  -> deterministic answer templates and source cards
 ```
 
-Normal Synthetic RAG responses retrieve curated content from S3 and should not require a model call. Bedrock polishing is optional and must remain disabled by default to control cost.
+The AWS assistant resources below are retained legacy infrastructure and are not part of the public request path anymore.
 
-## Resource Inventory
+## Retained Inactive AWS Resource Inventory
 
 ### API Gateway
 
 - API: `Assistant-API`
 - Stage: `prod`
 - Expected route: `POST /assistant`
-- Frontend configuration: `NEXT_PUBLIC_ASSISTANT_API`
+- Frontend configuration: inactive; `NEXT_PUBLIC_ASSISTANT_API` is not included in the GitHub Pages build
 
 ### Lambda
 
@@ -129,20 +110,22 @@ IAM permissions should stay scoped to the required Lambda, S3, Bedrock guardrail
 - Nova Act is not required for the website or main assistant request path.
 - It is intentionally not in active use.
 
-## Current Broken or Blocked Items
+## Historical AWS Blockers
 
 - The AWS account/payment state must be restored before runtime verification. A direct Lambda invocation reported that the resource owner's account is not active.
 - Local AWS access has been inconsistent: one check returned `InvalidClientTokenId`, while a later identity-only check succeeded. Do not assume credentials or runtime access work; begin recovery with `aws sts get-caller-identity`.
 - The configured assistant API currently returns `404 Not Found` for both `/prod/assistant` and `/assistant`.
 - The `Assistant-API` route, `prod` deployment, and Lambda integration must be verified after account access is restored.
-- `NEXT_PUBLIC_ASSISTANT_API` is configured, but its current endpoint is not usable while it returns 404.
+- Any configured `NEXT_PUBLIC_ASSISTANT_API` repository variable is ignored by the current GitHub Pages workflow.
 - The S3 knowledge artifacts were last synced around June 2026 and need a refresh.
 - The GitHub Pages workflow does not automatically sync knowledge files to AWS.
 - Branded-domain CORS defaults are updated in the current branch, but the live Lambda still needs redeployment and verification after account activation.
 - The live website will continue serving the old robots and sitemap files until PR #4 is merged into `main` and deployed.
 - The GitHub Pages custom-domain setting is currently empty. After PR #4 is merged, set it to `www.himanshulade.com` and enable HTTPS.
 
-## Deployment and Recovery Checklist
+## Optional Legacy AWS Recovery Checklist
+
+This checklist is not required for the website or public assistant. Use it only if the AWS backend is deliberately restored after a cost review.
 
 - [ ] Restore AWS account/payment activation and confirm the account is active.
 - [ ] Confirm local AWS access:
@@ -171,8 +154,7 @@ IAM permissions should stay scoped to the required Lambda, S3, Bedrock guardrail
     --data '{"message":"hi"}'
   ```
 
-- [ ] Update the GitHub Actions variable `NEXT_PUBLIC_ASSISTANT_API` if the confirmed route or stage URL differs.
-- [ ] Rebuild and redeploy the static website after changing `NEXT_PUBLIC_ASSISTANT_API`.
+- [ ] Add a separate opt-in deployment path before reconnecting any frontend to `NEXT_PUBLIC_ASSISTANT_API`.
 - [ ] Verify Lambda and API Gateway CORS allow both `https://www.himanshulade.com` and `https://himanshulade.com`.
 - [ ] Set a CloudWatch retention period for both assistant Lambda log groups.
 - [ ] Confirm `ENABLE_BEDROCK_POLISH=false` remains the default.
@@ -199,13 +181,17 @@ Do not add these services based on older setup notes without a new architecture 
 
 ## Relevant Repository Files
 
+- `scripts/generate-repo-rag-index.ts` — active public repository and README ingestion
+- `src/lib/assistant/repo-rag.ts` — active browser BM25-style repository retrieval
+- `src/lib/assistant/portfolio-rag.ts` — active curated and repository evidence merge
+- `src/lib/assistant/portfolio-answer.ts` — active deterministic answer templates
 - `docs/bedrock-rag-deployment.md` — detailed lightweight Synthetic RAG deployment guidance
 - `aws/lambda/rag-orchestrator/index.js` — assistant runtime
 - `aws/lambda/guardrail-enforcer/index.js` — scheduled cost guardrail
 - `aws/scripts/sync-knowledge-base.js` — uploads knowledge artifacts to S3
 - `aws/scripts/apply-lambda-cost-guardrail.js` — applies safe Lambda model settings
 - `aws/scripts/deploy-guardrail-runner.js` — deploys the scheduled guardrail enforcer
-- `.github/workflows/deploy.yml` — GitHub Pages deployment; it does not deploy or sync AWS resources
+- `.github/workflows/deploy.yml` — active GitHub Pages and repository-index deployment; it does not deploy or sync assistant AWS resources
 - `SEO_FIX_NOTES.md` — branded-domain and post-deployment SEO verification
 
 ## Historical Documentation

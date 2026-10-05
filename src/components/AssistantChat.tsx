@@ -4,7 +4,6 @@ import { useState, useRef, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import NeuralBackground from "./NeuralBackground";
 import SourceCard from "./SourceCard";
-import { sendChatMessageWithHistory } from "@/lib/assistant/rag-client";
 import { getKnowledgeBaseResponse } from "@/lib/assistant/fallback-responses";
 import { formatAssistantResponse } from "@/lib/assistant/response-style";
 import { expandSyntheticRagQuery } from "@/lib/assistant/synthetic-rag";
@@ -25,9 +24,7 @@ export default function AssistantChat({ isOpen, onClose }: AssistantChatProps) {
   const [input, setInput] = useState("");
   const [isLoading, setIsLoading] = useState(false);
   const [isThinking, setIsThinking] = useState(false);
-  const [useDemo, setUseDemo] = useState(!process.env.NEXT_PUBLIC_ASSISTANT_API);
   const messagesEndRef = useRef<HTMLDivElement>(null);
-  const sessionIdRef = useRef<string>(crypto.randomUUID());
 
   const scrollToBottom = () => {
     messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
@@ -62,60 +59,34 @@ export default function AssistantChat({ isOpen, onClose }: AssistantChatProps) {
     try {
       const localFirstResponse = getLocalFirstResponse(userMessage);
 
-      if (localFirstResponse) {
-        setMessages((prev) => [
-          ...prev,
-          {
-            role: "assistant",
-            content: formatAssistantResponse(userMessage, localFirstResponse.response, localFirstResponse.sources),
-            sources: localFirstResponse.sources,
-          }
-        ]);
-      } else if (useDemo) {
-        await new Promise((resolve) => setTimeout(resolve, 1000 + Math.random() * 1000));
-        const expandedMessage = expandSyntheticRagQuery(userMessage, messages);
-        const result = getKnowledgeBaseResponse(expandedMessage);
-        
-        setMessages((prev) => [
-          ...prev,
-          {
-            role: "assistant",
-            content: formatAssistantResponse(userMessage, result.response, result.sources),
-            sources: result.sources,
-          }
-        ]);
-      } else {
-        // Real RAG mode
-        const result = await sendChatMessageWithHistory(userMessage, sessionIdRef.current, messages);
-        
-        setMessages((prev) => [
-          ...prev,
-          {
-            role: "assistant",
-            content: formatAssistantResponse(userMessage, result.response, result.sources),
-            sources: result.sources,
-          }
-        ]);
-      }
-    } catch (error) {
-      console.error("Chat error:", error);
-      // Fallback on error
+      const expandedMessage = expandSyntheticRagQuery(userMessage, messages);
+      const result = localFirstResponse || getKnowledgeBaseResponse(expandedMessage);
+
       setMessages((prev) => [
         ...prev,
         {
           role: "assistant",
-          content: "Sorry, I'm having trouble connecting. Using demo mode instead.",
+          content: formatAssistantResponse(userMessage, result.response, result.sources),
+          sources: result.sources,
+        }
+      ]);
+    } catch (error) {
+      console.error("Chat error:", error);
+      setMessages((prev) => [
+        ...prev,
+        {
+          role: "assistant",
+          content: "Sorry, I couldn't search the local portfolio index. Please try again.",
           sources: [],
         },
       ]);
-      setUseDemo(true);
     } finally {
       setIsLoading(false);
       setIsThinking(false);
     }
   };
 
-  const handleKeyPress = (e: React.KeyboardEvent) => {
+  const handleKeyDown = (e: React.KeyboardEvent) => {
     if (e.key === "Enter" && !e.shiftKey) {
       e.preventDefault();
       handleSend();
@@ -148,15 +119,14 @@ export default function AssistantChat({ isOpen, onClose }: AssistantChatProps) {
               <div>
                 <h3 className="font-semibold text-white">Assistant</h3>
                 <div className="flex items-center gap-2">
-                  <span className={`w-2 h-2 rounded-full ${useDemo ? "bg-yellow-400" : "bg-green-400"}`} />
-                  <p className="text-xs text-white/70">
-                    {useDemo ? "Demo Mode" : "RAG Active"}
-                  </p>
+                  <span className="w-2 h-2 rounded-full bg-green-400" />
+                  <p className="text-xs text-white/70">Repo RAG</p>
                 </div>
               </div>
             </div>
             <button
               onClick={onClose}
+              aria-label="Close assistant"
               className="p-2 hover:bg-white/20 rounded-full transition-colors"
             >
               <svg className="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -172,7 +142,7 @@ export default function AssistantChat({ isOpen, onClose }: AssistantChatProps) {
                 <p className="text-2xl mb-2">👋</p>
                 <p className="font-medium text-gray-300">Hey! I&apos;m Assistant</p>
                 <p className="text-sm mt-2">
-                  Ask me about Himanshu&apos;s projects, skills, or experience. This assistant uses synthetic RAG over curated portfolio evidence and improves its routing as questions are asked; try &quot;What projects use RAG?&quot;, &quot;What did Himanshu do at Ask Jay?&quot;, or &quot;Which repos use React?&quot;
+                  Ask me about Himanshu&apos;s projects, skills, or experience. I search verified portfolio evidence and current public repository documentation; try &quot;What projects use RAG?&quot;, &quot;What did Himanshu do at Ask Jay?&quot;, or &quot;Which repos use React?&quot;
                 </p>
               </div>
             )}
@@ -226,13 +196,14 @@ export default function AssistantChat({ isOpen, onClose }: AssistantChatProps) {
                 type="text"
                 value={input}
                 onChange={(e) => setInput(e.target.value)}
-                onKeyPress={handleKeyPress}
+                onKeyDown={handleKeyDown}
                 placeholder="Ask about Himanshu..."
                 disabled={isLoading}
                 className="flex-1 bg-gray-800/80 border border-gray-600/50 rounded-xl px-4 py-2 text-sm text-white placeholder-gray-400 focus:outline-none focus:border-cyan-500/50 transition-colors"
               />
               <button
                 onClick={handleSend}
+                aria-label="Send message"
                 disabled={isLoading || !input.trim()}
                 className="px-4 py-2 bg-gradient-to-r from-cyan-500 to-blue-500 hover:from-cyan-400 hover:to-blue-400 disabled:opacity-50 disabled:cursor-not-allowed text-white rounded-xl transition-all"
               >
