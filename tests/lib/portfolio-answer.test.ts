@@ -19,6 +19,21 @@ describe("portfolio answer templates", () => {
     expect(result.response).toContain("strongest repository match");
   });
 
+  it("answers generic project questions from the generated repository catalogue", () => {
+    const result = getPortfolioAnswer("What projects have you built?");
+
+    expect(result.confidence).not.toBe("low");
+    expect(result.response).toContain("public GitHub projects");
+    expect(result.response).toContain("rather than a manually maintained question list");
+    expect(result.sources.some((source) => source.url?.includes("github.com/Sharv619/"))).toBe(true);
+  });
+
+  it("answers repository count questions from the generated index", () => {
+    const result = getPortfolioAnswer("How many repositories do you have?");
+
+    expect(result.response).toMatch(/contains \*\*\d+ GitHub projects\*\*/);
+  });
+
   it("uses four sections only for detailed questions", () => {
     const result = getPortfolioAnswer("Explain in detail how the Network Guardian AI architecture uses Isolation Forest and entropy analysis.");
 

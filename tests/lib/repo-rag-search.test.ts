@@ -1,6 +1,8 @@
 import { describe, expect, it } from "vitest";
 
 import {
+  getRepoRagQueryIntent,
+  getRepoRagRepositoryCount,
   getRepoRagConfidence,
   searchRepoRagIndex,
   tokenizeRepoRagQuery,
@@ -32,6 +34,32 @@ describe("repository RAG search", () => {
     const tokens = tokenizeRepoRagQuery("TS and JS projects");
 
     expect(tokens).toEqual(expect.arrayContaining(["typescript", "javascript"]));
+  });
+
+  it("returns the repository catalogue for generic project discovery questions", () => {
+    const matches = searchRepoRagIndex("What projects have you built?");
+
+    expect(getRepoRagQueryIntent("What projects have you built?")).toBe("catalog");
+    expect(matches.length).toBeGreaterThan(0);
+    expect(matches.every((match) => match.document.evidenceType === "metadata")).toBe(true);
+    expect(getRepoRagConfidence(matches)).toBe("medium");
+  });
+
+  it("sorts recently updated repositories for latest-project questions", () => {
+    const matches = searchRepoRagIndex("What are your latest projects?");
+    const timestamps = matches.map((match) => Date.parse(match.document.updatedAt || ""));
+
+    expect(getRepoRagQueryIntent("What are your latest projects?")).toBe("recent");
+    expect(timestamps).toEqual([...timestamps].sort((left, right) => right - left));
+  });
+
+  it("derives the repository count from generated project evidence", () => {
+    expect(getRepoRagQueryIntent("How many repositories do you have?")).toBe("count");
+    expect(getRepoRagRepositoryCount()).toBeGreaterThan(0);
+  });
+
+  it("keeps technology-filter questions in semantic search", () => {
+    expect(getRepoRagQueryIntent("Which repositories use Scikit-learn?")).toBe("search");
   });
 
   it("returns no results when a query has no indexed terms", () => {

@@ -142,7 +142,7 @@ export default function AssistantChat({ isOpen, onClose }: AssistantChatProps) {
                 <p className="text-2xl mb-2">👋</p>
                 <p className="font-medium text-gray-300">Hey! I&apos;m Assistant</p>
                 <p className="text-sm mt-2">
-                  Ask me about Himanshu&apos;s projects, skills, or experience. I search verified portfolio evidence and current public repository documentation; try &quot;What projects use RAG?&quot;, &quot;What did Himanshu do at Ask Jay?&quot;, or &quot;Which repos use React?&quot;
+                  Ask me about Himanshu&apos;s projects, skills, or experience. I search verified portfolio evidence and current public repository documentation; try &quot;What projects have you built?&quot;, &quot;What are your latest projects?&quot;, &quot;Which repos use React?&quot;, or ask about any repository by name.
                 </p>
               </div>
             )}

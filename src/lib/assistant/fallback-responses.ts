@@ -1,5 +1,6 @@
 import knowledgeBase from "@/lib/knowledge-base.json";
 import { getPortfolioAnswer } from "@/lib/assistant/portfolio-answer";
+import { getRepoRagQueryIntent } from "@/lib/assistant/repo-rag";
 import { getSyntheticRagResponse } from "@/lib/assistant/synthetic-rag";
 
 interface KnowledgeBaseSource {
@@ -61,9 +62,13 @@ function isProfileIntent(message: string): boolean {
 }
 
 function isProjectIntent(message: string): boolean {
-  return matchesAny(message, [
+  return getRepoRagQueryIntent(message) !== "search" || matchesAny(message, [
     "project",
     "projects",
+    "repo",
+    "repos",
+    "repository",
+    "repositories",
     "built",
     "build",
     "github",

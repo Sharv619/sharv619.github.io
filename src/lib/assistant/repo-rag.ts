@@ -26,6 +26,7 @@ export interface RepoRagMatch {
 }
 
 export type RepoRagConfidence = "high" | "medium" | "low";
+export type RepoRagQueryIntent = "search" | "catalog" | "recent" | "count";
 
 const STOP_WORDS = new Set([
   "about",
@@ -105,6 +106,64 @@ function countTerm(tokens: string[], term: string): number {
   return tokens.reduce((count, token) => count + (token === term ? 1 : 0), 0);
 }
 
+export function getRepoRagQueryIntent(message: string): RepoRagQueryIntent {
+  const normalized = normalize(message);
+  const repositoryTerms = "projects?|repos?|repositories";
+
+  if (new RegExp(`\\b(how many|number of|total)\\b.{0,40}\\b(${repositoryTerms})\\b`).test(normalized)) {
+    return "count";
+  }
+
+  if (
+    new RegExp(`\\b(latest|newest|recent|recently|new)\\b.{0,40}\\b(${repositoryTerms}|builds?|work)\\b`).test(normalized)
+    || /\bwhat\b.{0,30}\b(working on|building now)\b/.test(normalized)
+  ) {
+    return "recent";
+  }
+
+  if (/\b(use|uses|using|built with|written in)\b/.test(normalized)) {
+    return "search";
+  }
+
+  if (
+    new RegExp(`\\b(list|show|browse|all)\\b.{0,40}\\b(${repositoryTerms})\\b`).test(normalized)
+    || new RegExp(`\\b(tell me about|what are|which are)\\b.{0,30}\\b(your|his|himanshu s)?\\s*(${repositoryTerms})\\b`).test(normalized)
+    || /\bwhat\b.{0,30}\b(have you|has he|has himanshu)\b.{0,20}\b(built|made|created)\b/.test(normalized)
+    || /\b(show me|tell me about)\b.{0,20}\b(your|his|himanshu s)\b.{0,10}\b(work|builds)\b/.test(normalized)
+    || /\bkaunse\b.{0,20}\bprojects?\b/.test(normalized)
+  ) {
+    return "catalog";
+  }
+
+  return "search";
+}
+
+function getRepositoryCatalog(intent: Exclude<RepoRagQueryIntent, "search">): RepoRagMatch[] {
+  const metadataDocuments = (repoRagIndex as RepoRagDocument[])
+    .filter((document) => document.evidenceType === "metadata")
+    .sort((left, right) => {
+      if (intent !== "recent") {
+        const featuredDelta = Number(right.featured) - Number(left.featured);
+        if (featuredDelta !== 0) {
+          return featuredDelta;
+        }
+
+        const priorityDelta = right.priority - left.priority;
+        if (priorityDelta !== 0) {
+          return priorityDelta;
+        }
+      }
+
+      return Date.parse(right.updatedAt || "") - Date.parse(left.updatedAt || "");
+    });
+
+  return metadataDocuments.map((document, index) => ({
+    document,
+    score: Number((8 - Math.min(index, 20) * 0.05).toFixed(4)),
+    matchedTerms: [intent],
+  }));
+}
+
 function getExactMatchBoost(document: RepoRagDocument, normalizedQuery: string, queryTerms: string[]): number {
   const repository = normalize(document.repository);
   const repositorySlug = normalize(document.repositorySlug);
@@ -144,6 +203,12 @@ function getExactMatchBoost(document: RepoRagDocument, normalizedQuery: string, 
 
 export function searchRepoRagIndex(message: string, limit = 5): RepoRagMatch[] {
   const documents = repoRagIndex as RepoRagDocument[];
+  const intent = getRepoRagQueryIntent(message);
+
+  if (intent !== "search") {
+    return getRepositoryCatalog(intent).slice(0, Math.max(1, limit));
+  }
+
   const queryTerms = tokenizeRepoRagQuery(message);
 
   if (queryTerms.length === 0) {
@@ -215,4 +280,10 @@ export function getRepoRagConfidence(matches: RepoRagMatch[]): RepoRagConfidence
 
 export function getRepoRagIndex(): RepoRagDocument[] {
   return repoRagIndex as RepoRagDocument[];
+}
+
+export function getRepoRagRepositoryCount(): number {
+  return new Set(
+    (repoRagIndex as RepoRagDocument[]).map((document) => document.repositorySlug)
+  ).size;
 }

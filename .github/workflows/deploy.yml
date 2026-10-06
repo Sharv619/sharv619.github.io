@@ -6,7 +6,7 @@ on:
   repository_dispatch:
     types: [refresh-project-feed]
   schedule:
-    - cron: '17 18 * * *'
+    - cron: '17 */6 * * *'
   workflow_dispatch:
 
 permissions:

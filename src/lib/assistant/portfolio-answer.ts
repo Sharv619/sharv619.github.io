@@ -1,4 +1,9 @@
 import { retrievePortfolioEvidence, type PortfolioRagEvidence } from "@/lib/assistant/portfolio-rag";
+import {
+  getRepoRagQueryIntent,
+  getRepoRagRepositoryCount,
+  type RepoRagQueryIntent,
+} from "@/lib/assistant/repo-rag";
 import { isLongQuestion } from "@/lib/assistant/response-style";
 
 export interface PortfolioAnswerSource {
@@ -48,9 +53,23 @@ function getUniqueRepositories(evidence: PortfolioRagEvidence[]): string[] {
   return [...new Set(getRepositoryEvidence(evidence).map((item) => item.title))];
 }
 
-function isRepositoryListQuestion(message: string): boolean {
-  return /\b(which|list|show|what)\b.*\b(repo|repos|repositories|projects)\b/i.test(message)
-    || /\b(which|what)\b.*\b(use|uses|using|built with)\b/i.test(message);
+function buildRepositoryDiscoveryAnswer(
+  intent: Exclude<RepoRagQueryIntent, "search">,
+  evidence: PortfolioRagEvidence[]
+): string {
+  const repositoryCount = getRepoRagRepositoryCount();
+  const repositories = getUniqueRepositories(evidence).slice(0, 6);
+  const list = repositories.map((repository) => `- **${repository}**`).join("\n");
+
+  if (intent === "count") {
+    return `The current public portfolio index contains **${repositoryCount} GitHub projects**. It is generated from Himanshu's public repositories, so the count updates when the portfolio refreshes.`;
+  }
+
+  const heading = intent === "recent"
+    ? `The newest public projects in the current ${repositoryCount}-repository index are:`
+    : `The portfolio currently indexes ${repositoryCount} public GitHub projects. Highlights include:`;
+
+  return `${heading}\n\n${list}\n\nEach project is sourced from its GitHub metadata and README rather than a manually maintained question list.`;
 }
 
 function isBroadTechnologyQuestion(message: string): boolean {
@@ -65,13 +84,17 @@ function isBroadTechnologyQuestion(message: string): boolean {
   ].includes(term));
 }
 
+function isTechnologyRepositoryQuestion(message: string): boolean {
+  return /\b(which|what|show|list)\b.*\b(repo|repos|repositories|projects)\b.*\b(use|uses|using|built with|written in)\b/i.test(message);
+}
+
 function buildSimpleAnswer(message: string, evidence: PortfolioRagEvidence[]): string {
   const isBroadQuestion = isBroadTechnologyQuestion(message);
   const repositories = getUniqueRepositories(evidence);
   const projectLabels = isBroadQuestion
     ? [...new Set(evidence.map((item) => item.title))]
     : repositories;
-  if ((isRepositoryListQuestion(message) || isBroadQuestion) && projectLabels.length > 0) {
+  if ((isBroadQuestion || isTechnologyRepositoryQuestion(message)) && projectLabels.length > 0) {
     const labels = projectLabels.slice(0, 4);
     const list = labels.length === 1
       ? labels[0]
@@ -137,6 +160,7 @@ function buildSources(evidence: PortfolioRagEvidence[]): PortfolioAnswerSource[]
 }
 
 export function getPortfolioAnswer(message: string): PortfolioAnswer {
+  const repositoryIntent = getRepoRagQueryIntent(message);
   const retrieval = retrievePortfolioEvidence(message);
 
   if (retrieval.confidence === "low" || retrieval.evidence.length === 0) {
@@ -148,9 +172,11 @@ export function getPortfolioAnswer(message: string): PortfolioAnswer {
   }
 
   return {
-    response: isLongQuestion(message)
-      ? buildDetailedAnswer(retrieval.evidence)
-      : buildSimpleAnswer(message, retrieval.evidence),
+    response: repositoryIntent !== "search"
+      ? buildRepositoryDiscoveryAnswer(repositoryIntent, retrieval.evidence)
+      : isLongQuestion(message)
+        ? buildDetailedAnswer(retrieval.evidence)
+        : buildSimpleAnswer(message, retrieval.evidence),
     sources: buildSources(retrieval.evidence),
     confidence: retrieval.confidence,
   };

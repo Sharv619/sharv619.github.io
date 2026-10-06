@@ -20,7 +20,7 @@ The public assistant is fully static and runs in the browser. The GitHub Pages w
 
 ```text
 GitHub public repositories
-  -> nightly GitHub project snapshot
+  -> six-hourly GitHub project snapshot
   -> sanitized README and metadata chunks
   -> repo-rag-index.json
   -> static GitHub Pages build
