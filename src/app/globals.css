@@ -1,85 +1,174 @@
 @import "tailwindcss";
 
 :root {
-  --color-background: #f7f4ed;
-  --color-foreground: #151515;
-  --color-primary: #0f766e;
-  --color-primary-hover: #115e59;
-  --color-secondary: #57534e;
-  --color-accent: #ebe5d8;
-  --color-border: #d8d0c2;
-  --color-muted: #78716c;
-  --color-background-dark: #101010;
-  --color-foreground-dark: #f5f2ea;
-  --color-primary-dark: #2dd4bf;
-  --color-primary-hover-dark: #5eead4;
-  --color-secondary-dark: #d6d3d1;
-  --color-accent-dark: #1f1f1c;
-  --color-border-dark: #34342f;
-  --color-muted-dark: #a8a29e;
-}
-
-.light {
-  --bg-primary: var(--color-background);
-  --text-primary: var(--color-foreground);
-  --text-secondary: var(--color-secondary);
-  --bg-secondary: var(--color-accent);
-  --border-color: var(--color-border);
-  --button-primary: var(--color-primary);
-  --button-primary-hover: var(--color-primary-hover);
+  --journal-paper: #fdf6e3;
+  --journal-paper-raised: #fffaf0;
+  --journal-ink: #2b2118;
+  --journal-ink-muted: #6b5745;
+  --journal-leather: #5c4033;
+  --journal-leather-deep: #2d211b;
+  --journal-rule: #e6d3b3;
+  --journal-rule-strong: #c9aa7c;
+  --journal-brass: #b98b3d;
+  --journal-verification: #c41e3a;
+  --journal-red: var(--journal-verification);
+  --journal-muted: var(--journal-ink-muted);
+  --journal-surface: var(--journal-paper-raised);
+  --journal-shadow: 0 12px 30px rgba(63, 39, 24, 0.12);
+  --bg-primary: var(--journal-paper);
+  --text-primary: var(--journal-ink);
+  --text-secondary: var(--journal-ink-muted);
+  --bg-secondary: #f4ead2;
+  --border-color: var(--journal-rule);
+  --button-primary: var(--journal-leather);
+  --button-primary-hover: var(--journal-leather-deep);
 }
 
 .dark {
-  --bg-primary: var(--color-background-dark);
-  --text-primary: var(--color-foreground-dark);
-  --text-secondary: var(--color-secondary-dark);
-  --bg-secondary: var(--color-accent-dark);
-  --border-color: var(--color-border-dark);
-  --button-primary: var(--color-primary-dark);
-  --button-primary-hover: var(--color-primary-hover-dark);
+  --journal-paper: #2d2d2d;
+  --journal-paper-raised: #35322c;
+  --journal-ink: #f5deb3;
+  --journal-ink-muted: #d0bea0;
+  --journal-leather: #1a1a1a;
+  --journal-leather-deep: #0f0f0f;
+  --journal-rule: #5b5043;
+  --journal-rule-strong: #8a7251;
+  --journal-brass: #e6b350;
+  --journal-verification: #e3495f;
+  --journal-red: var(--journal-verification);
+  --journal-muted: var(--journal-ink-muted);
+  --journal-surface: var(--journal-paper-raised);
+  --journal-shadow: 0 14px 34px rgba(0, 0, 0, 0.3);
+  --bg-primary: var(--journal-leather);
+  --text-primary: var(--journal-ink);
+  --text-secondary: var(--journal-ink-muted);
+  --bg-secondary: var(--journal-paper);
+  --border-color: var(--journal-rule);
+  --button-primary: var(--journal-brass);
+  --button-primary-hover: #f2c66d;
+}
+
+* {
+  box-sizing: border-box;
 }
 
 html {
   scroll-behavior: smooth;
-  scroll-padding-top: 0;
+  scroll-padding-top: 5rem;
 }
 
 body {
-  background: var(--bg-primary);
-  color: var(--text-primary);
-  font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  background: var(--journal-leather);
+  color: var(--journal-ink);
+  font-family: var(--font-plex-sans), ui-sans-serif, system-ui, sans-serif;
+}
+
+button,
+a,
+input {
+  outline-color: var(--journal-verification);
+}
+
+:focus-visible {
+  outline: 2px solid var(--journal-verification);
+  outline-offset: 3px;
 }
 
 ::selection {
-  background: #0f766e;
-  color: #ffffff;
+  background: var(--journal-verification);
+  color: #fffaf0;
+}
+
+.font-journal-serif {
+  font-family: var(--font-plex-serif), Georgia, serif;
+}
+
+.font-journal-mono {
+  font-family: var(--font-plex-mono), "SFMono-Regular", Consolas, monospace;
 }
 
 .text-balance {
   text-wrap: balance;
 }
 
-@media (min-width: 768px) {
-  html {
-    scroll-snap-type: y mandatory;
-  }
+.journal-shell {
+  min-height: 100vh;
+  background:
+    linear-gradient(90deg, rgba(0, 0, 0, 0.12), transparent 2.5%, transparent 97.5%, rgba(0, 0, 0, 0.12)),
+    var(--journal-leather);
+}
 
-  .portfolio-scroll-shell > section {
-    min-height: 100svh;
-    scroll-snap-align: start;
-    scroll-snap-stop: always;
-  }
+.journal-page {
+  background-color: var(--journal-paper);
+  background-image:
+    radial-gradient(circle at 20% 12%, rgba(92, 64, 51, 0.035), transparent 24%),
+    repeating-linear-gradient(0deg, transparent 0, transparent 31px, color-mix(in srgb, var(--journal-rule) 55%, transparent) 32px);
+  color: var(--journal-ink);
+}
+
+.journal-grid {
+  background-color: var(--journal-paper);
+  background-image:
+    linear-gradient(color-mix(in srgb, var(--journal-rule) 48%, transparent) 1px, transparent 1px),
+    linear-gradient(90deg, color-mix(in srgb, var(--journal-rule) 48%, transparent) 1px, transparent 1px);
+  background-size: 24px 24px;
+}
+
+.journal-card {
+  border: 1px solid var(--journal-rule);
+  background: var(--journal-paper-raised);
+  box-shadow: 0 2px 8px rgba(63, 39, 24, 0.08);
+  transition: transform 180ms ease, box-shadow 180ms ease, border-color 180ms ease;
+}
+
+.journal-card:hover {
+  border-color: var(--journal-rule-strong);
+  box-shadow: var(--journal-shadow);
+  transform: translateY(-3px);
+}
+
+.journal-kicker {
+  color: var(--journal-ink-muted);
+  font-family: var(--font-plex-mono), monospace;
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+
+.journal-stamp {
+  border: 2px solid currentColor;
+  color: var(--journal-verification);
+  font-family: var(--font-plex-mono), monospace;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  transform: rotate(-2deg);
+}
+
+.journal-binding {
+  background:
+    radial-gradient(circle, var(--journal-leather-deep) 0 2px, transparent 2.5px) center top / 12px 18px repeat-y,
+    linear-gradient(90deg, transparent, rgba(43, 33, 24, 0.2), transparent);
 }
 
 .portfolio-grid {
   background-image:
-    linear-gradient(to right, rgba(15, 118, 110, 0.08) 1px, transparent 1px),
-    linear-gradient(to bottom, rgba(15, 118, 110, 0.08) 1px, transparent 1px);
-  background-size: 42px 42px;
+    linear-gradient(to right, color-mix(in srgb, var(--journal-brass) 15%, transparent) 1px, transparent 1px),
+    linear-gradient(to bottom, color-mix(in srgb, var(--journal-brass) 15%, transparent) 1px, transparent 1px);
+  background-size: 32px 32px;
 }
 
-.dark .portfolio-grid {
-  background-image:
-    linear-gradient(to right, rgba(45, 212, 191, 0.1) 1px, transparent 1px),
-    linear-gradient(to bottom, rgba(45, 212, 191, 0.1) 1px, transparent 1px);
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
 }

@@ -27,7 +27,7 @@ export default function HomePageClient({ projects }: HomePageClientProps) {
   const caseStudies = getOrderedFlagshipCaseStudies().slice(0, 3);
 
   return (
-    <div className="portfolio-scroll-shell min-h-screen">
+    <div className="journal-shell min-h-screen">
       <Navigation />
       <Hero />
       <FeaturedCaseStudies caseStudies={caseStudies} />

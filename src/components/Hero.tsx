@@ -1,103 +1,99 @@
-import { personalInfo, socialLinks } from "@/lib/data";
 import { careerPositioning } from "@/lib/career-positioning";
+import { personalInfo } from "@/lib/data";
+
+const PIPELINE_STEPS = [
+  { label: "GitHub repositories", detail: "Metadata, READMEs, docs" },
+  { label: "Evidence ingestion", detail: "Parse, normalize, index" },
+  { label: "Portfolio + Repo RAG", detail: "Static pages, grounded answers" },
+];
 
 export default function Hero() {
-  const proofPoints = [
-    { label: "Public evidence", value: "Repos, case studies, audits" },
-    { label: "Private engineering", value: "Local AI, scripts, infrastructure" },
-    { label: "Production work", value: "Recovery, performance, delivery" },
-  ];
-
   return (
-    <section
-      id="home"
-      className="relative flex min-h-screen items-center overflow-hidden bg-[#f7f4ed] pt-20 text-stone-950 dark:bg-[#101010] dark:text-white"
-    >
-      <div className="absolute inset-0 opacity-[0.18] dark:opacity-[0.14]">
-        <div
-          className="h-full w-full bg-[linear-gradient(to_right,#78716c_1px,transparent_1px),linear-gradient(to_bottom,#78716c_1px,transparent_1px)] bg-[size:44px_44px]"
-        />
-      </div>
-      <div className="relative mx-auto grid max-w-7xl grid-cols-1 gap-12 px-4 pb-16 pt-10 sm:px-6 lg:grid-cols-[1.08fr_0.92fr] lg:items-center lg:px-8 lg:pb-20">
-        <div className="space-y-8">
-          <div className="space-y-4">
-            <p className="inline-flex rounded-md border border-teal-700/20 bg-teal-700/10 px-3 py-1 text-sm font-semibold text-teal-900 dark:border-teal-300/20 dark:bg-teal-300/10 dark:text-teal-200">
-              Full-Stack & AI Engineer · Sydney, Australia
-            </p>
-            <h1 className="max-w-4xl text-balance text-5xl font-black leading-[0.96] tracking-normal text-stone-950 sm:text-6xl lg:text-7xl dark:text-white">
-              {personalInfo.name}
-            </h1>
-            <p className="max-w-3xl text-balance text-2xl font-semibold leading-tight text-stone-800 sm:text-3xl dark:text-stone-100">
-              {careerPositioning.headline}
-            </p>
-            <p className="max-w-2xl text-lg leading-8 text-stone-600 dark:text-stone-300">
-              {careerPositioning.subheadline}
-            </p>
-          </div>
-
-          <div className="space-y-6">
-            <div className="flex flex-col gap-3 sm:flex-row">
-              <a
-                href="#contact"
-                className="inline-flex items-center justify-center rounded-md bg-stone-950 px-6 py-4 text-base font-bold text-white shadow-lg shadow-stone-950/10 transition-colors duration-200 hover:bg-teal-800 dark:bg-white dark:text-stone-950 dark:hover:bg-teal-200"
-              >
-                <svg className="mr-3 h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth={2}
-                    d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"
-                  />
-                </svg>
-                Start a conversation
-              </a>
-              <a
-                href="#projects"
-                className="inline-flex items-center justify-center rounded-md border border-stone-300 bg-white/60 px-6 py-4 text-base font-bold text-stone-900 transition-colors duration-200 hover:border-stone-950 hover:bg-stone-950 hover:text-white dark:border-white/15 dark:bg-white/5 dark:text-white dark:hover:bg-white dark:hover:text-stone-950"
-              >
-                View projects
-              </a>
-              <a
-                href="/himanshu_lade_resume_v3.pdf"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center justify-center rounded-md border border-transparent px-4 py-4 text-base font-bold text-stone-700 transition-colors duration-200 hover:text-teal-800 dark:text-stone-300 dark:hover:text-teal-200"
-              >
-                Resume PDF
-              </a>
+    <section id="home" className="journal-shell px-3 pb-10 pt-20 sm:px-6 lg:px-8">
+      <div className="mx-auto max-w-[1500px] overflow-hidden rounded-[18px] border-[10px] border-[var(--journal-leather-deep)] bg-[var(--journal-leather-deep)] shadow-2xl">
+        <div className="grid min-h-[720px] grid-cols-1 lg:grid-cols-[1fr_24px_1fr]">
+          <div className="journal-page flex flex-col justify-between px-6 py-10 sm:px-10 lg:px-14 lg:py-14">
+            <div>
+              <div className="flex flex-wrap items-center justify-between gap-3 border-b border-[var(--journal-rule)] pb-4">
+                <p className="journal-kicker">Technical field journal</p>
+                <p className="font-journal-mono text-xs uppercase tracking-[0.14em] text-[var(--journal-ink-muted)]">
+                  Sydney, Australia
+                </p>
+              </div>
+              <div className="pt-10">
+                <h1 className="font-journal-serif text-6xl font-semibold leading-[0.92] tracking-tight text-[var(--journal-ink)] sm:text-7xl lg:text-[5.5rem]">
+                  {personalInfo.name}
+                </h1>
+                <p className="mt-5 font-journal-serif text-2xl font-medium text-[var(--journal-ink)] sm:text-3xl">
+                  Full-Stack Systems &amp; AI Engineer
+                </p>
+                <div className="mt-5 h-1 w-20 -rotate-1 bg-[var(--journal-verification)]" />
+                <h2 className="mt-8 font-journal-serif text-3xl font-semibold leading-tight text-[var(--journal-ink)] sm:text-4xl">
+                  Public proof. Practical systems.
+                </h2>
+                <p className="mt-5 max-w-2xl text-lg leading-8 text-[var(--journal-ink-muted)]">
+                  {careerPositioning.subheadline}
+                </p>
+              </div>
             </div>
 
-            <div className="flex flex-wrap gap-3 text-sm">
-              {Object.entries(socialLinks).map(([key, url]) => (
+            <div className="mt-10">
+              <div className="flex flex-col gap-3 sm:flex-row">
                 <a
-                  key={key}
-                  href={url}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="rounded-md border border-stone-300 bg-white/50 px-3 py-2 font-semibold capitalize text-stone-700 transition-colors duration-200 hover:border-teal-700 hover:text-teal-800 dark:border-white/10 dark:bg-white/5 dark:text-stone-300 dark:hover:border-teal-300 dark:hover:text-teal-200"
+                  href="#case-studies"
+                  className="inline-flex items-center justify-center rounded-md bg-[var(--journal-leather)] px-6 py-4 font-journal-serif text-lg font-semibold text-[#fffaf0] shadow-md transition-transform hover:-translate-y-0.5"
                 >
-                  {key}
+                  View field notes →
                 </a>
-              ))}
+                <a
+                  href="/resume"
+                  className="inline-flex items-center justify-center rounded-md border border-[var(--journal-rule-strong)] bg-[var(--journal-paper-raised)] px-6 py-4 font-semibold text-[var(--journal-ink)]"
+                >
+                  Open resume
+                </a>
+              </div>
+              <div className="mt-8 grid grid-cols-2 gap-x-5 gap-y-3 border-t border-[var(--journal-rule)] pt-5 text-sm sm:grid-cols-4">
+                {["Systems", "Data & AI", "Full-stack", "Delivery"].map((item) => (
+                  <span key={item} className="font-journal-mono font-medium text-[var(--journal-ink-muted)]">
+                    ○ {item}
+                  </span>
+                ))}
+              </div>
             </div>
           </div>
-        </div>
 
-        <div className="relative">
-          <div className="relative overflow-hidden rounded-lg border border-stone-300 bg-stone-950 p-5 shadow-2xl shadow-stone-950/20 dark:border-white/10 sm:p-6">
-            <p className="text-xs font-black uppercase tracking-[0.18em] text-teal-200">
-              Two layers, one engineering practice
-            </p>
-            <p className="mt-4 text-2xl font-black leading-tight text-white">
-              Public proof on the live site. Private experiments on localhost. Useful patterns move between both.
-            </p>
-            <div className="mt-6 grid grid-cols-1 gap-3 sm:grid-cols-3 lg:grid-cols-1 xl:grid-cols-3">
-              {proofPoints.map((point) => (
-                <div key={point.label} className="rounded-md border border-white/10 bg-white/[0.06] p-4">
-                  <p className="text-xs font-semibold uppercase tracking-[0.16em] text-teal-200">{point.label}</p>
-                  <p className="mt-2 text-sm font-bold leading-snug text-white">{point.value}</p>
+          <div className="journal-binding hidden lg:block" aria-hidden="true" />
+
+          <div className="journal-grid relative px-6 py-10 sm:px-10 lg:px-14 lg:py-14">
+            <div className="flex items-center justify-between border-b border-[var(--journal-rule)] pb-4">
+              <p className="journal-kicker">Evidence pipeline</p>
+              <p className="journal-kicker">Build-time architecture</p>
+            </div>
+
+            <div className="mt-12 grid gap-6">
+              {PIPELINE_STEPS.map((step, index) => (
+                <div key={step.label} className="relative">
+                  <div className="journal-card relative z-10 mx-auto max-w-md rounded-md p-6">
+                    <p className="font-journal-mono text-xs font-bold text-[var(--journal-verification)]">
+                      0{index + 1} / SOURCE PATH
+                    </p>
+                    <h3 className="mt-3 font-journal-serif text-2xl font-semibold text-[var(--journal-ink)]">
+                      {step.label}
+                    </h3>
+                    <p className="mt-2 text-sm leading-6 text-[var(--journal-ink-muted)]">{step.detail}</p>
+                  </div>
+                  {index < PIPELINE_STEPS.length - 1 && (
+                    <div className="mx-auto h-10 w-px border-l-2 border-dashed border-[var(--journal-ink-muted)]" aria-hidden="true" />
+                  )}
                 </div>
               ))}
+            </div>
+
+            <div className="mt-8 flex flex-wrap items-center justify-between gap-4">
+              <span className="journal-stamp inline-flex px-4 py-2 text-sm">Repository grounded</span>
+              <p className="max-w-xs -rotate-1 font-journal-serif text-sm italic leading-6 text-[var(--journal-ink-muted)]">
+                New public projects enter this pipeline automatically on the next portfolio refresh.
+              </p>
             </div>
           </div>
         </div>

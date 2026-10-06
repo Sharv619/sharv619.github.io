@@ -46,4 +46,28 @@ describe("repository RAG generation", () => {
 
     expect(documents.some((document) => document.content.includes("process.env.API_KEY"))).toBe(false);
   });
+
+  it("indexes architecture documents and exact evidence links", () => {
+    const documents = generateRepoRagDocuments([{
+      ...project,
+      architectureDocuments: [{
+        path: "docs/ARCHITECTURE.md",
+        title: "System Architecture",
+        content: "# System Architecture\n\nThe ingestion job converts repository documentation into a static portfolio index.",
+        sourceUrl: `${project.githubUrl}/blob/main/docs/ARCHITECTURE.md`,
+      }],
+      evidenceReferences: [{
+        id: "ingestion-file",
+        label: "Ingestion implementation",
+        kind: "file",
+        path: "scripts/sync.ts",
+        url: `${project.githubUrl}/blob/main/scripts/sync.ts`,
+      }],
+    }]);
+
+    expect(documents.some((document) => document.evidenceType === "architecture")).toBe(true);
+    expect(documents.some((document) => document.evidenceType === "evidence")).toBe(true);
+    expect(documents.find((document) => document.evidenceType === "evidence")?.sourceUrl)
+      .toBe(`${project.githubUrl}/blob/main/scripts/sync.ts`);
+  });
 });

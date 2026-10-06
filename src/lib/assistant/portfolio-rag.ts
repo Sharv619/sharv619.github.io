@@ -17,7 +17,7 @@ export interface PortfolioRagEvidence {
   url?: string;
   score: number;
   authority: "verified" | "repository";
-  evidenceType: "curated" | "metadata" | "readme";
+  evidenceType: "curated" | "metadata" | "readme" | "architecture" | "evidence";
   repositorySlug?: string;
 }
 
@@ -125,7 +125,7 @@ export function retrievePortfolioEvidence(message: string, limit = 6): Portfolio
   const repositoryEvidence: PortfolioRagEvidence[] = repositoryMatches.map((match) => ({
     id: `repository-${match.document.id}`,
     title: match.document.repository,
-    section: match.document.evidenceType === "readme" ? `README: ${match.document.heading}` : "GitHub Repository",
+    section: getRepositoryEvidenceSection(match.document.evidenceType, match.document.heading),
     content: match.document.content,
     url: match.document.sourceUrl,
     score: match.score,
@@ -150,4 +150,20 @@ export function retrievePortfolioEvidence(message: string, limit = 6): Portfolio
     curatedConfidence,
     repositoryConfidence,
   };
+}
+
+function getRepositoryEvidenceSection(
+  evidenceType: "metadata" | "readme" | "architecture" | "evidence",
+  heading: string
+): string {
+  if (evidenceType === "readme") {
+    return `README: ${heading}`;
+  }
+  if (evidenceType === "architecture") {
+    return `Architecture: ${heading}`;
+  }
+  if (evidenceType === "evidence") {
+    return `Verified evidence: ${heading}`;
+  }
+  return "GitHub Repository";
 }

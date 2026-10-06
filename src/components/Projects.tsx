@@ -25,11 +25,32 @@ function getProjectSlug(project: Project): string {
 export default function Projects({ projects, supplementalSkills = [] }: ProjectsProps) {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [selectedSkills, setSelectedSkills] = useState<string[]>([]);
-  const visibleProjects = selectedSkills.length === 0
-    ? projects
-    : projects.filter((project) =>
-        selectedSkills.some((skill) => projectMatchesSkill(project, skill))
-      );
+  const [searchQuery, setSearchQuery] = useState("");
+  const [entryScope, setEntryScope] = useState<"all" | "repositories" | "automations">("all");
+  const normalizedQuery = searchQuery.trim().toLowerCase();
+  const visibleProjects = projects.filter((project) => {
+    const matchesSkills = selectedSkills.length === 0
+      || selectedSkills.some((skill) => projectMatchesSkill(project, skill));
+    const matchesQuery = !normalizedQuery || [
+      project.title,
+      project.description,
+      project.status,
+      ...(project.technologies || []),
+      ...(project.topics || []),
+    ].filter(Boolean).join(" ").toLowerCase().includes(normalizedQuery);
+
+    return matchesSkills && matchesQuery;
+  });
+  const visibleAutomations = personalAutomationWorkflows.filter((workflow) => (
+    !normalizedQuery || [
+      workflow.title,
+      workflow.description,
+      workflow.detail,
+      ...workflow.technologies,
+    ].join(" ").toLowerCase().includes(normalizedQuery)
+  ));
+  const showRepositories = entryScope !== "automations";
+  const showAutomations = entryScope !== "repositories";
   const hasProjects = visibleProjects.length > 0;
   const activeIndex = hasProjects ? Math.min(currentIndex, visibleProjects.length - 1) : 0;
   const currentProject = visibleProjects[activeIndex];
@@ -56,29 +77,71 @@ export default function Projects({ projects, supplementalSkills = [] }: Projects
   };
 
   return (
-    <section id="projects" className="py-20 bg-white dark:bg-gray-900">
-      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section id="projects" className="journal-page py-20">
+      <div className="mx-auto max-w-[1500px] px-4 sm:px-6 lg:px-8">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
           viewport={{ once: true }}
-          className="text-center mb-12"
+          className="mb-10 grid gap-6 lg:grid-cols-[0.8fr_1.2fr] lg:items-end"
         >
-          <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 dark:text-white mb-4">
-            Projects, Skills & Automations
-          </h2>
-          <p className="text-lg text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">
-            One evidence system for public repositories, project-mapped skills, case-study context, and the small tools I use in daily work.
-          </p>
-          <p className="mt-4 text-sm leading-relaxed text-stone-600 dark:text-stone-300 max-w-3xl mx-auto">
-            <span className="font-bold text-stone-900 dark:text-white">How it works:</span>{" "}
-            Skills are evidence filters, not self-rated badges. Select one or more to see the repositories where they appear, then open a project for its implementation notes and status.
-          </p>
-          <div className="w-24 h-1 bg-blue-600 mx-auto mt-6" />
+          <div>
+            <p className="journal-kicker mb-3">Open source / continuously building</p>
+            <h2 className="font-journal-serif text-5xl font-semibold text-[var(--journal-ink)] sm:text-6xl">
+              Projects, Skills &amp; Automations
+            </h2>
+          </div>
+          <div className="lg:justify-self-end">
+            <p className="max-w-2xl text-lg leading-8 text-[var(--journal-ink-muted)]">
+              One evidence system for public repositories, project-mapped skills, case-study context, and the small tools I use in daily work.
+            </p>
+            <p className="mt-3 max-w-2xl text-sm leading-7 text-[var(--journal-ink-muted)]">
+              <span className="font-bold text-[var(--journal-ink)]">How it works:</span>{" "}
+              Skills are evidence filters, not self-rated badges. Select one or more to see the repositories where they appear, then open a project for its implementation notes and status.
+            </p>
+          </div>
         </motion.div>
 
-        <div className="overflow-hidden rounded-xl border border-stone-200 bg-white shadow-lg dark:border-white/10 dark:bg-gray-900">
+        <div className="mb-6 grid gap-3 rounded-md border border-[var(--journal-rule-strong)] bg-[var(--journal-paper-raised)] p-3 md:grid-cols-[1fr_auto]">
+          <label className="flex min-h-12 items-center gap-3 rounded-md border border-[var(--journal-rule)] bg-[var(--journal-paper)] px-4">
+            <span aria-hidden="true" className="font-journal-mono text-[var(--journal-ink-muted)]">⌕</span>
+            <span className="sr-only">Search projects and automations</span>
+            <input
+              type="search"
+              value={searchQuery}
+              onChange={(event) => {
+                setSearchQuery(event.target.value);
+                setCurrentIndex(0);
+              }}
+              placeholder="Search projects, technologies, or topics..."
+              className="w-full bg-transparent py-3 text-sm text-[var(--journal-ink)] placeholder:text-[var(--journal-ink-muted)] focus:outline-none"
+            />
+          </label>
+          <div className="flex flex-wrap gap-2" aria-label="Field index scope">
+            {([
+              ["all", "All entries"],
+              ["repositories", "Public repos"],
+              ["automations", "Alter Ego Builds"],
+            ] as const).map(([value, label]) => (
+              <button
+                key={value}
+                type="button"
+                onClick={() => setEntryScope(value)}
+                aria-pressed={entryScope === value}
+                className={`rounded-md border px-4 py-3 font-journal-mono text-xs font-bold transition-colors ${
+                  entryScope === value
+                    ? "border-[var(--journal-leather)] bg-[var(--journal-leather)] text-[#fffaf0]"
+                    : "border-[var(--journal-rule)] text-[var(--journal-ink-muted)] hover:border-[var(--journal-rule-strong)]"
+                }`}
+              >
+                {label}
+              </button>
+            ))}
+          </div>
+        </div>
+
+        {showRepositories && <div className="overflow-hidden rounded-md border border-[var(--journal-rule-strong)] bg-[var(--journal-paper-raised)] shadow-lg">
           <div className="grid lg:grid-cols-[minmax(0,2fr)_minmax(0,3fr)]">
             <Skills
               projects={projects}
@@ -92,26 +155,26 @@ export default function Projects({ projects, supplementalSkills = [] }: Projects
             />
 
             <div
-              className="border-t border-stone-200 bg-gray-50 p-5 dark:border-white/10 dark:bg-gray-800 sm:p-6 lg:border-l lg:border-t-0"
+              className="journal-grid border-t border-[var(--journal-rule)] p-5 sm:p-6 lg:border-l lg:border-t-0"
               aria-labelledby="repository-evidence-heading"
             >
               <div className="mb-6 flex flex-col gap-2 sm:flex-row sm:items-end sm:justify-between">
                 <div>
-                  <p className="text-xs font-bold uppercase tracking-[0.2em] text-blue-700 dark:text-blue-300">
-                    Public proof
+                  <p className="journal-kicker text-[var(--journal-verification)]">
+                    Public repository evidence
                   </p>
-                  <h3 id="repository-evidence-heading" className="mt-2 text-2xl font-bold text-stone-950 dark:text-white">
+                  <h3 id="repository-evidence-heading" className="mt-2 font-journal-serif text-3xl font-semibold text-[var(--journal-ink)]">
                     Proof-of-Work Lab
                   </h3>
                 </div>
-                <p className="max-w-xs text-sm text-stone-500 dark:text-stone-400 sm:text-right">
+                <p className="max-w-xs font-journal-mono text-xs text-[var(--journal-ink-muted)] sm:text-right">
                   Generated from public, original repositories at build time.
                 </p>
               </div>
 
               {!hasProjects && (
-                <div className="rounded-lg border border-gray-200 bg-white p-8 text-center dark:border-gray-700 dark:bg-gray-900">
-                  <p className="text-gray-600 dark:text-gray-300">
+                <div className="journal-card rounded-md p-8 text-center">
+                  <p className="text-[var(--journal-ink-muted)]">
                     {projects.length === 0
                       ? "No GitHub repositories are currently tagged for the portfolio project feed."
                       : "No projects match the selected skills."}
@@ -130,7 +193,7 @@ export default function Projects({ projects, supplementalSkills = [] }: Projects
                 <div className="flex space-x-2">
                   <button
                     onClick={prevSlide}
-                    className="inline-flex h-11 w-11 items-center justify-center rounded-full bg-blue-600 text-white transition-colors hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500"
+                    className="inline-flex h-11 w-11 items-center justify-center rounded-md bg-[var(--journal-leather)] text-[#fffaf0] transition-transform hover:-translate-y-0.5"
                     aria-label="Previous project"
                   >
                     <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -139,7 +202,7 @@ export default function Projects({ projects, supplementalSkills = [] }: Projects
                   </button>
                   <button
                     onClick={nextSlide}
-                    className="inline-flex h-11 w-11 items-center justify-center rounded-full bg-blue-600 text-white transition-colors hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500"
+                    className="inline-flex h-11 w-11 items-center justify-center rounded-md bg-[var(--journal-leather)] text-[#fffaf0] transition-transform hover:-translate-y-0.5"
                     aria-label="Next project"
                   >
                     <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -154,19 +217,19 @@ export default function Projects({ projects, supplementalSkills = [] }: Projects
                 initial={{ opacity: 0, x: 50 }}
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ duration: 0.4 }}
-                className="border border-gray-200 dark:border-gray-700 rounded-lg p-6 bg-white dark:bg-gray-900"
+                className="journal-card relative rounded-md border-l-4 border-l-[var(--journal-verification)] p-6"
               >
                 <div className="flex flex-col lg:flex-row lg:items-start lg:justify-between gap-4 mb-4">
                   <div>
                     <div className="mb-2 flex flex-wrap items-center gap-2">
-                      <h3 className="text-xl sm:text-2xl font-semibold text-gray-900 dark:text-white">
+                      <h3 className="font-journal-serif text-xl font-semibold text-[var(--journal-ink)] sm:text-2xl">
                         {currentProject.title}
                       </h3>
-                      <span className="rounded-full bg-teal-100 px-2 py-1 text-xs font-semibold text-teal-900 dark:bg-teal-300/15 dark:text-teal-100">
+                      <span className="rounded-sm border border-[var(--journal-rule)] px-2 py-1 font-journal-mono text-xs font-semibold text-[var(--journal-ink-muted)]">
                         {currentProject.status || (currentProject.archived ? "Archived repository" : "Public repository")}
                       </span>
                     </div>
-                    <p className="text-gray-600 dark:text-gray-300 leading-relaxed">
+                    <p className="leading-relaxed text-[var(--journal-ink-muted)]">
                       {currentProject.description}
                     </p>
                   </div>
@@ -174,7 +237,7 @@ export default function Projects({ projects, supplementalSkills = [] }: Projects
                     {currentProject.technologies.slice(0, 10).map((tech) => (
                       <span
                         key={tech}
-                        className="px-3 py-1 bg-blue-100 dark:bg-blue-900 text-blue-800 dark:text-blue-200 rounded-full text-sm font-medium"
+                        className="rounded-sm border border-[var(--journal-rule)] bg-[var(--journal-paper)] px-3 py-1 font-journal-mono text-xs font-medium text-[var(--journal-ink-muted)]"
                       >
                         {tech}
                       </span>
@@ -183,7 +246,7 @@ export default function Projects({ projects, supplementalSkills = [] }: Projects
                 </div>
 
                 {currentProject.technicalChallenge && (
-                  <div className="mt-6 p-4 bg-gray-50 dark:bg-gray-800 rounded-lg">
+                  <div className="mt-6 rounded-md border border-dashed border-[var(--journal-rule-strong)] bg-[var(--journal-paper)] p-4">
                     <h4 className="mb-2 text-sm font-semibold uppercase tracking-wide text-gray-700 dark:text-gray-200">
                       Technical Challenge
                     </h4>
@@ -197,7 +260,7 @@ export default function Projects({ projects, supplementalSkills = [] }: Projects
                   <Link
                     href={`/projects/${getProjectSlug(currentProject)}`}
                     aria-label={`Read project notes for ${currentProject.title}`}
-                    className="inline-flex items-center rounded-md bg-gray-900 px-4 py-2 text-sm font-semibold text-white transition-colors hover:bg-gray-700 dark:bg-white dark:text-gray-900 dark:hover:bg-gray-200"
+                    className="inline-flex items-center rounded-md bg-[var(--journal-leather)] px-4 py-2 text-sm font-semibold text-[#fffaf0] transition-transform hover:-translate-y-0.5"
                   >
                     Read {currentProject.title}
                   </Link>
@@ -206,7 +269,7 @@ export default function Projects({ projects, supplementalSkills = [] }: Projects
                     target="_blank"
                     rel="noopener noreferrer"
                     aria-label={`Open source code for ${currentProject.title}`}
-                    className="inline-flex items-center rounded-md border border-gray-300 px-4 py-2 text-sm font-semibold text-gray-800 transition-colors hover:bg-gray-50 dark:border-gray-600 dark:text-gray-200 dark:hover:bg-gray-800"
+                    className="inline-flex items-center rounded-md border border-[var(--journal-rule-strong)] px-4 py-2 text-sm font-semibold text-[var(--journal-ink)]"
                   >
                     Source Code
                   </a>
@@ -224,8 +287,8 @@ export default function Projects({ projects, supplementalSkills = [] }: Projects
                     <span
                       className={`block h-3 w-3 rounded-full transition-colors ${
                         index === activeIndex
-                          ? "bg-blue-600"
-                          : "bg-gray-300 hover:bg-blue-400 dark:bg-gray-600"
+                          ? "bg-[var(--journal-verification)]"
+                          : "bg-[var(--journal-rule-strong)] hover:bg-[var(--journal-brass)]"
                       }`}
                     />
                   </button>
@@ -239,8 +302,8 @@ export default function Projects({ projects, supplementalSkills = [] }: Projects
                     onClick={() => goToSlide(index)}
                     className={`min-h-11 rounded-md p-3 text-xs font-medium transition-colors ${
                       index === activeIndex
-                        ? "bg-blue-600 text-white"
-                        : "bg-white text-gray-600 hover:bg-blue-50 dark:bg-gray-900 dark:text-gray-300 dark:hover:bg-gray-700"
+                        ? "bg-[var(--journal-leather)] text-[#fffaf0]"
+                        : "bg-[var(--journal-paper-raised)] text-[var(--journal-ink-muted)] hover:bg-[var(--journal-paper)]"
                     }`}
                     aria-label={`Show ${project.title}`}
                   >
@@ -252,62 +315,62 @@ export default function Projects({ projects, supplementalSkills = [] }: Projects
               )}
             </div>
           </div>
-        </div>
+        </div>}
 
-        <div id="workflows" className="mt-12">
+        {showAutomations && <div id="workflows" className="mt-12 border-t border-[var(--journal-rule-strong)] pt-10">
           <div className="mb-5 max-w-3xl">
-            <p className="text-xs font-bold uppercase tracking-[0.2em] text-teal-700 dark:text-teal-300">
+            <p className="journal-kicker text-[var(--journal-verification)]">
               Alter Ego Builds
             </p>
-            <h3 className="mt-2 text-2xl font-bold text-stone-950 dark:text-white">
+            <h3 className="mt-2 font-journal-serif text-3xl font-semibold text-[var(--journal-ink)]">
               Weekend Build Sprints
             </h3>
-            <p className="mt-2 text-sm leading-relaxed text-stone-600 dark:text-stone-300">
+            <p className="mt-2 text-sm leading-relaxed text-[var(--journal-ink-muted)]">
               Small tools, daily use. Most start as a weekend build sprint: find one repeated annoyance, make the smallest reliable fix, and keep it close to the workflow it supports.
             </p>
           </div>
 
           <div className="grid gap-4 lg:grid-cols-3">
-            {personalAutomationWorkflows.map((workflow, workflowIndex) => (
+            {visibleAutomations.map((workflow, workflowIndex) => (
               <motion.article
                 key={workflow.title}
                 initial={{ opacity: 0, y: 16 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.45, delay: workflowIndex * 0.08 }}
                 viewport={{ once: true }}
-                className="flex h-full flex-col rounded-lg border border-gray-200 bg-white p-6 shadow-sm dark:border-gray-700 dark:bg-gray-900"
+                className="journal-card flex h-full flex-col rounded-md border-l-4 border-l-[var(--journal-brass)] p-6"
               >
-                <p className="text-xs font-bold uppercase tracking-[0.16em] text-teal-700 dark:text-teal-300">
+                <p className="font-journal-mono text-xs font-bold uppercase tracking-[0.16em] text-[var(--journal-verification)]">
                   {workflow.label}
                 </p>
-                <h4 className="text-lg font-bold text-stone-950 dark:text-white">
+                <h4 className="font-journal-serif text-xl font-semibold text-[var(--journal-ink)]">
                   {workflow.title}
                 </h4>
-                <p className="mt-2 text-sm leading-relaxed text-stone-600 dark:text-stone-300">
+                <p className="mt-2 text-sm leading-relaxed text-[var(--journal-ink-muted)]">
                   {workflow.description}
                 </p>
                 <ul className="mt-5 flex flex-wrap gap-2" aria-label={`${workflow.title} technologies`}>
                   {workflow.technologies.map((technology) => (
                     <li
                       key={technology}
-                      className="rounded-full bg-blue-100 px-3 py-1 text-xs font-semibold text-blue-800 dark:bg-blue-900 dark:text-blue-200"
+                      className="rounded-sm border border-[var(--journal-rule)] px-3 py-1 font-journal-mono text-xs font-semibold text-[var(--journal-ink-muted)]"
                     >
                       {technology}
                     </li>
                   ))}
                 </ul>
-                <div className="mt-5 rounded-lg bg-gray-50 p-4 dark:bg-gray-800">
-                  <p className="text-xs font-semibold uppercase tracking-wide text-gray-600 dark:text-gray-300">
+                <div className="mt-5 rounded-md border border-dashed border-[var(--journal-rule-strong)] bg-[var(--journal-paper)] p-4">
+                  <p className="font-journal-mono text-xs font-semibold uppercase tracking-wide text-[var(--journal-ink-muted)]">
                     How it works
                   </p>
-                  <p className="mt-2 text-sm font-medium leading-relaxed text-gray-800 dark:text-gray-100">
+                  <p className="mt-2 text-sm font-medium leading-relaxed text-[var(--journal-ink)]">
                     {workflow.detail}
                   </p>
                 </div>
               </motion.article>
             ))}
           </div>
-        </div>
+        </div>}
       </div>
     </section>
   );

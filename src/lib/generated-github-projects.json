@@ -13,6 +13,119 @@
       "RAG",
       "Docker"
     ],
+    "skills": [
+      {
+        "key": "python",
+        "label": "Python",
+        "category": "languages",
+        "sources": [
+          {
+            "source": "github-language",
+            "rawValue": "Python"
+          },
+          {
+            "source": "override",
+            "rawValue": "Python"
+          }
+        ],
+        "kind": "language"
+      },
+      {
+        "key": "fastapi",
+        "label": "FastAPI",
+        "category": "appStack",
+        "sources": [
+          {
+            "source": "override",
+            "rawValue": "FastAPI"
+          }
+        ],
+        "kind": "framework"
+      },
+      {
+        "key": "flutter",
+        "label": "Flutter",
+        "category": "appStack",
+        "sources": [
+          {
+            "source": "override",
+            "rawValue": "Flutter"
+          }
+        ],
+        "kind": "framework"
+      },
+      {
+        "key": "gemini",
+        "label": "Gemini",
+        "category": "aiData",
+        "sources": [
+          {
+            "source": "override",
+            "rawValue": "Gemini"
+          }
+        ],
+        "kind": "platform"
+      },
+      {
+        "key": "ollama",
+        "label": "Ollama",
+        "category": "aiData",
+        "sources": [
+          {
+            "source": "override",
+            "rawValue": "Ollama"
+          }
+        ],
+        "kind": "platform"
+      },
+      {
+        "key": "rag",
+        "label": "RAG",
+        "category": "aiData",
+        "sources": [
+          {
+            "source": "override",
+            "rawValue": "RAG"
+          }
+        ],
+        "kind": "concept"
+      },
+      {
+        "key": "docker",
+        "label": "Docker",
+        "category": "infraDataSecurity",
+        "sources": [
+          {
+            "source": "override",
+            "rawValue": "Docker"
+          }
+        ],
+        "kind": "tool"
+      },
+      {
+        "key": "sqlite",
+        "label": "SQLite",
+        "category": "infraDataSecurity",
+        "sources": [
+          {
+            "source": "override",
+            "rawValue": "SQLite"
+          }
+        ],
+        "kind": "platform"
+      },
+      {
+        "key": "gmail",
+        "label": "Gmail",
+        "category": "uncategorized",
+        "sources": [
+          {
+            "source": "override",
+            "rawValue": "Gmail"
+          }
+        ]
+      }
+    ],
     "liveUrl": "",
     "githubUrl": "https://github.com/Sharv619/backpocket-os-ai-offline",
     "slug": "backpocket-os-ai-offline",
@@ -206,7 +319,9 @@
     "featured": true,
     "priority": 100,
     "status": "Prototype / design pivot",
-    "role": "Solo builder / product architect"
+    "role": "Solo builder / product architect",
+    "evidenceReferences": [],
+    "architectureDocuments": []
   },
   {
     "title": "BackPocket OS AI",
@@ -221,6 +336,119 @@
       "Gemini",
       "RAG",
       "Docker"
+    ],
+    "skills": [
+      {
+        "key": "python",
+        "label": "Python",
+        "category": "languages",
+        "sources": [
+          {
+            "source": "github-language",
+            "rawValue": "Python"
+          },
+          {
+            "source": "override",
+            "rawValue": "Python"
+          }
+        ],
+        "kind": "language"
+      },
+      {
+        "key": "fastapi",
+        "label": "FastAPI",
+        "category": "appStack",
+        "sources": [
+          {
+            "source": "override",
+            "rawValue": "FastAPI"
+          }
+        ],
+        "kind": "framework"
+      },
+      {
+        "key": "flutter",
+        "label": "Flutter",
+        "category": "appStack",
+        "sources": [
+          {
+            "source": "override",
+            "rawValue": "Flutter"
+          }
+        ],
+        "kind": "framework"
+      },
+      {
+        "key": "gemini",
+        "label": "Gemini",
+        "category": "aiData",
+        "sources": [
+          {
+            "source": "override",
+            "rawValue": "Gemini"
+          }
+        ],
+        "kind": "platform"
+      },
+      {
+        "key": "ollama",
+        "label": "Ollama",
+        "category": "aiData",
+        "sources": [
+          {
+            "source": "override",
+            "rawValue": "Ollama"
+          }
+        ],
+        "kind": "platform"
+      },
+      {
+        "key": "rag",
+        "label": "RAG",
+        "category": "aiData",
+        "sources": [
+          {
+            "source": "override",
+            "rawValue": "RAG"
+          }
+        ],
+        "kind": "concept"
+      },
+      {
+        "key": "docker",
+        "label": "Docker",
+        "category": "infraDataSecurity",
+        "sources": [
+          {
+            "source": "override",
+            "rawValue": "Docker"
+          }
+        ],
+        "kind": "tool"
+      },
+      {
+        "key": "sqlite",
+        "label": "SQLite",
+        "category": "infraDataSecurity",
+        "sources": [
+          {
+            "source": "override",
+            "rawValue": "SQLite"
+          }
+        ],
+        "kind": "platform"
+      },
+      {
+        "key": "gmail",
+        "label": "Gmail",
+        "category": "uncategorized",
+        "sources": [
+          {
+            "source": "override",
+            "rawValue": "Gmail"
+          }
+        ]
+      }
     ],
     "liveUrl": "",
     "githubUrl": "https://github.com/Sharv619/backpocket-os-ai",
@@ -415,7 +643,9 @@
     "featured": true,
     "priority": 95,
     "status": "Prototype / design pivot",
-    "role": "Solo builder / product architect"
+    "role": "Solo builder / product architect",
+    "evidenceReferences": [],
+    "architectureDocuments": []
   },
   {
     "title": "Network Guardian AI",
@@ -441,6 +671,263 @@
       "Scikit-learn",
       "Uvicorn",
       "Docker Compose"
+    ],
+    "skills": [
+      {
+        "key": "python",
+        "label": "Python",
+        "category": "languages",
+        "sources": [
+          {
+            "source": "github-language",
+            "rawValue": "Python"
+          },
+          {
+            "source": "override",
+            "rawValue": "Python"
+          }
+        ],
+        "kind": "language"
+      },
+      {
+        "key": "css",
+        "label": "CSS",
+        "category": "languages",
+        "sources": [
+          {
+            "source": "github-language",
+            "rawValue": "CSS"
+          }
+        ],
+        "kind": "language"
+      },
+      {
+        "key": "html",
+        "label": "HTML",
+        "category": "languages",
+        "sources": [
+          {
+            "source": "github-language",
+            "rawValue": "HTML"
+          }
+        ],
+        "kind": "language"
+      },
+      {
+        "key": "javascript",
+        "label": "JavaScript",
+        "category": "languages",
+        "sources": [
+          {
+            "source": "github-language",
+            "rawValue": "JavaScript"
+          }
+        ],
+        "kind": "language"
+      },
+      {
+        "key": "mako",
+        "label": "Mako",
+        "category": "languages",
+        "sources": [
+          {
+            "source": "github-language",
+            "rawValue": "Mako"
+          }
+        ]
+      },
+      {
+        "key": "typescript",
+        "label": "TypeScript",
+        "category": "languages",
+        "sources": [
+          {
+            "source": "github-language",
+            "rawValue": "TypeScript"
+          }
+        ],
+        "kind": "language"
+      },
+      {
+        "key": "fastapi",
+        "label": "FastAPI",
+        "category": "appStack",
+        "sources": [
+          {
+            "source": "manifest",
+            "rawValue": "FastAPI"
+          },
+          {
+            "source": "override",
+            "rawValue": "FastAPI"
+          }
+        ],
+        "kind": "framework"
+      },
+      {
+        "key": "react",
+        "label": "React",
+        "category": "appStack",
+        "sources": [
+          {
+            "source": "override",
+            "rawValue": "React"
+          }
+        ],
+        "kind": "framework"
+      },
+      {
+        "key": "pydantic",
+        "label": "Pydantic",
+        "category": "appStack",
+        "sources": [
+          {
+            "source": "manifest",
+            "rawValue": "Pydantic"
+          }
+        ],
+        "kind": "library"
+      },
+      {
+        "key": "uvicorn",
+        "label": "Uvicorn",
+        "category": "appStack",
+        "sources": [
+          {
+            "source": "manifest",
+            "rawValue": "Uvicorn"
+          }
+        ],
+        "kind": "tool"
+      },
+      {
+        "key": "entropy",
+        "label": "Entropy Scoring",
+        "category": "aiData",
+        "sources": [
+          {
+            "source": "override",
+            "rawValue": "Entropy"
+          }
+        ],
+        "kind": "concept"
+      },
+      {
+        "key": "gemini",
+        "label": "Gemini",
+        "category": "aiData",
+        "sources": [
+          {
+            "source": "override",
+            "rawValue": "Gemini"
+          }
+        ],
+        "kind": "platform"
+      },
+      {
+        "key": "isolation-forest",
+        "label": "Isolation Forest",
+        "category": "aiData",
+        "sources": [
+          {
+            "source": "override",
+            "rawValue": "Isolation Forest"
+          }
+        ],
+        "kind": "concept"
+      },
+      {
+        "key": "ollama",
+        "label": "Ollama",
+        "category": "aiData",
+        "sources": [
+          {
+            "source": "override",
+            "rawValue": "Ollama"
+          }
+        ],
+        "kind": "platform"
+      },
+      {
+        "key": "numpy",
+        "label": "NumPy",
+        "category": "aiData",
+        "sources": [
+          {
+            "source": "manifest",
+            "rawValue": "NumPy"
+          }
+        ],
+        "kind": "library"
+      },
+      {
+        "key": "scikit-learn",
+        "label": "Scikit-learn",
+        "category": "aiData",
+        "sources": [
+          {
+            "source": "manifest",
+            "rawValue": "Scikit-learn"
+          }
+        ],
+        "kind": "framework"
+      },
+      {
+        "key": "adguard",
+        "label": "AdGuard",
+        "category": "infraDataSecurity",
+        "sources": [
+          {
+            "source": "override",
+            "rawValue": "AdGuard"
+          }
+        ],
+        "kind": "tool"
+      },
+      {
+        "key": "sqlite",
+        "label": "SQLite",
+        "category": "infraDataSecurity",
+        "sources": [
+          {
+            "source": "override",
+            "rawValue": "SQLite"
+          }
+        ],
+        "kind": "platform"
+      },
+      {
+        "key": "docker",
+        "label": "Docker",
+        "category": "infraDataSecurity",
+        "sources": [
+          {
+            "source": "github-language",
+            "rawValue": "Dockerfile"
+          },
+          {
+            "source": "manifest",
+            "rawValue": "Docker"
+          },
+          {
+            "source": "manifest",
+            "rawValue": "Docker Compose"
+          }
+        ],
+        "kind": "tool"
+      },
+      {
+        "key": "pytest",
+        "label": "Pytest",
+        "category": "quality",
+        "sources": [
+          {
+            "source": "manifest",
+            "rawValue": "Pytest"
+          }
+        ],
+        "kind": "tool"
+      }
     ],
     "liveUrl": "https://ng.himanshulade.com",
     "githubUrl": "https://github.com/Sharv619/network-guardian-ai",
@@ -618,7 +1105,67 @@
     "featured": true,
     "priority": 90,
     "status": "Prototype",
-    "role": "Solo builder"
+    "role": "Solo builder",
+    "evidenceReferences": [
+      {
+        "id": "architecture-docs-architecture-md",
+        "label": "Architecture",
+        "kind": "file",
+        "url": "https://github.com/Sharv619/network-guardian-ai/blob/master/docs/ARCHITECTURE.md",
+        "path": "docs/ARCHITECTURE.md",
+        "description": "Repository architecture document"
+      }
+    ],
+    "architectureDocuments": [
+      {
+        "path": "docs/ARCHITECTURE.md",
+        "title": "Architecture",
+        "content": "# Network Guardian AI - Architecture Documentation\n\nA comprehensive guide to the system architecture, evolution phases, and technical implementation.\n\n---\n\n## Table of Contents\n1. [System Overview](#system-overview)\n2. [Phase 1: Foundation](#phase-1-foundation-days-1-4)\n3. [Phase 2: Core Logic](#phase-2-core-logic-days-5-11)\n4. [Phase 3: Optimization](#phase-3-optimization-days-12-16)\n5. [Complete Architecture](#complete-architecture)\n6. [File Structure](#file-structure)\n7. [Data Flow](#data-flow)\n8. [Performance Metrics](#performance-metrics)\n\n---\n\n## System Overview\n\nNetwork Guardian AI is an automated threat intelligence pipeline that transforms network security monitoring from passive blocking to active, explainable AI-driven analysis.\n\n### Core Capabilities\n- **Real-time Threat Detection**: Monitor DNS traffic and analyze threats in real-time\n- **Multi-layered Analysis**: Shannon Entropy → Isolation Forest → Gemini AI\n- **Explainable AI**: Human-readable explanations for security decisions\n- **Persistent Audit Trail**: Google Sheets integration for compliance\n- **80% Test Coverage**: Production-ready reliability\n\n---\n\n## Phase 1: Foundation (Days 1-4)\n\n### Evolution Timeline\n\n```mermaid\ngraph LR\n    subgraph \"Phase 1: Foundation\"\n        D1[Day 1<br/>Vision] --> D2[Day 2<br/>Docker]\n        D2 --> D3[Day 3<br/>FastAPI]\n        D3 --> D4[Day 4<br/>Security]\n    end\n    \n    style D1 fill:#e1f5fe\n    style D2 fill:#e8f5e9\n    style D3 fill:#fff3e0\n    style D4 fill:#fce4ec\n```\n\n### Day 1: Problem Definition\n\n```mermaid\nmindmap\n  root((Problem))\n    Network Visibility Gap\n      Consumers blind to DNS traffic\n      No insight into background requests\n      Telemetry goes unnoticed\n    Solution Requirements\n      Real-time threat detection\n      20+ historical records\n      Human-readable intelligence\n      Multi-layered analysis\n```\n\n### Day 2: Docker Infrastructure\n\n```mermaid\ngraph TB\n    subgraph \"Docker Compose Architecture\"\n        DC[docker-compose.yml]\n        \n        subgraph \"Services\"\n            NG[Network Guardian<br/>Port 8000]\n            AG[AdGuard Home<br/>Port 53, 3000]\n        end\n        \n        subgraph \"Volumes\"\n            VW[adguard_work]\n            VC[adguard_conf]\n        end\n        \n        subgraph \"Network\"\n            NET[network-guardian-net<br/>Bridge Driver]\n        end\n        \n        DC --> NG\n        DC --> AG\n        AG --> VW\n        AG --> VC\n        NG --> NET\n        AG --> NET\n    end\n    \n    subgraph \"Health Checks\"\n        HC1[HTTP :8000/health]\n        HC2[Wget :80/spider]\n    end\n    \n    NG -.-> HC1\n    AG -.-> HC2\n    \n    style NG fill:#4caf50,color:#fff\n    style AG fill:#2196f3,color:#fff\n```\n\n### Day 3: FastAPI Backend\n\n```mermaid\ngraph TB\n    subgraph \"FastAPI Application Structure\"\n        MAIN[main.py<br/>App Entry Point]\n        \n        subgraph \"Core Features\"\n            ASYNC[Async Processing]\n            BG[Background Tasks]\n            OD[OpenAPI Docs /docs]\n        end\n        \n        subgraph \"Endpoints\"\n            HEALTH[/health]\n            ANALYZE[/analyze]\n            CHAT[/chat]\n            HISTORY[/history]\n            STATS[/api/stats/system]\n        end\n        \n        MAIN --> ASYNC\n        MAIN --> BG\n        MAIN --> OD\n        MAIN --> HEALTH\n        MAIN --> ANALYZE\n        MAIN --> CHAT\n        MAIN --> HISTORY\n        MAIN --> STATS\n    end\n    \n    style MAIN fill:#009688,color:#fff\n    style ASYNC fill:#00bcd4,color:#fff\n    style BG fill:#00bcd4,color:#fff\n```\n\n### Day 4: Security Patterns\n\n```mermaid\ngraph TB\n    subgraph \"Defense in Depth - Security Layer\"\n        subgraph \"Layer 1: Input\"\n            VAL[Input Validation]\n            SAN[Sanitization]\n        end\n        \n        subgraph \"Layer 2: Rate Limiting\"\n            RL[Rate Limiter<br/>100 req/min]\n            IP[IP Tracking]\n        end\n        \n        subgraph \"Layer 3: Resilience\"\n            CB[Circuit Breaker]\n            FALL[Fallback Logic]\n        end\n        \n        subgraph \"Layer 4: Auth\"\n            JWT[JWT Authentication]\n            API[API Keys]\n        end\n        \n        VAL --> SAN --> RL --> IP --> CB --> FALL\n        JWT --> API\n    end\n    \n    style CB fill:#f44336,color:#fff\n    style FALL fill:#ff9800,color:#fff\n```\n\n---\n\n## Phase 2: Core Logic (Days 5-11)\n\n### Evolution Timeline\n\n```mermaid\ngraph LR\n    subgraph \"Phase 2: Core Logic\"\n        D5[Day 5<br/>React UI] --> D6[Day 6<br/>Sheets]\n        D6 --> D7[Day 7<br/>AdGuard]\n        D7 --> D8[Day 8<br/>Defense]\n        D8 --> D9[Day 9<br/>Entropy]\n        D9 --> D10[Day 10<br/>ML]\n        D10 --> D11[Day 11<br/>Gemini]\n    end\n    \n    style D9 fill:#9c27b0,color:#fff\n    style D10 fill:#673ab7,color:#fff\n    style D11 fill:#3f51b5,color:#fff\n```\n\n### Three-Stage Analysis Pipeline\n\n```mermaid\nflowchart TB\n    START[DNS Query Intercepted] --> CACHE{Cache<br/>Hit?}\n    \n    CACHE -->|Yes| RESP[Return Cached<br/>Analysis]\n    CACHE -->|No| ENT{Stage 1<br/>Shannon Entropy<br/>~0.0001s}\n    \n    ENT -->|High Entropy<br/>> 3.8| FLAG1[🚨 Flag as DGA<br/>Domain Generation Algorithm]\n    ENT -->|Normal| ML{Stage 2<br/>Isolation Forest<br/>~0.001s}\n    \n    ML -->|Anomaly Detected| FLAG2[⚠️ Flag as Anomaly]\n    ML -->|Normal Behavior| AI{Stage 3<br/>Gemini AI<br/>~1.2s}\n    \n    AI --> VERDICT[📋 Final Verdict<br/>+ Human Explanation]\n    \n    FLAG1 --> LOG[Google Sheets<br/>Audit Log]\n    FLAG2 --> LOG\n    VERDICT --> LOG\n    \n    LOG --> UI[React Dashboard<br/>Real-time Update]\n    \n    style ENT fill:#9c27b0,color:#fff\n    style ML fill:#673ab7,color:#fff\n    style AI fill:#3f51b5,color:#fff\n    style FLAG1 fill:#f44336,color:#fff\n    style FLAG2 fill:#ff9800,color:#fff\n```\n\n### Day 9: Shannon Entropy Implementation\n\n```mermaid\nflowchart LR\n    subgraph \"Entropy Calculation\"\n        DOMAIN[Domain Name] --> CLEAN[Preprocess<br/>Remove TLD]\n        CLEAN --> COUNT[Character<br/>Frequency Count]\n        COUNT --> CALC[H = -Σ p·log₂p]\n        CALC --> SCORE[Entropy Score]\n    end\n    \n    subgraph \"DGA Detection\"\n        SCORE --> THRESH{Score > 3.8?}\n        THRESH -->|Yes| DGA[🚨 DGA Detected]\n        THRESH -->|No| PASS[✓ Pass to ML]\n    end\n    \n    subgraph \"Performance\"\n        P1[10,000 domains/sec]\n        P2[92% Detection Rate]\n        P3[Sub-millisecond]\n    end\n    \n    style CALC fill:#9c27b0,color:#fff\n    style DGA fill:#f44336,color:#fff\n```\n\n### Day 10: Isolation Forest ML\n\n```mermaid\nflowchart TB\n    subgraph \"Feature Extraction\"\n        F1[Domain Length]\n        F2[Subdomain Count]\n        F3[Uppercase Count]\n        F4[Lowercase Count]\n        F5[Digit Count]\n        F6[Special Chars]\n        F7[Entropy Score]\n        F8[Vowel Ratio]\n        F9[Consonant Ratio]\n        F10[Digit Ratio]\n        F11[Special Char Ratio]\n        F12[Repeated Chars]\n    end\n    \n    subgraph \"ML Model\"\n        FE[Feature Vector<br/>12 dimensions]\n        IF[Isolation Forest<br/>contamination=0.05]\n        SCORE[Anomaly Score]\n    end\n    \n    F1 & F2 & F3 & F4 & F5 & F6 & F7 & F8 & F9 & F10 & F11 & F12 --> FE\n    FE --> IF --> SCORE\n    \n    subgraph \"Results\"\n        SCORE --> DEC{Score < -0.1?}\n        DEC -->|Yes| ANOM[⚠️ Anomaly]\n        DEC -->|No| NORMAL[✓ Normal]\n    end\n    \n    style IF fill:#673ab7,color:#fff\n```\n\n### Day 11: Google Gemini Integration\n\n```mermaid\nsequenceDiagram\n    participant DP as Domain Pipeline\n    participant GA as Gemini Analyzer\n    participant GEM as Gemini 2.0 Flash\n    participant FB as Fallback\n    \n    DP->>GA: analyze_domain(domain, context)\n    GA->>GA: Build Prompt with Context\n    GA->>GEM: generate_content(prompt)\n    \n    alt Success\n        GEM-->>GA: Structured JSON Response\n        GA->>GA: Parse & Validate\n        GA-->>DP: ThreatVerdict\n    else Rate Limited (429)\n        GEM-->>GA: 429 Error\n        GA->>GA: Retry with Backoff\n        GA->>FB: Try Fallback Models\n        FB-->>DP: Fallback Response\n    else API Error\n        GEM-->>GA: Error\n        GA->>GA: Heuristic Fallback\n        GA-->>DP: Local Analysis Result\n    end\n    \n    Note over GA,FB: 90% Cost Savings via<br/>Local Pre-filtering\n```\n\n---\n\n## Phase 3: Optimization (Days 12-16)\n\n### Evolution Timeline\n\n```mermaid\ngraph LR\n    subgraph \"Phase 3: Optimization\"\n        D12[Day 12<br/>Caching] --> D13[Day 13<br/>Pipeline]\n        D13 --> D14[Day 14<br/>Errors]\n        D14 --> D15[Day 15<br/>Docker Opt]\n        D15 --> D16[Day 16<br/>UI Polish]\n    end\n    \n    style D12 fill:#00bcd4,color:#fff\n    style D13 fill:#009688,color:#fff\n    style D14 fill:#4caf50,color:#fff\n```\n\n### Caching Strategy\n\n```mermaid\nflowchart TB\n    subgraph \"Multi-Level Cache\"\n        L1[L1: Memory Cache<br/>Instant Access]\n        L2[L2: Disk Cache<br/>JSON Persistence]\n        L3[L3: Google Sheets<br/>Permanent Record]\n    end\n    \n    subgraph \"Cache Flow\"\n        REQ[Analysis Request] --> CHECK{L1 Hit?}\n        CHECK -->|Yes| RET1[Return Instant]\n        CHECK -->|No| CHECK2{L2 Hit?}\n        CHECK2 -->|Yes| LOAD[Load from Disk]\n        CHECK2 -->|No| PIPE[Run Full Pipeline]\n        LOAD --> RET2[Return Fast]\n        PIPE --> STORE[Store L1 + L2]\n        STORE --> RET3[Return Result]\n    end\n    \n    style L1 fill:#4caf50,color:#fff\n    style L2 fill:#ff9800,color:#fff\n    style L3 fill:#2196f3,color:#fff\n```\n\n### Real-Time Pipeline Architecture\n\n```mermaid\nflowchart TB\n    subgraph \"Producer\"\n        ADG[AdGuard Home]\n        POLL[30s Poller]\n    end\n    \n    subgraph \"Queue Management\"\n        QUEUE[Async Queue<br/>Max 1000 items]\n        SEM[Semaphore<br/>Max 10 concurrent]\n    end\n    \n    subgraph \"Consumer\"\n        WORKER[Worker Pool]\n        ANALYZE[Analysis Pipeline]\n    end\n    \n    subgraph \"Output\"\n        CACHE[Cache Update]\n        SHEETS[Google Sheets]\n        WS[WebSocket Broadcast]\n    end\n    \n    ADG --> POLL --> QUEUE --> SEM --> WORKER --> ANALYZE\n    ANALYZE --> CACHE\n    ANALYZE --> SHEETS\n    ANALYZE --> WS\n    \n    style QUEUE fill:#ff5722,color:#fff\n    style SEM fill:#795548,color:#fff\n```\n\n### Error Handling & Resilience\n\n```mermaid\nflowchart TB\n    subgraph \"Error Handling Layers\"\n        subgraph \"Layer 1: Retry\"\n            R1[Attempt 1]\n            R2[Attempt 2<br/>+1s delay]\n            R3[Attempt 3<br/>+5s delay]\n        end\n        \n        subgraph \"Layer 2: Fallback\"\n            F1[Gemini 2.0 Flash]\n            F2[Gemini 1.5 Pro]\n            F3[Local Heuristics]\n        end\n        \n        subgraph \"Layer 3: Circuit Breaker\"\n            CB[Open Circuit<br/>after 5 failures]\n            HALF[Half-Open<br/>after 30s]\n            CLOSE[Close Circuit<br/>on success]\n        end\n    end\n    \n    R1 -->|Fail| R2 -->|Fail| R3\n    R3 -->|Fail| F1 -->|Fail| F2 -->|Fail| F3\n    F1 & F2 -->|5 failures| CB --> HALF --> CLOSE\n    \n    style CB fill:#f44336,color:#fff\n    style F3 fill:#4caf50,color:#fff\n```\n\n---\n\n## Complete Architecture\n\n### Full System Diagram\n\n```mermaid\ngraph TB\n    subgraph \"External Services\"\n        GEMINI[Google Gemini API]\n        SHEETS[Google Sheets]\n        ADGUARD[AdGuard Home<br/>DNS Server]\n    end\n    \n    subgraph \"Network Guardian AI Container\"\n        subgraph \"Frontend :3000\"\n            REACT[React Dashboard]\n            WSCLIENT[WebSocket Client]\n        end\n        \n        subgraph \"Backend :8000\"\n            FASTAPI[FastAPI Server]\n            \n            subgraph \"Core Services\"\n                POLLER[DNS Poller<br/>30s interval]\n                WEBSOCKET[WebSocket Manager]\n            end\n            \n            subgraph \"Analysis Pipeline\"\n                CACHE{Cache Check}\n                ENTROPY[Shannon Entropy<br/>~0.0001s]\n                IFOREST[Isolation Forest<br/>~0.001s]\n                GEMINI_SVC[Gemini Analyzer<br/>~1.2s]\n                FALLBACK[Heuristic Fallback]\n            end\n            \n            subgraph \"Storage\"\n                MEMORY[In-Memory State]\n                SQLITE[SQLite Database]\n                DISK_CACHE[Disk Cache JSON]\n            end\n        end\n    end\n    \n    ADGUARD -->|Query Logs| POLLER\n    POLLER --> CACHE\n    CACHE -->|Miss| ENTROPY\n    ENTROPY --> IFOREST\n    IFOREST --> GEMINI_SVC\n    GEMINI_SVC -->|API Error| FALLBACK\n    GEMINI_SVC --> SHEETS\n    FALLBACK --> SHEETS\n    GEMINI_SVC --> MEMORY\n    FALLBACK --> MEMORY\n    MEMORY --> WEBSOCKET\n    WEBSOCKET --> WSCLIENT\n    WSCLIENT --> REACT\n    MEMORY --> SQLITE\n    CACHE --> DISK_CACHE\n    GEMINI_SVC -.->|AI Analysis| GEMINI\n    \n    style GEMINI_SVC fill:#3f51b5,color:#fff\n    style ENTROPY fill:#9c27b0,color:#fff\n    style IFOREST fill:#673ab7,color:#fff\n```\n\n---\n\n## File Structure\n\n```\nnetwork-guardian-ai/\n│\n├── 📁 backend/\n│   ├── 📄 __init__.py\n│   ├── 📄 main.py                    # FastAPI app entry point\n│   ├── 📄 requirements.txt           # Python dependencies\n│   │\n│   ├── 📁 api/                       # API Routes\n│   │   ├── 📄 router.py              # Main API endpoints\n│   │   ├── 📄 auth_router.py         # Authentication routes\n│   │   ├── 📄 alert_router.py        # Alert management\n│   │   ├── 📄 stats.py               # System statistics\n│   │   └── 📄 ws_router.py           # WebSocket routes\n│   │\n│   ├── 📁 core/                      # Core Configuration\n│   │   ├── 📄 config.py              # Settings (Pydantic)\n│   │   ├── 📄 auth.py                # JWT & API Key management\n│   │   ├── 📄 middleware.py          # Request middleware\n│   │   ├── 📄 rate_limiter.py        # Rate limiting logic\n│   │   ├── 📄 validators.py          # Input validation\n│   │   └── 📄 alerting.py            # Alert system\n│   │\n│   ├── 📁 logic/                     # Analysis Logic\n│   │   ├── 📄 ml_heuristics.py       # Shannon Entropy ⚡\n│   │   ├── 📄 anomaly_engine.py      # Isolation Forest 🤖\n│   │   ├── 📄 metadata_classifier.py # Pattern classification\n│   │   ├── 📄 vector_store.py        # Memory store\n│   │   ├── 📄 analysis_cache.py      # Caching layer\n│   │   └── 📄 feature_engineering.py # Feature extraction\n│   │\n│   ├── 📁 services/                  # External Integrations\n│   │   ├── 📄 adguard_poller.py      # DNS query polling\n│   │   ├── 📄 gemini_analyzer.py     # Gemini AI integration 🧠\n│   │   ├── 📄 sheets_logger.py       # Google Sheets logging\n│   │   └── 📄 db_logger.py           # Database logging\n│   │\n│   ├── 📁 db/                        # Database Layer\n│   │   ├── 📄 database.py            # SQLAlchemy setup\n│   │   ├── 📄 models.py              # ORM models\n│   │   ├── 📄 repository.py          # Data access\n│   │   └── 📄 backup.py              # Backup utilities\n│   │\n│   └── 📁 tests/                     # Test Suite (80% coverage)\n│       ├── 📄 test_heuristics.py     # Entropy tests\n│       ├── 📄 test_anomaly_engine.py # ML tests\n│       ├── 📄 test_gemini_integration.py # AI tests\n│       └── 📄 test_*.py              # Other tests\n│\n├── 📁 frontend/\n│   ├── 📄 App.tsx                    # Main React component\n│   ├── 📄 index.tsx                  # Entry point\n│   ├── 📄 types.ts                   # TypeScript types\n│   │\n│   ├── 📁 components/\n│   │   ├── 📄 Dashboard.tsx          # Main dashboard\n│   │   ├── 📄 SystemIntelligence.tsx # Live metrics\n│   │   ├── 📄 ThreatAnalysisPanel.tsx\n│   │   └── 📄 ChatPanel.tsx\n│   │\n│   └── 📁 services/\n│       └── 📄 geminiService.ts       # API client\n│\n├── 📁 docs/\n│   ├── 📄 ARCHITECTURE.md            # This file\n│   └── 📄 AUTHENTICATION.md          # Auth docs\n│\n├── 📁 linkedin_posts/                # Development journey\n│   └── 📄 day_*.md                   # 16-day series\n│\n├── 📄 docker-compose.yml             # Container orchestration\n├── 📄 Dockerfile                     # Multi-stage build\n├── 📄 README.md                      # Project overview\n├── 📄 AGENTS.md                      # Development guidelines\n└── 📄 .env.example                   # Environment template\n```\n\n---\n\n## Data Flow\n\n### Request Processing Flow\n\n```mermaid\nsequenceDiagram\n    participant Client\n    participant FastAPI\n    participant Cache\n    participant Entropy\n    participant ML\n    participant Gemini\n    participant Sheets\n    \n    Client->>FastAPI: GET /history\n    FastAPI->>Cache: Check cache\n    Cache-->>FastAPI: Return cached data\n    FastAPI-->>Client: JSON response\n    \n    Note over Client,Sheets: New domain analysis\n    \n    Client->>FastAPI: POST /analyze {domain}\n    FastAPI->>Cache: Check cache\n    Cache-->>FastAPI: Cache miss\n    \n    FastAPI->>Entropy: Calculate entropy\n    Entropy-->>FastAPI: Score: 4.2 (High)\n    \n    alt High entropy\n        FastAPI->>FastAPI: Flag as suspicious\n    else Normal entropy\n        FastAPI->>ML: Anomaly detection\n        ML-->>FastAPI: Score: -0.15\n        \n        alt Anomaly detected\n            FastAPI->>FastAPI: Flag as anomaly\n        else Normal\n            FastAPI->>Gemini: AI analysis\n            Gemini-->>FastAPI: ThreatVerdict\n        end\n    end\n    \n    FastAPI->>Sheets: Log result\n    FastAPI->>Cache: Store result\n    FastAPI-->>Client: Analysis result\n```\n\n---\n\n## Performance Metrics\n\n### System Performance\n\n| Metric | Value | Description |\n|--------|-------|-------------|\n",
+        "sourceUrl": "https://github.com/Sharv619/network-guardian-ai/blob/master/docs/ARCHITECTURE.md",
+        "diagrams": [
+          {
+            "id": "docs-architecture-md-1",
+            "title": "Architecture diagram 1",
+            "source": "graph LR\n    subgraph \"Phase 1: Foundation\"\n        D1[Day 1<br/>Vision] --> D2[Day 2<br/>Docker]\n        D2 --> D3[Day 3<br/>FastAPI]\n        D3 --> D4[Day 4<br/>Security]\n    end\n    \n    style D1 fill:#e1f5fe\n    style D2 fill:#e8f5e9\n    style D3 fill:#fff3e0\n    style D4 fill:#fce4ec"
+          },
+          {
+            "id": "docs-architecture-md-2",
+            "title": "Architecture diagram 2",
+            "source": "mindmap\n  root((Problem))\n    Network Visibility Gap\n      Consumers blind to DNS traffic\n      No insight into background requests\n      Telemetry goes unnoticed\n    Solution Requirements\n      Real-time threat detection\n      20+ historical records\n      Human-readable intelligence\n      Multi-layered analysis"
+          },
+          {
+            "id": "docs-architecture-md-3",
+            "title": "Architecture diagram 3",
+            "source": "graph TB\n    subgraph \"Docker Compose Architecture\"\n        DC[docker-compose.yml]\n        \n        subgraph \"Services\"\n            NG[Network Guardian<br/>Port 8000]\n            AG[AdGuard Home<br/>Port 53, 3000]\n        end\n        \n        subgraph \"Volumes\"\n            VW[adguard_work]\n            VC[adguard_conf]\n        end\n        \n        subgraph \"Network\"\n            NET[network-guardian-net<br/>Bridge Driver]\n        end\n        \n        DC --> NG\n        DC --> AG\n        AG --> VW\n        AG --> VC\n        NG --> NET\n        AG --> NET\n    end\n    \n    subgraph \"Health Checks\"\n        HC1[HTTP :8000/health]\n        HC2[Wget :80/spider]\n    end\n    \n    NG -.-> HC1\n    AG -.-> HC2\n    \n    style NG fill:#4caf50,color:#fff\n    style AG fill:#2196f3,color:#fff"
+          },
+          {
+            "id": "docs-architecture-md-4",
+            "title": "Architecture diagram 4",
+            "source": "graph TB\n    subgraph \"FastAPI Application Structure\"\n        MAIN[main.py<br/>App Entry Point]\n        \n        subgraph \"Core Features\"\n            ASYNC[Async Processing]\n            BG[Background Tasks]\n            OD[OpenAPI Docs /docs]\n        end\n        \n        subgraph \"Endpoints\"\n            HEALTH[/health]\n            ANALYZE[/analyze]\n            CHAT[/chat]\n            HISTORY[/history]\n            STATS[/api/stats/system]\n        end\n        \n        MAIN --> ASYNC\n        MAIN --> BG\n        MAIN --> OD\n        MAIN --> HEALTH\n        MAIN --> ANALYZE\n        MAIN --> CHAT\n        MAIN --> HISTORY\n        MAIN --> STATS\n    end\n    \n    style MAIN fill:#009688,color:#fff\n    style ASYNC fill:#00bcd4,color:#fff\n    style BG fill:#00bcd4,color:#fff"
+          },
+          {
+            "id": "docs-architecture-md-5",
+            "title": "Architecture diagram 5",
+            "source": "graph TB\n    subgraph \"Defense in Depth - Security Layer\"\n        subgraph \"Layer 1: Input\"\n            VAL[Input Validation]\n            SAN[Sanitization]\n        end\n        \n        subgraph \"Layer 2: Rate Limiting\"\n            RL[Rate Limiter<br/>100 req/min]\n            IP[IP Tracking]\n        end\n        \n        subgraph \"Layer 3: Resilience\"\n            CB[Circuit Breaker]\n            FALL[Fallback Logic]\n        end\n        \n        subgraph \"Layer 4: Auth\"\n            JWT[JWT Authentication]\n            API[API Keys]\n        end\n        \n        VAL --> SAN --> RL --> IP --> CB --> FALL\n        JWT --> API\n    end\n    \n    style CB fill:#f44336,color:#fff\n    style FALL fill:#ff9800,color:#fff"
+          },
+          {
+            "id": "docs-architecture-md-6",
+            "title": "Architecture diagram 6",
+            "source": "graph LR\n    subgraph \"Phase 2: Core Logic\"\n        D5[Day 5<br/>React UI] --> D6[Day 6<br/>Sheets]\n        D6 --> D7[Day 7<br/>AdGuard]\n        D7 --> D8[Day 8<br/>Defense]\n        D8 --> D9[Day 9<br/>Entropy]\n        D9 --> D10[Day 10<br/>ML]\n        D10 --> D11[Day 11<br/>Gemini]\n    end\n    \n    style D9 fill:#9c27b0,color:#fff\n    style D10 fill:#673ab7,color:#fff\n    style D11 fill:#3f51b5,color:#fff"
+          },
+          {
+            "id": "docs-architecture-md-7",
+            "title": "Architecture diagram 7",
+            "source": "flowchart TB\n    START[DNS Query Intercepted] --> CACHE{Cache<br/>Hit?}\n    \n    CACHE -->|Yes| RESP[Return Cached<br/>Analysis]\n    CACHE -->|No| ENT{Stage 1<br/>Shannon Entropy<br/>~0.0001s}\n    \n    ENT -->|High Entropy<br/>> 3.8| FLAG1[🚨 Flag as DGA<br/>Domain Generation Algorithm]\n    ENT -->|Normal| ML{Stage 2<br/>Isolation Forest<br/>~0.001s}\n    \n    ML -->|Anomaly Detected| FLAG2[⚠️ Flag as Anomaly]\n    ML -->|Normal Behavior| AI{Stage 3<br/>Gemini AI<br/>~1.2s}\n    \n    AI --> VERDICT[📋 Final Verdict<br/>+ Human Explanation]\n    \n    FLAG1 --> LOG[Google Sheets<br/>Audit Log]\n    FLAG2 --> LOG\n    VERDICT --> LOG\n    \n    LOG --> UI[React Dashboard<br/>Real-time Update]\n    \n    style ENT fill:#9c27b0,color:#fff\n    style ML fill:#673ab7,color:#fff\n    style AI fill:#3f51b5,color:#fff\n    style FLAG1 fill:#f44336,color:#fff\n    style FLAG2 fill:#ff9800,color:#fff"
+          },
+          {
+            "id": "docs-architecture-md-8",
+            "title": "Architecture diagram 8",
+            "source": "flowchart LR\n    subgraph \"Entropy Calculation\"\n        DOMAIN[Domain Name] --> CLEAN[Preprocess<br/>Remove TLD]\n        CLEAN --> COUNT[Character<br/>Frequency Count]\n        COUNT --> CALC[H = -Σ p·log₂p]\n        CALC --> SCORE[Entropy Score]\n    end\n    \n    subgraph \"DGA Detection\"\n        SCORE --> THRESH{Score > 3.8?}\n        THRESH -->|Yes| DGA[🚨 DGA Detected]\n        THRESH -->|No| PASS[✓ Pass to ML]\n    end\n    \n    subgraph \"Performance\"\n        P1[10,000 domains/sec]\n        P2[92% Detection Rate]\n        P3[Sub-millisecond]\n    end\n    \n    style CALC fill:#9c27b0,color:#fff\n    style DGA fill:#f44336,color:#fff"
+          }
+        ]
+      }
+    ]
   },
   {
     "title": "CodeFlow Commander / Nexus Gateway",
@@ -647,6 +1194,306 @@
       "Jest",
       "Docker Compose",
       "GitHub Actions"
+    ],
+    "skills": [
+      {
+        "key": "typescript",
+        "label": "TypeScript",
+        "category": "languages",
+        "sources": [
+          {
+            "source": "github-language",
+            "rawValue": "TypeScript"
+          },
+          {
+            "source": "github-topic",
+            "rawValue": "typescript"
+          },
+          {
+            "source": "manifest",
+            "rawValue": "TypeScript"
+          },
+          {
+            "source": "override",
+            "rawValue": "TypeScript"
+          }
+        ],
+        "kind": "language"
+      },
+      {
+        "key": "go-template",
+        "label": "Go Template",
+        "category": "languages",
+        "sources": [
+          {
+            "source": "github-language",
+            "rawValue": "Go Template"
+          }
+        ]
+      },
+      {
+        "key": "html",
+        "label": "HTML",
+        "category": "languages",
+        "sources": [
+          {
+            "source": "github-language",
+            "rawValue": "HTML"
+          }
+        ],
+        "kind": "language"
+      },
+      {
+        "key": "javascript",
+        "label": "JavaScript",
+        "category": "languages",
+        "sources": [
+          {
+            "source": "github-language",
+            "rawValue": "JavaScript"
+          }
+        ],
+        "kind": "language"
+      },
+      {
+        "key": "makefile",
+        "label": "Makefile",
+        "category": "languages",
+        "sources": [
+          {
+            "source": "github-language",
+            "rawValue": "Makefile"
+          }
+        ]
+      },
+      {
+        "key": "powershell",
+        "label": "PowerShell",
+        "category": "languages",
+        "sources": [
+          {
+            "source": "github-language",
+            "rawValue": "PowerShell"
+          }
+        ]
+      },
+      {
+        "key": "python",
+        "label": "Python",
+        "category": "languages",
+        "sources": [
+          {
+            "source": "github-language",
+            "rawValue": "Python"
+          }
+        ],
+        "kind": "language"
+      },
+      {
+        "key": "shell",
+        "label": "Shell",
+        "category": "languages",
+        "sources": [
+          {
+            "source": "github-language",
+            "rawValue": "Shell"
+          }
+        ],
+        "kind": "language"
+      },
+      {
+        "key": "smarty",
+        "label": "Smarty",
+        "category": "languages",
+        "sources": [
+          {
+            "source": "github-language",
+            "rawValue": "Smarty"
+          }
+        ]
+      },
+      {
+        "key": "nodejs",
+        "label": "Node.js",
+        "category": "appStack",
+        "sources": [
+          {
+            "source": "github-topic",
+            "rawValue": "nodejs"
+          },
+          {
+            "source": "override",
+            "rawValue": "Node.js"
+          }
+        ],
+        "kind": "runtime"
+      },
+      {
+        "key": "express",
+        "label": "Express.js",
+        "category": "appStack",
+        "sources": [
+          {
+            "source": "manifest",
+            "rawValue": "Express.js"
+          }
+        ],
+        "kind": "framework"
+      },
+      {
+        "key": "ai-code-review",
+        "label": "AI-Assisted Code Review",
+        "category": "aiData",
+        "sources": [
+          {
+            "source": "override",
+            "rawValue": "AI Review"
+          }
+        ],
+        "kind": "concept"
+      },
+      {
+        "key": "rag",
+        "label": "RAG",
+        "category": "aiData",
+        "sources": [
+          {
+            "source": "github-topic",
+            "rawValue": "rag"
+          }
+        ],
+        "kind": "concept"
+      },
+      {
+        "key": "security",
+        "label": "Security",
+        "category": "infraDataSecurity",
+        "sources": [
+          {
+            "source": "override",
+            "rawValue": "Security"
+          }
+        ],
+        "kind": "concept"
+      },
+      {
+        "key": "docker",
+        "label": "Docker",
+        "category": "infraDataSecurity",
+        "sources": [
+          {
+            "source": "github-language",
+            "rawValue": "Dockerfile"
+          },
+          {
+            "source": "manifest",
+            "rawValue": "Docker"
+          },
+          {
+            "source": "manifest",
+            "rawValue": "Docker Compose"
+          }
+        ],
+        "kind": "tool"
+      },
+      {
+        "key": "github-actions",
+        "label": "GitHub Actions",
+        "category": "infraDataSecurity",
+        "sources": [
+          {
+            "source": "manifest",
+            "rawValue": "GitHub Actions"
+          }
+        ],
+        "kind": "tool"
+      },
+      {
+        "key": "terraform",
+        "label": "Terraform",
+        "category": "infraDataSecurity",
+        "sources": [
+          {
+            "source": "github-language",
+            "rawValue": "HCL"
+          }
+        ],
+        "kind": "tool"
+      },
+      {
+        "key": "eslint",
+        "label": "ESLint",
+        "category": "quality",
+        "sources": [
+          {
+            "source": "manifest",
+            "rawValue": "ESLint"
+          }
+        ],
+        "kind": "tool"
+      },
+      {
+        "key": "jest",
+        "label": "Jest",
+        "category": "quality",
+        "sources": [
+          {
+            "source": "manifest",
+            "rawValue": "Jest"
+          }
+        ],
+        "kind": "tool"
+      },
+      {
+        "key": "cli",
+        "label": "CLI",
+        "category": "other",
+        "sources": [
+          {
+            "source": "override",
+            "rawValue": "CLI"
+          }
+        ],
+        "kind": "tool"
+      },
+      {
+        "key": "git-hooks",
+        "label": "Git Hooks",
+        "category": "other",
+        "sources": [
+          {
+            "source": "github-topic",
+            "rawValue": "git-hooks"
+          },
+          {
+            "source": "override",
+            "rawValue": "Git Hooks"
+          }
+        ],
+        "kind": "tool"
+      },
+      {
+        "key": "code-review",
+        "label": "Code-Review",
+        "category": "uncategorized",
+        "sources": [
+          {
+            "source": "github-topic",
+            "rawValue": "code-review"
+          }
+        ]
+      },
+      {
+        "key": "gemini-api",
+        "label": "Gemini-Api",
+        "category": "uncategorized",
+        "sources": [
+          {
+            "source": "github-topic",
+            "rawValue": "gemini-api"
+          }
+        ]
+      }
     ],
     "liveUrl": "https://www.npmjs.com/package/codeflow-hook",
     "githubUrl": "https://github.com/Sharv619/codeflow-commander---nexus-gateway",
@@ -844,12 +1691,31 @@
     ],
     "caseStudySlug": "codeflow-commander",
     "portfolioSummary": "Developer-tooling prototype for AI-assisted review orchestration across git hook workflows, CLI commands, and security-oriented feedback.",
-    "readmeMarkdown": "# Codeflow Commander / Nexus Gateway\n\nAI-powered development toolkit with CI/CD simulator, intelligent git workflow enhancement, and enterprise knowledge graph capabilities.\n\n## Overview\n\nCodeflow Commander is a monorepo containing developer tools that integrate AI into your development workflow. It provides:\n\n- **CLI Tool**: AI-powered code reviews directly in git hooks (published to npm)\n- **CI/CD Simulator**: Interactive React interface for pipeline prototyping\n- **Enterprise Knowledge Graph**: GraphQL services backed by Amazon Neptune\n- **Multi-Provider AI**: Support for Gemini, OpenAI, Claude, and custom providers\n\n## Features\n\n- 🤖 **AI Code Review**: Automated pre-commit and pre-push quality gates\n- 📊 **CI/CD Simulation**: Visual pipeline builder with live code analysis\n- 🔗 **Enterprise Knowledge Graph**: GitHub data ingestion into Neptune graph database\n- 🌐 **Multi-Provider AI**: Switch between AI providers without code changes\n- 🐳 **Docker Ready**: Full containerization with development and production profiles\n- 📦 **npm Published**: `codeflow-hook` available for global installation\n\n## Tech Stack\n\n- **Frontend**: React 19, Vite 7, TailwindCSS\n- **Backend**: Express.js, Apollo Server (GraphQL)\n- **Database**: Amazon Neptune (Graph)\n- **CLI**: Commander.js, published npm packages\n- **AI**: Google Gemini (primary), OpenAI, Claude\n- **Infrastructure**: Docker Compose, Terraform (AWS)\n\n## Quick Start\n\n### Prerequisites\n\n- Node.js >= 18.0.0\n- npm >= 9.0.0\n- Docker (optional)\n\n### Setup\n\n```bash\ngit clone https://github.com/Sharv619/codeflow-commander---nexus-gateway.git\ncd codeflow-commander---nexus-gateway\nnpm run setup\n```\n\n### Running\n\n```bash\n# Development\nnpm run dev          # Frontend (port 5173)\nnpm run server       # Backend (port 3001)\n\n# Docker\nmake docker-up       # All services (frontend: 8080, backend: 3001, GraphQL: 4000)\n```\n\n### CLI Tool\n\n```bash\nnpm install -g codeflow-hook\ncodeflow-hook config -k YOUR_AI_API_KEY\ncodeflow-hook install\n```\n\n## Architecture\n\n```\n┌─────────────┐    ┌─────────────┐    ┌─────────────┐\n│  React UI   │───▶│  Express    │───▶│  Gemini AI  │\n│  (Vite)     │    │  Backend    │    │  API        │\n└─────────────┘    └─────────────┘    └─────────────┘\n                        │\n                        ▼\n                  ┌─────────────┐\n                  │  Neptune    │\n                  │  (Graph DB) │\n                  └─────────────┘\n```\n\nSee [ARCHITECTURE.md](ARCHITECTURE.md) for detailed design decisions.\n\n## Project Structure\n\n```\ncodeflow-commander---nexus-gateway/\n├── packages/\n│   ├── simulator-ui/          # React + Vite CI/CD Simulator\n│   ├── cli-tool/              # codeflow-hook (npm package)\n│   ├── codeflow-cli/          # Co-Pilot CLI\n│   └── services/\n│       ├── query-service/     # GraphQL API\n│       ├── ingestion-service/ # GitHub → Neptune ingestion\n│       ├── cli-integration/   # CLI backend bridge\n│       └── autonomous-agent-network/\n├── server/                    # Express backend + AI proxy\n├── IaC/terraform/             # AWS infrastructure\n├── nginx/                     # Nginx configuration\n├── scripts/                   # Utility scripts\n└── tests/                     # Root-level tests\n```\n\n## Commands\n\n```bash\nnpm run dev              # Start frontend dev server\nnpm run server           # Start Express backend\nnpm run build:all        # Build all workspaces\nnpm run test:all         # Run all tests\nnpm run lint             # ESLint check\nnpm run typecheck        # TypeScript type checking\nmake docker-up           # Start Docker services\nmake ci                  # Full CI: lint + typecheck + test + build\n```\n\nSee [AGENTS.md](AGENTS.md) for detailed development commands and code style.\n\n## Contributing\n\n1. Fork and clone\n2. Create feature branch: `git checkout -b feature/your-feature`\n3. Make changes and run tests: `npm run test:all`\n4. Commit with semantic message\n5. Open PR\n\nSee [CONTRIBUTING.md](CONTRIBUTING.md) for detailed guidelines.\n\n## License\n\nMIT License\n",
+    "readmeMarkdown": "# Codeflow Commander — Nexus Gateway\n\nAI-powered development toolkit with CI/CD simulator, intelligent git workflow enhancement, and enterprise knowledge graph capabilities.\n\n## Overview\n\nCodeflow Commander is a monorepo containing developer tools that integrate AI into your development workflow. It provides:\n\n- **CLI Tool**: AI-powered code reviews directly in git hooks (published to npm)\n- **CI/CD Simulator**: Interactive React interface for pipeline prototyping\n- **Enterprise Knowledge Graph**: GraphQL services backed by Amazon Neptune\n- **Multi-Provider AI**: Support for Gemini, OpenAI, Claude, and custom providers\n\n## Features\n\n- 🤖 **AI Code Review**: Automated pre-commit and pre-push quality gates\n- 📊 **CI/CD Simulation**: Visual pipeline builder with live code analysis\n- 🔗 **Enterprise Knowledge Graph**: GitHub data ingestion into Neptune graph database\n- 🌐 **Multi-Provider AI**: Switch between AI providers without code changes\n- 🐳 **Docker Ready**: Full containerization with development and production profiles\n- 📦 **npm Published**: `codeflow-hook` available for global installation\n\n## Tech Stack\n\n- **Frontend**: React 19, Vite 7, TailwindCSS\n- **Backend**: Express.js, Apollo Server (GraphQL)\n- **Database**: Amazon Neptune (Graph)\n- **CLI**: Commander.js, published npm packages\n- **AI**: Google Gemini (primary), OpenAI, Claude\n- **Infrastructure**: Docker Compose, Terraform (AWS)\n\n## Quick Start\n\n### Prerequisites\n\n- Node.js >= 18.0.0\n- npm >= 9.0.0\n- Docker (optional)\n\n### Setup\n\n```bash\ngit clone https://github.com/Sharv619/codeflow-commander---nexus-gateway.git\ncd codeflow-commander---nexus-gateway\nnpm run setup\n```\n\n### Running\n\n```bash\n# Development\nnpm run dev          # Frontend (port 5173)\nnpm run server       # Backend (port 3001)\n\n# Docker\nmake docker-up       # All services (frontend: 8080, backend: 3001, GraphQL: 4000)\n```\n\n### CLI Tool\n\n```bash\nnpm install -g codeflow-hook\ncodeflow-hook config -k YOUR_AI_API_KEY\ncodeflow-hook install\n```\n\n## Architecture\n\n```\n┌─────────────┐    ┌─────────────┐    ┌─────────────┐\n│  React UI   │───▶│  Express    │───▶│  Gemini AI  │\n│  (Vite)     │    │  Backend    │    │  API        │\n└─────────────┘    └─────────────┘    └─────────────┘\n                        │\n                        ▼\n                  ┌─────────────┐\n                  │  Neptune    │\n                  │  (Graph DB) │\n                  └─────────────┘\n```\n\nSee [ARCHITECTURE.md](ARCHITECTURE.md) for detailed design decisions.\n\n## Project Structure\n\n```\ncodeflow-commander---nexus-gateway/\n├── packages/\n│   ├── simulator-ui/          # React + Vite CI/CD Simulator\n│   ├── cli-tool/              # codeflow-hook (npm package)\n│   ├── codeflow-cli/          # Co-Pilot CLI\n│   └── services/\n│       ├── query-service/     # GraphQL API\n│       ├── ingestion-service/ # GitHub → Neptune ingestion\n│       ├── cli-integration/   # CLI backend bridge\n│       └── autonomous-agent-network/\n├── server/                    # Express backend + AI proxy\n├── IaC/terraform/             # AWS infrastructure\n├── nginx/                     # Nginx configuration\n├── scripts/                   # Utility scripts\n└── tests/                     # Root-level tests\n```\n\n## Commands\n\n```bash\nnpm run dev              # Start frontend dev server\nnpm run server           # Start Express backend\nnpm run build:all        # Build all workspaces\nnpm run test:all         # Run all tests\nnpm run lint             # ESLint check\nnpm run typecheck        # TypeScript type checking\nmake docker-up           # Start Docker services\nmake ci                  # Full CI: lint + typecheck + test + build\n```\n\nSee [AGENTS.md](AGENTS.md) for detailed development commands and code style.\n\n## Contributing\n\n1. Fork and clone\n2. Create feature branch: `git checkout -b feature/your-feature`\n3. Make changes and run tests: `npm run test:all`\n4. Commit with semantic message\n5. Open PR\n\nSee [CONTRIBUTING.md](CONTRIBUTING.md) for detailed guidelines.\n\n## License\n\nMIT License\n",
     "readmeSourceUrl": "https://github.com/Sharv619/codeflow-commander---nexus-gateway#readme",
     "featured": true,
     "priority": 85,
     "status": "Prototype / platform exploration",
-    "role": "Solo builder"
+    "role": "Solo builder",
+    "evidenceReferences": [
+      {
+        "id": "architecture-architecture-md",
+        "label": "Architecture",
+        "kind": "file",
+        "url": "https://github.com/Sharv619/codeflow-commander---nexus-gateway/blob/main/ARCHITECTURE.md",
+        "path": "ARCHITECTURE.md",
+        "description": "Repository architecture document"
+      }
+    ],
+    "architectureDocuments": [
+      {
+        "path": "ARCHITECTURE.md",
+        "title": "Architecture",
+        "content": "# Architecture\n\n## Overview\n\nCodeflow Commander — Nexus Gateway is a monorepo containing developer tools for AI-powered code review and CI/CD pipeline simulation. The system combines a React frontend simulator, Express backend API, CLI tools for git workflow enhancement, and GraphQL services backed by Amazon Neptune for enterprise knowledge graph capabilities.\n\n## Components\n\n### 1. Simulator UI (packages/simulator-ui)\n- **Purpose**: Interactive CI/CD pipeline prototyping and visualization\n- **Tech**: React 19, Vite 7, TailwindCSS, Jest\n- **Trade-offs**: Vite chosen over CRA for faster HMR and smaller bundles\n- **Data Flow**: React UI → Express Backend → AI Services\n\n### 2. Express Backend (server/server.js)\n- **Purpose**: API server with AI proxy, ESLint analysis, and test runner\n- **Tech**: Express.js, rate limiting, CORS\n- **Trade-offs**: Standalone server (not in workspace) for simpler deployment\n- **Data Flow**: Receives code → spawns analysis → returns JSON results\n\n### 3. CLI Tools (packages/cli-tool, packages/codeflow-cli)\n- **Purpose**: Git hook integration and AI-powered code review\n- **Tech**: Commander.js, published as npm packages\n- **Trade-offs**: Direct AI API calls eliminate server dependency\n- **Data Flow**: Git diff → CLI tool → AI provider → structured feedback\n\n### 4. GraphQL Services (packages/services/query-service)\n- **Purpose**: Enterprise Knowledge Graph API\n- **Tech**: Apollo Server, GraphQL\n- **Trade-offs**: GraphQL chosen over REST for flexible data queries\n\n### 5. Ingestion Service (packages/services/ingestion-service)\n- **Purpose**: GitHub repository data ingestion into Neptune\n- **Tech**: Gremlin, Neptune client\n- **Data Flow**: GitHub API → transform → Neptune graph\n\n### 6. Infrastructure (IaC/terraform)\n- **Purpose**: AWS infrastructure provisioning\n- **Tech**: Terraform modules for VPC, EKS, Neptune\n\n## Data Flow\n\n```\nDeveloper commits code\n    ↓\nGit hook (pre-commit/pre-push)\n    ↓\nCLI tool captures diff\n    ↓\nAI analysis (Gemini/OpenAI/Claude)\n    ↓\nStructured JSON feedback\n    ↓\nPass/Fail gate → commit or reject\n```\n\n## Key Design Decisions\n\n### Decision 1: Monorepo with npm Workspaces\n- **Why**: Shared types, unified tooling, easier cross-package development\n- **Trade-off**: Larger install times, tighter coupling\n- **Solution**: Workspace boundaries with clear package.json dependencies\n\n### Decision 2: Multi-Provider AI Support\n- **Why**: Avoid vendor lock-in, allow user choice\n- **Trade-off**: More complex configuration\n- **Solution**: Abstract provider interface with config-driven selection\n\n### Decision 3: Docker Compose for Local Development\n- **Why**: Consistent environment across machines\n- **Trade-off**: Docker dependency, slower startup\n- **Solution**: Fallback to direct npm scripts for simple workflows\n\n## Performance\n\n- **Frontend**: Vite provides sub-second HMR, optimized production builds\n- **Backend**: Rate-limited AI proxy (30 req/min) prevents abuse\n- **CLI**: Direct API calls bypass server latency (~200ms overhead eliminated)\n- **GraphQL**: Query batching reduces round trips for complex data fetches\n\n## Security\n\n- API keys stored locally (`~/.codeflow-hook/config.json`), never committed\n- Rate limiting on AI proxy endpoints (30 req/min)\n- Input validation with 20KB payload limits\n- Non-root container execution\n- CORS configured for specific origins\n- Content Security Policy via Nginx\n\n## Future Improvements\n\n- Plugin system for custom analysis rules\n- Team analytics dashboard for code review trends\n- Offline mode with cached AI analysis\n- WebSocket support for real-time analysis streaming\n- Integration with additional CI/CD platforms (GitHub Actions, GitLab CI)\n",
+        "sourceUrl": "https://github.com/Sharv619/codeflow-commander---nexus-gateway/blob/main/ARCHITECTURE.md",
+        "diagrams": []
+      }
+    ]
   },
   {
     "title": "Pilly / MediMate Voice",
@@ -864,6 +1730,91 @@
       "Gemini",
       "Voice",
       "Responsible AI"
+    ],
+    "skills": [
+      {
+        "key": "html",
+        "label": "HTML",
+        "category": "languages",
+        "sources": [
+          {
+            "source": "github-language",
+            "rawValue": "HTML"
+          },
+          {
+            "source": "override",
+            "rawValue": "HTML"
+          }
+        ],
+        "kind": "language"
+      },
+      {
+        "key": "typescript",
+        "label": "TypeScript",
+        "category": "languages",
+        "sources": [
+          {
+            "source": "override",
+            "rawValue": "TypeScript"
+          }
+        ],
+        "kind": "language"
+      },
+      {
+        "key": "tailwind",
+        "label": "Tailwind CSS",
+        "category": "appStack",
+        "sources": [
+          {
+            "source": "override",
+            "rawValue": "Tailwind CSS"
+          }
+        ],
+        "kind": "framework"
+      },
+      {
+        "key": "gemini",
+        "label": "Gemini",
+        "category": "aiData",
+        "sources": [
+          {
+            "source": "override",
+            "rawValue": "Gemini"
+          }
+        ],
+        "kind": "platform"
+      },
+      {
+        "key": "firebase",
+        "label": "Firebase",
+        "category": "infraDataSecurity",
+        "sources": [
+          {
+            "source": "override",
+            "rawValue": "Firebase"
+          },
+          {
+            "source": "override",
+            "rawValue": "Firestore"
+          },
+          {
+            "source": "override",
+            "rawValue": "Cloud Functions"
+          }
+        ],
+        "kind": "platform"
+      },
+      {
+        "key": "responsible-ai",
+        "label": "Responsible AI",
+        "category": "uncategorized",
+        "sources": [
+          {
+            "source": "override",
+            "rawValue": "Responsible AI"
+          }
+        ]
+      }
     ],
     "liveUrl": "https://medimate-voice-demo.web.app",
     "githubUrl": "https://github.com/Sharv619/Build_wit_AI",
@@ -1059,7 +2010,9 @@
     "featured": true,
     "priority": 80,
     "status": "Hackathon prototype",
-    "role": "Team contributor"
+    "role": "Team contributor",
+    "evidenceReferences": [],
+    "architectureDocuments": []
   },
   {
     "title": "codeflow-hook",
@@ -1072,6 +2025,68 @@
       "Git Hooks",
       "AI Code Review",
       "Developer Tools"
+    ],
+    "skills": [
+      {
+        "key": "typescript",
+        "label": "TypeScript",
+        "category": "languages",
+        "sources": [
+          {
+            "source": "override",
+            "rawValue": "TypeScript"
+          }
+        ],
+        "kind": "language"
+      },
+      {
+        "key": "nodejs",
+        "label": "Node.js",
+        "category": "appStack",
+        "sources": [
+          {
+            "source": "override",
+            "rawValue": "Node.js"
+          }
+        ],
+        "kind": "runtime"
+      },
+      {
+        "key": "ai-code-review",
+        "label": "AI-Assisted Code Review",
+        "category": "aiData",
+        "sources": [
+          {
+            "source": "override",
+            "rawValue": "AI Code Review"
+          }
+        ],
+        "kind": "concept"
+      },
+      {
+        "key": "cli",
+        "label": "CLI",
+        "category": "other",
+        "sources": [
+          {
+            "source": "override",
+            "rawValue": "CLI"
+          }
+        ],
+        "kind": "tool"
+      },
+      {
+        "key": "git-hooks",
+        "label": "Git Hooks",
+        "category": "other",
+        "sources": [
+          {
+            "source": "override",
+            "rawValue": "Git Hooks"
+          }
+        ],
+        "kind": "tool"
+      }
     ],
     "liveUrl": "",
     "githubUrl": "https://github.com/Sharv619/codeflow-hook",
@@ -1267,220 +2282,9 @@
     "featured": true,
     "priority": 75,
     "status": "npm package / source verification pending",
-    "role": "Solo builder"
-  },
-  {
-    "title": "Sharv619 Github Io",
-    "description": "My personal portfolio, built with the Next.js 16 App Router. Features an integrated, context-aware AI chatbot powered by the Google Gemini API to answer questions about my career and projects.",
-    "technologies": [
-      "TypeScript",
-      "JavaScript",
-      "CSS",
-      "Python",
-      "AI Chatbot",
-      "Framer Motion",
-      "Google AI SDK",
-      "Next.js",
-      "Portfolio",
-      "React",
-      "Tailwind CSS",
-      "Gemini API",
-      "MCP",
-      "AI SDK",
-      "Zod",
-      "Testing Library",
-      "React Testing Library",
-      "ESLint",
-      "Vitest",
-      "Vite",
-      "GitHub Actions",
-      "GitHub Pages",
-      "AWS"
-    ],
-    "liveUrl": "https://sharv619.github.io",
-    "githubUrl": "https://github.com/Sharv619/sharv619.github.io",
-    "slug": "sharv619-github-io",
-    "architectureDetails": "My personal portfolio, built with the Next.js 16 App Router. Features an integrated, context-aware AI chatbot powered by the Google Gemini API to answer questions about my career and projects.\n\nGitHub Signals:\n• Primary language: TypeScript\n• Technologies: TypeScript, JavaScript, CSS, Python, AI Chatbot, Framer Motion, Google AI SDK, Next.js, Portfolio, React, Tailwind CSS, Gemini API, MCP, AI SDK, Zod, Testing Library, React Testing Library, ESLint, Vitest, Vite, GitHub Actions, GitHub Pages, AWS\n• Topics: AI Chatbot, Framer Motion, Google AI SDK, Next.js, Portfolio, React, Tailwind CSS, TypeScript\n• Last updated: 2026-09-27T14:45:42Z\n• Stars: 0\n• Forks: 0\n• Status: Active",
-    "archived": false,
-    "updatedAt": "2026-09-27T14:45:46Z",
-    "pushedAt": "2026-09-27T14:45:42Z",
-    "stars": 0,
-    "forks": 0,
-    "topics": [
-      "chatbotai",
-      "framer-motion",
-      "google-ai-sdk",
-      "nextjs",
-      "portfolio",
-      "react",
-      "tailwind-css",
-      "typescript"
-    ],
-    "primaryLanguage": "TypeScript",
-    "languageBreakdown": {
-      "TypeScript": 415958,
-      "JavaScript": 43154,
-      "CSS": 2181,
-      "Python": 1833
-    },
-    "evidenceProfile": {
-      "slug": "sharv619-github-io",
-      "repoName": "sharv619.github.io",
-      "lastUpdated": "2026-09-27T14:45:42Z",
-      "languages": [
-        "TypeScript",
-        "JavaScript",
-        "CSS",
-        "Python"
-      ],
-      "topics": [
-        "chatbotai",
-        "framer-motion",
-        "google-ai-sdk",
-        "nextjs",
-        "portfolio",
-        "react",
-        "tailwind-css",
-        "typescript"
-      ],
-      "signals": [
-        {
-          "key": "readme",
-          "label": "README present",
-          "present": true,
-          "source": "readme",
-          "confidence": "high"
-        },
-        {
-          "key": "tests",
-          "label": "Tests present",
-          "present": true,
-          "source": "repo-files",
-          "confidence": "high"
-        },
-        {
-          "key": "docker",
-          "label": "Docker present",
-          "present": false,
-          "source": "unknown",
-          "confidence": "low"
-        },
-        {
-          "key": "github-actions",
-          "label": "GitHub Actions present",
-          "present": true,
-          "source": "repo-files",
-          "confidence": "high"
-        },
-        {
-          "key": "package-manifest",
-          "label": "Package manifest present",
-          "present": true,
-          "source": "repo-files",
-          "confidence": "high"
-        },
-        {
-          "key": "python-dependencies",
-          "label": "Python dependency file present",
-          "present": false,
-          "source": "unknown",
-          "confidence": "low"
-        },
-        {
-          "key": "live-demo",
-          "label": "Live demo link present",
-          "present": true,
-          "source": "github",
-          "confidence": "high"
-        },
-        {
-          "key": "screenshots",
-          "label": "Screenshots present",
-          "present": false,
-          "source": "unknown",
-          "confidence": "low"
-        },
-        {
-          "key": "docs-folder",
-          "label": "Docs folder present",
-          "present": true,
-          "source": "readme",
-          "confidence": "medium"
-        },
-        {
-          "key": "api-docs",
-          "label": "API docs present",
-          "present": true,
-          "source": "readme",
-          "confidence": "medium"
-        },
-        {
-          "key": "security-safety-docs",
-          "label": "Security/safety docs present",
-          "present": true,
-          "source": "readme",
-          "confidence": "medium"
-        },
-        {
-          "key": "npm-package",
-          "label": "npm package evidence present",
-          "present": false,
-          "source": "unknown",
-          "confidence": "low"
-        },
-        {
-          "key": "deployment-config",
-          "label": "Deployment config present",
-          "present": true,
-          "source": "repo-files",
-          "confidence": "high"
-        },
-        {
-          "key": "license",
-          "label": "License present",
-          "present": false,
-          "source": "unknown",
-          "confidence": "low"
-        },
-        {
-          "key": "recent-update",
-          "label": "Recent update present",
-          "present": true,
-          "source": "github",
-          "confidence": "high"
-        }
-      ],
-      "maturityScore": 90,
-      "maturity": "mvp",
-      "missingEvidence": [
-        "Docker present",
-        "Python dependency file present",
-        "Screenshots present",
-        "npm package evidence present",
-        "License present"
-      ],
-      "claimWarnings": []
-    },
-    "evidenceRecommendations": [
-      {
-        "projectSlug": "sharv619-github-io",
-        "recommendationType": "add-screenshots",
-        "severity": "medium",
-        "recommendation": "Add screenshots or a short demo GIF to make the project easier to evaluate.",
-        "reason": "Visual proof helps reviewers understand what was actually built.",
-        "draftOnly": true
-      },
-      {
-        "projectSlug": "sharv619-github-io",
-        "recommendationType": "promote-to-featured",
-        "severity": "low",
-        "recommendation": "Consider human review for a featured project slot.",
-        "reason": "The evidence score is strong, but promotion still requires manual judgment.",
-        "draftOnly": true
-      }
-    ],
-    "readmeMarkdown": "### Hi there, I'm Himanshu\n**Software Engineer focused on backend systems, production reliability, cloud deployment, and AI-assisted workflow automation.**\n\nI'm a software engineer in Sydney building practical systems around real workflows: production recovery, CI/CD, cloud deployment, internal tools, and AI-assisted automation. My strongest work sits at the intersection of shipping features, debugging production issues, and making systems easier to operate.\n\nRecent experience includes ransomware recovery, automation, and marketplace engineering at Ask Jay Services, where I restored 100% of production data with zero loss, reduced page load time from 25 seconds to 3 seconds, and established CI/CD and production deployment practices.\n\nI also build prototypes and open-source tools to explore responsible AI workflows, developer tooling, and small-business automation. I label these clearly as MVPs, prototypes, or experiments when they are not production systems.\n\n### Hosting and optional AWS backend\n\nThe public website is hosted with **GitHub Pages + Cloudflare**, not AWS, and uses `https://www.himanshulade.com/` as its canonical domain. AWS is used only for the optional chatbot/Synthetic RAG backend. See [`AWS_CURRENT_ARCHITECTURE.md`](./AWS_CURRENT_ARCHITECTURE.md) for the current resource inventory, recovery checklist, and intentionally unused services.\n\n---\n### 🛠️ Technologies & Tools I Use\n\n**Languages & Frameworks:**\n<p>\n  <a href=\"https://developer.mozilla.org/en-US/docs/Web/JavaScript\" target=\"_blank\"><img src=\"https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black\" alt=\"JavaScript\"/></a>\n  <a href=\"https://react.dev/\" target=\"_blank\"><img src=\"https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB\" alt=\"React\"/></a>\n  <a href=\"https://nextjs.org/\" target=\"_blank\"><img src=\"https://img.shields.io/badge/Next.js-000000?style=for-the-badge&logo=nextdotjs&logoColor=white\" alt=\"Next.js\"/></a>\n  <a href=\"https://nodejs.org/\" target=\"_blank\"><img src=\"https://img.shields.io/badge/Node.js-339933?style=for-the-badge&logo=nodedotjs&logoColor=white\" alt=\"Node.js\"/></a>\n  <a href=\"https://flutter.dev/\" target=\"_blank\"><img src=\"https://img.shields.io/badge/Flutter-02569B?style=for-the-badge&logo=flutter&logoColor=white\" alt=\"Flutter\"/></a>\n  <a href=\"https://dart.dev/\" target=\"_blank\"><img src=\"https://img.shields.io/badge/Dart-0175C2?style=for-the-badge&logo=dart&logoColor=white\" alt=\"Dart\"/></a>\n  <a href=\"https://tailwindcss.com/\" target=\"_blank\"><img src=\"https://img.shields.io/badge/Tailwind_CSS-38B2AC?style=for-the-badge&logo=tailwind-css&logoColor=white\" alt=\"Tailwind CSS\"/></a>\n</p>\n\n**Cloud & DevOps:**\n<p>\n  <a href=\"https://aws.amazon.com/ec2/\" target=\"_blank\"><img src=\"https://img.shields.io/badge/AWS_EC2-FF9900?style=for-the-badge&logo=amazon-aws&logoColor=white\" alt=\"AWS EC2\"/></a>\n  <a href=\"https://www.docker.com/\" target=\"_blank\"><img src=\"https://img.shields.io/badge/Docker-2496ED?style=for-the-badge&logo=docker&logoColor=white\" alt=\"Docker\"/></a>\n  <a href=\"https://github.com/features/actions\" target=\"_blank\"><img src=\"https://img.shields.io/badge/GitHub_Actions-2088FF?style=for-the-badge&logo=github-actions&logoColor=white\" alt=\"GitHub Actions\"/></a>\n  <a href=\"https://pm2.keymetrics.io/\" target=\"_blank\"><img src=\"https://img.shields.io/badge/PM2-2B037A?style=for-the-badge&logo=pm2&logoColor=white\" alt=\"PM2\"/></a>\n  <a href=\"https://www.nginx.com/\" target=\"_blank\"><img src=\"https://img.shields.io/badge/Nginx-009639?style=for-the-badge&logo=nginx&logoColor=white\" alt=\"Nginx\"/></a>\n  <a href=\"https://git-scm.com/\" target=\"_blank\"><img src=\"https://img.shields.io/badge/Git-F05032?style=for-the-badge&logo=git&logoColor=white\" alt=\"Git\"/></a>\n</p>\n\n**Databases & Storage:**\n<p>\n  <a href=\"https://www.mongodb.com/cloud/atlas\" target=\"_blank\"><img src=\"https://img.shields.io/badge/MongoDB_Atlas-4EA94B?style=for-the-badge&logo=mongodb&logoColor=white\" alt=\"MongoDB Atlas\"/></a>\n  <a href=\"https://aws.amazon.com/s3/\" target=\"_blank\"><img src=\"https://img.shields.io/badge/AWS_S3-569A31?style=for-the-badge&logo=amazon-s3&logoColor=white\" alt=\"AWS S3\"/></a>\n</p>\n\n**Specialties & Methodologies:**\n<p>\n  <a href=\"https://owasp.org/www-project-top-ten/\" target=\"_blank\"><img src=\"https://img.shields.io/badge/Security_&_OWASP-DA2A2A?style=for-the-badge&logo=owasp&logoColor=white\" alt=\"Security & OWASP\"/></a>\n  <a href=\"https://en.wikipedia.org/wiki/Site_Reliability_Engineering\" target=\"_blank\"><img src=\"https://img.shields.io/badge/Incident_Response-FF7800?style=for-the-badge\" alt=\"Incident Response\"/></a>\n  <a href=\"https://en.wikipedia.org/wiki/Search_engine_optimization\" target=\"_blank\"><img src=\"https://img.shields.io/badge/Technical_SEO-4285F4?style=for-the-badge\" alt=\"Technical SEO\"/></a>\n  <a href=\"https://www.atlassian.com/agile\" target=\"_blank\"><img src=\"https://img.shields.io/badge/Agile-0052CC?style=for-the-badge\" alt=\"Agile\"/></a>\n</p>\n\n---\n### Recent Experience Highlights\n\n- **Ask Jay Services:** Software Engineer, May-Oct 2025. Recovered a production system from ransomware with 100% data restored and zero loss, reduced page load time from 25 seconds to 3 seconds, built a shift-booking bot and three-sided Flutter marketplace, and established CI/CD practices.\n- **Australian Computer Society:** Web Developer Intern, Sep 2023-Feb 2024. Improved MERN frontend performance by 33% for a production application serving 200+ active users, remediated 15+ OWASP Top 10 vulnerabilities, and built internal tooling.\n\n---\n\n### 💻 Projects\n\nThe portfolio separates flagship case studies from the broader GitHub project feed:\n\n- **Production Recovery & Performance Rebuild** - NDA-safe case study for production recovery, cloud hardening, CI/CD, and performance work.\n- **Pilly / MediMate Voice** - Firebase-backed responsible-AI medication support MVP. Not a medical product; no diagnosis, dosage advice, or real patient data.\n- **codeflow-hook** - Open-source AI-assisted code review CLI published as an npm package with early usage traction.\n\nThe website project feed is automated from public, non-fork GitHub repositories owned by `Sharv619`. By default it uses `PORTFOLIO_GITHUB_TOPIC=all`; set this to a specific topic such as `portfolio` if the feed should be curated. Keep repo descriptions/READMEs useful, and the next GitHub Pages rebuild will refresh the portfolio pages. The deploy workflow also runs on a daily schedule so project metadata updates without manually editing `src/lib/data.ts`. Set the GitHub Actions variable `NEXT_PUBLIC_ASSISTANT_API` to the RAG Lambda endpoint when the deployed chatbot should use the live optional AWS assistant instead of demo mode.\n\nAutomation details for repo push refreshes and certifications live in `docs/automation.md`.\n\n\n---\n\n### 📫 Let's Connect\n\nI'm always open to connecting with fellow builders and exploring new opportunities:\n\n<p>\n  <a href=\"https://www.linkedin.com/in/himanshu-lade/\" target=\"_blank\">\n    <img src=\"https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white\" alt=\"LinkedIn\"/>\n  </a>\n  <a href=\"mailto:himanshulade@hotmail.com\">\n    <img src=\"https://img.shields.io/badge/Email-0078D4?style=for-the-badge&logo=microsoft-outlook&logoColor=white\" alt=\"Email\"/>\n  </a>\n</p>\n",
-    "readmeSourceUrl": "https://github.com/Sharv619/sharv619.github.io#readme"
+    "role": "Solo builder",
+    "evidenceReferences": [],
+    "architectureDocuments": []
   },
   {
     "title": "Nudgeai",
@@ -1493,21 +2297,236 @@
       "Shell",
       "TypeScript",
       "Docker",
-      "Axios"
+      "Axios",
+      "FastAPI",
+      "Uvicorn",
+      "Mistral AI",
+      "FAISS",
+      "Sentence Transformers",
+      "ChromaDB",
+      "Pydantic",
+      "PyTorch",
+      "Docker Compose",
+      "GitHub Actions"
+    ],
+    "skills": [
+      {
+        "key": "css",
+        "label": "CSS",
+        "category": "languages",
+        "sources": [
+          {
+            "source": "github-language",
+            "rawValue": "CSS"
+          }
+        ],
+        "kind": "language"
+      },
+      {
+        "key": "html",
+        "label": "HTML",
+        "category": "languages",
+        "sources": [
+          {
+            "source": "github-language",
+            "rawValue": "HTML"
+          }
+        ],
+        "kind": "language"
+      },
+      {
+        "key": "javascript",
+        "label": "JavaScript",
+        "category": "languages",
+        "sources": [
+          {
+            "source": "github-language",
+            "rawValue": "JavaScript"
+          }
+        ],
+        "kind": "language"
+      },
+      {
+        "key": "python",
+        "label": "Python",
+        "category": "languages",
+        "sources": [
+          {
+            "source": "github-language",
+            "rawValue": "Python"
+          }
+        ],
+        "kind": "language"
+      },
+      {
+        "key": "shell",
+        "label": "Shell",
+        "category": "languages",
+        "sources": [
+          {
+            "source": "github-language",
+            "rawValue": "Shell"
+          }
+        ],
+        "kind": "language"
+      },
+      {
+        "key": "typescript",
+        "label": "TypeScript",
+        "category": "languages",
+        "sources": [
+          {
+            "source": "github-language",
+            "rawValue": "TypeScript"
+          }
+        ],
+        "kind": "language"
+      },
+      {
+        "key": "axios",
+        "label": "Axios",
+        "category": "appStack",
+        "sources": [
+          {
+            "source": "manifest",
+            "rawValue": "Axios"
+          }
+        ],
+        "kind": "library"
+      },
+      {
+        "key": "fastapi",
+        "label": "FastAPI",
+        "category": "appStack",
+        "sources": [
+          {
+            "source": "manifest",
+            "rawValue": "FastAPI"
+          }
+        ],
+        "kind": "framework"
+      },
+      {
+        "key": "pydantic",
+        "label": "Pydantic",
+        "category": "appStack",
+        "sources": [
+          {
+            "source": "manifest",
+            "rawValue": "Pydantic"
+          }
+        ],
+        "kind": "library"
+      },
+      {
+        "key": "uvicorn",
+        "label": "Uvicorn",
+        "category": "appStack",
+        "sources": [
+          {
+            "source": "manifest",
+            "rawValue": "Uvicorn"
+          }
+        ],
+        "kind": "tool"
+      },
+      {
+        "key": "embeddings",
+        "label": "Embeddings",
+        "category": "aiData",
+        "sources": [
+          {
+            "source": "manifest",
+            "rawValue": "Sentence Transformers"
+          }
+        ],
+        "kind": "concept"
+      },
+      {
+        "key": "pytorch",
+        "label": "PyTorch",
+        "category": "aiData",
+        "sources": [
+          {
+            "source": "manifest",
+            "rawValue": "PyTorch"
+          }
+        ],
+        "kind": "framework"
+      },
+      {
+        "key": "vector-db",
+        "label": "Vector Database",
+        "category": "aiData",
+        "sources": [
+          {
+            "source": "manifest",
+            "rawValue": "FAISS"
+          },
+          {
+            "source": "manifest",
+            "rawValue": "ChromaDB"
+          }
+        ],
+        "kind": "tool"
+      },
+      {
+        "key": "docker",
+        "label": "Docker",
+        "category": "infraDataSecurity",
+        "sources": [
+          {
+            "source": "github-language",
+            "rawValue": "Dockerfile"
+          },
+          {
+            "source": "manifest",
+            "rawValue": "Docker"
+          },
+          {
+            "source": "manifest",
+            "rawValue": "Docker Compose"
+          }
+        ],
+        "kind": "tool"
+      },
+      {
+        "key": "github-actions",
+        "label": "GitHub Actions",
+        "category": "infraDataSecurity",
+        "sources": [
+          {
+            "source": "manifest",
+            "rawValue": "GitHub Actions"
+          }
+        ],
+        "kind": "tool"
+      },
+      {
+        "key": "mistral-ai",
+        "label": "Mistral AI",
+        "category": "uncategorized",
+        "sources": [
+          {
+            "source": "manifest",
+            "rawValue": "Mistral AI"
+          }
+        ]
+      }
     ],
     "liveUrl": "",
     "githubUrl": "https://github.com/Sharv619/Nudgeai",
     "slug": "nudgeai",
-    "architectureDetails": "NudgeAI is a local prototype/MVP foundation for turning scattered obligations into clear manual nudges that can be created, tracked, completed, snoozed, dismissed, and reopened.\n\nGitHub Signals:\n• Primary language: Python\n• Technologies: Python, JavaScript, HTML, CSS, Shell, TypeScript, Docker, Axios\n• Topics: Not specified\n• Last updated: 2026-09-27T07:19:58Z\n• Stars: 1\n• Forks: 0\n• Status: Active",
+    "architectureDetails": "NudgeAI is a local prototype/MVP foundation for turning scattered obligations into clear manual nudges that can be created, tracked, completed, snoozed, dismissed, and reopened.\n\nGitHub Signals:\n• Primary language: Python\n• Technologies: Python, JavaScript, HTML, CSS, Shell, TypeScript, Docker, Axios, FastAPI, Uvicorn, Mistral AI, FAISS, Sentence Transformers, ChromaDB, Pydantic, PyTorch, Docker Compose, GitHub Actions\n• Topics: Not specified\n• Last updated: 2026-10-06T00:36:50Z\n• Stars: 1\n• Forks: 0\n• Status: Active",
     "archived": false,
-    "updatedAt": "2026-09-27T07:20:02Z",
-    "pushedAt": "2026-09-27T07:19:58Z",
+    "updatedAt": "2026-10-04T07:30:01Z",
+    "pushedAt": "2026-10-06T00:36:50Z",
     "stars": 1,
     "forks": 0,
     "topics": [],
     "primaryLanguage": "Python",
     "languageBreakdown": {
-      "Python": 804302,
+      "Python": 805241,
       "JavaScript": 170387,
       "HTML": 56763,
       "CSS": 10446,
@@ -1518,7 +2537,7 @@
     "evidenceProfile": {
       "slug": "nudgeai",
       "repoName": "Nudgeai",
-      "lastUpdated": "2026-09-27T07:19:58Z",
+      "lastUpdated": "2026-10-06T00:36:50Z",
       "languages": [
         "Python",
         "JavaScript",
@@ -1548,15 +2567,15 @@
           "key": "docker",
           "label": "Docker present",
           "present": true,
-          "source": "unknown",
-          "confidence": "low"
+          "source": "repo-files",
+          "confidence": "high"
         },
         {
           "key": "github-actions",
           "label": "GitHub Actions present",
-          "present": false,
-          "source": "unknown",
-          "confidence": "low"
+          "present": true,
+          "source": "repo-files",
+          "confidence": "high"
         },
         {
           "key": "package-manifest",
@@ -1568,9 +2587,9 @@
         {
           "key": "python-dependencies",
           "label": "Python dependency file present",
-          "present": false,
-          "source": "unknown",
-          "confidence": "low"
+          "present": true,
+          "source": "repo-files",
+          "confidence": "high"
         },
         {
           "key": "live-demo",
@@ -1617,9 +2636,9 @@
         {
           "key": "deployment-config",
           "label": "Deployment config present",
-          "present": false,
-          "source": "unknown",
-          "confidence": "low"
+          "present": true,
+          "source": "repo-files",
+          "confidence": "high"
         },
         {
           "key": "license",
@@ -1636,14 +2655,11 @@
           "confidence": "high"
         }
       ],
-      "maturityScore": 71,
+      "maturityScore": 93,
       "maturity": "mvp",
       "missingEvidence": [
-        "GitHub Actions present",
-        "Python dependency file present",
         "Live demo link present",
         "Screenshots present",
-        "Deployment config present",
         "License present"
       ],
       "claimWarnings": [
@@ -1677,13 +2693,360 @@
       }
     ],
     "readmeMarkdown": "# NudgeAI\n\n## What It Is\n\nNudgeAI is a local prototype/MVP foundation for turning scattered obligations into clear manual nudges that can be created, tracked, completed, snoozed, dismissed, and reopened.\n\n## Current Status\n\nLocal prototype / MVP foundation. Not production-ready.\n\nThe canonical MVP backend is `simple_api_server.py` on port `8001`. Existing MCP, RAG, Google data, and bridge files remain in the repository as experimental/legacy prototype work, but they are not required for the core manual nudge loop.\n\n## Core MVP\n\n- Manual nudge creation\n- Nudge dashboard\n- Pending, due today, overdue, snoozed, completed, and dismissed sections\n- Complete, snooze, dismiss, reopen, and delete actions\n- JSON-file persistence for local demo use\n- Local-first personal context rules\n- Demo/manual Gym Opportunity rule\n- Location and Calendar source status cards\n- No AI keys required for the core MVP\n\n## Tech Stack\n\n- Frontend: React, Vite, Tailwind CSS\n- Backend: FastAPI\n- Persistence: local JSON file at `data/nudges.json`\n- Experimental/future: MCP, RAG, Hugging Face, Google APIs, WhiteCircle\n\n## Start Here / Local Integration\n\nFor the step-by-step local setup, run commands, API integration surface, and Hermes/MCP guidance, use:\n\n```txt\ndocs/LOCAL_INTEGRATION_RUNBOOK.md\n```\n\nRecommended path:\n\n1. Run the canonical backend: `python simple_api_server.py`.\n2. Run the frontend from `frontend/`: `npm run dev`.\n3. Open `http://localhost:3000`.\n4. Integrate other local tools through the FastAPI endpoints, not by directly editing `data/*.json`.\n5. Treat MCP, RAG, Google sync, and bridge files as experimental until the manual nudge loop is verified.\n\n## Local Setup\n\nInstall Python dependencies:\n\n```bash\npip install -r requirements.txt\n```\n\nInstall frontend dependencies:\n\n```bash\ncd frontend\nnpm install\n```\n\n## Environment Variables\n\nThe manual nudge MVP does not require AI or Google credentials.\n\nOptional variables:\n\n- `NUDGE_STORE_PATH`: override local nudge store path. Defaults to `data/nudges.json`.\n- `PLACES_STORE_PATH`: override local places store path. Defaults to `data/places.json`.\n- `CONTEXT_RULES_STORE_PATH`: override local context rules store path. Defaults to `data/context_rules.json`.\n- `RULE_STATE_STORE_PATH`: override local context rule state store path. Defaults to `data/rule_state.json`.\n- `CURRENT_LOCATION_STORE_PATH`: override local current location store path. Defaults to `data/current_location.json`.\n- `CALENDAR_AVAILABILITY_STORE_PATH`: override local free/busy abstraction store path. Defaults to `data/calendar_availability.json`.\n- `VITE_USE_MOCK_DATA` / `REACT_APP_USE_MOCK_DATA`: optional frontend mock-data flags. The core dashboard should use the real local API by default.\n- `HF_token`, `HF_MODEL`, `WHITECIRCLE_API_KEY`: used only by experimental AI/MCP/RAG paths.\n- `GOOGLE_CLIENT_ID`, `GOOGLE_CLIENT_SECRET`, `GOOGLE_REDIRECT_URI`, `GOOGLE_TOKEN`, `GOOGLE_APPLICATION_CREDENTIALS`: used only by experimental local Google sync/OAuth helpers.\n- `MCP_SERVER_HOST`, `MCP_SERVER_PORT`: used only by experimental Docker/MCP bridge paths.\n- `ELEVENLABS_API_KEY`, `GOOGLE_TTS_API_KEY`: used only by optional demo asset generation scripts.\n- `LOG_LEVEL`: optional logging control.\n\nGoogle OAuth token files such as `token.json` and `drive_token.json` must not be committed.\n\n## Secret Handling\n\nNever commit:\n\n- `api/env.local`\n- `.env`\n- `*.env.local`\n- `token.json`\n- `drive_token.json`\n- OAuth credentials\n- Google API tokens\n- generated files containing real personal Calendar or Drive data\n\nCheck whether sensitive files are tracked:\n\n```bash\ngit ls-files api/env.local\ngit ls-files token.json\ngit ls-files \"*.env.local\"\ngit ls-files calendar_events.json\ngit ls-files data_sync/calendar_sync.json\ngit ls-files data_sync/drive_sync.json\ngit ls-files data_sync/sync_summary.json\n```\n\nHistorical verification cleanup finding: `api/env.local`, `calendar_events.json`, `data_sync/calendar_sync.json`, `data_sync/drive_sync.json`, and `data_sync/sync_summary.json` were identified as private artifacts that must stay out of git tracking.\n\nRemove tracked private artifacts without deleting local files:\n\n```bash\ngit rm --cached api/env.local\ngit rm --cached calendar_events.json\ngit rm --cached data_sync/calendar_sync.json\ngit rm --cached data_sync/drive_sync.json\ngit rm --cached data_sync/sync_summary.json\n```\n\nIf these files are already untracked, do not re-add them. Rotate any exposed keys/tokens if they were ever committed or pushed. Removing a file from the latest commit is not enough if the secret exists in git history. If any real Google OAuth tokens, API keys, or provider credentials were ever committed, treat them as compromised.\n\nRun the local privacy guard before committing:\n\n```bash\npython scripts/privacy_check.py\npython scripts/nudgeai_health_check.py\n```\n\nThe script fails if private Google sync outputs, OAuth tokens, or local env files are tracked by git. It warns, but does not fail, when those files merely exist locally and are ignored.\n\n## Run Commands\n\nBackend:\n\n```bash\npython simple_api_server.py\n```\n\nFrontend:\n\n```bash\ncd frontend\nnpm run dev\n```\n\nOpen the frontend at `http://localhost:3000`. The Vite dev server proxies `/api` to `http://localhost:8001`.\n\n## Test / Verification Commands\n\nBackend syntax:\n\n```bash\npython -m py_compile simple_api_server.py mcp_api_bridge.py\n```\n\nBackend store tests:\n\n```bash\npython -m unittest discover -s tests -p \"test_nudge*.py\"\n```\n\nFrontend build:\n\n```bash\ncd frontend\nnpm ci\nnpm run build\n```\n\n## Nudge API\n\n- `GET /api/nudges`\n- `GET /api/nudges/summary`\n- `POST /api/nudges`\n- `PATCH /api/nudges/{id}`\n- `DELETE /api/nudges/{id}`\n\nSupported filters on `GET /api/nudges`:\n\n- `status`\n- `priority`\n- `dueToday`\n- `overdue`\n\n`DELETE` hard-deletes a local MVP nudge.\n\nWhen a nudge is marked `completed`, `completedAt` is set. When a completed nudge is reopened or moved to another status, `completedAt` is cleared.\n\n## Current Local Endpoints\n\nCore nudge MVP:\n\n- `GET /health`\n- `GET /api/nudges`\n- `POST /api/nudges`\n- `PATCH /api/nudges/{id}`\n- `DELETE /api/nudges/{id}`\n\nExperimental Google data endpoints:\n\n- `GET /api/mcp/tools/query_calendar`\n- `GET /api/mcp/tools/query_drive`\n\nThe Google endpoints are experimental, local-only, and not production integrations.\n\n## Experimental Google Data Sync\n\nNudgeAI includes experimental local Google Calendar and Google Drive sync utilities.\n\nThese utilities can fetch real local user data and serve it through local API endpoints:\n\n- `GET /api/mcp/tools/query_calendar`\n- `GET /api/mcp/tools/query_drive`\n\nThis is not part of the production MVP path yet. The core MVP remains the manual nudge lifecycle.\n\nThe Google sync path is local-only and should be treated as sensitive because it may include:\n\n- calendar event titles\n- event times\n- meeting metadata\n- Drive document names\n- Drive document metadata\n- file IDs or references\n- generated sync summaries\n\nDo not commit real synced Google data unless it has been explicitly sanitized.\n\n## Sanitized Demo Fixtures\n\nPublic demos should use fake fixture data from `data/demo/`, not private synced Google files.\n\nCurrent sanitized fixtures:\n\n- `data/demo/calendar_events.demo.json`\n- `data/demo/drive_documents.demo.json`\n- `data/demo/nudges.demo.json`\n- `data/demo/places.demo.json`\n- `data/demo/context_rules.demo.json`\n- `data/demo/current_location.demo.json`\n- `data/demo/calendar_availability.demo.json`\n\nThese files use fake IDs, fake names, and demo-only metadata so they can support portfolio walkthroughs without exposing private Calendar or Drive data.\n\n## Personal Context Rules\n\nNudgeAI is pivoting toward private context-aware personal nudges, not booking SaaS. The first local rule is `Gym Opportunity`.\n\nCurrent local/demo loop:\n\n```text\nmanual/demo location + manual calendar free minutes + local rule\n-> evaluate context\n-> create a normal nudge when the rule matches\n```\n\nThe dashboard supports Location and Calendar source status cards, demo gym/far-away location controls, and a `Check Context Rules Now` action. This is not live background location, production Google Calendar, Health/Fit, Gmail, AI extraction, auth, or booking.\n\n## Planning Docs\n\n- [Deep Audit](docs/NUDGEAI_DEEP_AUDIT.md)\n- [PRD](docs/NUDGEAI_PRD.md)\n- [Next Phase PRD](docs/NUDGEAI_NEXT_PHASE_PRD.md)\n- [Focus Chain](docs/NUDGEAI_FOCUS_CHAIN.md)\n- [Engineering TODO](docs/NUDGEAI_ENGINEERING_TODO.md)\n- [Roadmap](docs/NUDGEAI_ROADMAP.md)\n- [Architecture](docs/NUDGEAI_ARCHITECTURE.md)\n- [Demo Plan](docs/NUDGEAI_DEMO_PLAN.md)\n- [App Walkthrough](docs/NUDGEAI_APP_WALKTHROUGH.md)\n- [Next Implementation Plan](docs/NUDGEAI_NEXT_IMPLEMENTATION_PLAN.md)\n- [Local Automation](docs/NUDGEAI_LOCAL_AUTOMATION.md)\n- [Security and Privacy Notes](docs/NUDGEAI_SECURITY_PRIVACY_NOTES.md)\n\n## Next Phase Planning\n\nThe next phase focuses on personal context rules: places, manual/demo location, calendar free/busy abstraction, and normal nudge creation when a rule matches. Booking remains optional later work. The manual nudge MVP remains the core product path.\n\n- [Next Phase PRD](docs/NUDGEAI_NEXT_PHASE_PRD.md)\n- [Booking and Availability Plan](docs/NUDGEAI_BOOKING_AVAILABILITY_PLAN.md)\n- [Context Sources Plan](docs/NUDGEAI_CONTEXT_SOURCES_PLAN.md)\n- [Data Source Limitations](docs/NUDGEAI_DATA_SOURCE_LIMITATIONS.md)\n\n## Known Limitations\n\n- No production auth yet.\n- No real notifications yet.\n- AI extraction is not part of the core MVP yet.\n- Google/MCP/RAG integrations are experimental/future paths.\n- Local JSON persistence is suitable for demo/local development only.\n- CORS is permissive for local development and must be locked down before deployment.\n",
-    "readmeSourceUrl": "https://github.com/Sharv619/Nudgeai#readme"
+    "readmeSourceUrl": "https://github.com/Sharv619/Nudgeai#readme",
+    "evidenceReferences": [],
+    "architectureDocuments": []
+  },
+  {
+    "title": "Sharv619 Github Io",
+    "description": "My personal portfolio, built with the Next.js 16 App Router. Features an integrated, context-aware AI chatbot powered by the Google Gemini API to answer questions about my career and projects.",
+    "technologies": [
+      "TypeScript",
+      "JavaScript",
+      "CSS",
+      "Python",
+      "AI Chatbot",
+      "Framer Motion",
+      "Google AI SDK",
+      "Next.js",
+      "Portfolio",
+      "React",
+      "Tailwind CSS"
+    ],
+    "skills": [
+      {
+        "key": "css",
+        "label": "CSS",
+        "category": "languages",
+        "sources": [
+          {
+            "source": "github-language",
+            "rawValue": "CSS"
+          }
+        ],
+        "kind": "language"
+      },
+      {
+        "key": "javascript",
+        "label": "JavaScript",
+        "category": "languages",
+        "sources": [
+          {
+            "source": "github-language",
+            "rawValue": "JavaScript"
+          }
+        ],
+        "kind": "language"
+      },
+      {
+        "key": "python",
+        "label": "Python",
+        "category": "languages",
+        "sources": [
+          {
+            "source": "github-language",
+            "rawValue": "Python"
+          }
+        ],
+        "kind": "language"
+      },
+      {
+        "key": "typescript",
+        "label": "TypeScript",
+        "category": "languages",
+        "sources": [
+          {
+            "source": "github-language",
+            "rawValue": "TypeScript"
+          },
+          {
+            "source": "github-topic",
+            "rawValue": "typescript"
+          }
+        ],
+        "kind": "language"
+      },
+      {
+        "key": "framer-motion",
+        "label": "Framer Motion",
+        "category": "appStack",
+        "sources": [
+          {
+            "source": "github-topic",
+            "rawValue": "framer-motion"
+          }
+        ],
+        "kind": "library"
+      },
+      {
+        "key": "nextjs",
+        "label": "Next.js",
+        "category": "appStack",
+        "sources": [
+          {
+            "source": "github-topic",
+            "rawValue": "nextjs"
+          }
+        ],
+        "kind": "framework"
+      },
+      {
+        "key": "react",
+        "label": "React",
+        "category": "appStack",
+        "sources": [
+          {
+            "source": "github-topic",
+            "rawValue": "react"
+          }
+        ],
+        "kind": "framework"
+      },
+      {
+        "key": "tailwind",
+        "label": "Tailwind CSS",
+        "category": "appStack",
+        "sources": [
+          {
+            "source": "github-topic",
+            "rawValue": "tailwind-css"
+          }
+        ],
+        "kind": "framework"
+      },
+      {
+        "key": "chatbotai",
+        "label": "Chatbotai",
+        "category": "uncategorized",
+        "sources": [
+          {
+            "source": "github-topic",
+            "rawValue": "chatbotai"
+          }
+        ]
+      },
+      {
+        "key": "google-ai-sdk",
+        "label": "Google-Ai-Sdk",
+        "category": "uncategorized",
+        "sources": [
+          {
+            "source": "github-topic",
+            "rawValue": "google-ai-sdk"
+          }
+        ]
+      }
+    ],
+    "liveUrl": "https://sharv619.github.io",
+    "githubUrl": "https://github.com/Sharv619/sharv619.github.io",
+    "slug": "sharv619-github-io",
+    "architectureDetails": "My personal portfolio, built with the Next.js 16 App Router. Features an integrated, context-aware AI chatbot powered by the Google Gemini API to answer questions about my career and projects.\n\nGitHub Signals:\n• Primary language: TypeScript\n• Technologies: TypeScript, JavaScript, CSS, Python, AI Chatbot, Framer Motion, Google AI SDK, Next.js, Portfolio, React, Tailwind CSS\n• Topics: AI Chatbot, Framer Motion, Google AI SDK, Next.js, Portfolio, React, Tailwind CSS, TypeScript\n• Last updated: 2026-10-05T10:22:20Z\n• Stars: 0\n• Forks: 0\n• Status: Active",
+    "archived": false,
+    "updatedAt": "2026-10-02T03:06:50Z",
+    "pushedAt": "2026-10-05T10:22:20Z",
+    "stars": 0,
+    "forks": 0,
+    "topics": [
+      "chatbotai",
+      "framer-motion",
+      "google-ai-sdk",
+      "nextjs",
+      "portfolio",
+      "react",
+      "tailwind-css",
+      "typescript"
+    ],
+    "primaryLanguage": "TypeScript",
+    "languageBreakdown": {
+      "TypeScript": 488956,
+      "JavaScript": 43351,
+      "CSS": 2181,
+      "Python": 1833
+    },
+    "evidenceProfile": {
+      "slug": "sharv619-github-io",
+      "repoName": "sharv619.github.io",
+      "lastUpdated": "2026-10-05T10:22:20Z",
+      "languages": [
+        "TypeScript",
+        "JavaScript",
+        "CSS",
+        "Python"
+      ],
+      "topics": [
+        "chatbotai",
+        "framer-motion",
+        "google-ai-sdk",
+        "nextjs",
+        "portfolio",
+        "react",
+        "tailwind-css",
+        "typescript"
+      ],
+      "signals": [
+        {
+          "key": "readme",
+          "label": "README present",
+          "present": true,
+          "source": "readme",
+          "confidence": "high"
+        },
+        {
+          "key": "tests",
+          "label": "Tests present",
+          "present": false,
+          "source": "unknown",
+          "confidence": "low"
+        },
+        {
+          "key": "docker",
+          "label": "Docker present",
+          "present": false,
+          "source": "unknown",
+          "confidence": "low"
+        },
+        {
+          "key": "github-actions",
+          "label": "GitHub Actions present",
+          "present": false,
+          "source": "unknown",
+          "confidence": "low"
+        },
+        {
+          "key": "package-manifest",
+          "label": "Package manifest present",
+          "present": false,
+          "source": "unknown",
+          "confidence": "low"
+        },
+        {
+          "key": "python-dependencies",
+          "label": "Python dependency file present",
+          "present": false,
+          "source": "unknown",
+          "confidence": "low"
+        },
+        {
+          "key": "live-demo",
+          "label": "Live demo link present",
+          "present": true,
+          "source": "github",
+          "confidence": "high"
+        },
+        {
+          "key": "screenshots",
+          "label": "Screenshots present",
+          "present": false,
+          "source": "unknown",
+          "confidence": "low"
+        },
+        {
+          "key": "docs-folder",
+          "label": "Docs folder present",
+          "present": true,
+          "source": "readme",
+          "confidence": "medium"
+        },
+        {
+          "key": "api-docs",
+          "label": "API docs present",
+          "present": true,
+          "source": "readme",
+          "confidence": "medium"
+        },
+        {
+          "key": "security-safety-docs",
+          "label": "Security/safety docs present",
+          "present": true,
+          "source": "readme",
+          "confidence": "medium"
+        },
+        {
+          "key": "npm-package",
+          "label": "npm package evidence present",
+          "present": false,
+          "source": "unknown",
+          "confidence": "low"
+        },
+        {
+          "key": "deployment-config",
+          "label": "Deployment config present",
+          "present": false,
+          "source": "unknown",
+          "confidence": "low"
+        },
+        {
+          "key": "license",
+          "label": "License present",
+          "present": false,
+          "source": "unknown",
+          "confidence": "low"
+        },
+        {
+          "key": "recent-update",
+          "label": "Recent update present",
+          "present": true,
+          "source": "github",
+          "confidence": "high"
+        }
+      ],
+      "maturityScore": 53,
+      "maturity": "prototype",
+      "missingEvidence": [
+        "Tests present",
+        "Docker present",
+        "GitHub Actions present",
+        "Package manifest present",
+        "Python dependency file present",
+        "Screenshots present",
+        "npm package evidence present",
+        "Deployment config present",
+        "License present"
+      ],
+      "claimWarnings": []
+    },
+    "evidenceRecommendations": [
+      {
+        "projectSlug": "sharv619-github-io",
+        "recommendationType": "add-tests",
+        "severity": "medium",
+        "recommendation": "Add or document tests that validate the main project workflow.",
+        "reason": "Tests increase project credibility and reduce the risk of overclaiming maturity.",
+        "draftOnly": true
+      },
+      {
+        "projectSlug": "sharv619-github-io",
+        "recommendationType": "add-screenshots",
+        "severity": "medium",
+        "recommendation": "Add screenshots or a short demo GIF to make the project easier to evaluate.",
+        "reason": "Visual proof helps reviewers understand what was actually built.",
+        "draftOnly": true
+      }
+    ],
+    "readmeMarkdown": "### Hi there, I'm Himanshu\n**Software Engineer focused on backend systems, production reliability, cloud deployment, and AI-assisted workflow automation.**\n\nI'm a software engineer in Sydney building practical systems around real workflows: production recovery, CI/CD, cloud deployment, internal tools, and AI-assisted automation. My strongest work sits at the intersection of shipping features, debugging production issues, and making systems easier to operate.\n\nRecent experience includes ransomware recovery, automation, and marketplace engineering at Ask Jay Services, where I restored 100% of production data with zero loss, reduced page load time from 25 seconds to 3 seconds, and established CI/CD and production deployment practices.\n\nI also build prototypes and open-source tools to explore responsible AI workflows, developer tooling, and small-business automation. I label these clearly as MVPs, prototypes, or experiments when they are not production systems.\n\n### Hosting and optional AWS backend\n\nThe public website is hosted with **GitHub Pages + Cloudflare**, not AWS, and uses `https://www.himanshulade.com/` as its canonical domain. AWS is used only for the optional chatbot/Synthetic RAG backend. See [`AWS_CURRENT_ARCHITECTURE.md`](./AWS_CURRENT_ARCHITECTURE.md) for the current resource inventory, recovery checklist, and intentionally unused services.\n\n---\n### 🛠️ Technologies & Tools I Use\n\n**Languages & Frameworks:**\n<p>\n  <a href=\"https://developer.mozilla.org/en-US/docs/Web/JavaScript\" target=\"_blank\"><img src=\"https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black\" alt=\"JavaScript\"/></a>\n  <a href=\"https://react.dev/\" target=\"_blank\"><img src=\"https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB\" alt=\"React\"/></a>\n  <a href=\"https://nextjs.org/\" target=\"_blank\"><img src=\"https://img.shields.io/badge/Next.js-000000?style=for-the-badge&logo=nextdotjs&logoColor=white\" alt=\"Next.js\"/></a>\n  <a href=\"https://nodejs.org/\" target=\"_blank\"><img src=\"https://img.shields.io/badge/Node.js-339933?style=for-the-badge&logo=nodedotjs&logoColor=white\" alt=\"Node.js\"/></a>\n  <a href=\"https://flutter.dev/\" target=\"_blank\"><img src=\"https://img.shields.io/badge/Flutter-02569B?style=for-the-badge&logo=flutter&logoColor=white\" alt=\"Flutter\"/></a>\n  <a href=\"https://dart.dev/\" target=\"_blank\"><img src=\"https://img.shields.io/badge/Dart-0175C2?style=for-the-badge&logo=dart&logoColor=white\" alt=\"Dart\"/></a>\n  <a href=\"https://tailwindcss.com/\" target=\"_blank\"><img src=\"https://img.shields.io/badge/Tailwind_CSS-38B2AC?style=for-the-badge&logo=tailwind-css&logoColor=white\" alt=\"Tailwind CSS\"/></a>\n</p>\n\n**Cloud & DevOps:**\n<p>\n  <a href=\"https://aws.amazon.com/ec2/\" target=\"_blank\"><img src=\"https://img.shields.io/badge/AWS_EC2-FF9900?style=for-the-badge&logo=amazon-aws&logoColor=white\" alt=\"AWS EC2\"/></a>\n  <a href=\"https://www.docker.com/\" target=\"_blank\"><img src=\"https://img.shields.io/badge/Docker-2496ED?style=for-the-badge&logo=docker&logoColor=white\" alt=\"Docker\"/></a>\n  <a href=\"https://github.com/features/actions\" target=\"_blank\"><img src=\"https://img.shields.io/badge/GitHub_Actions-2088FF?style=for-the-badge&logo=github-actions&logoColor=white\" alt=\"GitHub Actions\"/></a>\n  <a href=\"https://pm2.keymetrics.io/\" target=\"_blank\"><img src=\"https://img.shields.io/badge/PM2-2B037A?style=for-the-badge&logo=pm2&logoColor=white\" alt=\"PM2\"/></a>\n  <a href=\"https://www.nginx.com/\" target=\"_blank\"><img src=\"https://img.shields.io/badge/Nginx-009639?style=for-the-badge&logo=nginx&logoColor=white\" alt=\"Nginx\"/></a>\n  <a href=\"https://git-scm.com/\" target=\"_blank\"><img src=\"https://img.shields.io/badge/Git-F05032?style=for-the-badge&logo=git&logoColor=white\" alt=\"Git\"/></a>\n</p>\n\n**Databases & Storage:**\n<p>\n  <a href=\"https://www.mongodb.com/cloud/atlas\" target=\"_blank\"><img src=\"https://img.shields.io/badge/MongoDB_Atlas-4EA94B?style=for-the-badge&logo=mongodb&logoColor=white\" alt=\"MongoDB Atlas\"/></a>\n  <a href=\"https://aws.amazon.com/s3/\" target=\"_blank\"><img src=\"https://img.shields.io/badge/AWS_S3-569A31?style=for-the-badge&logo=amazon-s3&logoColor=white\" alt=\"AWS S3\"/></a>\n</p>\n\n**Specialties & Methodologies:**\n<p>\n  <a href=\"https://owasp.org/www-project-top-ten/\" target=\"_blank\"><img src=\"https://img.shields.io/badge/Security_&_OWASP-DA2A2A?style=for-the-badge&logo=owasp&logoColor=white\" alt=\"Security & OWASP\"/></a>\n  <a href=\"https://en.wikipedia.org/wiki/Site_Reliability_Engineering\" target=\"_blank\"><img src=\"https://img.shields.io/badge/Incident_Response-FF7800?style=for-the-badge\" alt=\"Incident Response\"/></a>\n  <a href=\"https://en.wikipedia.org/wiki/Search_engine_optimization\" target=\"_blank\"><img src=\"https://img.shields.io/badge/Technical_SEO-4285F4?style=for-the-badge\" alt=\"Technical SEO\"/></a>\n  <a href=\"https://www.atlassian.com/agile\" target=\"_blank\"><img src=\"https://img.shields.io/badge/Agile-0052CC?style=for-the-badge\" alt=\"Agile\"/></a>\n</p>\n\n---\n### Recent Experience Highlights\n\n- **Ask Jay Services:** Software Engineer, May-Oct 2025. Recovered a production system from ransomware with 100% data restored and zero loss, reduced page load time from 25 seconds to 3 seconds, built a shift-booking bot and three-sided Flutter marketplace, and established CI/CD practices.\n- **Australian Computer Society:** Web Developer Intern, Sep 2023-Feb 2024. Improved MERN frontend performance by 33% for a production application serving 200+ active users, remediated 15+ OWASP Top 10 vulnerabilities, and built internal tooling.\n\n---\n\n### 💻 Projects\n\nThe portfolio separates flagship case studies from the broader GitHub project feed:\n\n- **Production Recovery & Performance Rebuild** - NDA-safe case study for production recovery, cloud hardening, CI/CD, and performance work.\n- **Pilly / MediMate Voice** - Firebase-backed responsible-AI medication support MVP. Not a medical product; no diagnosis, dosage advice, or real patient data.\n- **codeflow-hook** - Open-source AI-assisted code review CLI published as an npm package with early usage traction.\n\nThe website project feed is automated from public, non-fork GitHub repositories owned by `Sharv619`. By default it uses `PORTFOLIO_GITHUB_TOPIC=all`; set this to a specific topic such as `portfolio` if the feed should be curated. Keep repo descriptions/READMEs useful, and the next GitHub Pages rebuild will refresh the portfolio pages. The deploy workflow also runs on a daily schedule so project metadata updates without manually editing `src/lib/data.ts`. Set the GitHub Actions variable `NEXT_PUBLIC_ASSISTANT_API` to the RAG Lambda endpoint when the deployed chatbot should use the live optional AWS assistant instead of demo mode.\n\nAutomation details for repo push refreshes and certifications live in `docs/automation.md`.\n\n\n---\n\n### 📫 Let's Connect\n\nI'm always open to connecting with fellow builders and exploring new opportunities:\n\n<p>\n  <a href=\"https://www.linkedin.com/in/himanshu-lade/\" target=\"_blank\">\n    <img src=\"https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white\" alt=\"LinkedIn\"/>\n  </a>\n  <a href=\"mailto:himanshulade@hotmail.com\">\n    <img src=\"https://img.shields.io/badge/Email-0078D4?style=for-the-badge&logo=microsoft-outlook&logoColor=white\" alt=\"Email\"/>\n  </a>\n</p>\n",
+    "readmeSourceUrl": "https://github.com/Sharv619/sharv619.github.io#readme",
+    "evidenceReferences": [],
+    "architectureDocuments": []
   },
   {
     "title": "Stock Price Alerts",
     "description": "Stock Price Alerts is a public GitHub project by Himanshu Lade.",
     "technologies": [
       "Python"
+    ],
+    "skills": [
+      {
+        "key": "python",
+        "label": "Python",
+        "category": "languages",
+        "sources": [
+          {
+            "source": "github-language",
+            "rawValue": "Python"
+          }
+        ],
+        "kind": "language"
+      }
     ],
     "liveUrl": "",
     "githubUrl": "https://github.com/Sharv619/stock-price-alerts",
@@ -1873,7 +3236,9 @@
       }
     ],
     "readmeMarkdown": "",
-    "readmeSourceUrl": "https://github.com/Sharv619/stock-price-alerts#readme"
+    "readmeSourceUrl": "https://github.com/Sharv619/stock-price-alerts#readme",
+    "evidenceReferences": [],
+    "architectureDocuments": []
   },
   {
     "title": "Reliboard",
@@ -1888,6 +3253,92 @@
       "Project Management",
       "React",
       "TypeScript"
+    ],
+    "skills": [
+      {
+        "key": "javascript",
+        "label": "JavaScript",
+        "category": "languages",
+        "sources": [
+          {
+            "source": "github-language",
+            "rawValue": "JavaScript"
+          }
+        ],
+        "kind": "language"
+      },
+      {
+        "key": "typescript",
+        "label": "TypeScript",
+        "category": "languages",
+        "sources": [
+          {
+            "source": "github-topic",
+            "rawValue": "typescript"
+          }
+        ],
+        "kind": "language"
+      },
+      {
+        "key": "nodejs",
+        "label": "Node.js",
+        "category": "appStack",
+        "sources": [
+          {
+            "source": "github-topic",
+            "rawValue": "nodejs"
+          }
+        ],
+        "kind": "runtime"
+      },
+      {
+        "key": "react",
+        "label": "React",
+        "category": "appStack",
+        "sources": [
+          {
+            "source": "github-topic",
+            "rawValue": "react"
+          }
+        ],
+        "kind": "framework"
+      },
+      {
+        "key": "docker",
+        "label": "Docker",
+        "category": "infraDataSecurity",
+        "sources": [
+          {
+            "source": "github-topic",
+            "rawValue": "docker"
+          }
+        ],
+        "kind": "tool"
+      },
+      {
+        "key": "jwt",
+        "label": "JWT",
+        "category": "infraDataSecurity",
+        "sources": [
+          {
+            "source": "github-topic",
+            "rawValue": "jwt"
+          }
+        ],
+        "kind": "concept"
+      },
+      {
+        "key": "mongodb",
+        "label": "MongoDB",
+        "category": "infraDataSecurity",
+        "sources": [
+          {
+            "source": "github-topic",
+            "rawValue": "mongodb"
+          }
+        ],
+        "kind": "platform"
+      }
     ],
     "liveUrl": "",
     "githubUrl": "https://github.com/Sharv619/reliboard",
@@ -2104,13 +3555,29 @@
       }
     ],
     "readmeMarkdown": "",
-    "readmeSourceUrl": "https://github.com/Sharv619/reliboard#readme"
+    "readmeSourceUrl": "https://github.com/Sharv619/reliboard#readme",
+    "evidenceReferences": [],
+    "architectureDocuments": []
   },
   {
     "title": "Scrapper",
     "description": "Scrapper is a public GitHub project by Himanshu Lade.",
     "technologies": [
       "HTML"
+    ],
+    "skills": [
+      {
+        "key": "html",
+        "label": "HTML",
+        "category": "languages",
+        "sources": [
+          {
+            "source": "github-language",
+            "rawValue": "HTML"
+          }
+        ],
+        "kind": "language"
+      }
     ],
     "liveUrl": "",
     "githubUrl": "https://github.com/Sharv619/scrapper",
@@ -2300,13 +3767,29 @@
       }
     ],
     "readmeMarkdown": "",
-    "readmeSourceUrl": "https://github.com/Sharv619/scrapper#readme"
+    "readmeSourceUrl": "https://github.com/Sharv619/scrapper#readme",
+    "evidenceReferences": [],
+    "architectureDocuments": []
   },
   {
     "title": "Hedge Things",
     "description": "Options hedging engine - GARCH volatility, Kelly sizing, OLS cross-month correlation, embedding-based scenario matching",
     "technologies": [
       "Python"
+    ],
+    "skills": [
+      {
+        "key": "python",
+        "label": "Python",
+        "category": "languages",
+        "sources": [
+          {
+            "source": "github-language",
+            "rawValue": "Python"
+          }
+        ],
+        "kind": "language"
+      }
     ],
     "liveUrl": "",
     "githubUrl": "https://github.com/Sharv619/hedge-things",
@@ -2500,12 +3983,15 @@
       }
     ],
     "readmeMarkdown": "",
-    "readmeSourceUrl": "https://github.com/Sharv619/hedge-things#readme"
+    "readmeSourceUrl": "https://github.com/Sharv619/hedge-things#readme",
+    "evidenceReferences": [],
+    "architectureDocuments": []
   },
   {
     "title": "Tings",
     "description": "hermes-agent-playground",
     "technologies": [],
+    "skills": [],
     "liveUrl": "",
     "githubUrl": "https://github.com/Sharv619/tings",
     "slug": "tings",
@@ -2528,9 +4014,9 @@
         {
           "key": "readme",
           "label": "README present",
-          "present": true,
-          "source": "readme",
-          "confidence": "high"
+          "present": false,
+          "source": "unknown",
+          "confidence": "low"
         },
         {
           "key": "tests",
@@ -2631,9 +4117,10 @@
           "confidence": "high"
         }
       ],
-      "maturityScore": 18,
+      "maturityScore": 8,
       "maturity": "experiment",
       "missingEvidence": [
+        "README present",
         "Tests present",
         "Docker present",
         "GitHub Actions present",
@@ -2651,6 +4138,14 @@
       "claimWarnings": []
     },
     "evidenceRecommendations": [
+      {
+        "projectSlug": "tings",
+        "recommendationType": "improve-readme",
+        "severity": "high",
+        "recommendation": "Improve the README with problem, solution, setup, screenshots, and limitations.",
+        "reason": "The README is the strongest public context source for automated portfolio cards.",
+        "draftOnly": true
+      },
       {
         "projectSlug": "tings",
         "recommendationType": "add-tests",
@@ -2684,14 +4179,30 @@
         "draftOnly": true
       }
     ],
-    "readmeMarkdown": "# tings\nhermes-agent-playground\n",
-    "readmeSourceUrl": "https://github.com/Sharv619/tings#readme"
+    "readmeMarkdown": "",
+    "readmeSourceUrl": "https://github.com/Sharv619/tings#readme",
+    "evidenceReferences": [],
+    "architectureDocuments": []
   },
   {
     "title": "Localhost",
     "description": "Localhost is a public GitHub project by Himanshu Lade.",
     "technologies": [
       "HTML"
+    ],
+    "skills": [
+      {
+        "key": "html",
+        "label": "HTML",
+        "category": "languages",
+        "sources": [
+          {
+            "source": "github-language",
+            "rawValue": "HTML"
+          }
+        ],
+        "kind": "language"
+      }
     ],
     "liveUrl": "",
     "githubUrl": "https://github.com/Sharv619/localhost",
@@ -2881,13 +4392,29 @@
       }
     ],
     "readmeMarkdown": "",
-    "readmeSourceUrl": "https://github.com/Sharv619/localhost#readme"
+    "readmeSourceUrl": "https://github.com/Sharv619/localhost#readme",
+    "evidenceReferences": [],
+    "architectureDocuments": []
   },
   {
     "title": "Sharvilak Writes",
     "description": "Sharvilak Writes is a public GitHub project by Himanshu Lade.",
     "technologies": [
       "HTML"
+    ],
+    "skills": [
+      {
+        "key": "html",
+        "label": "HTML",
+        "category": "languages",
+        "sources": [
+          {
+            "source": "github-language",
+            "rawValue": "HTML"
+          }
+        ],
+        "kind": "language"
+      }
     ],
     "liveUrl": "",
     "githubUrl": "https://github.com/Sharv619/sharvilak_writes",
@@ -3077,13 +4604,29 @@
       }
     ],
     "readmeMarkdown": "",
-    "readmeSourceUrl": "https://github.com/Sharv619/sharvilak_writes#readme"
+    "readmeSourceUrl": "https://github.com/Sharv619/sharvilak_writes#readme",
+    "evidenceReferences": [],
+    "architectureDocuments": []
   },
   {
     "title": "Deepmind Hackathon",
     "description": "google hackathon project (structure done)",
     "technologies": [
       "TypeScript"
+    ],
+    "skills": [
+      {
+        "key": "typescript",
+        "label": "TypeScript",
+        "category": "languages",
+        "sources": [
+          {
+            "source": "github-language",
+            "rawValue": "TypeScript"
+          }
+        ],
+        "kind": "language"
+      }
     ],
     "liveUrl": "",
     "githubUrl": "https://github.com/Sharv619/deepmind-hackathon",
@@ -3273,12 +4816,15 @@
       }
     ],
     "readmeMarkdown": "",
-    "readmeSourceUrl": "https://github.com/Sharv619/deepmind-hackathon#readme"
+    "readmeSourceUrl": "https://github.com/Sharv619/deepmind-hackathon#readme",
+    "evidenceReferences": [],
+    "architectureDocuments": []
   },
   {
     "title": "Screenshot Flutter",
     "description": "Screenshot Flutter is a public GitHub project by Himanshu Lade.",
     "technologies": [],
+    "skills": [],
     "liveUrl": "",
     "githubUrl": "https://github.com/Sharv619/screenshot-flutter",
     "slug": "screenshot-flutter",
@@ -3467,13 +5013,29 @@
       }
     ],
     "readmeMarkdown": "",
-    "readmeSourceUrl": "https://github.com/Sharv619/screenshot-flutter#readme"
+    "readmeSourceUrl": "https://github.com/Sharv619/screenshot-flutter#readme",
+    "evidenceReferences": [],
+    "architectureDocuments": []
   },
   {
     "title": "Reli Board",
     "description": "The board for tasks and project management tools CRM",
     "technologies": [
       "TypeScript"
+    ],
+    "skills": [
+      {
+        "key": "typescript",
+        "label": "TypeScript",
+        "category": "languages",
+        "sources": [
+          {
+            "source": "github-language",
+            "rawValue": "TypeScript"
+          }
+        ],
+        "kind": "language"
+      }
     ],
     "liveUrl": "",
     "githubUrl": "https://github.com/Sharv619/reli-board",
@@ -3663,13 +5225,29 @@
       }
     ],
     "readmeMarkdown": "",
-    "readmeSourceUrl": "https://github.com/Sharv619/reli-board#readme"
+    "readmeSourceUrl": "https://github.com/Sharv619/reli-board#readme",
+    "evidenceReferences": [],
+    "architectureDocuments": []
   },
   {
     "title": "Backpocket OS",
     "description": "Backpocket OS is a public GitHub project by Himanshu Lade.",
     "technologies": [
       "Python"
+    ],
+    "skills": [
+      {
+        "key": "python",
+        "label": "Python",
+        "category": "languages",
+        "sources": [
+          {
+            "source": "github-language",
+            "rawValue": "Python"
+          }
+        ],
+        "kind": "language"
+      }
     ],
     "liveUrl": "",
     "githubUrl": "https://github.com/Sharv619/backpocket-os",
@@ -3859,13 +5437,29 @@
       }
     ],
     "readmeMarkdown": "",
-    "readmeSourceUrl": "https://github.com/Sharv619/backpocket-os#readme"
+    "readmeSourceUrl": "https://github.com/Sharv619/backpocket-os#readme",
+    "evidenceReferences": [],
+    "architectureDocuments": []
   },
   {
     "title": "RAG",
     "description": "practice for rag",
     "technologies": [
       "Python"
+    ],
+    "skills": [
+      {
+        "key": "python",
+        "label": "Python",
+        "category": "languages",
+        "sources": [
+          {
+            "source": "github-language",
+            "rawValue": "Python"
+          }
+        ],
+        "kind": "language"
+      }
     ],
     "liveUrl": "",
     "githubUrl": "https://github.com/Sharv619/rag",
@@ -4055,13 +5649,29 @@
       }
     ],
     "readmeMarkdown": "",
-    "readmeSourceUrl": "https://github.com/Sharv619/rag#readme"
+    "readmeSourceUrl": "https://github.com/Sharv619/rag#readme",
+    "evidenceReferences": [],
+    "architectureDocuments": []
   },
   {
     "title": "Sharv619",
     "description": "Sharv619 is a public GitHub project by Himanshu Lade.",
     "technologies": [
       "TypeScript"
+    ],
+    "skills": [
+      {
+        "key": "typescript",
+        "label": "TypeScript",
+        "category": "languages",
+        "sources": [
+          {
+            "source": "github-language",
+            "rawValue": "TypeScript"
+          }
+        ],
+        "kind": "language"
+      }
     ],
     "liveUrl": "",
     "githubUrl": "https://github.com/Sharv619/Sharv619",
@@ -4251,13 +5861,29 @@
       }
     ],
     "readmeMarkdown": "",
-    "readmeSourceUrl": "https://github.com/Sharv619/Sharv619#readme"
+    "readmeSourceUrl": "https://github.com/Sharv619/Sharv619#readme",
+    "evidenceReferences": [],
+    "architectureDocuments": []
   },
   {
     "title": "LifeAutomationPortal",
     "description": "LifeAutomationPortal is a public GitHub project by Himanshu Lade.",
     "technologies": [
       "TypeScript"
+    ],
+    "skills": [
+      {
+        "key": "typescript",
+        "label": "TypeScript",
+        "category": "languages",
+        "sources": [
+          {
+            "source": "github-language",
+            "rawValue": "TypeScript"
+          }
+        ],
+        "kind": "language"
+      }
     ],
     "liveUrl": "",
     "githubUrl": "https://github.com/Sharv619/LifeAutomationPortal",
@@ -4447,12 +6073,15 @@
       }
     ],
     "readmeMarkdown": "",
-    "readmeSourceUrl": "https://github.com/Sharv619/LifeAutomationPortal#readme"
+    "readmeSourceUrl": "https://github.com/Sharv619/LifeAutomationPortal#readme",
+    "evidenceReferences": [],
+    "architectureDocuments": []
   },
   {
     "title": "Post Incident Response Case Study",
     "description": "Case Study: A detailed breakdown of a mission-critical system recovery. As the sole engineer, I restored 100% of data and improved system performance by 88% after a catastrophic production outage.",
     "technologies": [],
+    "skills": [],
     "liveUrl": "",
     "githubUrl": "https://github.com/Sharv619/post-incident-response-case-study",
     "slug": "post-incident-response-case-study",
@@ -4651,13 +6280,29 @@
       }
     ],
     "readmeMarkdown": "",
-    "readmeSourceUrl": "https://github.com/Sharv619/post-incident-response-case-study#readme"
+    "readmeSourceUrl": "https://github.com/Sharv619/post-incident-response-case-study#readme",
+    "evidenceReferences": [],
+    "architectureDocuments": []
   },
   {
     "title": "Codeflow Testing",
     "description": "Codeflow Testing is a public GitHub project by Himanshu Lade.",
     "technologies": [
       "TypeScript"
+    ],
+    "skills": [
+      {
+        "key": "typescript",
+        "label": "TypeScript",
+        "category": "languages",
+        "sources": [
+          {
+            "source": "github-language",
+            "rawValue": "TypeScript"
+          }
+        ],
+        "kind": "language"
+      }
     ],
     "liveUrl": "",
     "githubUrl": "https://github.com/Sharv619/codeflow-testing",
@@ -4847,13 +6492,29 @@
       }
     ],
     "readmeMarkdown": "",
-    "readmeSourceUrl": "https://github.com/Sharv619/codeflow-testing#readme"
+    "readmeSourceUrl": "https://github.com/Sharv619/codeflow-testing#readme",
+    "evidenceReferences": [],
+    "architectureDocuments": []
   },
   {
     "title": "Demo",
     "description": "Demo is a public GitHub project by Himanshu Lade.",
     "technologies": [
       "JavaScript"
+    ],
+    "skills": [
+      {
+        "key": "javascript",
+        "label": "JavaScript",
+        "category": "languages",
+        "sources": [
+          {
+            "source": "github-language",
+            "rawValue": "JavaScript"
+          }
+        ],
+        "kind": "language"
+      }
     ],
     "liveUrl": "",
     "githubUrl": "https://github.com/Sharv619/demo",
@@ -5044,6 +6705,8 @@
       }
     ],
     "readmeMarkdown": "",
-    "readmeSourceUrl": "https://github.com/Sharv619/demo#readme"
+    "readmeSourceUrl": "https://github.com/Sharv619/demo#readme",
+    "evidenceReferences": [],
+    "architectureDocuments": []
   }
 ]

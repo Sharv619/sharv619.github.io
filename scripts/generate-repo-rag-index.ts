@@ -18,6 +18,21 @@ interface GitHubProjectSnapshot {
   featured?: boolean;
   priority?: number;
   status?: string;
+  evidenceReferences?: Array<{
+    id: string;
+    label: string;
+    kind: "file" | "commit";
+    url: string;
+    path?: string;
+    sha?: string;
+    description?: string;
+  }>;
+  architectureDocuments?: Array<{
+    path: string;
+    title: string;
+    content: string;
+    sourceUrl: string;
+  }>;
 }
 
 interface RepoRagDocument {
@@ -33,7 +48,7 @@ interface RepoRagDocument {
   topics: string[];
   primaryLanguage: string | null;
   updatedAt: string | null;
-  evidenceType: "metadata" | "readme";
+  evidenceType: "metadata" | "readme" | "architecture" | "evidence";
   authority: "repository";
   featured: boolean;
   priority: number;
@@ -191,28 +206,73 @@ export function generateRepoRagDocuments(projects: GitHubProjectSnapshot[]): Rep
       evidenceType: "metadata",
     });
 
-    if (!project.readmeMarkdown?.trim()) {
-      continue;
+    if (project.readmeMarkdown?.trim()) {
+      addMarkdownDocuments(documents, base, project, {
+        markdown: project.readmeMarkdown,
+        sourceUrl: project.readmeSourceUrl || project.githubUrl,
+        evidenceType: "readme",
+        idPrefix: project.slug,
+      });
     }
 
-    const sections = splitMarkdownSections(project.readmeMarkdown, project.title);
-    for (const section of sections) {
-      const headingSlug = slugifyHeading(section.heading) || "readme";
-      const chunks = chunkSection(section);
-      chunks.forEach((content, index) => {
-        documents.push({
-          ...base,
-          id: `${project.slug}-${headingSlug}-${index + 1}`,
-          sourceUrl: `${project.githubUrl}#${headingSlug}`,
-          heading: section.heading,
-          content,
-          evidenceType: "readme",
-        });
+    for (const architecture of project.architectureDocuments || []) {
+      addMarkdownDocuments(documents, base, project, {
+        markdown: architecture.content,
+        sourceUrl: architecture.sourceUrl,
+        evidenceType: "architecture",
+        idPrefix: `${project.slug}-architecture-${slugifyHeading(architecture.path)}`,
+        fallbackHeading: architecture.title,
+      });
+    }
+
+    for (const evidence of project.evidenceReferences || []) {
+      documents.push({
+        ...base,
+        id: `${project.slug}-evidence-${evidence.id}`,
+        sourceUrl: evidence.url,
+        heading: evidence.label,
+        content: normalizeWhitespace([
+          evidence.description,
+          evidence.kind === "file" && evidence.path ? `Verified repository file: ${evidence.path}.` : "",
+          evidence.kind === "commit" && evidence.sha ? `Verified repository commit: ${evidence.sha}.` : "",
+        ].filter(Boolean).join("\n")),
+        evidenceType: "evidence",
       });
     }
   }
 
   return documents;
+}
+
+function addMarkdownDocuments(
+  documents: RepoRagDocument[],
+  base: ReturnType<typeof createBaseDocument>,
+  project: GitHubProjectSnapshot,
+  options: {
+    markdown: string;
+    sourceUrl: string;
+    evidenceType: "readme" | "architecture";
+    idPrefix: string;
+    fallbackHeading?: string;
+  }
+): void {
+  const sections = splitMarkdownSections(options.markdown, options.fallbackHeading || project.title);
+  for (const section of sections) {
+    const headingSlug = slugifyHeading(section.heading) || options.evidenceType;
+    const chunks = chunkSection(section);
+    chunks.forEach((content, index) => {
+      documents.push({
+        ...base,
+        id: `${options.idPrefix}-${headingSlug}-${index + 1}`,
+        sourceUrl: options.evidenceType === "readme"
+          ? `${options.sourceUrl}#${headingSlug}`
+          : options.sourceUrl,
+        heading: section.heading,
+        content,
+        evidenceType: options.evidenceType,
+      });
+    });
+  }
 }
 
 async function main(): Promise<void> {

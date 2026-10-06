@@ -9,28 +9,10 @@ interface FeaturedCaseStudiesProps {
   compact?: boolean;
 }
 
-const studyAccents = [
-  {
-    panel: "from-emerald-950 via-stone-950 to-teal-950",
-    line: "bg-teal-300",
-    chip: "bg-teal-100 text-teal-900 dark:bg-teal-300/15 dark:text-teal-100",
-  },
-  {
-    panel: "from-indigo-950 via-stone-950 to-fuchsia-950",
-    line: "bg-fuchsia-300",
-    chip: "bg-fuchsia-100 text-fuchsia-900 dark:bg-fuchsia-300/15 dark:text-fuchsia-100",
-  },
-  {
-    panel: "from-slate-950 via-stone-950 to-amber-950",
-    line: "bg-amber-300",
-    chip: "bg-amber-100 text-amber-900 dark:bg-amber-300/15 dark:text-amber-100",
-  },
-];
-
 export default function FeaturedCaseStudies({ caseStudies, compact = false }: FeaturedCaseStudiesProps) {
   return (
-    <section id="case-studies" className="flex items-center border-y border-stone-200 bg-[#f7f4ed] py-20 dark:border-white/10 dark:bg-[#101010]">
-      <div className="mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-8">
+    <section id="case-studies" className="journal-page border-y border-[var(--journal-rule-strong)] py-20">
+      <div className="mx-auto w-full max-w-[1500px] px-4 sm:px-6 lg:px-8">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -39,14 +21,14 @@ export default function FeaturedCaseStudies({ caseStudies, compact = false }: Fe
           className="mb-10 grid gap-6 lg:grid-cols-[0.78fr_1.22fr] lg:items-end"
         >
           <div>
-            <p className="mb-3 text-sm font-bold uppercase tracking-[0.18em] text-teal-700 dark:text-teal-300">
-              Selected work
+            <p className="journal-kicker mb-3">
+              Real work / real constraints
             </p>
-            <h2 className="text-balance text-4xl font-black leading-tight text-stone-950 sm:text-5xl dark:text-white">
+            <h2 className="font-journal-serif text-balance text-4xl font-semibold leading-tight text-[var(--journal-ink)] sm:text-6xl">
               {`${caseStudies.length} case studies with the constraints left in.`}
             </h2>
           </div>
-          <p className="max-w-2xl text-lg leading-8 text-stone-700 lg:justify-self-end dark:text-stone-300">
+          <p className="max-w-2xl border-l-2 border-[var(--journal-verification)] pl-5 font-journal-serif text-lg italic leading-8 text-[var(--journal-ink-muted)] lg:justify-self-end">
             Production recovery, responsible AI boundaries, and developer tooling. Each is labelled by what it is, what I owned, and what the evidence supports.
           </p>
         </motion.div>
@@ -59,24 +41,21 @@ export default function FeaturedCaseStudies({ caseStudies, compact = false }: Fe
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: index * 0.1 }}
               viewport={{ once: true }}
-              className="group flex min-h-[500px] flex-col overflow-hidden rounded-lg border border-stone-300 bg-white shadow-sm transition duration-300 hover:-translate-y-1 hover:shadow-2xl hover:shadow-stone-900/10 dark:border-white/10 dark:bg-[#171715] dark:hover:shadow-black/30"
+              className="journal-card group relative flex min-h-[500px] flex-col overflow-hidden rounded-md"
             >
-              <div className={`relative overflow-hidden bg-gradient-to-br ${studyAccents[index % studyAccents.length].panel} p-5 text-white`}>
-                <div className="absolute inset-0 opacity-20">
-                  <div className="h-full w-full bg-[linear-gradient(to_right,#ffffff_1px,transparent_1px),linear-gradient(to_bottom,#ffffff_1px,transparent_1px)] bg-[size:28px_28px]" />
-                </div>
+              <div className="journal-grid relative overflow-hidden border-b border-[var(--journal-rule)] p-5 text-[var(--journal-ink)]">
                 <div className="relative flex min-h-32 flex-col justify-between">
                   <div className="flex items-center justify-between gap-3">
-                    <span className="text-xs font-bold uppercase tracking-[0.18em] text-white/70">
+                    <span className="font-journal-mono text-xs font-bold uppercase tracking-[0.18em] text-[var(--journal-ink-muted)]">
                       0{index + 1}
                     </span>
-                    <span className="rounded-full border border-white/15 bg-white/10 px-3 py-1 text-xs font-bold capitalize text-white">
+                    <span className="rounded-sm border border-[var(--journal-rule-strong)] bg-[var(--journal-paper-raised)] px-3 py-1 font-journal-mono text-xs font-bold capitalize text-[var(--journal-ink)]">
                       {caseStudy.status}
                     </span>
                   </div>
                   <div>
-                    <div className={`mb-4 h-1 w-16 ${studyAccents[index % studyAccents.length].line}`} />
-                    <p className="text-sm font-bold uppercase tracking-[0.12em] text-white/65">
+                    <div className="mb-4 h-1 w-16 -rotate-1 bg-[var(--journal-verification)]" />
+                    <p className="font-journal-mono text-sm font-bold uppercase tracking-[0.12em] text-[var(--journal-ink-muted)]">
                       {caseStudy.category}
                     </p>
                   </div>
@@ -84,18 +63,21 @@ export default function FeaturedCaseStudies({ caseStudies, compact = false }: Fe
               </div>
 
               <div className="flex flex-1 flex-col p-5">
-                <h3 className="text-2xl font-black leading-tight text-stone-950 dark:text-white">
+                <div className="absolute right-0 top-36 rounded-l-sm bg-[var(--journal-verification)] px-3 py-2 font-journal-mono text-[10px] font-bold uppercase tracking-wider text-white">
+                  Evidence
+                </div>
+                <h3 className="font-journal-serif pr-16 text-2xl font-semibold leading-tight text-[var(--journal-ink)]">
                   {caseStudy.title}
                 </h3>
 
-                <p className="mt-4 text-sm leading-7 text-stone-700 dark:text-stone-300">
+                <p className="mt-4 text-sm leading-7 text-[var(--journal-ink-muted)]">
                   {caseStudy.oneLiner}
                 </p>
 
                 {!compact && (
                   <div className="mt-5 space-y-3">
                     {caseStudy.impact.slice(0, 1).map((impact) => (
-                      <div key={impact} className="border-l-2 border-stone-300 pl-3 text-sm leading-6 text-stone-700 dark:border-white/15 dark:text-stone-300">
+                      <div key={impact} className="border-l-2 border-[var(--journal-verification)] pl-3 text-sm leading-6 text-[var(--journal-ink-muted)]">
                         {impact}
                       </div>
                     ))}
@@ -106,14 +88,14 @@ export default function FeaturedCaseStudies({ caseStudies, compact = false }: Fe
                   {caseStudy.techStack.slice(0, 4).map((tech) => (
                     <span
                       key={tech}
-                      className={`rounded-full px-3 py-1 text-xs font-bold ${studyAccents[index % studyAccents.length].chip}`}
+                      className="rounded-sm border border-[var(--journal-rule)] bg-[var(--journal-paper)] px-3 py-1 font-journal-mono text-xs font-bold text-[var(--journal-ink-muted)]"
                     >
                       {tech}
                     </span>
                   ))}
                 </div>
 
-                <p className="mt-5 text-sm font-medium text-stone-500 dark:text-stone-400">
+                <p className="mt-5 font-journal-mono text-xs font-medium text-[var(--journal-ink-muted)]">
                   Role: {caseStudy.role.slice(0, 2).join(", ")}
                 </p>
 
@@ -121,7 +103,7 @@ export default function FeaturedCaseStudies({ caseStudies, compact = false }: Fe
                   <Link
                     href={`/case-studies/${caseStudy.slug}`}
                     aria-label={`Read case study: ${caseStudy.title}`}
-                    className="inline-flex min-h-11 items-center rounded-md bg-stone-950 px-4 py-2 text-sm font-bold text-white transition-colors duration-200 hover:bg-teal-800 dark:bg-white dark:text-stone-950 dark:hover:bg-teal-200"
+                    className="inline-flex min-h-11 items-center rounded-md bg-[var(--journal-leather)] px-4 py-2 text-sm font-bold text-[#fffaf0] transition-transform hover:-translate-y-0.5"
                   >
                     Read case study
                   </Link>
@@ -131,7 +113,7 @@ export default function FeaturedCaseStudies({ caseStudies, compact = false }: Fe
                       target="_blank"
                       rel="noopener noreferrer"
                       aria-label={`Open GitHub repository for ${caseStudy.title}`}
-                      className="inline-flex min-h-11 items-center rounded-md border border-stone-300 px-4 py-2 text-sm font-bold text-stone-800 transition-colors duration-200 hover:bg-stone-100 dark:border-white/15 dark:text-stone-200 dark:hover:bg-white/10"
+                      className="inline-flex min-h-11 items-center rounded-md border border-[var(--journal-rule-strong)] px-4 py-2 text-sm font-bold text-[var(--journal-ink)]"
                     >
                       GitHub
                     </a>
@@ -142,7 +124,7 @@ export default function FeaturedCaseStudies({ caseStudies, compact = false }: Fe
                       target="_blank"
                       rel="noopener noreferrer"
                       aria-label={`Open offline repository notes for ${caseStudy.title}`}
-                      className="inline-flex min-h-11 items-center rounded-md border border-stone-300 px-4 py-2 text-sm font-bold text-stone-800 transition-colors duration-200 hover:bg-stone-100 dark:border-white/15 dark:text-stone-200 dark:hover:bg-white/10"
+                      className="inline-flex min-h-11 items-center rounded-md border border-[var(--journal-rule-strong)] px-4 py-2 text-sm font-bold text-[var(--journal-ink)]"
                     >
                       Offline repo
                     </a>
@@ -153,7 +135,7 @@ export default function FeaturedCaseStudies({ caseStudies, compact = false }: Fe
                       target="_blank"
                       rel="noopener noreferrer"
                       aria-label={`Open npm package for ${caseStudy.title}`}
-                      className="inline-flex min-h-11 items-center rounded-md border border-stone-300 px-4 py-2 text-sm font-bold text-stone-800 transition-colors duration-200 hover:bg-stone-100 dark:border-white/15 dark:text-stone-200 dark:hover:bg-white/10"
+                      className="inline-flex min-h-11 items-center rounded-md border border-[var(--journal-rule-strong)] px-4 py-2 text-sm font-bold text-[var(--journal-ink)]"
                     >
                       npm
                     </a>

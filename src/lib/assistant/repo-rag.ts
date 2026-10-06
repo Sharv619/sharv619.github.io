@@ -13,7 +13,7 @@ export interface RepoRagDocument {
   topics: string[];
   primaryLanguage: string | null;
   updatedAt: string | null;
-  evidenceType: "metadata" | "readme";
+  evidenceType: "metadata" | "readme" | "architecture" | "evidence";
   authority: "repository";
   featured: boolean;
   priority: number;

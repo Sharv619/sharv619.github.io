@@ -7,6 +7,8 @@ import ReactMarkdown, { type Components } from "react-markdown";
 import rehypeSanitize from "rehype-sanitize";
 import remarkGfm from "remark-gfm";
 import Contact from "@/components/Contact";
+import EvidenceTab from "@/components/EvidenceTab";
+import MermaidDiagram from "@/components/MermaidDiagram";
 import Navigation from "@/components/Navigation";
 import type { Project } from "@/lib/data";
 import { resolveGitHubReadmeImage, resolveGitHubReadmeUrl } from "@/lib/github-readme";
@@ -156,6 +158,52 @@ export default function ProjectDetailClient({ project }: ProjectDetailClientProp
           </div>
         </div>
       </section>
+
+      {(project.evidenceReferences?.length || project.architectureDocuments?.length) ? (
+        <section className="journal-grid border-y border-[var(--journal-rule)] py-16">
+          <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+            <div className="grid gap-10 lg:grid-cols-[300px_1fr]">
+              <aside>
+                <p className="journal-kicker">Evidence ledger</p>
+                <h2 className="mt-3 font-journal-serif text-4xl font-semibold">The source, not just the claim.</h2>
+                <p className="mt-4 leading-7 text-[var(--journal-muted)]">
+                  These links come directly from the repository&apos;s evidence manifest and architecture files.
+                </p>
+                <div className="mt-6 flex flex-col items-start gap-3">
+                  {project.evidenceReferences?.map((evidence) => (
+                    <EvidenceTab key={evidence.id} evidence={evidence} />
+                  ))}
+                </div>
+              </aside>
+              <div className="space-y-8">
+                {project.architectureDocuments?.map((document) => (
+                  <article key={document.path} className="journal-card p-5 sm:p-8">
+                    <div className="mb-6 flex flex-wrap items-center justify-between gap-3">
+                      <div>
+                        <p className="journal-kicker">Architecture note</p>
+                        <h3 className="mt-2 font-journal-serif text-3xl font-semibold">{document.title}</h3>
+                      </div>
+                      <a href={document.sourceUrl} target="_blank" rel="noopener noreferrer" className="font-journal-mono text-xs font-semibold underline underline-offset-4">
+                        {document.path} ↗
+                      </a>
+                    </div>
+                    <div className="space-y-5">
+                      {document.diagrams.map((diagram) => (
+                        <MermaidDiagram
+                          key={diagram.id}
+                          source={diagram.source}
+                          title={diagram.title}
+                          sourceUrl={document.sourceUrl}
+                        />
+                      ))}
+                    </div>
+                  </article>
+                ))}
+              </div>
+            </div>
+          </div>
+        </section>
+      ) : null}
 
       <section className="border-t border-stone-200 bg-white py-16 dark:border-white/10 dark:bg-[#151513]">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">

@@ -1,0 +1,37 @@
+{
+  "schemaVersion": 1,
+  "targets": {
+    "/": {
+      "targetKind": "existing-ui",
+      "projectId": "902c1ff1-da86-4a69-a9b5-be4c656680f1",
+      "activeDraftId": "81159291-45b6-49d1-973b-abdd4b2b03a9",
+      "designSystemPath": ".superdesign/design-system.md",
+      "contextFiles": [
+        ".superdesign/design-system.md",
+        "src/app/globals.css",
+        "src/components/HomePageClient.tsx",
+        "src/components/Navigation.tsx",
+        "src/components/Hero.tsx",
+        "src/components/FeaturedCaseStudies.tsx",
+        "src/components/Projects.tsx"
+      ],
+      "fingerprints": {
+        ".superdesign/design-system.md": "8f113efaf7d8e77f37675401eff155bb4516df8031426117349feebe33ec76be",
+        "src/app/globals.css": "a3c1f90a4382d5cda6f95bc88e9b7a05592f9992847730c71d51f87a5d028b44",
+        "src/components/HomePageClient.tsx": "3d73ec8acf37813a235b66378c8a4cfbaf65e4bc4b8eaaa3ee5de975788e0835",
+        "src/components/Navigation.tsx": "36af9318040bbddd22b5c7d6007fc091e99d8166c5d59381e8658e14c3d9fb20",
+        "src/components/Hero.tsx": "1f960d102d3e4b8481e7a33980eaff1b3de02eb17a76f741103c834705663bd6",
+        "src/components/FeaturedCaseStudies.tsx": "589a7934460e3e88714afc695ba3a50a0570ec51efeec8483af3bebd98a95c51",
+        "src/components/Projects.tsx": "5c89731e6189f8f4cb4c551ee3b53944cc1b1c19a68bf0113c46720bd4bf1358"
+      },
+      "drafts": {
+        "81159291-45b6-49d1-973b-abdd4b2b03a9": {
+          "title": "Himanshu Lade Field Journal",
+          "visualDirection": "authentic technical field journal with restrained workflow controls",
+          "currentVersion": 1
+        }
+      },
+      "updatedAt": "2026-10-07T01:49:13+11:00"
+    }
+  }
+}
