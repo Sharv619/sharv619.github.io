@@ -1,5 +1,7 @@
 @import "tailwindcss";
 
+@custom-variant dark (&:where(.dark, .dark *));
+
 :root {
   --journal-paper: #fdf6e3;
   --journal-paper-raised: #fffaf0;
