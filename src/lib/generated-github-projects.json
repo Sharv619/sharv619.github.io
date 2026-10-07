@@ -13,6 +13,119 @@
       "RAG",
       "Docker"
     ],
+    "skills": [
+      {
+        "key": "python",
+        "label": "Python",
+        "category": "languages",
+        "sources": [
+          {
+            "source": "github-language",
+            "rawValue": "Python"
+          },
+          {
+            "source": "override",
+            "rawValue": "Python"
+          }
+        ],
+        "kind": "language"
+      },
+      {
+        "key": "fastapi",
+        "label": "FastAPI",
+        "category": "appStack",
+        "sources": [
+          {
+            "source": "override",
+            "rawValue": "FastAPI"
+          }
+        ],
+        "kind": "framework"
+      },
+      {
+        "key": "flutter",
+        "label": "Flutter",
+        "category": "appStack",
+        "sources": [
+          {
+            "source": "override",
+            "rawValue": "Flutter"
+          }
+        ],
+        "kind": "framework"
+      },
+      {
+        "key": "gemini",
+        "label": "Gemini",
+        "category": "aiData",
+        "sources": [
+          {
+            "source": "override",
+            "rawValue": "Gemini"
+          }
+        ],
+        "kind": "platform"
+      },
+      {
+        "key": "ollama",
+        "label": "Ollama",
+        "category": "aiData",
+        "sources": [
+          {
+            "source": "override",
+            "rawValue": "Ollama"
+          }
+        ],
+        "kind": "platform"
+      },
+      {
+        "key": "rag",
+        "label": "RAG",
+        "category": "aiData",
+        "sources": [
+          {
+            "source": "override",
+            "rawValue": "RAG"
+          }
+        ],
+        "kind": "concept"
+      },
+      {
+        "key": "docker",
+        "label": "Docker",
+        "category": "infraDataSecurity",
+        "sources": [
+          {
+            "source": "override",
+            "rawValue": "Docker"
+          }
+        ],
+        "kind": "tool"
+      },
+      {
+        "key": "sqlite",
+        "label": "SQLite",
+        "category": "infraDataSecurity",
+        "sources": [
+          {
+            "source": "override",
+            "rawValue": "SQLite"
+          }
+        ],
+        "kind": "platform"
+      },
+      {
+        "key": "gmail",
+        "label": "Gmail",
+        "category": "uncategorized",
+        "sources": [
+          {
+            "source": "override",
+            "rawValue": "Gmail"
+          }
+        ]
+      }
+    ],
     "liveUrl": "",
     "githubUrl": "https://github.com/Sharv619/backpocket-os-ai-offline",
     "slug": "backpocket-os-ai-offline",
@@ -206,7 +319,9 @@
     "featured": true,
     "priority": 100,
     "status": "Prototype / design pivot",
-    "role": "Solo builder / product architect"
+    "role": "Solo builder / product architect",
+    "evidenceReferences": [],
+    "architectureDocuments": []
   },
   {
     "title": "BackPocket OS AI",
@@ -221,6 +336,119 @@
       "Gemini",
       "RAG",
       "Docker"
+    ],
+    "skills": [
+      {
+        "key": "python",
+        "label": "Python",
+        "category": "languages",
+        "sources": [
+          {
+            "source": "github-language",
+            "rawValue": "Python"
+          },
+          {
+            "source": "override",
+            "rawValue": "Python"
+          }
+        ],
+        "kind": "language"
+      },
+      {
+        "key": "fastapi",
+        "label": "FastAPI",
+        "category": "appStack",
+        "sources": [
+          {
+            "source": "override",
+            "rawValue": "FastAPI"
+          }
+        ],
+        "kind": "framework"
+      },
+      {
+        "key": "flutter",
+        "label": "Flutter",
+        "category": "appStack",
+        "sources": [
+          {
+            "source": "override",
+            "rawValue": "Flutter"
+          }
+        ],
+        "kind": "framework"
+      },
+      {
+        "key": "gemini",
+        "label": "Gemini",
+        "category": "aiData",
+        "sources": [
+          {
+            "source": "override",
+            "rawValue": "Gemini"
+          }
+        ],
+        "kind": "platform"
+      },
+      {
+        "key": "ollama",
+        "label": "Ollama",
+        "category": "aiData",
+        "sources": [
+          {
+            "source": "override",
+            "rawValue": "Ollama"
+          }
+        ],
+        "kind": "platform"
+      },
+      {
+        "key": "rag",
+        "label": "RAG",
+        "category": "aiData",
+        "sources": [
+          {
+            "source": "override",
+            "rawValue": "RAG"
+          }
+        ],
+        "kind": "concept"
+      },
+      {
+        "key": "docker",
+        "label": "Docker",
+        "category": "infraDataSecurity",
+        "sources": [
+          {
+            "source": "override",
+            "rawValue": "Docker"
+          }
+        ],
+        "kind": "tool"
+      },
+      {
+        "key": "sqlite",
+        "label": "SQLite",
+        "category": "infraDataSecurity",
+        "sources": [
+          {
+            "source": "override",
+            "rawValue": "SQLite"
+          }
+        ],
+        "kind": "platform"
+      },
+      {
+        "key": "gmail",
+        "label": "Gmail",
+        "category": "uncategorized",
+        "sources": [
+          {
+            "source": "override",
+            "rawValue": "Gmail"
+          }
+        ]
+      }
     ],
     "liveUrl": "",
     "githubUrl": "https://github.com/Sharv619/backpocket-os-ai",
@@ -415,7 +643,9 @@
     "featured": true,
     "priority": 95,
     "status": "Prototype / design pivot",
-    "role": "Solo builder / product architect"
+    "role": "Solo builder / product architect",
+    "evidenceReferences": [],
+    "architectureDocuments": []
   },
   {
     "title": "Network Guardian AI",
@@ -435,17 +665,205 @@
       "HTML",
       "CSS",
       "Docker",
-      "NumPy",
-      "Pydantic",
-      "Pytest",
-      "Scikit-learn",
-      "Uvicorn",
       "Docker Compose"
+    ],
+    "skills": [
+      {
+        "key": "python",
+        "label": "Python",
+        "category": "languages",
+        "sources": [
+          {
+            "source": "github-language",
+            "rawValue": "Python"
+          },
+          {
+            "source": "override",
+            "rawValue": "Python"
+          }
+        ],
+        "kind": "language"
+      },
+      {
+        "key": "css",
+        "label": "CSS",
+        "category": "languages",
+        "sources": [
+          {
+            "source": "github-language",
+            "rawValue": "CSS"
+          }
+        ],
+        "kind": "language"
+      },
+      {
+        "key": "html",
+        "label": "HTML",
+        "category": "languages",
+        "sources": [
+          {
+            "source": "github-language",
+            "rawValue": "HTML"
+          }
+        ],
+        "kind": "language"
+      },
+      {
+        "key": "javascript",
+        "label": "JavaScript",
+        "category": "languages",
+        "sources": [
+          {
+            "source": "github-language",
+            "rawValue": "JavaScript"
+          }
+        ],
+        "kind": "language"
+      },
+      {
+        "key": "mako",
+        "label": "Mako",
+        "category": "languages",
+        "sources": [
+          {
+            "source": "github-language",
+            "rawValue": "Mako"
+          }
+        ]
+      },
+      {
+        "key": "typescript",
+        "label": "TypeScript",
+        "category": "languages",
+        "sources": [
+          {
+            "source": "github-language",
+            "rawValue": "TypeScript"
+          }
+        ],
+        "kind": "language"
+      },
+      {
+        "key": "fastapi",
+        "label": "FastAPI",
+        "category": "appStack",
+        "sources": [
+          {
+            "source": "override",
+            "rawValue": "FastAPI"
+          }
+        ],
+        "kind": "framework"
+      },
+      {
+        "key": "react",
+        "label": "React",
+        "category": "appStack",
+        "sources": [
+          {
+            "source": "override",
+            "rawValue": "React"
+          }
+        ],
+        "kind": "framework"
+      },
+      {
+        "key": "entropy",
+        "label": "Entropy Scoring",
+        "category": "aiData",
+        "sources": [
+          {
+            "source": "override",
+            "rawValue": "Entropy"
+          }
+        ],
+        "kind": "concept"
+      },
+      {
+        "key": "gemini",
+        "label": "Gemini",
+        "category": "aiData",
+        "sources": [
+          {
+            "source": "override",
+            "rawValue": "Gemini"
+          }
+        ],
+        "kind": "platform"
+      },
+      {
+        "key": "isolation-forest",
+        "label": "Isolation Forest",
+        "category": "aiData",
+        "sources": [
+          {
+            "source": "override",
+            "rawValue": "Isolation Forest"
+          }
+        ],
+        "kind": "concept"
+      },
+      {
+        "key": "ollama",
+        "label": "Ollama",
+        "category": "aiData",
+        "sources": [
+          {
+            "source": "override",
+            "rawValue": "Ollama"
+          }
+        ],
+        "kind": "platform"
+      },
+      {
+        "key": "adguard",
+        "label": "AdGuard",
+        "category": "infraDataSecurity",
+        "sources": [
+          {
+            "source": "override",
+            "rawValue": "AdGuard"
+          }
+        ],
+        "kind": "tool"
+      },
+      {
+        "key": "sqlite",
+        "label": "SQLite",
+        "category": "infraDataSecurity",
+        "sources": [
+          {
+            "source": "override",
+            "rawValue": "SQLite"
+          }
+        ],
+        "kind": "platform"
+      },
+      {
+        "key": "docker",
+        "label": "Docker",
+        "category": "infraDataSecurity",
+        "sources": [
+          {
+            "source": "github-language",
+            "rawValue": "Dockerfile"
+          },
+          {
+            "source": "manifest",
+            "rawValue": "Docker"
+          },
+          {
+            "source": "manifest",
+            "rawValue": "Docker Compose"
+          }
+        ],
+        "kind": "tool"
+      }
     ],
     "liveUrl": "https://ng.himanshulade.com",
     "githubUrl": "https://github.com/Sharv619/network-guardian-ai",
     "slug": "network-guardian-ai",
-    "architectureDetails": "Network Guardian AI is a prototype for making network traffic easier to inspect and explain.\n\nProblem:\n• Network events can be noisy, difficult to prioritize, and hard to explain quickly without structured signals.\n• AI summaries are useful only when they stay grounded in observable data and avoid overstating security impact.\n\nWhat I built / designed:\n• A FastAPI and React prototype for reviewing traffic signals and producing AI-assisted summaries.\n• A detection direction using anomaly-style scoring, entropy-oriented features, and structured event storage.\n• A privacy-aware AI path that can use local models such as Ollama, with hosted model fallback where appropriate.\n\nTechnical highlights:\n• FastAPI backend for ingestion and analysis endpoints.\n• React interface for reviewing network and security signals.\n• SQLite-backed prototype storage.\n• Isolation Forest-style anomaly detection direction.\n• Entropy-style scoring for suspicious or unusual patterns.\n• Local/hosted AI summary boundary using Ollama and Gemini.\n\nStatus:\n• Prototype. It should not be described as a production security control or a verified threat-detection system.\n\nGitHub Signals:\n• Primary language: Python\n• Technologies: Python, FastAPI, React, SQLite, AdGuard, Ollama, Gemini, Isolation Forest, Entropy, TypeScript, JavaScript, HTML, CSS, Docker, NumPy, Pydantic, Pytest, Scikit-learn, Uvicorn, Docker Compose\n• Topics: Not specified\n• Last updated: 2026-05-27T04:54:01Z\n• Stars: 0\n• Forks: 0\n• Status: Active",
+    "architectureDetails": "Network Guardian AI is a prototype for making network traffic easier to inspect and explain.\n\nProblem:\n• Network events can be noisy, difficult to prioritize, and hard to explain quickly without structured signals.\n• AI summaries are useful only when they stay grounded in observable data and avoid overstating security impact.\n\nWhat I built / designed:\n• A FastAPI and React prototype for reviewing traffic signals and producing AI-assisted summaries.\n• A detection direction using anomaly-style scoring, entropy-oriented features, and structured event storage.\n• A privacy-aware AI path that can use local models such as Ollama, with hosted model fallback where appropriate.\n\nTechnical highlights:\n• FastAPI backend for ingestion and analysis endpoints.\n• React interface for reviewing network and security signals.\n• SQLite-backed prototype storage.\n• Isolation Forest-style anomaly detection direction.\n• Entropy-style scoring for suspicious or unusual patterns.\n• Local/hosted AI summary boundary using Ollama and Gemini.\n\nStatus:\n• Prototype. It should not be described as a production security control or a verified threat-detection system.\n\nGitHub Signals:\n• Primary language: Python\n• Technologies: Python, FastAPI, React, SQLite, AdGuard, Ollama, Gemini, Isolation Forest, Entropy, TypeScript, JavaScript, HTML, CSS, Docker, Docker Compose\n• Topics: Not specified\n• Last updated: 2026-05-27T04:54:01Z\n• Stars: 0\n• Forks: 0\n• Status: Active",
     "archived": false,
     "updatedAt": "2026-07-09T12:06:25Z",
     "pushedAt": "2026-05-27T04:54:01Z",
@@ -487,9 +905,9 @@
         {
           "key": "tests",
           "label": "Tests present",
-          "present": true,
-          "source": "repo-files",
-          "confidence": "high"
+          "present": false,
+          "source": "unknown",
+          "confidence": "low"
         },
         {
           "key": "docker",
@@ -508,16 +926,16 @@
         {
           "key": "package-manifest",
           "label": "Package manifest present",
-          "present": true,
-          "source": "repo-files",
-          "confidence": "high"
+          "present": false,
+          "source": "unknown",
+          "confidence": "low"
         },
         {
           "key": "python-dependencies",
           "label": "Python dependency file present",
-          "present": true,
-          "source": "repo-files",
-          "confidence": "high"
+          "present": false,
+          "source": "unknown",
+          "confidence": "low"
         },
         {
           "key": "live-demo",
@@ -583,10 +1001,13 @@
           "confidence": "high"
         }
       ],
-      "maturityScore": 89,
-      "maturity": "mvp",
+      "maturityScore": 62,
+      "maturity": "prototype",
       "missingEvidence": [
+        "Tests present",
         "GitHub Actions present",
+        "Package manifest present",
+        "Python dependency file present",
         "Screenshots present",
         "npm package evidence present",
         "License present"
@@ -596,18 +1017,18 @@
     "evidenceRecommendations": [
       {
         "projectSlug": "network-guardian-ai",
-        "recommendationType": "add-screenshots",
+        "recommendationType": "add-tests",
         "severity": "medium",
-        "recommendation": "Add screenshots or a short demo GIF to make the project easier to evaluate.",
-        "reason": "Visual proof helps reviewers understand what was actually built.",
+        "recommendation": "Add or document tests that validate the main project workflow.",
+        "reason": "Tests increase project credibility and reduce the risk of overclaiming maturity.",
         "draftOnly": true
       },
       {
         "projectSlug": "network-guardian-ai",
-        "recommendationType": "promote-to-featured",
-        "severity": "low",
-        "recommendation": "Consider human review for a featured project slot.",
-        "reason": "The evidence score is strong, but promotion still requires manual judgment.",
+        "recommendationType": "add-screenshots",
+        "severity": "medium",
+        "recommendation": "Add screenshots or a short demo GIF to make the project easier to evaluate.",
+        "reason": "Visual proof helps reviewers understand what was actually built.",
         "draftOnly": true
       }
     ],
@@ -618,7 +1039,9 @@
     "featured": true,
     "priority": 90,
     "status": "Prototype",
-    "role": "Solo builder"
+    "role": "Solo builder",
+    "evidenceReferences": [],
+    "architectureDocuments": []
   },
   {
     "title": "CodeFlow Commander / Nexus Gateway",
@@ -644,14 +1067,292 @@
       "RAG",
       "Express.js",
       "ESLint",
-      "Jest",
-      "Docker Compose",
-      "GitHub Actions"
+      "Jest"
+    ],
+    "skills": [
+      {
+        "key": "typescript",
+        "label": "TypeScript",
+        "category": "languages",
+        "sources": [
+          {
+            "source": "github-language",
+            "rawValue": "TypeScript"
+          },
+          {
+            "source": "github-topic",
+            "rawValue": "typescript"
+          },
+          {
+            "source": "manifest",
+            "rawValue": "TypeScript"
+          },
+          {
+            "source": "override",
+            "rawValue": "TypeScript"
+          }
+        ],
+        "kind": "language"
+      },
+      {
+        "key": "go-template",
+        "label": "Go Template",
+        "category": "languages",
+        "sources": [
+          {
+            "source": "github-language",
+            "rawValue": "Go Template"
+          }
+        ]
+      },
+      {
+        "key": "html",
+        "label": "HTML",
+        "category": "languages",
+        "sources": [
+          {
+            "source": "github-language",
+            "rawValue": "HTML"
+          }
+        ],
+        "kind": "language"
+      },
+      {
+        "key": "javascript",
+        "label": "JavaScript",
+        "category": "languages",
+        "sources": [
+          {
+            "source": "github-language",
+            "rawValue": "JavaScript"
+          }
+        ],
+        "kind": "language"
+      },
+      {
+        "key": "makefile",
+        "label": "Makefile",
+        "category": "languages",
+        "sources": [
+          {
+            "source": "github-language",
+            "rawValue": "Makefile"
+          }
+        ]
+      },
+      {
+        "key": "powershell",
+        "label": "PowerShell",
+        "category": "languages",
+        "sources": [
+          {
+            "source": "github-language",
+            "rawValue": "PowerShell"
+          }
+        ]
+      },
+      {
+        "key": "python",
+        "label": "Python",
+        "category": "languages",
+        "sources": [
+          {
+            "source": "github-language",
+            "rawValue": "Python"
+          }
+        ],
+        "kind": "language"
+      },
+      {
+        "key": "shell",
+        "label": "Shell",
+        "category": "languages",
+        "sources": [
+          {
+            "source": "github-language",
+            "rawValue": "Shell"
+          }
+        ],
+        "kind": "language"
+      },
+      {
+        "key": "smarty",
+        "label": "Smarty",
+        "category": "languages",
+        "sources": [
+          {
+            "source": "github-language",
+            "rawValue": "Smarty"
+          }
+        ]
+      },
+      {
+        "key": "nodejs",
+        "label": "Node.js",
+        "category": "appStack",
+        "sources": [
+          {
+            "source": "github-topic",
+            "rawValue": "nodejs"
+          },
+          {
+            "source": "override",
+            "rawValue": "Node.js"
+          }
+        ],
+        "kind": "runtime"
+      },
+      {
+        "key": "express",
+        "label": "Express.js",
+        "category": "appStack",
+        "sources": [
+          {
+            "source": "manifest",
+            "rawValue": "Express.js"
+          }
+        ],
+        "kind": "framework"
+      },
+      {
+        "key": "ai-code-review",
+        "label": "AI-Assisted Code Review",
+        "category": "aiData",
+        "sources": [
+          {
+            "source": "override",
+            "rawValue": "AI Review"
+          }
+        ],
+        "kind": "concept"
+      },
+      {
+        "key": "rag",
+        "label": "RAG",
+        "category": "aiData",
+        "sources": [
+          {
+            "source": "github-topic",
+            "rawValue": "rag"
+          }
+        ],
+        "kind": "concept"
+      },
+      {
+        "key": "security",
+        "label": "Security",
+        "category": "infraDataSecurity",
+        "sources": [
+          {
+            "source": "override",
+            "rawValue": "Security"
+          }
+        ],
+        "kind": "concept"
+      },
+      {
+        "key": "docker",
+        "label": "Docker",
+        "category": "infraDataSecurity",
+        "sources": [
+          {
+            "source": "github-language",
+            "rawValue": "Dockerfile"
+          }
+        ],
+        "kind": "tool"
+      },
+      {
+        "key": "terraform",
+        "label": "Terraform",
+        "category": "infraDataSecurity",
+        "sources": [
+          {
+            "source": "github-language",
+            "rawValue": "HCL"
+          }
+        ],
+        "kind": "tool"
+      },
+      {
+        "key": "eslint",
+        "label": "ESLint",
+        "category": "quality",
+        "sources": [
+          {
+            "source": "manifest",
+            "rawValue": "ESLint"
+          }
+        ],
+        "kind": "tool"
+      },
+      {
+        "key": "jest",
+        "label": "Jest",
+        "category": "quality",
+        "sources": [
+          {
+            "source": "manifest",
+            "rawValue": "Jest"
+          }
+        ],
+        "kind": "tool"
+      },
+      {
+        "key": "cli",
+        "label": "CLI",
+        "category": "other",
+        "sources": [
+          {
+            "source": "override",
+            "rawValue": "CLI"
+          }
+        ],
+        "kind": "tool"
+      },
+      {
+        "key": "git-hooks",
+        "label": "Git Hooks",
+        "category": "other",
+        "sources": [
+          {
+            "source": "github-topic",
+            "rawValue": "git-hooks"
+          },
+          {
+            "source": "override",
+            "rawValue": "Git Hooks"
+          }
+        ],
+        "kind": "tool"
+      },
+      {
+        "key": "code-review",
+        "label": "Code-Review",
+        "category": "uncategorized",
+        "sources": [
+          {
+            "source": "github-topic",
+            "rawValue": "code-review"
+          }
+        ]
+      },
+      {
+        "key": "gemini-api",
+        "label": "Gemini-Api",
+        "category": "uncategorized",
+        "sources": [
+          {
+            "source": "github-topic",
+            "rawValue": "gemini-api"
+          }
+        ]
+      }
     ],
     "liveUrl": "https://www.npmjs.com/package/codeflow-hook",
     "githubUrl": "https://github.com/Sharv619/codeflow-commander---nexus-gateway",
     "slug": "codeflow-commander-nexus-gateway",
-    "architectureDetails": "CodeFlow Commander / Nexus Gateway explores AI-assisted developer tooling around review workflows.\n\nProblem:\n• Developers need fast pre-commit and review feedback, but generic AI chat workflows are hard to integrate into normal git habits.\n• Automated review needs clear boundaries so AI assists judgment without pretending to replace engineering ownership.\n\nWhat I built / designed:\n• A developer-tooling prototype around git hook workflows, review orchestration, and structured code feedback.\n• A platform direction for connecting CLI commands, review rules, security checks, and AI-assisted analysis.\n• A safer review flow where generated findings are framed as suggestions requiring developer review.\n\nTechnical highlights:\n• Node.js / TypeScript CLI direction.\n• Git hook integration and staged-file analysis.\n• AI review orchestration for code quality, security, and maintainability prompts.\n• Provider-agnostic review direction for future model flexibility.\n• Nexus Gateway framing for routing review tasks through a consistent command surface.\n\nStatus:\n• Prototype / platform exploration. It should not be described as a mature production review platform without further verification.\n\nGitHub Signals:\n• Primary language: Python\n• Technologies: Node.js, TypeScript, CLI, Git Hooks, AI Review, Security, Developer Tools, Python, JavaScript, Shell, Terraform, Docker, PowerShell, HTML, AI, Code Review, Gemini API, RAG, Express.js, ESLint, Jest, Docker Compose, GitHub Actions\n• Topics: AI, Code Review, Developer Tools, Gemini API, Git Hooks, Node.js, RAG, TypeScript\n• Last updated: 2026-07-22T02:13:34Z\n• Stars: 0\n• Forks: 0\n• Status: Active",
+    "architectureDetails": "CodeFlow Commander / Nexus Gateway explores AI-assisted developer tooling around review workflows.\n\nProblem:\n• Developers need fast pre-commit and review feedback, but generic AI chat workflows are hard to integrate into normal git habits.\n• Automated review needs clear boundaries so AI assists judgment without pretending to replace engineering ownership.\n\nWhat I built / designed:\n• A developer-tooling prototype around git hook workflows, review orchestration, and structured code feedback.\n• A platform direction for connecting CLI commands, review rules, security checks, and AI-assisted analysis.\n• A safer review flow where generated findings are framed as suggestions requiring developer review.\n\nTechnical highlights:\n• Node.js / TypeScript CLI direction.\n• Git hook integration and staged-file analysis.\n• AI review orchestration for code quality, security, and maintainability prompts.\n• Provider-agnostic review direction for future model flexibility.\n• Nexus Gateway framing for routing review tasks through a consistent command surface.\n\nStatus:\n• Prototype / platform exploration. It should not be described as a mature production review platform without further verification.\n\nGitHub Signals:\n• Primary language: Python\n• Technologies: Node.js, TypeScript, CLI, Git Hooks, AI Review, Security, Developer Tools, Python, JavaScript, Shell, Terraform, Docker, PowerShell, HTML, AI, Code Review, Gemini API, RAG, Express.js, ESLint, Jest\n• Topics: AI, Code Review, Developer Tools, Gemini API, Git Hooks, Node.js, RAG, TypeScript\n• Last updated: 2026-07-22T02:13:34Z\n• Stars: 0\n• Forks: 0\n• Status: Active",
     "archived": false,
     "updatedAt": "2026-07-22T02:13:46Z",
     "pushedAt": "2026-07-22T02:13:34Z",
@@ -727,15 +1428,15 @@
           "key": "docker",
           "label": "Docker present",
           "present": true,
-          "source": "repo-files",
-          "confidence": "high"
+          "source": "unknown",
+          "confidence": "low"
         },
         {
           "key": "github-actions",
           "label": "GitHub Actions present",
-          "present": true,
-          "source": "repo-files",
-          "confidence": "high"
+          "present": false,
+          "source": "unknown",
+          "confidence": "low"
         },
         {
           "key": "package-manifest",
@@ -796,9 +1497,9 @@
         {
           "key": "deployment-config",
           "label": "Deployment config present",
-          "present": true,
-          "source": "repo-files",
-          "confidence": "high"
+          "present": false,
+          "source": "unknown",
+          "confidence": "low"
         },
         {
           "key": "license",
@@ -815,11 +1516,13 @@
           "confidence": "high"
         }
       ],
-      "maturityScore": 100,
+      "maturityScore": 88,
       "maturity": "mvp",
       "missingEvidence": [
+        "GitHub Actions present",
         "Python dependency file present",
         "Screenshots present",
+        "Deployment config present",
         "License present"
       ],
       "claimWarnings": []
@@ -844,12 +1547,31 @@
     ],
     "caseStudySlug": "codeflow-commander",
     "portfolioSummary": "Developer-tooling prototype for AI-assisted review orchestration across git hook workflows, CLI commands, and security-oriented feedback.",
-    "readmeMarkdown": "# Codeflow Commander / Nexus Gateway\n\nAI-powered development toolkit with CI/CD simulator, intelligent git workflow enhancement, and enterprise knowledge graph capabilities.\n\n## Overview\n\nCodeflow Commander is a monorepo containing developer tools that integrate AI into your development workflow. It provides:\n\n- **CLI Tool**: AI-powered code reviews directly in git hooks (published to npm)\n- **CI/CD Simulator**: Interactive React interface for pipeline prototyping\n- **Enterprise Knowledge Graph**: GraphQL services backed by Amazon Neptune\n- **Multi-Provider AI**: Support for Gemini, OpenAI, Claude, and custom providers\n\n## Features\n\n- 🤖 **AI Code Review**: Automated pre-commit and pre-push quality gates\n- 📊 **CI/CD Simulation**: Visual pipeline builder with live code analysis\n- 🔗 **Enterprise Knowledge Graph**: GitHub data ingestion into Neptune graph database\n- 🌐 **Multi-Provider AI**: Switch between AI providers without code changes\n- 🐳 **Docker Ready**: Full containerization with development and production profiles\n- 📦 **npm Published**: `codeflow-hook` available for global installation\n\n## Tech Stack\n\n- **Frontend**: React 19, Vite 7, TailwindCSS\n- **Backend**: Express.js, Apollo Server (GraphQL)\n- **Database**: Amazon Neptune (Graph)\n- **CLI**: Commander.js, published npm packages\n- **AI**: Google Gemini (primary), OpenAI, Claude\n- **Infrastructure**: Docker Compose, Terraform (AWS)\n\n## Quick Start\n\n### Prerequisites\n\n- Node.js >= 18.0.0\n- npm >= 9.0.0\n- Docker (optional)\n\n### Setup\n\n```bash\ngit clone https://github.com/Sharv619/codeflow-commander---nexus-gateway.git\ncd codeflow-commander---nexus-gateway\nnpm run setup\n```\n\n### Running\n\n```bash\n# Development\nnpm run dev          # Frontend (port 5173)\nnpm run server       # Backend (port 3001)\n\n# Docker\nmake docker-up       # All services (frontend: 8080, backend: 3001, GraphQL: 4000)\n```\n\n### CLI Tool\n\n```bash\nnpm install -g codeflow-hook\ncodeflow-hook config -k YOUR_AI_API_KEY\ncodeflow-hook install\n```\n\n## Architecture\n\n```\n┌─────────────┐    ┌─────────────┐    ┌─────────────┐\n│  React UI   │───▶│  Express    │───▶│  Gemini AI  │\n│  (Vite)     │    │  Backend    │    │  API        │\n└─────────────┘    └─────────────┘    └─────────────┘\n                        │\n                        ▼\n                  ┌─────────────┐\n                  │  Neptune    │\n                  │  (Graph DB) │\n                  └─────────────┘\n```\n\nSee [ARCHITECTURE.md](ARCHITECTURE.md) for detailed design decisions.\n\n## Project Structure\n\n```\ncodeflow-commander---nexus-gateway/\n├── packages/\n│   ├── simulator-ui/          # React + Vite CI/CD Simulator\n│   ├── cli-tool/              # codeflow-hook (npm package)\n│   ├── codeflow-cli/          # Co-Pilot CLI\n│   └── services/\n│       ├── query-service/     # GraphQL API\n│       ├── ingestion-service/ # GitHub → Neptune ingestion\n│       ├── cli-integration/   # CLI backend bridge\n│       └── autonomous-agent-network/\n├── server/                    # Express backend + AI proxy\n├── IaC/terraform/             # AWS infrastructure\n├── nginx/                     # Nginx configuration\n├── scripts/                   # Utility scripts\n└── tests/                     # Root-level tests\n```\n\n## Commands\n\n```bash\nnpm run dev              # Start frontend dev server\nnpm run server           # Start Express backend\nnpm run build:all        # Build all workspaces\nnpm run test:all         # Run all tests\nnpm run lint             # ESLint check\nnpm run typecheck        # TypeScript type checking\nmake docker-up           # Start Docker services\nmake ci                  # Full CI: lint + typecheck + test + build\n```\n\nSee [AGENTS.md](AGENTS.md) for detailed development commands and code style.\n\n## Contributing\n\n1. Fork and clone\n2. Create feature branch: `git checkout -b feature/your-feature`\n3. Make changes and run tests: `npm run test:all`\n4. Commit with semantic message\n5. Open PR\n\nSee [CONTRIBUTING.md](CONTRIBUTING.md) for detailed guidelines.\n\n## License\n\nMIT License\n",
+    "readmeMarkdown": "# Codeflow Commander — Nexus Gateway\n\nAI-powered development toolkit with CI/CD simulator, intelligent git workflow enhancement, and enterprise knowledge graph capabilities.\n\n## Overview\n\nCodeflow Commander is a monorepo containing developer tools that integrate AI into your development workflow. It provides:\n\n- **CLI Tool**: AI-powered code reviews directly in git hooks (published to npm)\n- **CI/CD Simulator**: Interactive React interface for pipeline prototyping\n- **Enterprise Knowledge Graph**: GraphQL services backed by Amazon Neptune\n- **Multi-Provider AI**: Support for Gemini, OpenAI, Claude, and custom providers\n\n## Features\n\n- 🤖 **AI Code Review**: Automated pre-commit and pre-push quality gates\n- 📊 **CI/CD Simulation**: Visual pipeline builder with live code analysis\n- 🔗 **Enterprise Knowledge Graph**: GitHub data ingestion into Neptune graph database\n- 🌐 **Multi-Provider AI**: Switch between AI providers without code changes\n- 🐳 **Docker Ready**: Full containerization with development and production profiles\n- 📦 **npm Published**: `codeflow-hook` available for global installation\n\n## Tech Stack\n\n- **Frontend**: React 19, Vite 7, TailwindCSS\n- **Backend**: Express.js, Apollo Server (GraphQL)\n- **Database**: Amazon Neptune (Graph)\n- **CLI**: Commander.js, published npm packages\n- **AI**: Google Gemini (primary), OpenAI, Claude\n- **Infrastructure**: Docker Compose, Terraform (AWS)\n\n## Quick Start\n\n### Prerequisites\n\n- Node.js >= 18.0.0\n- npm >= 9.0.0\n- Docker (optional)\n\n### Setup\n\n```bash\ngit clone https://github.com/Sharv619/codeflow-commander---nexus-gateway.git\ncd codeflow-commander---nexus-gateway\nnpm run setup\n```\n\n### Running\n\n```bash\n# Development\nnpm run dev          # Frontend (port 5173)\nnpm run server       # Backend (port 3001)\n\n# Docker\nmake docker-up       # All services (frontend: 8080, backend: 3001, GraphQL: 4000)\n```\n\n### CLI Tool\n\n```bash\nnpm install -g codeflow-hook\ncodeflow-hook config -k YOUR_AI_API_KEY\ncodeflow-hook install\n```\n\n## Architecture\n\n```\n┌─────────────┐    ┌─────────────┐    ┌─────────────┐\n│  React UI   │───▶│  Express    │───▶│  Gemini AI  │\n│  (Vite)     │    │  Backend    │    │  API        │\n└─────────────┘    └─────────────┘    └─────────────┘\n                        │\n                        ▼\n                  ┌─────────────┐\n                  │  Neptune    │\n                  │  (Graph DB) │\n                  └─────────────┘\n```\n\nSee [ARCHITECTURE.md](ARCHITECTURE.md) for detailed design decisions.\n\n## Project Structure\n\n```\ncodeflow-commander---nexus-gateway/\n├── packages/\n│   ├── simulator-ui/          # React + Vite CI/CD Simulator\n│   ├── cli-tool/              # codeflow-hook (npm package)\n│   ├── codeflow-cli/          # Co-Pilot CLI\n│   └── services/\n│       ├── query-service/     # GraphQL API\n│       ├── ingestion-service/ # GitHub → Neptune ingestion\n│       ├── cli-integration/   # CLI backend bridge\n│       └── autonomous-agent-network/\n├── server/                    # Express backend + AI proxy\n├── IaC/terraform/             # AWS infrastructure\n├── nginx/                     # Nginx configuration\n├── scripts/                   # Utility scripts\n└── tests/                     # Root-level tests\n```\n\n## Commands\n\n```bash\nnpm run dev              # Start frontend dev server\nnpm run server           # Start Express backend\nnpm run build:all        # Build all workspaces\nnpm run test:all         # Run all tests\nnpm run lint             # ESLint check\nnpm run typecheck        # TypeScript type checking\nmake docker-up           # Start Docker services\nmake ci                  # Full CI: lint + typecheck + test + build\n```\n\nSee [AGENTS.md](AGENTS.md) for detailed development commands and code style.\n\n## Contributing\n\n1. Fork and clone\n2. Create feature branch: `git checkout -b feature/your-feature`\n3. Make changes and run tests: `npm run test:all`\n4. Commit with semantic message\n5. Open PR\n\nSee [CONTRIBUTING.md](CONTRIBUTING.md) for detailed guidelines.\n\n## License\n\nMIT License\n",
     "readmeSourceUrl": "https://github.com/Sharv619/codeflow-commander---nexus-gateway#readme",
     "featured": true,
     "priority": 85,
     "status": "Prototype / platform exploration",
-    "role": "Solo builder"
+    "role": "Solo builder",
+    "evidenceReferences": [
+      {
+        "id": "architecture-architecture-md",
+        "label": "Architecture",
+        "kind": "file",
+        "url": "https://github.com/Sharv619/codeflow-commander---nexus-gateway/blob/main/ARCHITECTURE.md",
+        "path": "ARCHITECTURE.md",
+        "description": "Repository architecture document"
+      }
+    ],
+    "architectureDocuments": [
+      {
+        "path": "ARCHITECTURE.md",
+        "title": "Architecture",
+        "content": "# Architecture\n\n## Overview\n\nCodeflow Commander — Nexus Gateway is a monorepo containing developer tools for AI-powered code review and CI/CD pipeline simulation. The system combines a React frontend simulator, Express backend API, CLI tools for git workflow enhancement, and GraphQL services backed by Amazon Neptune for enterprise knowledge graph capabilities.\n\n## Components\n\n### 1. Simulator UI (packages/simulator-ui)\n- **Purpose**: Interactive CI/CD pipeline prototyping and visualization\n- **Tech**: React 19, Vite 7, TailwindCSS, Jest\n- **Trade-offs**: Vite chosen over CRA for faster HMR and smaller bundles\n- **Data Flow**: React UI → Express Backend → AI Services\n\n### 2. Express Backend (server/server.js)\n- **Purpose**: API server with AI proxy, ESLint analysis, and test runner\n- **Tech**: Express.js, rate limiting, CORS\n- **Trade-offs**: Standalone server (not in workspace) for simpler deployment\n- **Data Flow**: Receives code → spawns analysis → returns JSON results\n\n### 3. CLI Tools (packages/cli-tool, packages/codeflow-cli)\n- **Purpose**: Git hook integration and AI-powered code review\n- **Tech**: Commander.js, published as npm packages\n- **Trade-offs**: Direct AI API calls eliminate server dependency\n- **Data Flow**: Git diff → CLI tool → AI provider → structured feedback\n\n### 4. GraphQL Services (packages/services/query-service)\n- **Purpose**: Enterprise Knowledge Graph API\n- **Tech**: Apollo Server, GraphQL\n- **Trade-offs**: GraphQL chosen over REST for flexible data queries\n\n### 5. Ingestion Service (packages/services/ingestion-service)\n- **Purpose**: GitHub repository data ingestion into Neptune\n- **Tech**: Gremlin, Neptune client\n- **Data Flow**: GitHub API → transform → Neptune graph\n\n### 6. Infrastructure (IaC/terraform)\n- **Purpose**: AWS infrastructure provisioning\n- **Tech**: Terraform modules for VPC, EKS, Neptune\n\n## Data Flow\n\n```\nDeveloper commits code\n    ↓\nGit hook (pre-commit/pre-push)\n    ↓\nCLI tool captures diff\n    ↓\nAI analysis (Gemini/OpenAI/Claude)\n    ↓\nStructured JSON feedback\n    ↓\nPass/Fail gate → commit or reject\n```\n\n## Key Design Decisions\n\n### Decision 1: Monorepo with npm Workspaces\n- **Why**: Shared types, unified tooling, easier cross-package development\n- **Trade-off**: Larger install times, tighter coupling\n- **Solution**: Workspace boundaries with clear package.json dependencies\n\n### Decision 2: Multi-Provider AI Support\n- **Why**: Avoid vendor lock-in, allow user choice\n- **Trade-off**: More complex configuration\n- **Solution**: Abstract provider interface with config-driven selection\n\n### Decision 3: Docker Compose for Local Development\n- **Why**: Consistent environment across machines\n- **Trade-off**: Docker dependency, slower startup\n- **Solution**: Fallback to direct npm scripts for simple workflows\n\n## Performance\n\n- **Frontend**: Vite provides sub-second HMR, optimized production builds\n- **Backend**: Rate-limited AI proxy (30 req/min) prevents abuse\n- **CLI**: Direct API calls bypass server latency (~200ms overhead eliminated)\n- **GraphQL**: Query batching reduces round trips for complex data fetches\n\n## Security\n\n- API keys stored locally (`~/.codeflow-hook/config.json`), never committed\n- Rate limiting on AI proxy endpoints (30 req/min)\n- Input validation with 20KB payload limits\n- Non-root container execution\n- CORS configured for specific origins\n- Content Security Policy via Nginx\n\n## Future Improvements\n\n- Plugin system for custom analysis rules\n- Team analytics dashboard for code review trends\n- Offline mode with cached AI analysis\n- WebSocket support for real-time analysis streaming\n- Integration with additional CI/CD platforms (GitHub Actions, GitLab CI)\n",
+        "sourceUrl": "https://github.com/Sharv619/codeflow-commander---nexus-gateway/blob/main/ARCHITECTURE.md",
+        "diagrams": []
+      }
+    ]
   },
   {
     "title": "Pilly / MediMate Voice",
@@ -864,6 +1586,91 @@
       "Gemini",
       "Voice",
       "Responsible AI"
+    ],
+    "skills": [
+      {
+        "key": "html",
+        "label": "HTML",
+        "category": "languages",
+        "sources": [
+          {
+            "source": "github-language",
+            "rawValue": "HTML"
+          },
+          {
+            "source": "override",
+            "rawValue": "HTML"
+          }
+        ],
+        "kind": "language"
+      },
+      {
+        "key": "typescript",
+        "label": "TypeScript",
+        "category": "languages",
+        "sources": [
+          {
+            "source": "override",
+            "rawValue": "TypeScript"
+          }
+        ],
+        "kind": "language"
+      },
+      {
+        "key": "tailwind",
+        "label": "Tailwind CSS",
+        "category": "appStack",
+        "sources": [
+          {
+            "source": "override",
+            "rawValue": "Tailwind CSS"
+          }
+        ],
+        "kind": "framework"
+      },
+      {
+        "key": "gemini",
+        "label": "Gemini",
+        "category": "aiData",
+        "sources": [
+          {
+            "source": "override",
+            "rawValue": "Gemini"
+          }
+        ],
+        "kind": "platform"
+      },
+      {
+        "key": "firebase",
+        "label": "Firebase",
+        "category": "infraDataSecurity",
+        "sources": [
+          {
+            "source": "override",
+            "rawValue": "Firebase"
+          },
+          {
+            "source": "override",
+            "rawValue": "Firestore"
+          },
+          {
+            "source": "override",
+            "rawValue": "Cloud Functions"
+          }
+        ],
+        "kind": "platform"
+      },
+      {
+        "key": "responsible-ai",
+        "label": "Responsible AI",
+        "category": "uncategorized",
+        "sources": [
+          {
+            "source": "override",
+            "rawValue": "Responsible AI"
+          }
+        ]
+      }
     ],
     "liveUrl": "https://medimate-voice-demo.web.app",
     "githubUrl": "https://github.com/Sharv619/Build_wit_AI",
@@ -1059,7 +1866,9 @@
     "featured": true,
     "priority": 80,
     "status": "Hackathon prototype",
-    "role": "Team contributor"
+    "role": "Team contributor",
+    "evidenceReferences": [],
+    "architectureDocuments": []
   },
   {
     "title": "codeflow-hook",
@@ -1072,6 +1881,68 @@
       "Git Hooks",
       "AI Code Review",
       "Developer Tools"
+    ],
+    "skills": [
+      {
+        "key": "typescript",
+        "label": "TypeScript",
+        "category": "languages",
+        "sources": [
+          {
+            "source": "override",
+            "rawValue": "TypeScript"
+          }
+        ],
+        "kind": "language"
+      },
+      {
+        "key": "nodejs",
+        "label": "Node.js",
+        "category": "appStack",
+        "sources": [
+          {
+            "source": "override",
+            "rawValue": "Node.js"
+          }
+        ],
+        "kind": "runtime"
+      },
+      {
+        "key": "ai-code-review",
+        "label": "AI-Assisted Code Review",
+        "category": "aiData",
+        "sources": [
+          {
+            "source": "override",
+            "rawValue": "AI Code Review"
+          }
+        ],
+        "kind": "concept"
+      },
+      {
+        "key": "cli",
+        "label": "CLI",
+        "category": "other",
+        "sources": [
+          {
+            "source": "override",
+            "rawValue": "CLI"
+          }
+        ],
+        "kind": "tool"
+      },
+      {
+        "key": "git-hooks",
+        "label": "Git Hooks",
+        "category": "other",
+        "sources": [
+          {
+            "source": "override",
+            "rawValue": "Git Hooks"
+          }
+        ],
+        "kind": "tool"
+      }
     ],
     "liveUrl": "",
     "githubUrl": "https://github.com/Sharv619/codeflow-hook",
@@ -1267,7 +2138,458 @@
     "featured": true,
     "priority": 75,
     "status": "npm package / source verification pending",
-    "role": "Solo builder"
+    "role": "Solo builder",
+    "evidenceReferences": [],
+    "architectureDocuments": []
+  },
+  {
+    "title": "Nudgeai",
+    "description": "NudgeAI is a local prototype/MVP foundation for turning scattered obligations into clear manual nudges that can be created, tracked, completed, snoozed, dismissed, and reopened.",
+    "technologies": [
+      "Python",
+      "JavaScript",
+      "HTML",
+      "CSS",
+      "Shell",
+      "TypeScript",
+      "Docker",
+      "Axios",
+      "FastAPI",
+      "Uvicorn",
+      "Mistral AI",
+      "FAISS",
+      "Sentence Transformers",
+      "ChromaDB",
+      "Pydantic",
+      "PyTorch",
+      "Docker Compose",
+      "GitHub Actions"
+    ],
+    "skills": [
+      {
+        "key": "css",
+        "label": "CSS",
+        "category": "languages",
+        "sources": [
+          {
+            "source": "github-language",
+            "rawValue": "CSS"
+          }
+        ],
+        "kind": "language"
+      },
+      {
+        "key": "html",
+        "label": "HTML",
+        "category": "languages",
+        "sources": [
+          {
+            "source": "github-language",
+            "rawValue": "HTML"
+          }
+        ],
+        "kind": "language"
+      },
+      {
+        "key": "javascript",
+        "label": "JavaScript",
+        "category": "languages",
+        "sources": [
+          {
+            "source": "github-language",
+            "rawValue": "JavaScript"
+          }
+        ],
+        "kind": "language"
+      },
+      {
+        "key": "python",
+        "label": "Python",
+        "category": "languages",
+        "sources": [
+          {
+            "source": "github-language",
+            "rawValue": "Python"
+          }
+        ],
+        "kind": "language"
+      },
+      {
+        "key": "shell",
+        "label": "Shell",
+        "category": "languages",
+        "sources": [
+          {
+            "source": "github-language",
+            "rawValue": "Shell"
+          }
+        ],
+        "kind": "language"
+      },
+      {
+        "key": "typescript",
+        "label": "TypeScript",
+        "category": "languages",
+        "sources": [
+          {
+            "source": "github-language",
+            "rawValue": "TypeScript"
+          }
+        ],
+        "kind": "language"
+      },
+      {
+        "key": "axios",
+        "label": "Axios",
+        "category": "appStack",
+        "sources": [
+          {
+            "source": "manifest",
+            "rawValue": "Axios"
+          }
+        ],
+        "kind": "library"
+      },
+      {
+        "key": "fastapi",
+        "label": "FastAPI",
+        "category": "appStack",
+        "sources": [
+          {
+            "source": "manifest",
+            "rawValue": "FastAPI"
+          }
+        ],
+        "kind": "framework"
+      },
+      {
+        "key": "pydantic",
+        "label": "Pydantic",
+        "category": "appStack",
+        "sources": [
+          {
+            "source": "manifest",
+            "rawValue": "Pydantic"
+          }
+        ],
+        "kind": "library"
+      },
+      {
+        "key": "uvicorn",
+        "label": "Uvicorn",
+        "category": "appStack",
+        "sources": [
+          {
+            "source": "manifest",
+            "rawValue": "Uvicorn"
+          }
+        ],
+        "kind": "tool"
+      },
+      {
+        "key": "embeddings",
+        "label": "Embeddings",
+        "category": "aiData",
+        "sources": [
+          {
+            "source": "manifest",
+            "rawValue": "Sentence Transformers"
+          }
+        ],
+        "kind": "concept"
+      },
+      {
+        "key": "pytorch",
+        "label": "PyTorch",
+        "category": "aiData",
+        "sources": [
+          {
+            "source": "manifest",
+            "rawValue": "PyTorch"
+          }
+        ],
+        "kind": "framework"
+      },
+      {
+        "key": "vector-db",
+        "label": "Vector Database",
+        "category": "aiData",
+        "sources": [
+          {
+            "source": "manifest",
+            "rawValue": "FAISS"
+          },
+          {
+            "source": "manifest",
+            "rawValue": "ChromaDB"
+          }
+        ],
+        "kind": "tool"
+      },
+      {
+        "key": "docker",
+        "label": "Docker",
+        "category": "infraDataSecurity",
+        "sources": [
+          {
+            "source": "github-language",
+            "rawValue": "Dockerfile"
+          },
+          {
+            "source": "manifest",
+            "rawValue": "Docker"
+          },
+          {
+            "source": "manifest",
+            "rawValue": "Docker Compose"
+          }
+        ],
+        "kind": "tool"
+      },
+      {
+        "key": "github-actions",
+        "label": "GitHub Actions",
+        "category": "infraDataSecurity",
+        "sources": [
+          {
+            "source": "manifest",
+            "rawValue": "GitHub Actions"
+          }
+        ],
+        "kind": "tool"
+      },
+      {
+        "key": "mistral-ai",
+        "label": "Mistral AI",
+        "category": "uncategorized",
+        "sources": [
+          {
+            "source": "manifest",
+            "rawValue": "Mistral AI"
+          }
+        ]
+      }
+    ],
+    "liveUrl": "",
+    "githubUrl": "https://github.com/Sharv619/Nudgeai",
+    "slug": "nudgeai",
+    "architectureDetails": "NudgeAI is a local prototype/MVP foundation for turning scattered obligations into clear manual nudges that can be created, tracked, completed, snoozed, dismissed, and reopened.\n\nGitHub Signals:\n• Primary language: Python\n• Technologies: Python, JavaScript, HTML, CSS, Shell, TypeScript, Docker, Axios, FastAPI, Uvicorn, Mistral AI, FAISS, Sentence Transformers, ChromaDB, Pydantic, PyTorch, Docker Compose, GitHub Actions\n• Topics: Not specified\n• Last updated: 2026-10-07T00:39:03Z\n• Stars: 1\n• Forks: 0\n• Status: Active",
+    "archived": false,
+    "updatedAt": "2026-10-04T07:30:01Z",
+    "pushedAt": "2026-10-07T00:39:03Z",
+    "stars": 1,
+    "forks": 0,
+    "topics": [],
+    "primaryLanguage": "Python",
+    "languageBreakdown": {
+      "Python": 805241,
+      "JavaScript": 170387,
+      "HTML": 56763,
+      "CSS": 10446,
+      "Shell": 4089,
+      "TypeScript": 1706,
+      "Dockerfile": 802
+    },
+    "evidenceProfile": {
+      "slug": "nudgeai",
+      "repoName": "Nudgeai",
+      "lastUpdated": "2026-10-07T00:39:03Z",
+      "languages": [
+        "Python",
+        "JavaScript",
+        "HTML",
+        "CSS",
+        "Shell",
+        "TypeScript",
+        "Dockerfile"
+      ],
+      "topics": [],
+      "signals": [
+        {
+          "key": "readme",
+          "label": "README present",
+          "present": true,
+          "source": "readme",
+          "confidence": "high"
+        },
+        {
+          "key": "tests",
+          "label": "Tests present",
+          "present": true,
+          "source": "repo-files",
+          "confidence": "high"
+        },
+        {
+          "key": "docker",
+          "label": "Docker present",
+          "present": true,
+          "source": "repo-files",
+          "confidence": "high"
+        },
+        {
+          "key": "github-actions",
+          "label": "GitHub Actions present",
+          "present": true,
+          "source": "repo-files",
+          "confidence": "high"
+        },
+        {
+          "key": "package-manifest",
+          "label": "Package manifest present",
+          "present": true,
+          "source": "repo-files",
+          "confidence": "high"
+        },
+        {
+          "key": "python-dependencies",
+          "label": "Python dependency file present",
+          "present": true,
+          "source": "repo-files",
+          "confidence": "high"
+        },
+        {
+          "key": "live-demo",
+          "label": "Live demo link present",
+          "present": false,
+          "source": "unknown",
+          "confidence": "low"
+        },
+        {
+          "key": "screenshots",
+          "label": "Screenshots present",
+          "present": false,
+          "source": "unknown",
+          "confidence": "low"
+        },
+        {
+          "key": "docs-folder",
+          "label": "Docs folder present",
+          "present": true,
+          "source": "readme",
+          "confidence": "medium"
+        },
+        {
+          "key": "api-docs",
+          "label": "API docs present",
+          "present": true,
+          "source": "readme",
+          "confidence": "medium"
+        },
+        {
+          "key": "security-safety-docs",
+          "label": "Security/safety docs present",
+          "present": true,
+          "source": "readme",
+          "confidence": "medium"
+        },
+        {
+          "key": "npm-package",
+          "label": "npm package evidence present",
+          "present": true,
+          "source": "github",
+          "confidence": "medium"
+        },
+        {
+          "key": "deployment-config",
+          "label": "Deployment config present",
+          "present": true,
+          "source": "repo-files",
+          "confidence": "high"
+        },
+        {
+          "key": "license",
+          "label": "License present",
+          "present": false,
+          "source": "unknown",
+          "confidence": "low"
+        },
+        {
+          "key": "recent-update",
+          "label": "Recent update present",
+          "present": true,
+          "source": "github",
+          "confidence": "high"
+        }
+      ],
+      "maturityScore": 93,
+      "maturity": "mvp",
+      "missingEvidence": [
+        "Live demo link present",
+        "Screenshots present",
+        "License present"
+      ],
+      "claimWarnings": [
+        "production status: Production status must come from the approved claim registry or case-study status."
+      ]
+    },
+    "evidenceRecommendations": [
+      {
+        "projectSlug": "nudgeai",
+        "recommendationType": "add-screenshots",
+        "severity": "medium",
+        "recommendation": "Add screenshots or a short demo GIF to make the project easier to evaluate.",
+        "reason": "Visual proof helps reviewers understand what was actually built.",
+        "draftOnly": true
+      },
+      {
+        "projectSlug": "nudgeai",
+        "recommendationType": "add-demo-link",
+        "severity": "medium",
+        "recommendation": "Add a live demo link or clearly explain why the project is repository-only.",
+        "reason": "A reachable demo is useful evidence, but missing demos should be explained instead of hidden.",
+        "draftOnly": true
+      },
+      {
+        "projectSlug": "nudgeai",
+        "recommendationType": "soften-claim",
+        "severity": "high",
+        "recommendation": "Soften or remove claims flagged by the guardrail before publishing.",
+        "reason": "production status: Production status must come from the approved claim registry or case-study status.",
+        "draftOnly": true
+      }
+    ],
+    "readmeMarkdown": "# NudgeAI\n\n## What It Is\n\nNudgeAI is a local prototype/MVP foundation for turning scattered obligations into clear manual nudges that can be created, tracked, completed, snoozed, dismissed, and reopened.\n\n## Current Status\n\nLocal prototype / MVP foundation. Not production-ready.\n\nThe canonical MVP backend is `simple_api_server.py` on port `8001`. Existing MCP, RAG, Google data, and bridge files remain in the repository as experimental/legacy prototype work, but they are not required for the core manual nudge loop.\n\n## Core MVP\n\n- Manual nudge creation\n- Nudge dashboard\n- Pending, due today, overdue, snoozed, completed, and dismissed sections\n- Complete, snooze, dismiss, reopen, and delete actions\n- JSON-file persistence for local demo use\n- Local-first personal context rules\n- Demo/manual Gym Opportunity rule\n- Location and Calendar source status cards\n- No AI keys required for the core MVP\n\n## Tech Stack\n\n- Frontend: React, Vite, Tailwind CSS\n- Backend: FastAPI\n- Persistence: local JSON file at `data/nudges.json`\n- Experimental/future: MCP, RAG, Hugging Face, Google APIs, WhiteCircle\n\n## Start Here / Local Integration\n\nFor the step-by-step local setup, run commands, API integration surface, and Hermes/MCP guidance, use:\n\n```txt\ndocs/LOCAL_INTEGRATION_RUNBOOK.md\n```\n\nRecommended path:\n\n1. Run the canonical backend: `python simple_api_server.py`.\n2. Run the frontend from `frontend/`: `npm run dev`.\n3. Open `http://localhost:3000`.\n4. Integrate other local tools through the FastAPI endpoints, not by directly editing `data/*.json`.\n5. Treat MCP, RAG, Google sync, and bridge files as experimental until the manual nudge loop is verified.\n\n## Local Setup\n\nInstall Python dependencies:\n\n```bash\npip install -r requirements.txt\n```\n\nInstall frontend dependencies:\n\n```bash\ncd frontend\nnpm install\n```\n\n## Environment Variables\n\nThe manual nudge MVP does not require AI or Google credentials.\n\nOptional variables:\n\n- `NUDGE_STORE_PATH`: override local nudge store path. Defaults to `data/nudges.json`.\n- `PLACES_STORE_PATH`: override local places store path. Defaults to `data/places.json`.\n- `CONTEXT_RULES_STORE_PATH`: override local context rules store path. Defaults to `data/context_rules.json`.\n- `RULE_STATE_STORE_PATH`: override local context rule state store path. Defaults to `data/rule_state.json`.\n- `CURRENT_LOCATION_STORE_PATH`: override local current location store path. Defaults to `data/current_location.json`.\n- `CALENDAR_AVAILABILITY_STORE_PATH`: override local free/busy abstraction store path. Defaults to `data/calendar_availability.json`.\n- `VITE_USE_MOCK_DATA` / `REACT_APP_USE_MOCK_DATA`: optional frontend mock-data flags. The core dashboard should use the real local API by default.\n- `HF_token`, `HF_MODEL`, `WHITECIRCLE_API_KEY`: used only by experimental AI/MCP/RAG paths.\n- `GOOGLE_CLIENT_ID`, `GOOGLE_CLIENT_SECRET`, `GOOGLE_REDIRECT_URI`, `GOOGLE_TOKEN`, `GOOGLE_APPLICATION_CREDENTIALS`: used only by experimental local Google sync/OAuth helpers.\n- `MCP_SERVER_HOST`, `MCP_SERVER_PORT`: used only by experimental Docker/MCP bridge paths.\n- `ELEVENLABS_API_KEY`, `GOOGLE_TTS_API_KEY`: used only by optional demo asset generation scripts.\n- `LOG_LEVEL`: optional logging control.\n\nGoogle OAuth token files such as `token.json` and `drive_token.json` must not be committed.\n\n## Secret Handling\n\nNever commit:\n\n- `api/env.local`\n- `.env`\n- `*.env.local`\n- `token.json`\n- `drive_token.json`\n- OAuth credentials\n- Google API tokens\n- generated files containing real personal Calendar or Drive data\n\nCheck whether sensitive files are tracked:\n\n```bash\ngit ls-files api/env.local\ngit ls-files token.json\ngit ls-files \"*.env.local\"\ngit ls-files calendar_events.json\ngit ls-files data_sync/calendar_sync.json\ngit ls-files data_sync/drive_sync.json\ngit ls-files data_sync/sync_summary.json\n```\n\nHistorical verification cleanup finding: `api/env.local`, `calendar_events.json`, `data_sync/calendar_sync.json`, `data_sync/drive_sync.json`, and `data_sync/sync_summary.json` were identified as private artifacts that must stay out of git tracking.\n\nRemove tracked private artifacts without deleting local files:\n\n```bash\ngit rm --cached api/env.local\ngit rm --cached calendar_events.json\ngit rm --cached data_sync/calendar_sync.json\ngit rm --cached data_sync/drive_sync.json\ngit rm --cached data_sync/sync_summary.json\n```\n\nIf these files are already untracked, do not re-add them. Rotate any exposed keys/tokens if they were ever committed or pushed. Removing a file from the latest commit is not enough if the secret exists in git history. If any real Google OAuth tokens, API keys, or provider credentials were ever committed, treat them as compromised.\n\nRun the local privacy guard before committing:\n\n```bash\npython scripts/privacy_check.py\npython scripts/nudgeai_health_check.py\n```\n\nThe script fails if private Google sync outputs, OAuth tokens, or local env files are tracked by git. It warns, but does not fail, when those files merely exist locally and are ignored.\n\n## Run Commands\n\nBackend:\n\n```bash\npython simple_api_server.py\n```\n\nFrontend:\n\n```bash\ncd frontend\nnpm run dev\n```\n\nOpen the frontend at `http://localhost:3000`. The Vite dev server proxies `/api` to `http://localhost:8001`.\n\n## Test / Verification Commands\n\nBackend syntax:\n\n```bash\npython -m py_compile simple_api_server.py mcp_api_bridge.py\n```\n\nBackend store tests:\n\n```bash\npython -m unittest discover -s tests -p \"test_nudge*.py\"\n```\n\nFrontend build:\n\n```bash\ncd frontend\nnpm ci\nnpm run build\n```\n\n## Nudge API\n\n- `GET /api/nudges`\n- `GET /api/nudges/summary`\n- `POST /api/nudges`\n- `PATCH /api/nudges/{id}`\n- `DELETE /api/nudges/{id}`\n\nSupported filters on `GET /api/nudges`:\n\n- `status`\n- `priority`\n- `dueToday`\n- `overdue`\n\n`DELETE` hard-deletes a local MVP nudge.\n\nWhen a nudge is marked `completed`, `completedAt` is set. When a completed nudge is reopened or moved to another status, `completedAt` is cleared.\n\n## Current Local Endpoints\n\nCore nudge MVP:\n\n- `GET /health`\n- `GET /api/nudges`\n- `POST /api/nudges`\n- `PATCH /api/nudges/{id}`\n- `DELETE /api/nudges/{id}`\n\nExperimental Google data endpoints:\n\n- `GET /api/mcp/tools/query_calendar`\n- `GET /api/mcp/tools/query_drive`\n\nThe Google endpoints are experimental, local-only, and not production integrations.\n\n## Experimental Google Data Sync\n\nNudgeAI includes experimental local Google Calendar and Google Drive sync utilities.\n\nThese utilities can fetch real local user data and serve it through local API endpoints:\n\n- `GET /api/mcp/tools/query_calendar`\n- `GET /api/mcp/tools/query_drive`\n\nThis is not part of the production MVP path yet. The core MVP remains the manual nudge lifecycle.\n\nThe Google sync path is local-only and should be treated as sensitive because it may include:\n\n- calendar event titles\n- event times\n- meeting metadata\n- Drive document names\n- Drive document metadata\n- file IDs or references\n- generated sync summaries\n\nDo not commit real synced Google data unless it has been explicitly sanitized.\n\n## Sanitized Demo Fixtures\n\nPublic demos should use fake fixture data from `data/demo/`, not private synced Google files.\n\nCurrent sanitized fixtures:\n\n- `data/demo/calendar_events.demo.json`\n- `data/demo/drive_documents.demo.json`\n- `data/demo/nudges.demo.json`\n- `data/demo/places.demo.json`\n- `data/demo/context_rules.demo.json`\n- `data/demo/current_location.demo.json`\n- `data/demo/calendar_availability.demo.json`\n\nThese files use fake IDs, fake names, and demo-only metadata so they can support portfolio walkthroughs without exposing private Calendar or Drive data.\n\n## Personal Context Rules\n\nNudgeAI is pivoting toward private context-aware personal nudges, not booking SaaS. The first local rule is `Gym Opportunity`.\n\nCurrent local/demo loop:\n\n```text\nmanual/demo location + manual calendar free minutes + local rule\n-> evaluate context\n-> create a normal nudge when the rule matches\n```\n\nThe dashboard supports Location and Calendar source status cards, demo gym/far-away location controls, and a `Check Context Rules Now` action. This is not live background location, production Google Calendar, Health/Fit, Gmail, AI extraction, auth, or booking.\n\n## Planning Docs\n\n- [Deep Audit](docs/NUDGEAI_DEEP_AUDIT.md)\n- [PRD](docs/NUDGEAI_PRD.md)\n- [Next Phase PRD](docs/NUDGEAI_NEXT_PHASE_PRD.md)\n- [Focus Chain](docs/NUDGEAI_FOCUS_CHAIN.md)\n- [Engineering TODO](docs/NUDGEAI_ENGINEERING_TODO.md)\n- [Roadmap](docs/NUDGEAI_ROADMAP.md)\n- [Architecture](docs/NUDGEAI_ARCHITECTURE.md)\n- [Demo Plan](docs/NUDGEAI_DEMO_PLAN.md)\n- [App Walkthrough](docs/NUDGEAI_APP_WALKTHROUGH.md)\n- [Next Implementation Plan](docs/NUDGEAI_NEXT_IMPLEMENTATION_PLAN.md)\n- [Local Automation](docs/NUDGEAI_LOCAL_AUTOMATION.md)\n- [Security and Privacy Notes](docs/NUDGEAI_SECURITY_PRIVACY_NOTES.md)\n\n## Next Phase Planning\n\nThe next phase focuses on personal context rules: places, manual/demo location, calendar free/busy abstraction, and normal nudge creation when a rule matches. Booking remains optional later work. The manual nudge MVP remains the core product path.\n\n- [Next Phase PRD](docs/NUDGEAI_NEXT_PHASE_PRD.md)\n- [Booking and Availability Plan](docs/NUDGEAI_BOOKING_AVAILABILITY_PLAN.md)\n- [Context Sources Plan](docs/NUDGEAI_CONTEXT_SOURCES_PLAN.md)\n- [Data Source Limitations](docs/NUDGEAI_DATA_SOURCE_LIMITATIONS.md)\n\n## Known Limitations\n\n- No production auth yet.\n- No real notifications yet.\n- AI extraction is not part of the core MVP yet.\n- Google/MCP/RAG integrations are experimental/future paths.\n- Local JSON persistence is suitable for demo/local development only.\n- CORS is permissive for local development and must be locked down before deployment.\n",
+    "readmeSourceUrl": "https://github.com/Sharv619/Nudgeai#readme",
+    "evidenceReferences": [
+      {
+        "id": "architecture-docs-nudgeai-architecture-md",
+        "label": "Nudgeai Architecture",
+        "kind": "file",
+        "url": "https://github.com/Sharv619/Nudgeai/blob/master/docs/NUDGEAI_ARCHITECTURE.md",
+        "path": "docs/NUDGEAI_ARCHITECTURE.md",
+        "description": "Repository architecture document"
+      }
+    ],
+    "architectureDocuments": [
+      {
+        "path": "docs/NUDGEAI_ARCHITECTURE.md",
+        "title": "Nudgeai Architecture",
+        "content": "# NudgeAI Architecture\n\n## Current Architecture\n\nThe current repo is a prototype with several overlapping runtime paths. As of the V0/V1 implementation pass, the canonical MVP runtime path is:\n\n- React/Vite frontend in `frontend/`.\n- FastAPI backend in `simple_api_server.py` on port `8001`.\n- Local JSON persistence in `data/nudges.json`, `data/places.json`, `data/context_rules.json`, `data/rule_state.json`, `data/current_location.json`, and `data/calendar_availability.json`.\n\nLegacy/experimental paths remain in the repository:\n\n- MCP server in `mcp_server.py` with Hugging Face, WhiteCircle, RAG, and Google-data tools.\n- MCP HTTP bridge in `mcp_api_bridge.py`.\n- Alternative APIs in `backend_data_api.py` and `nudgeai_data_api.py`.\n- Google data ingestion in `data_ingestion/`.\n- RAG system in `ragsystem/` using sentence-transformers and FAISS.\n- JSON files in root and `data_sync/` used as data sources or demo outputs.\n\nThe MVP now has a persisted manual nudge lifecycle and a local-first personal context loop. The dashboard can edit places/rules, fetch browser geolocation while the page is open, and poll context rules on an opt-in interval. It still has no app auth layer and is not production-ready.\n\n## Core MVP Path\n\n```mermaid\nflowchart TD\n    User[User] --> Frontend[React/Vite Frontend]\n    Browser[Browser Geolocation, opt-in while open] --> Frontend\n    Frontend --> API[FastAPI Backend: simple_api_server.py]\n    API --> Store[(Local JSON Nudge Store: data/nudges.json)]\n    API --> ContextStore[(Local JSON Context Stores)]\n```\n\n## Local Context Automation Path\n\n```mermaid\nflowchart TD\n    User[User enables local automation] --> UI[Dashboard]\n    UI --> Geo[Browser geolocation getCurrentPosition]\n    Geo --> API[POST /api/current-location]\n    UI --> Poller[setInterval context rule polling]\n    Poller --> Eval[POST /api/context-rules/evaluate]\n    Eval --> NudgeStore[(data/nudges.json)]\n    Eval --> RuleState[(data/rule_state.json)]\n```\n\nAutomation is client-side and disabled by default. It runs only while the dashboard is open. It does not use background mobile tracking, cloud sync, or production Google APIs.\n\n## Experimental Google Context Path\n\n```mermaid\nflowchart TD\n    Google[Google Calendar / Drive] --> Sync[Local Sync Scripts]\n    Sync --> JSON[(Local JSON Sync Files)]\n    JSON --> API[FastAPI Experimental Endpoints]\n    API --> Frontend[Experimental Data Views]\n```\n\nThe experimental Google context path must not be confused with production integrations. It currently serves locally synced metadata and requires stronger auth, consent, token storage, data retention controls, sanitization, and deployment hardening before production use.\n\n## Recommended MVP Architecture\n\n```mermaid\nflowchart TD\n    User[User] --> UI[React Frontend]\n    UI --> API[simple_api_server.py FastAPI MVP API]\n    API --> Store[(data/nudges.json)]\n    API --> Context[(local context JSON stores)]\n    API -. future .-> AI[AI Extraction Service]\n    API -. future .-> Scheduler[Reminder Scheduler]\n    Scheduler -. future .-> Notify[Notification Layer]\n    API -. experimental .-> DataTools[Legacy Data/RAG/MCP Tools]\n```\n\nFor MVP, keep RAG/MCP as optional experimental modules until the nudge loop is reliable. Do not route the core app through MCP.\n\n## Core Entities\n\n- User: Not implemented in MVP. Current mode is single-user local prototype; production needs a real user model.\n- Nudge: Actionable reminder/task with title, context, due date, status, priority, and source.\n- NudgeStatus: `pending`, `snoozed`, `completed`, `dismissed`.\n- Place: Local point of interest with name, coordinates, radius, tags, and enabled state.\n- ContextRule: Local rule with place, required free minutes, time window, cooldown, and nudge template.\n- SourceStatus: Frontend status card payload for local Location and Calendar availability sources.\n- AIExtraction: Future entity, not implemented in this MVP pass.\n- Reminder: Future entity, not implemented beyond `reminderAt` and `snoozedUntil` fields.\n- ActivityLog: Future entity, not implemented.\n\n## Suggested MVP Data Model\n\n```ts\ntype NudgeStatus = \"pending\" | \"snoozed\" | \"completed\" | \"dismissed\";\ntype NudgePriority = \"low\" | \"medium\" | \"high\";\ntype NudgeSource = \"manual\" | \"context_rule\" | \"ai_note\" | \"calendar\" | \"email\" | \"demo\";\n\ntype User = {\n  id: string;\n  email?: string;\n  displayName?: string;\n  timezone: string;\n  createdAt: string;\n};\n\ntype Nudge = {\n  id: string;\n  title: string;\n  context?: string;\n  dueAt?: string;\n  reminderAt?: string;\n  snoozedUntil?: string;\n  status: NudgeStatus;\n  priority: NudgePriority;\n  source: \"manual\" | \"context_rule\" | \"demo\";\n  createdAt: string;\n  updatedAt: string;\n  completedAt?: string;\n};\n\ntype AIExtraction = {\n  id: string;\n  userId: string;\n  inputText: string;\n  model?: string;\n  suggestions: Array<{\n    title: string;\n    context?: string;\n    dueAt?: string;\n    priority: NudgePriority;\n    confidence: number;\n    reason: string;\n  }>;\n  validationStatus: \"valid\" | \"invalid\" | \"partial\";\n  createdAt: string;\n};\n\ntype Reminder = {\n  id: string;\n  nudgeId: string;\n  channel: \"in_app\" | \"browser\" | \"email\";\n  scheduledAt: string;\n  deliveredAt?: string;\n  status: \"scheduled\" | \"delivered\" | \"failed\" | \"cancelled\";\n};\n```\n\n## Current MVP API Surface\n\n- `GET /health`\n- `GET /api/nudges`\n- `POST /api/nudges`\n- `PATCH /api/nudges/{nudge_id}`\n- `DELETE /api/nudges/{nudge_id}`\n- `GET /api/context`\n- `GET /api/source-status`\n- `GET /api/places`\n- `POST /api/places`\n- `PATCH /api/places/{place_id}`\n- `PUT /api/places/{place_id}`\n- `GET /api/context-rules`\n- `POST /api/context-rules`\n- `PATCH /api/context-rules/{rule_id}`\n- `PUT /api/context-rules/{rule_id}`\n- `GET /api/current-location`\n- `POST /api/current-location`\n- `PATCH /api/context/location`\n- `PATCH /api/context/calendar`\n- `POST /api/context-rules/evaluate`\n- `POST /api/context/evaluate`\n\nExperimental data endpoints under `/api/mcp/tools/*` remain local prototype paths and are not the canonical nudge runtime.\n\n## AI Pipeline\n\n```text\nMessy input\n-> normalize\n-> extract possible nudges\n-> validate JSON\n-> score priority\n-> attach confidence and reason\n-> user review\n-> save nudge\n-> schedule reminder\n```\n\nRecommendations:\n\n- Use a strict JSON schema for extraction results.\n- Reject or ask for user review when due dates are ambiguous.\n- Store original input and extraction metadata only if privacy policy allows it.\n- Keep manual nudge CRUD functional when AI keys are missing.\n- Treat RAG and Google integrations as future context providers, not the MVP foundation.\n\n## Error Handling\n\n- API errors should return structured `{ error: { code, message, details? } }` responses.\n- Frontend should show real error states instead of silently replacing failures with mock data.\n- AI failures should leave the user in control with manual entry.\n- Scheduler failures should mark reminders failed and surface retry actions.\n- Logs should avoid full note/calendar/location contents.\n\n## Security/Privacy Considerations\n\nNudgeAI can handle sensitive notes, calendar events, location history, fitness data, documents, contacts, and AI prompts. Before production use:\n\n- Add auth and user-level access control.\n- Disable wildcard CORS.\n- Do not commit token files, logs, or personal data.\n- Validate all API inputs and AI outputs.\n- Rate-limit AI endpoints.\n- Document external AI provider data flow.\n",
+        "sourceUrl": "https://github.com/Sharv619/Nudgeai/blob/master/docs/NUDGEAI_ARCHITECTURE.md",
+        "diagrams": [
+          {
+            "id": "docs-nudgeai-architecture-md-1",
+            "title": "Architecture diagram 1",
+            "source": "flowchart TD\n    User[User] --> Frontend[React/Vite Frontend]\n    Browser[Browser Geolocation, opt-in while open] --> Frontend\n    Frontend --> API[FastAPI Backend: simple_api_server.py]\n    API --> Store[(Local JSON Nudge Store: data/nudges.json)]\n    API --> ContextStore[(Local JSON Context Stores)]"
+          },
+          {
+            "id": "docs-nudgeai-architecture-md-2",
+            "title": "Architecture diagram 2",
+            "source": "flowchart TD\n    User[User enables local automation] --> UI[Dashboard]\n    UI --> Geo[Browser geolocation getCurrentPosition]\n    Geo --> API[POST /api/current-location]\n    UI --> Poller[setInterval context rule polling]\n    Poller --> Eval[POST /api/context-rules/evaluate]\n    Eval --> NudgeStore[(data/nudges.json)]\n    Eval --> RuleState[(data/rule_state.json)]"
+          },
+          {
+            "id": "docs-nudgeai-architecture-md-3",
+            "title": "Architecture diagram 3",
+            "source": "flowchart TD\n    Google[Google Calendar / Drive] --> Sync[Local Sync Scripts]\n    Sync --> JSON[(Local JSON Sync Files)]\n    JSON --> API[FastAPI Experimental Endpoints]\n    API --> Frontend[Experimental Data Views]"
+          },
+          {
+            "id": "docs-nudgeai-architecture-md-4",
+            "title": "Architecture diagram 4",
+            "source": "flowchart TD\n    User[User] --> UI[React Frontend]\n    UI --> API[simple_api_server.py FastAPI MVP API]\n    API --> Store[(data/nudges.json)]\n    API --> Context[(local context JSON stores)]\n    API -. future .-> AI[AI Extraction Service]\n    API -. future .-> Scheduler[Reminder Scheduler]\n    Scheduler -. future .-> Notify[Notification Layer]\n    API -. experimental .-> DataTools[Legacy Data/RAG/MCP Tools]"
+          }
+        ]
+      }
+    ]
   },
   {
     "title": "Sharv619 Github Io",
@@ -1297,13 +2619,297 @@
       "GitHub Pages",
       "AWS"
     ],
+    "skills": [
+      {
+        "key": "typescript",
+        "label": "TypeScript",
+        "category": "languages",
+        "sources": [
+          {
+            "source": "github-language",
+            "rawValue": "TypeScript"
+          },
+          {
+            "source": "github-topic",
+            "rawValue": "typescript"
+          },
+          {
+            "source": "manifest",
+            "rawValue": "TypeScript"
+          }
+        ],
+        "kind": "language"
+      },
+      {
+        "key": "css",
+        "label": "CSS",
+        "category": "languages",
+        "sources": [
+          {
+            "source": "github-language",
+            "rawValue": "CSS"
+          }
+        ],
+        "kind": "language"
+      },
+      {
+        "key": "javascript",
+        "label": "JavaScript",
+        "category": "languages",
+        "sources": [
+          {
+            "source": "github-language",
+            "rawValue": "JavaScript"
+          }
+        ],
+        "kind": "language"
+      },
+      {
+        "key": "python",
+        "label": "Python",
+        "category": "languages",
+        "sources": [
+          {
+            "source": "github-language",
+            "rawValue": "Python"
+          }
+        ],
+        "kind": "language"
+      },
+      {
+        "key": "framer-motion",
+        "label": "Framer Motion",
+        "category": "appStack",
+        "sources": [
+          {
+            "source": "github-topic",
+            "rawValue": "framer-motion"
+          },
+          {
+            "source": "manifest",
+            "rawValue": "Framer Motion"
+          }
+        ],
+        "kind": "library"
+      },
+      {
+        "key": "nextjs",
+        "label": "Next.js",
+        "category": "appStack",
+        "sources": [
+          {
+            "source": "github-topic",
+            "rawValue": "nextjs"
+          },
+          {
+            "source": "manifest",
+            "rawValue": "Next.js"
+          }
+        ],
+        "kind": "framework"
+      },
+      {
+        "key": "react",
+        "label": "React",
+        "category": "appStack",
+        "sources": [
+          {
+            "source": "github-topic",
+            "rawValue": "react"
+          },
+          {
+            "source": "manifest",
+            "rawValue": "React"
+          }
+        ],
+        "kind": "framework"
+      },
+      {
+        "key": "tailwind",
+        "label": "Tailwind CSS",
+        "category": "appStack",
+        "sources": [
+          {
+            "source": "github-topic",
+            "rawValue": "tailwind-css"
+          },
+          {
+            "source": "manifest",
+            "rawValue": "Tailwind CSS"
+          }
+        ],
+        "kind": "framework"
+      },
+      {
+        "key": "vite",
+        "label": "Vite",
+        "category": "appStack",
+        "sources": [
+          {
+            "source": "manifest",
+            "rawValue": "Vite"
+          }
+        ],
+        "kind": "tool"
+      },
+      {
+        "key": "zod",
+        "label": "Zod",
+        "category": "appStack",
+        "sources": [
+          {
+            "source": "manifest",
+            "rawValue": "Zod"
+          }
+        ],
+        "kind": "library"
+      },
+      {
+        "key": "gemini",
+        "label": "Gemini",
+        "category": "aiData",
+        "sources": [
+          {
+            "source": "manifest",
+            "rawValue": "Google AI SDK"
+          },
+          {
+            "source": "manifest",
+            "rawValue": "Gemini API"
+          }
+        ],
+        "kind": "platform"
+      },
+      {
+        "key": "mcp",
+        "label": "MCP",
+        "category": "aiData",
+        "sources": [
+          {
+            "source": "manifest",
+            "rawValue": "MCP"
+          }
+        ],
+        "kind": "protocol"
+      },
+      {
+        "key": "vercel-ai-sdk",
+        "label": "Vercel AI SDK",
+        "category": "aiData",
+        "sources": [
+          {
+            "source": "manifest",
+            "rawValue": "AI SDK"
+          }
+        ],
+        "kind": "library"
+      },
+      {
+        "key": "aws",
+        "label": "AWS",
+        "category": "infraDataSecurity",
+        "sources": [
+          {
+            "source": "manifest",
+            "rawValue": "AWS"
+          }
+        ],
+        "kind": "platform"
+      },
+      {
+        "key": "github-actions",
+        "label": "GitHub Actions",
+        "category": "infraDataSecurity",
+        "sources": [
+          {
+            "source": "manifest",
+            "rawValue": "GitHub Actions"
+          }
+        ],
+        "kind": "tool"
+      },
+      {
+        "key": "github-pages",
+        "label": "GitHub Pages",
+        "category": "infraDataSecurity",
+        "sources": [
+          {
+            "source": "manifest",
+            "rawValue": "GitHub Pages"
+          }
+        ],
+        "kind": "platform"
+      },
+      {
+        "key": "eslint",
+        "label": "ESLint",
+        "category": "quality",
+        "sources": [
+          {
+            "source": "manifest",
+            "rawValue": "ESLint"
+          }
+        ],
+        "kind": "tool"
+      },
+      {
+        "key": "testing-library",
+        "label": "React Testing Library",
+        "category": "quality",
+        "sources": [
+          {
+            "source": "manifest",
+            "rawValue": "Testing Library"
+          },
+          {
+            "source": "manifest",
+            "rawValue": "React Testing Library"
+          }
+        ],
+        "kind": "tool"
+      },
+      {
+        "key": "vitest",
+        "label": "Vitest",
+        "category": "quality",
+        "sources": [
+          {
+            "source": "manifest",
+            "rawValue": "Vitest"
+          }
+        ],
+        "kind": "tool"
+      },
+      {
+        "key": "chatbotai",
+        "label": "Chatbotai",
+        "category": "uncategorized",
+        "sources": [
+          {
+            "source": "github-topic",
+            "rawValue": "chatbotai"
+          }
+        ]
+      },
+      {
+        "key": "google-ai-sdk",
+        "label": "Google-Ai-Sdk",
+        "category": "uncategorized",
+        "sources": [
+          {
+            "source": "github-topic",
+            "rawValue": "google-ai-sdk"
+          }
+        ]
+      }
+    ],
     "liveUrl": "https://sharv619.github.io",
     "githubUrl": "https://github.com/Sharv619/sharv619.github.io",
     "slug": "sharv619-github-io",
-    "architectureDetails": "My personal portfolio, built with the Next.js 16 App Router. Features an integrated, context-aware AI chatbot powered by the Google Gemini API to answer questions about my career and projects.\n\nGitHub Signals:\n• Primary language: TypeScript\n• Technologies: TypeScript, JavaScript, CSS, Python, AI Chatbot, Framer Motion, Google AI SDK, Next.js, Portfolio, React, Tailwind CSS, Gemini API, MCP, AI SDK, Zod, Testing Library, React Testing Library, ESLint, Vitest, Vite, GitHub Actions, GitHub Pages, AWS\n• Topics: AI Chatbot, Framer Motion, Google AI SDK, Next.js, Portfolio, React, Tailwind CSS, TypeScript\n• Last updated: 2026-09-27T14:45:42Z\n• Stars: 0\n• Forks: 0\n• Status: Active",
+    "architectureDetails": "My personal portfolio, built with the Next.js 16 App Router. Features an integrated, context-aware AI chatbot powered by the Google Gemini API to answer questions about my career and projects.\n\nGitHub Signals:\n• Primary language: TypeScript\n• Technologies: TypeScript, JavaScript, CSS, Python, AI Chatbot, Framer Motion, Google AI SDK, Next.js, Portfolio, React, Tailwind CSS, Gemini API, MCP, AI SDK, Zod, Testing Library, React Testing Library, ESLint, Vitest, Vite, GitHub Actions, GitHub Pages, AWS\n• Topics: AI Chatbot, Framer Motion, Google AI SDK, Next.js, Portfolio, React, Tailwind CSS, TypeScript\n• Last updated: 2026-10-05T10:22:20Z\n• Stars: 0\n• Forks: 0\n• Status: Active",
     "archived": false,
-    "updatedAt": "2026-09-27T14:45:46Z",
-    "pushedAt": "2026-09-27T14:45:42Z",
+    "updatedAt": "2026-10-02T03:06:50Z",
+    "pushedAt": "2026-10-05T10:22:20Z",
     "stars": 0,
     "forks": 0,
     "topics": [
@@ -1318,15 +2924,15 @@
     ],
     "primaryLanguage": "TypeScript",
     "languageBreakdown": {
-      "TypeScript": 415958,
-      "JavaScript": 43154,
+      "TypeScript": 488956,
+      "JavaScript": 43351,
       "CSS": 2181,
       "Python": 1833
     },
     "evidenceProfile": {
       "slug": "sharv619-github-io",
       "repoName": "sharv619.github.io",
-      "lastUpdated": "2026-09-27T14:45:42Z",
+      "lastUpdated": "2026-10-05T10:22:20Z",
       "languages": [
         "TypeScript",
         "JavaScript",
@@ -1480,210 +3086,46 @@
       }
     ],
     "readmeMarkdown": "### Hi there, I'm Himanshu\n**Software Engineer focused on backend systems, production reliability, cloud deployment, and AI-assisted workflow automation.**\n\nI'm a software engineer in Sydney building practical systems around real workflows: production recovery, CI/CD, cloud deployment, internal tools, and AI-assisted automation. My strongest work sits at the intersection of shipping features, debugging production issues, and making systems easier to operate.\n\nRecent experience includes ransomware recovery, automation, and marketplace engineering at Ask Jay Services, where I restored 100% of production data with zero loss, reduced page load time from 25 seconds to 3 seconds, and established CI/CD and production deployment practices.\n\nI also build prototypes and open-source tools to explore responsible AI workflows, developer tooling, and small-business automation. I label these clearly as MVPs, prototypes, or experiments when they are not production systems.\n\n### Hosting and optional AWS backend\n\nThe public website is hosted with **GitHub Pages + Cloudflare**, not AWS, and uses `https://www.himanshulade.com/` as its canonical domain. AWS is used only for the optional chatbot/Synthetic RAG backend. See [`AWS_CURRENT_ARCHITECTURE.md`](./AWS_CURRENT_ARCHITECTURE.md) for the current resource inventory, recovery checklist, and intentionally unused services.\n\n---\n### 🛠️ Technologies & Tools I Use\n\n**Languages & Frameworks:**\n<p>\n  <a href=\"https://developer.mozilla.org/en-US/docs/Web/JavaScript\" target=\"_blank\"><img src=\"https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black\" alt=\"JavaScript\"/></a>\n  <a href=\"https://react.dev/\" target=\"_blank\"><img src=\"https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB\" alt=\"React\"/></a>\n  <a href=\"https://nextjs.org/\" target=\"_blank\"><img src=\"https://img.shields.io/badge/Next.js-000000?style=for-the-badge&logo=nextdotjs&logoColor=white\" alt=\"Next.js\"/></a>\n  <a href=\"https://nodejs.org/\" target=\"_blank\"><img src=\"https://img.shields.io/badge/Node.js-339933?style=for-the-badge&logo=nodedotjs&logoColor=white\" alt=\"Node.js\"/></a>\n  <a href=\"https://flutter.dev/\" target=\"_blank\"><img src=\"https://img.shields.io/badge/Flutter-02569B?style=for-the-badge&logo=flutter&logoColor=white\" alt=\"Flutter\"/></a>\n  <a href=\"https://dart.dev/\" target=\"_blank\"><img src=\"https://img.shields.io/badge/Dart-0175C2?style=for-the-badge&logo=dart&logoColor=white\" alt=\"Dart\"/></a>\n  <a href=\"https://tailwindcss.com/\" target=\"_blank\"><img src=\"https://img.shields.io/badge/Tailwind_CSS-38B2AC?style=for-the-badge&logo=tailwind-css&logoColor=white\" alt=\"Tailwind CSS\"/></a>\n</p>\n\n**Cloud & DevOps:**\n<p>\n  <a href=\"https://aws.amazon.com/ec2/\" target=\"_blank\"><img src=\"https://img.shields.io/badge/AWS_EC2-FF9900?style=for-the-badge&logo=amazon-aws&logoColor=white\" alt=\"AWS EC2\"/></a>\n  <a href=\"https://www.docker.com/\" target=\"_blank\"><img src=\"https://img.shields.io/badge/Docker-2496ED?style=for-the-badge&logo=docker&logoColor=white\" alt=\"Docker\"/></a>\n  <a href=\"https://github.com/features/actions\" target=\"_blank\"><img src=\"https://img.shields.io/badge/GitHub_Actions-2088FF?style=for-the-badge&logo=github-actions&logoColor=white\" alt=\"GitHub Actions\"/></a>\n  <a href=\"https://pm2.keymetrics.io/\" target=\"_blank\"><img src=\"https://img.shields.io/badge/PM2-2B037A?style=for-the-badge&logo=pm2&logoColor=white\" alt=\"PM2\"/></a>\n  <a href=\"https://www.nginx.com/\" target=\"_blank\"><img src=\"https://img.shields.io/badge/Nginx-009639?style=for-the-badge&logo=nginx&logoColor=white\" alt=\"Nginx\"/></a>\n  <a href=\"https://git-scm.com/\" target=\"_blank\"><img src=\"https://img.shields.io/badge/Git-F05032?style=for-the-badge&logo=git&logoColor=white\" alt=\"Git\"/></a>\n</p>\n\n**Databases & Storage:**\n<p>\n  <a href=\"https://www.mongodb.com/cloud/atlas\" target=\"_blank\"><img src=\"https://img.shields.io/badge/MongoDB_Atlas-4EA94B?style=for-the-badge&logo=mongodb&logoColor=white\" alt=\"MongoDB Atlas\"/></a>\n  <a href=\"https://aws.amazon.com/s3/\" target=\"_blank\"><img src=\"https://img.shields.io/badge/AWS_S3-569A31?style=for-the-badge&logo=amazon-s3&logoColor=white\" alt=\"AWS S3\"/></a>\n</p>\n\n**Specialties & Methodologies:**\n<p>\n  <a href=\"https://owasp.org/www-project-top-ten/\" target=\"_blank\"><img src=\"https://img.shields.io/badge/Security_&_OWASP-DA2A2A?style=for-the-badge&logo=owasp&logoColor=white\" alt=\"Security & OWASP\"/></a>\n  <a href=\"https://en.wikipedia.org/wiki/Site_Reliability_Engineering\" target=\"_blank\"><img src=\"https://img.shields.io/badge/Incident_Response-FF7800?style=for-the-badge\" alt=\"Incident Response\"/></a>\n  <a href=\"https://en.wikipedia.org/wiki/Search_engine_optimization\" target=\"_blank\"><img src=\"https://img.shields.io/badge/Technical_SEO-4285F4?style=for-the-badge\" alt=\"Technical SEO\"/></a>\n  <a href=\"https://www.atlassian.com/agile\" target=\"_blank\"><img src=\"https://img.shields.io/badge/Agile-0052CC?style=for-the-badge\" alt=\"Agile\"/></a>\n</p>\n\n---\n### Recent Experience Highlights\n\n- **Ask Jay Services:** Software Engineer, May-Oct 2025. Recovered a production system from ransomware with 100% data restored and zero loss, reduced page load time from 25 seconds to 3 seconds, built a shift-booking bot and three-sided Flutter marketplace, and established CI/CD practices.\n- **Australian Computer Society:** Web Developer Intern, Sep 2023-Feb 2024. Improved MERN frontend performance by 33% for a production application serving 200+ active users, remediated 15+ OWASP Top 10 vulnerabilities, and built internal tooling.\n\n---\n\n### 💻 Projects\n\nThe portfolio separates flagship case studies from the broader GitHub project feed:\n\n- **Production Recovery & Performance Rebuild** - NDA-safe case study for production recovery, cloud hardening, CI/CD, and performance work.\n- **Pilly / MediMate Voice** - Firebase-backed responsible-AI medication support MVP. Not a medical product; no diagnosis, dosage advice, or real patient data.\n- **codeflow-hook** - Open-source AI-assisted code review CLI published as an npm package with early usage traction.\n\nThe website project feed is automated from public, non-fork GitHub repositories owned by `Sharv619`. By default it uses `PORTFOLIO_GITHUB_TOPIC=all`; set this to a specific topic such as `portfolio` if the feed should be curated. Keep repo descriptions/READMEs useful, and the next GitHub Pages rebuild will refresh the portfolio pages. The deploy workflow also runs on a daily schedule so project metadata updates without manually editing `src/lib/data.ts`. Set the GitHub Actions variable `NEXT_PUBLIC_ASSISTANT_API` to the RAG Lambda endpoint when the deployed chatbot should use the live optional AWS assistant instead of demo mode.\n\nAutomation details for repo push refreshes and certifications live in `docs/automation.md`.\n\n\n---\n\n### 📫 Let's Connect\n\nI'm always open to connecting with fellow builders and exploring new opportunities:\n\n<p>\n  <a href=\"https://www.linkedin.com/in/himanshu-lade/\" target=\"_blank\">\n    <img src=\"https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white\" alt=\"LinkedIn\"/>\n  </a>\n  <a href=\"mailto:himanshulade@hotmail.com\">\n    <img src=\"https://img.shields.io/badge/Email-0078D4?style=for-the-badge&logo=microsoft-outlook&logoColor=white\" alt=\"Email\"/>\n  </a>\n</p>\n",
-    "readmeSourceUrl": "https://github.com/Sharv619/sharv619.github.io#readme"
-  },
-  {
-    "title": "Nudgeai",
-    "description": "NudgeAI is a local prototype/MVP foundation for turning scattered obligations into clear manual nudges that can be created, tracked, completed, snoozed, dismissed, and reopened.",
-    "technologies": [
-      "Python",
-      "JavaScript",
-      "HTML",
-      "CSS",
-      "Shell",
-      "TypeScript",
-      "Docker",
-      "Axios"
-    ],
-    "liveUrl": "",
-    "githubUrl": "https://github.com/Sharv619/Nudgeai",
-    "slug": "nudgeai",
-    "architectureDetails": "NudgeAI is a local prototype/MVP foundation for turning scattered obligations into clear manual nudges that can be created, tracked, completed, snoozed, dismissed, and reopened.\n\nGitHub Signals:\n• Primary language: Python\n• Technologies: Python, JavaScript, HTML, CSS, Shell, TypeScript, Docker, Axios\n• Topics: Not specified\n• Last updated: 2026-09-27T07:19:58Z\n• Stars: 1\n• Forks: 0\n• Status: Active",
-    "archived": false,
-    "updatedAt": "2026-09-27T07:20:02Z",
-    "pushedAt": "2026-09-27T07:19:58Z",
-    "stars": 1,
-    "forks": 0,
-    "topics": [],
-    "primaryLanguage": "Python",
-    "languageBreakdown": {
-      "Python": 804302,
-      "JavaScript": 170387,
-      "HTML": 56763,
-      "CSS": 10446,
-      "Shell": 4089,
-      "TypeScript": 1706,
-      "Dockerfile": 802
-    },
-    "evidenceProfile": {
-      "slug": "nudgeai",
-      "repoName": "Nudgeai",
-      "lastUpdated": "2026-09-27T07:19:58Z",
-      "languages": [
-        "Python",
-        "JavaScript",
-        "HTML",
-        "CSS",
-        "Shell",
-        "TypeScript",
-        "Dockerfile"
-      ],
-      "topics": [],
-      "signals": [
-        {
-          "key": "readme",
-          "label": "README present",
-          "present": true,
-          "source": "readme",
-          "confidence": "high"
-        },
-        {
-          "key": "tests",
-          "label": "Tests present",
-          "present": true,
-          "source": "repo-files",
-          "confidence": "high"
-        },
-        {
-          "key": "docker",
-          "label": "Docker present",
-          "present": true,
-          "source": "unknown",
-          "confidence": "low"
-        },
-        {
-          "key": "github-actions",
-          "label": "GitHub Actions present",
-          "present": false,
-          "source": "unknown",
-          "confidence": "low"
-        },
-        {
-          "key": "package-manifest",
-          "label": "Package manifest present",
-          "present": true,
-          "source": "repo-files",
-          "confidence": "high"
-        },
-        {
-          "key": "python-dependencies",
-          "label": "Python dependency file present",
-          "present": false,
-          "source": "unknown",
-          "confidence": "low"
-        },
-        {
-          "key": "live-demo",
-          "label": "Live demo link present",
-          "present": false,
-          "source": "unknown",
-          "confidence": "low"
-        },
-        {
-          "key": "screenshots",
-          "label": "Screenshots present",
-          "present": false,
-          "source": "unknown",
-          "confidence": "low"
-        },
-        {
-          "key": "docs-folder",
-          "label": "Docs folder present",
-          "present": true,
-          "source": "readme",
-          "confidence": "medium"
-        },
-        {
-          "key": "api-docs",
-          "label": "API docs present",
-          "present": true,
-          "source": "readme",
-          "confidence": "medium"
-        },
-        {
-          "key": "security-safety-docs",
-          "label": "Security/safety docs present",
-          "present": true,
-          "source": "readme",
-          "confidence": "medium"
-        },
-        {
-          "key": "npm-package",
-          "label": "npm package evidence present",
-          "present": true,
-          "source": "github",
-          "confidence": "medium"
-        },
-        {
-          "key": "deployment-config",
-          "label": "Deployment config present",
-          "present": false,
-          "source": "unknown",
-          "confidence": "low"
-        },
-        {
-          "key": "license",
-          "label": "License present",
-          "present": false,
-          "source": "unknown",
-          "confidence": "low"
-        },
-        {
-          "key": "recent-update",
-          "label": "Recent update present",
-          "present": true,
-          "source": "github",
-          "confidence": "high"
-        }
-      ],
-      "maturityScore": 71,
-      "maturity": "mvp",
-      "missingEvidence": [
-        "GitHub Actions present",
-        "Python dependency file present",
-        "Live demo link present",
-        "Screenshots present",
-        "Deployment config present",
-        "License present"
-      ],
-      "claimWarnings": [
-        "production status: Production status must come from the approved claim registry or case-study status."
-      ]
-    },
-    "evidenceRecommendations": [
+    "readmeSourceUrl": "https://github.com/Sharv619/sharv619.github.io#readme",
+    "evidenceReferences": [
       {
-        "projectSlug": "nudgeai",
-        "recommendationType": "add-screenshots",
-        "severity": "medium",
-        "recommendation": "Add screenshots or a short demo GIF to make the project easier to evaluate.",
-        "reason": "Visual proof helps reviewers understand what was actually built.",
-        "draftOnly": true
-      },
-      {
-        "projectSlug": "nudgeai",
-        "recommendationType": "add-demo-link",
-        "severity": "medium",
-        "recommendation": "Add a live demo link or clearly explain why the project is repository-only.",
-        "reason": "A reachable demo is useful evidence, but missing demos should be explained instead of hidden.",
-        "draftOnly": true
-      },
-      {
-        "projectSlug": "nudgeai",
-        "recommendationType": "soften-claim",
-        "severity": "high",
-        "recommendation": "Soften or remove claims flagged by the guardrail before publishing.",
-        "reason": "production status: Production status must come from the approved claim registry or case-study status.",
-        "draftOnly": true
+        "id": "architecture-aws-current-architecture-md",
+        "label": "Aws Current Architecture",
+        "kind": "file",
+        "url": "https://github.com/Sharv619/sharv619.github.io/blob/main/AWS_CURRENT_ARCHITECTURE.md",
+        "path": "AWS_CURRENT_ARCHITECTURE.md",
+        "description": "Repository architecture document"
       }
     ],
-    "readmeMarkdown": "# NudgeAI\n\n## What It Is\n\nNudgeAI is a local prototype/MVP foundation for turning scattered obligations into clear manual nudges that can be created, tracked, completed, snoozed, dismissed, and reopened.\n\n## Current Status\n\nLocal prototype / MVP foundation. Not production-ready.\n\nThe canonical MVP backend is `simple_api_server.py` on port `8001`. Existing MCP, RAG, Google data, and bridge files remain in the repository as experimental/legacy prototype work, but they are not required for the core manual nudge loop.\n\n## Core MVP\n\n- Manual nudge creation\n- Nudge dashboard\n- Pending, due today, overdue, snoozed, completed, and dismissed sections\n- Complete, snooze, dismiss, reopen, and delete actions\n- JSON-file persistence for local demo use\n- Local-first personal context rules\n- Demo/manual Gym Opportunity rule\n- Location and Calendar source status cards\n- No AI keys required for the core MVP\n\n## Tech Stack\n\n- Frontend: React, Vite, Tailwind CSS\n- Backend: FastAPI\n- Persistence: local JSON file at `data/nudges.json`\n- Experimental/future: MCP, RAG, Hugging Face, Google APIs, WhiteCircle\n\n## Start Here / Local Integration\n\nFor the step-by-step local setup, run commands, API integration surface, and Hermes/MCP guidance, use:\n\n```txt\ndocs/LOCAL_INTEGRATION_RUNBOOK.md\n```\n\nRecommended path:\n\n1. Run the canonical backend: `python simple_api_server.py`.\n2. Run the frontend from `frontend/`: `npm run dev`.\n3. Open `http://localhost:3000`.\n4. Integrate other local tools through the FastAPI endpoints, not by directly editing `data/*.json`.\n5. Treat MCP, RAG, Google sync, and bridge files as experimental until the manual nudge loop is verified.\n\n## Local Setup\n\nInstall Python dependencies:\n\n```bash\npip install -r requirements.txt\n```\n\nInstall frontend dependencies:\n\n```bash\ncd frontend\nnpm install\n```\n\n## Environment Variables\n\nThe manual nudge MVP does not require AI or Google credentials.\n\nOptional variables:\n\n- `NUDGE_STORE_PATH`: override local nudge store path. Defaults to `data/nudges.json`.\n- `PLACES_STORE_PATH`: override local places store path. Defaults to `data/places.json`.\n- `CONTEXT_RULES_STORE_PATH`: override local context rules store path. Defaults to `data/context_rules.json`.\n- `RULE_STATE_STORE_PATH`: override local context rule state store path. Defaults to `data/rule_state.json`.\n- `CURRENT_LOCATION_STORE_PATH`: override local current location store path. Defaults to `data/current_location.json`.\n- `CALENDAR_AVAILABILITY_STORE_PATH`: override local free/busy abstraction store path. Defaults to `data/calendar_availability.json`.\n- `VITE_USE_MOCK_DATA` / `REACT_APP_USE_MOCK_DATA`: optional frontend mock-data flags. The core dashboard should use the real local API by default.\n- `HF_token`, `HF_MODEL`, `WHITECIRCLE_API_KEY`: used only by experimental AI/MCP/RAG paths.\n- `GOOGLE_CLIENT_ID`, `GOOGLE_CLIENT_SECRET`, `GOOGLE_REDIRECT_URI`, `GOOGLE_TOKEN`, `GOOGLE_APPLICATION_CREDENTIALS`: used only by experimental local Google sync/OAuth helpers.\n- `MCP_SERVER_HOST`, `MCP_SERVER_PORT`: used only by experimental Docker/MCP bridge paths.\n- `ELEVENLABS_API_KEY`, `GOOGLE_TTS_API_KEY`: used only by optional demo asset generation scripts.\n- `LOG_LEVEL`: optional logging control.\n\nGoogle OAuth token files such as `token.json` and `drive_token.json` must not be committed.\n\n## Secret Handling\n\nNever commit:\n\n- `api/env.local`\n- `.env`\n- `*.env.local`\n- `token.json`\n- `drive_token.json`\n- OAuth credentials\n- Google API tokens\n- generated files containing real personal Calendar or Drive data\n\nCheck whether sensitive files are tracked:\n\n```bash\ngit ls-files api/env.local\ngit ls-files token.json\ngit ls-files \"*.env.local\"\ngit ls-files calendar_events.json\ngit ls-files data_sync/calendar_sync.json\ngit ls-files data_sync/drive_sync.json\ngit ls-files data_sync/sync_summary.json\n```\n\nHistorical verification cleanup finding: `api/env.local`, `calendar_events.json`, `data_sync/calendar_sync.json`, `data_sync/drive_sync.json`, and `data_sync/sync_summary.json` were identified as private artifacts that must stay out of git tracking.\n\nRemove tracked private artifacts without deleting local files:\n\n```bash\ngit rm --cached api/env.local\ngit rm --cached calendar_events.json\ngit rm --cached data_sync/calendar_sync.json\ngit rm --cached data_sync/drive_sync.json\ngit rm --cached data_sync/sync_summary.json\n```\n\nIf these files are already untracked, do not re-add them. Rotate any exposed keys/tokens if they were ever committed or pushed. Removing a file from the latest commit is not enough if the secret exists in git history. If any real Google OAuth tokens, API keys, or provider credentials were ever committed, treat them as compromised.\n\nRun the local privacy guard before committing:\n\n```bash\npython scripts/privacy_check.py\npython scripts/nudgeai_health_check.py\n```\n\nThe script fails if private Google sync outputs, OAuth tokens, or local env files are tracked by git. It warns, but does not fail, when those files merely exist locally and are ignored.\n\n## Run Commands\n\nBackend:\n\n```bash\npython simple_api_server.py\n```\n\nFrontend:\n\n```bash\ncd frontend\nnpm run dev\n```\n\nOpen the frontend at `http://localhost:3000`. The Vite dev server proxies `/api` to `http://localhost:8001`.\n\n## Test / Verification Commands\n\nBackend syntax:\n\n```bash\npython -m py_compile simple_api_server.py mcp_api_bridge.py\n```\n\nBackend store tests:\n\n```bash\npython -m unittest discover -s tests -p \"test_nudge*.py\"\n```\n\nFrontend build:\n\n```bash\ncd frontend\nnpm ci\nnpm run build\n```\n\n## Nudge API\n\n- `GET /api/nudges`\n- `GET /api/nudges/summary`\n- `POST /api/nudges`\n- `PATCH /api/nudges/{id}`\n- `DELETE /api/nudges/{id}`\n\nSupported filters on `GET /api/nudges`:\n\n- `status`\n- `priority`\n- `dueToday`\n- `overdue`\n\n`DELETE` hard-deletes a local MVP nudge.\n\nWhen a nudge is marked `completed`, `completedAt` is set. When a completed nudge is reopened or moved to another status, `completedAt` is cleared.\n\n## Current Local Endpoints\n\nCore nudge MVP:\n\n- `GET /health`\n- `GET /api/nudges`\n- `POST /api/nudges`\n- `PATCH /api/nudges/{id}`\n- `DELETE /api/nudges/{id}`\n\nExperimental Google data endpoints:\n\n- `GET /api/mcp/tools/query_calendar`\n- `GET /api/mcp/tools/query_drive`\n\nThe Google endpoints are experimental, local-only, and not production integrations.\n\n## Experimental Google Data Sync\n\nNudgeAI includes experimental local Google Calendar and Google Drive sync utilities.\n\nThese utilities can fetch real local user data and serve it through local API endpoints:\n\n- `GET /api/mcp/tools/query_calendar`\n- `GET /api/mcp/tools/query_drive`\n\nThis is not part of the production MVP path yet. The core MVP remains the manual nudge lifecycle.\n\nThe Google sync path is local-only and should be treated as sensitive because it may include:\n\n- calendar event titles\n- event times\n- meeting metadata\n- Drive document names\n- Drive document metadata\n- file IDs or references\n- generated sync summaries\n\nDo not commit real synced Google data unless it has been explicitly sanitized.\n\n## Sanitized Demo Fixtures\n\nPublic demos should use fake fixture data from `data/demo/`, not private synced Google files.\n\nCurrent sanitized fixtures:\n\n- `data/demo/calendar_events.demo.json`\n- `data/demo/drive_documents.demo.json`\n- `data/demo/nudges.demo.json`\n- `data/demo/places.demo.json`\n- `data/demo/context_rules.demo.json`\n- `data/demo/current_location.demo.json`\n- `data/demo/calendar_availability.demo.json`\n\nThese files use fake IDs, fake names, and demo-only metadata so they can support portfolio walkthroughs without exposing private Calendar or Drive data.\n\n## Personal Context Rules\n\nNudgeAI is pivoting toward private context-aware personal nudges, not booking SaaS. The first local rule is `Gym Opportunity`.\n\nCurrent local/demo loop:\n\n```text\nmanual/demo location + manual calendar free minutes + local rule\n-> evaluate context\n-> create a normal nudge when the rule matches\n```\n\nThe dashboard supports Location and Calendar source status cards, demo gym/far-away location controls, and a `Check Context Rules Now` action. This is not live background location, production Google Calendar, Health/Fit, Gmail, AI extraction, auth, or booking.\n\n## Planning Docs\n\n- [Deep Audit](docs/NUDGEAI_DEEP_AUDIT.md)\n- [PRD](docs/NUDGEAI_PRD.md)\n- [Next Phase PRD](docs/NUDGEAI_NEXT_PHASE_PRD.md)\n- [Focus Chain](docs/NUDGEAI_FOCUS_CHAIN.md)\n- [Engineering TODO](docs/NUDGEAI_ENGINEERING_TODO.md)\n- [Roadmap](docs/NUDGEAI_ROADMAP.md)\n- [Architecture](docs/NUDGEAI_ARCHITECTURE.md)\n- [Demo Plan](docs/NUDGEAI_DEMO_PLAN.md)\n- [App Walkthrough](docs/NUDGEAI_APP_WALKTHROUGH.md)\n- [Next Implementation Plan](docs/NUDGEAI_NEXT_IMPLEMENTATION_PLAN.md)\n- [Local Automation](docs/NUDGEAI_LOCAL_AUTOMATION.md)\n- [Security and Privacy Notes](docs/NUDGEAI_SECURITY_PRIVACY_NOTES.md)\n\n## Next Phase Planning\n\nThe next phase focuses on personal context rules: places, manual/demo location, calendar free/busy abstraction, and normal nudge creation when a rule matches. Booking remains optional later work. The manual nudge MVP remains the core product path.\n\n- [Next Phase PRD](docs/NUDGEAI_NEXT_PHASE_PRD.md)\n- [Booking and Availability Plan](docs/NUDGEAI_BOOKING_AVAILABILITY_PLAN.md)\n- [Context Sources Plan](docs/NUDGEAI_CONTEXT_SOURCES_PLAN.md)\n- [Data Source Limitations](docs/NUDGEAI_DATA_SOURCE_LIMITATIONS.md)\n\n## Known Limitations\n\n- No production auth yet.\n- No real notifications yet.\n- AI extraction is not part of the core MVP yet.\n- Google/MCP/RAG integrations are experimental/future paths.\n- Local JSON persistence is suitable for demo/local development only.\n- CORS is permissive for local development and must be locked down before deployment.\n",
-    "readmeSourceUrl": "https://github.com/Sharv619/Nudgeai#readme"
+    "architectureDocuments": [
+      {
+        "path": "AWS_CURRENT_ARCHITECTURE.md",
+        "title": "Aws Current Architecture",
+        "content": "# Current Hosting and AWS Architecture\n\nThis document is the source of truth for the portfolio's current hosting and AWS design.\n\n## Website Hosting, Domain, and SEO\n\nThe public portfolio website is hosted with **GitHub Pages and Cloudflare**, not AWS.\n\n- Public canonical domain: `https://www.himanshulade.com/`\n- Source repository: `Sharv619/sharv619.github.io`\n- Static site deployment: GitHub Pages workflow\n- DNS/proxy layer: Cloudflare\n- Canonical-domain and SEO corrections: PR #4\n\nThe AWS resources described below do not host the public website. The `sharv619-portfolio-site` S3 bucket appears to be an older or unused website-hosting artifact; the current GitHub workflow does not deploy the site to that bucket.\n\n## Optional AWS Assistant Backend\n\nAWS is used only for the optional portfolio assistant and its cost-control automation. The frontend can fall back to local curated responses when the live assistant API is unavailable.\n\n```text\nBrowser on https://www.himanshulade.com/\n  |\n  | POST /assistant\n  v\nAPI Gateway: Assistant-API\n  |\n  | prod stage, expected route POST /assistant\n  v\nLambda: Assistant-RAG-Orchestrator\n  |\n  +--> S3: sharv619-knowledge-base\n  |      +--> knowledge-base.json\n  |      +--> synthetic-rag-index.json\n  |      +--> case-study Markdown files\n  |      +--> Nova Act execution artifacts\n  |\n  +--> Bedrock Guardrail: Assistant-Guardrail\n  |\n  +--> Optional Nova Micro polishing\n\nEventBridge Scheduler: Assistant-Guardrail-Enforcer-Schedule\n  |\n  | every 1 hour\n  v\nLambda: Assistant-Guardrail-Enforcer\n  |\n  +--> keeps expensive Bedrock options disabled\n```\n\nNormal Synthetic RAG responses retrieve curated content from S3 and should not require a model call. Bedrock polishing is optional and must remain disabled by default to control cost.\n\n## Resource Inventory\n\n### API Gateway\n\n- API: `Assistant-API`\n- Stage: `prod`\n- Expected route: `POST /assistant`\n- Frontend configuration: `NEXT_PUBLIC_ASSISTANT_API`\n\n### Lambda\n\n- `Assistant-RAG-Orchestrator`\n  - Validates assistant requests.\n  - Reads Synthetic RAG and knowledge-base files from S3.\n  - Applies Bedrock input/output guardrails when configured.\n  - Uses optional Nova Micro polishing only when explicitly enabled and permitted by the cost guardrail.\n- `Assistant-Guardrail-Enforcer`\n  - Checks the orchestrator's cost-sensitive environment settings.\n  - Reapplies safe defaults if configuration drift enables expensive options.\n\n### S3\n\n- `sharv619-knowledge-base`\n  - `knowledge-base.json`\n  - `synthetic-rag-index.json`\n  - Case-study Markdown files\n  - Nova Act execution artifacts\n- `sharv619-portfolio-site`\n  - Likely an older or unused website-hosting bucket.\n  - Not used by the current GitHub Pages deployment workflow.\n\n### Bedrock\n\n- Guardrail: `Assistant-Guardrail`\n- Recorded status: `READY`\n- Recorded version: `DRAFT`\n- Optional model: `amazon.nova-micro-v1:0`\n- Bedrock polishing should remain disabled by default.\n- Synthetic RAG should provide normal answers without invoking a model.\n\n### EventBridge Scheduler\n\n- Schedule: `Assistant-Guardrail-Enforcer-Schedule`\n- Expected state: enabled\n- Interval: every 1 hour\n- Target: `Assistant-Guardrail-Enforcer`\n\n### IAM\n\n- User: `portfolio-deploy`\n- Role: `Assistant-RAG-Orchestrator-Role`\n- Role: `Assistant-Guardrail-Enforcer-Role`\n- Role: `Assistant-Guardrail-Scheduler-Role`\n\nIAM permissions should stay scoped to the required Lambda, S3, Bedrock guardrail, logging, and scheduler actions. Administrator access is not part of the intended current runtime design.\n\n### CloudWatch Logs\n\n- `/aws/lambda/Assistant-RAG-Orchestrator`\n- `/aws/lambda/Assistant-Guardrail-Enforcer`\n- A retention limit may not currently be configured and should be set during recovery.\n\n### KMS\n\n- The AWS-managed Lambda encryption key protects Lambda environment variables.\n- Lambda currently cannot decrypt its environment because AWS reports that the resource owner's account is not active.\n\n### AWS Budgets\n\n- Budget: `My Zero-Spend Budget`\n- Type: monthly cost budget\n\n### Nova Act\n\n- Local workflow code: `aws/nova-act/`\n- Previous execution artifacts exist in S3.\n- Nova Act is not required for the website or main assistant request path.\n- It is intentionally not in active use.\n\n## Current Broken or Blocked Items\n\n- The AWS account/payment state must be restored before runtime verification. A direct Lambda invocation reported that the resource owner's account is not active.\n- Local AWS access has been inconsistent: one check returned `InvalidClientTokenId`, while a later identity-only check succeeded. Do not assume credentials or runtime access work; begin recovery with `aws sts get-caller-identity`.\n- The configured assistant API currently returns `404 Not Found` for both `/prod/assistant` and `/assistant`.\n- The `Assistant-API` route, `prod` deployment, and Lambda integration must be verified after account access is restored.\n- `NEXT_PUBLIC_ASSISTANT_API` is configured, but its current endpoint is not usable while it returns 404.\n- The S3 knowledge artifacts were last synced around June 2026 and need a refresh.\n- The GitHub Pages workflow does not automatically sync knowledge files to AWS.\n- Branded-domain CORS defaults are updated in the current branch, but the live Lambda still needs redeployment and verification after account activation.\n- The live website will continue serving the old robots and sitemap files until PR #4 is merged into `main` and deployed.\n- The GitHub Pages custom-domain setting is currently empty. After PR #4 is merged, set it to `www.himanshulade.com` and enable HTTPS.\n\n## Deployment and Recovery Checklist\n\n- [ ] Restore AWS account/payment activation and confirm the account is active.\n- [ ] Confirm local AWS access:\n\n  ```bash\n  aws sts get-caller-identity\n  ```\n\n- [ ] Verify API Gateway `Assistant-API` has a `prod` stage and the route `POST /assistant`.\n- [ ] Redeploy the API Gateway `prod` stage if the current deployment does not contain the route.\n- [ ] Verify the route integration targets `Assistant-RAG-Orchestrator`.\n- [ ] Verify the Lambda is active and can decrypt its environment variables.\n- [ ] Regenerate the Synthetic RAG index if its source content changed.\n- [ ] Upload the current knowledge files:\n\n  ```bash\n  node aws/scripts/sync-knowledge-base.js\n  ```\n\n- [ ] Test the deployed API using its confirmed execute-api hostname:\n\n  ```bash\n  curl -i -X POST \"https://<confirmed-api-host>/prod/assistant\" \\\n    -H \"Origin: https://www.himanshulade.com\" \\\n    -H \"Content-Type: application/json\" \\\n    --data '{\"message\":\"hi\"}'\n  ```\n\n- [ ] Update the GitHub Actions variable `NEXT_PUBLIC_ASSISTANT_API` if the confirmed route or stage URL differs.\n- [ ] Rebuild and redeploy the static website after changing `NEXT_PUBLIC_ASSISTANT_API`.\n- [ ] Verify Lambda and API Gateway CORS allow both `https://www.himanshulade.com` and `https://himanshulade.com`.\n- [ ] Set a CloudWatch retention period for both assistant Lambda log groups.\n- [ ] Confirm `ENABLE_BEDROCK_POLISH=false` remains the default.\n- [ ] Confirm expensive or Anthropic model options remain disabled unless deliberately approved.\n- [ ] Confirm `Assistant-Guardrail-Enforcer-Schedule` is enabled and runs hourly.\n- [ ] Confirm `Assistant-Guardrail-Enforcer` completes successfully after account activation.\n- [ ] Merge PR #4, deploy `main`, configure the GitHub Pages custom domain as `www.himanshulade.com`, and enable HTTPS.\n\n## Intentionally Not Used\n\nThe current lightweight architecture does not use:\n\n- RDS or Aurora\n- PostgreSQL or pgvector\n- OpenSearch\n- Bedrock Knowledge Bases\n- Bedrock Agents\n- DynamoDB\n- VPC or NAT Gateway\n- Provisioned Bedrock throughput\n- Lambda provisioned concurrency\n\nDo not add these services based on older setup notes without a new architecture decision, cost review, and explicit approval.\n\n## Relevant Repository Files\n\n- `docs/bedrock-rag-deployment.md` — detailed lightweight Synthetic RAG deployment guidance\n- `aws/lambda/rag-orchestrator/index.js` — assistant runtime\n- `aws/lambda/guardrail-enforcer/index.js` — scheduled cost guardrail\n- `aws/scripts/sync-knowledge-base.js` — uploads knowledge artifacts to S3\n- `aws/scripts/apply-lambda-cost-guardrail.js` — applies safe Lambda model settings\n- `aws/scripts/deploy-guardrail-runner.js` — deploys the scheduled guardrail enforcer\n- `.github/workflows/deploy.yml` — GitHub Pages deployment; it does not deploy or sync AWS resources\n- `SEO_FIX_NOTES.md` — branded-domain and post-deployment SEO verification\n\n## Historical Documentation\n\n`AWS-SETUP.md` contains older setup exploration, including RDS, PostgreSQL/pgvector, VPC-connected Lambda, and alternative frontend hosting. Those sections are historical and are not instructions for the current deployment. This file and `docs/bedrock-rag-deployment.md` take precedence.\n",
+        "sourceUrl": "https://github.com/Sharv619/sharv619.github.io/blob/main/AWS_CURRENT_ARCHITECTURE.md",
+        "diagrams": []
+      }
+    ]
   },
   {
     "title": "Stock Price Alerts",
     "description": "Stock Price Alerts is a public GitHub project by Himanshu Lade.",
     "technologies": [
       "Python"
+    ],
+    "skills": [
+      {
+        "key": "python",
+        "label": "Python",
+        "category": "languages",
+        "sources": [
+          {
+            "source": "github-language",
+            "rawValue": "Python"
+          }
+        ],
+        "kind": "language"
+      }
     ],
     "liveUrl": "",
     "githubUrl": "https://github.com/Sharv619/stock-price-alerts",
@@ -1873,26 +3315,218 @@
       }
     ],
     "readmeMarkdown": "",
-    "readmeSourceUrl": "https://github.com/Sharv619/stock-price-alerts#readme"
+    "readmeSourceUrl": "https://github.com/Sharv619/stock-price-alerts#readme",
+    "evidenceReferences": [],
+    "architectureDocuments": []
   },
   {
     "title": "Reliboard",
     "description": "A production-ready, full-stack project management application. Features JWT-based auth with Role-Based Access Control (RBAC), a full test suite (85%+ coverage), and is fully containerized with Docker.",
     "technologies": [
       "JavaScript",
+      "TypeScript",
+      "Shell",
+      "Python",
       "Docker",
+      "CSS",
+      "HTML",
       "Full stack",
       "JWT",
       "MongoDB",
       "Node.js",
       "Project Management",
       "React",
-      "TypeScript"
+      "React Router",
+      "Vite"
+    ],
+    "skills": [
+      {
+        "key": "typescript",
+        "label": "TypeScript",
+        "category": "languages",
+        "sources": [
+          {
+            "source": "github-language",
+            "rawValue": "TypeScript"
+          },
+          {
+            "source": "github-topic",
+            "rawValue": "typescript"
+          },
+          {
+            "source": "manifest",
+            "rawValue": "TypeScript"
+          }
+        ],
+        "kind": "language"
+      },
+      {
+        "key": "css",
+        "label": "CSS",
+        "category": "languages",
+        "sources": [
+          {
+            "source": "github-language",
+            "rawValue": "CSS"
+          }
+        ],
+        "kind": "language"
+      },
+      {
+        "key": "html",
+        "label": "HTML",
+        "category": "languages",
+        "sources": [
+          {
+            "source": "github-language",
+            "rawValue": "HTML"
+          }
+        ],
+        "kind": "language"
+      },
+      {
+        "key": "javascript",
+        "label": "JavaScript",
+        "category": "languages",
+        "sources": [
+          {
+            "source": "github-language",
+            "rawValue": "JavaScript"
+          }
+        ],
+        "kind": "language"
+      },
+      {
+        "key": "perl",
+        "label": "Perl",
+        "category": "languages",
+        "sources": [
+          {
+            "source": "github-language",
+            "rawValue": "Perl"
+          }
+        ]
+      },
+      {
+        "key": "python",
+        "label": "Python",
+        "category": "languages",
+        "sources": [
+          {
+            "source": "github-language",
+            "rawValue": "Python"
+          }
+        ],
+        "kind": "language"
+      },
+      {
+        "key": "shell",
+        "label": "Shell",
+        "category": "languages",
+        "sources": [
+          {
+            "source": "github-language",
+            "rawValue": "Shell"
+          }
+        ],
+        "kind": "language"
+      },
+      {
+        "key": "react",
+        "label": "React",
+        "category": "appStack",
+        "sources": [
+          {
+            "source": "github-topic",
+            "rawValue": "react"
+          },
+          {
+            "source": "manifest",
+            "rawValue": "React"
+          }
+        ],
+        "kind": "framework"
+      },
+      {
+        "key": "vite",
+        "label": "Vite",
+        "category": "appStack",
+        "sources": [
+          {
+            "source": "manifest",
+            "rawValue": "Vite"
+          }
+        ],
+        "kind": "tool"
+      },
+      {
+        "key": "nodejs",
+        "label": "Node.js",
+        "category": "appStack",
+        "sources": [
+          {
+            "source": "github-topic",
+            "rawValue": "nodejs"
+          }
+        ],
+        "kind": "runtime"
+      },
+      {
+        "key": "docker",
+        "label": "Docker",
+        "category": "infraDataSecurity",
+        "sources": [
+          {
+            "source": "github-language",
+            "rawValue": "Dockerfile"
+          },
+          {
+            "source": "github-topic",
+            "rawValue": "docker"
+          }
+        ],
+        "kind": "tool"
+      },
+      {
+        "key": "jwt",
+        "label": "JWT",
+        "category": "infraDataSecurity",
+        "sources": [
+          {
+            "source": "github-topic",
+            "rawValue": "jwt"
+          }
+        ],
+        "kind": "concept"
+      },
+      {
+        "key": "mongodb",
+        "label": "MongoDB",
+        "category": "infraDataSecurity",
+        "sources": [
+          {
+            "source": "github-topic",
+            "rawValue": "mongodb"
+          }
+        ],
+        "kind": "platform"
+      },
+      {
+        "key": "react-router",
+        "label": "React Router",
+        "category": "uncategorized",
+        "sources": [
+          {
+            "source": "manifest",
+            "rawValue": "React Router"
+          }
+        ]
+      }
     ],
     "liveUrl": "",
     "githubUrl": "https://github.com/Sharv619/reliboard",
     "slug": "reliboard",
-    "architectureDetails": "A production-ready, full-stack project management application. Features JWT-based auth with Role-Based Access Control (RBAC), a full test suite (85%+ coverage), and is fully containerized with Docker.\n\nGitHub Signals:\n• Primary language: JavaScript\n• Technologies: JavaScript, Docker, Full stack, JWT, MongoDB, Node.js, Project Management, React, TypeScript\n• Topics: Docker, Full stack, JWT, MongoDB, Node.js, Project Management, React, TypeScript\n• Last updated: 2026-07-26T14:52:32Z\n• Stars: 1\n• Forks: 0\n• Status: Active",
+    "architectureDetails": "A production-ready, full-stack project management application. Features JWT-based auth with Role-Based Access Control (RBAC), a full test suite (85%+ coverage), and is fully containerized with Docker.\n\nGitHub Signals:\n• Primary language: JavaScript\n• Technologies: JavaScript, TypeScript, Shell, Python, Docker, CSS, HTML, Full stack, JWT, MongoDB, Node.js, Project Management, React, React Router, Vite\n• Topics: Docker, Full stack, JWT, MongoDB, Node.js, Project Management, React, TypeScript\n• Last updated: 2026-07-26T14:52:32Z\n• Stars: 1\n• Forks: 0\n• Status: Active",
     "archived": false,
     "updatedAt": "2026-07-31T14:32:58Z",
     "pushedAt": "2026-07-26T14:52:32Z",
@@ -1909,12 +3543,30 @@
       "typescript"
     ],
     "primaryLanguage": "JavaScript",
-    "languageBreakdown": {},
+    "languageBreakdown": {
+      "JavaScript": 151756,
+      "TypeScript": 127752,
+      "Shell": 21101,
+      "Python": 7760,
+      "Perl": 4726,
+      "Dockerfile": 2856,
+      "CSS": 1259,
+      "HTML": 940
+    },
     "evidenceProfile": {
       "slug": "reliboard",
       "repoName": "reliboard",
       "lastUpdated": "2026-07-26T14:52:32Z",
-      "languages": [],
+      "languages": [
+        "JavaScript",
+        "TypeScript",
+        "Shell",
+        "Python",
+        "Perl",
+        "Dockerfile",
+        "CSS",
+        "HTML"
+      ],
       "topics": [
         "docker",
         "fullstack",
@@ -1929,9 +3581,9 @@
         {
           "key": "readme",
           "label": "README present",
-          "present": false,
-          "source": "unknown",
-          "confidence": "low"
+          "present": true,
+          "source": "readme",
+          "confidence": "high"
         },
         {
           "key": "tests",
@@ -1957,9 +3609,9 @@
         {
           "key": "package-manifest",
           "label": "Package manifest present",
-          "present": false,
-          "source": "unknown",
-          "confidence": "low"
+          "present": true,
+          "source": "repo-files",
+          "confidence": "high"
         },
         {
           "key": "python-dependencies",
@@ -1978,37 +3630,37 @@
         {
           "key": "screenshots",
           "label": "Screenshots present",
-          "present": false,
-          "source": "unknown",
-          "confidence": "low"
+          "present": true,
+          "source": "readme",
+          "confidence": "medium"
         },
         {
           "key": "docs-folder",
           "label": "Docs folder present",
-          "present": false,
-          "source": "unknown",
-          "confidence": "low"
+          "present": true,
+          "source": "readme",
+          "confidence": "medium"
         },
         {
           "key": "api-docs",
           "label": "API docs present",
-          "present": false,
-          "source": "unknown",
-          "confidence": "low"
+          "present": true,
+          "source": "readme",
+          "confidence": "medium"
         },
         {
           "key": "security-safety-docs",
           "label": "Security/safety docs present",
-          "present": false,
-          "source": "unknown",
-          "confidence": "low"
+          "present": true,
+          "source": "readme",
+          "confidence": "medium"
         },
         {
           "key": "npm-package",
           "label": "npm package evidence present",
-          "present": false,
-          "source": "unknown",
-          "confidence": "low"
+          "present": true,
+          "source": "github",
+          "confidence": "medium"
         },
         {
           "key": "deployment-config",
@@ -2032,50 +3684,29 @@
           "confidence": "high"
         }
       ],
-      "maturityScore": 21,
-      "maturity": "experiment",
+      "maturityScore": 69,
+      "maturity": "prototype",
       "missingEvidence": [
-        "README present",
         "Tests present",
         "GitHub Actions present",
-        "Package manifest present",
         "Python dependency file present",
         "Live demo link present",
-        "Screenshots present",
-        "Docs folder present",
-        "API docs present",
-        "Security/safety docs present",
-        "npm package evidence present",
         "Deployment config present",
         "License present"
       ],
       "claimWarnings": [
-        "production status: Production status must come from the approved claim registry or case-study status."
+        "production status: Production status must come from the approved claim registry or case-study status.",
+        "exact performance/cost/deployment metric: Exact performance, cost, or deployment metrics must be approved before public use.",
+        "zero-downtime: Zero-downtime deployment claims are explicitly unsupported."
       ]
     },
     "evidenceRecommendations": [
-      {
-        "projectSlug": "reliboard",
-        "recommendationType": "improve-readme",
-        "severity": "high",
-        "recommendation": "Improve the README with problem, solution, setup, screenshots, and limitations.",
-        "reason": "The README is the strongest public context source for automated portfolio cards.",
-        "draftOnly": true
-      },
       {
         "projectSlug": "reliboard",
         "recommendationType": "add-tests",
         "severity": "medium",
         "recommendation": "Add or document tests that validate the main project workflow.",
         "reason": "Tests increase project credibility and reduce the risk of overclaiming maturity.",
-        "draftOnly": true
-      },
-      {
-        "projectSlug": "reliboard",
-        "recommendationType": "add-screenshots",
-        "severity": "medium",
-        "recommendation": "Add screenshots or a short demo GIF to make the project easier to evaluate.",
-        "reason": "Visual proof helps reviewers understand what was actually built.",
         "draftOnly": true
       },
       {
@@ -2091,26 +3722,34 @@
         "recommendationType": "soften-claim",
         "severity": "high",
         "recommendation": "Soften or remove claims flagged by the guardrail before publishing.",
-        "reason": "production status: Production status must come from the approved claim registry or case-study status.",
-        "draftOnly": true
-      },
-      {
-        "projectSlug": "reliboard",
-        "recommendationType": "keep-as-experiment",
-        "severity": "low",
-        "recommendation": "Keep this project framed as an experiment until stronger evidence exists.",
-        "reason": "The current evidence score does not support MVP or production framing.",
+        "reason": "production status: Production status must come from the approved claim registry or case-study status. exact performance/cost/deployment metric: Exact performance, cost, or deployment metrics must be approved before public use. zero-downtime: Zero-downtime deployment claims are explicitly unsupported.",
         "draftOnly": true
       }
     ],
-    "readmeMarkdown": "",
-    "readmeSourceUrl": "https://github.com/Sharv619/reliboard#readme"
+    "readmeMarkdown": "# 🚀 ReliBoard - Full-Stack Project Management Application\n\n<div align=\"center\">\n  <img width=\"1200\" height=\"600\" alt=\"ReliBoard Showcase\" src=\"https://via.placeholder.com/1200x600/2563eb/ffffff?text=ReliBoard+Project+Management\" />\n\n  **A production-ready, scalable project management application built with modern technologies**\n\n  ![React](https://img.shields.io/badge/React-19.1.1-blue.svg)\n  ![TypeScript](https://img.shields.io/badge/TypeScript-5.8.2-blue.svg)\n  ![Node.js](https://img.shields.io/badge/Node.js-18+-green.svg)\n  ![MongoDB](https://img.shields.io/badge/MongoDB-7+-green.svg)\n  ![Docker](https://img.shields.io/badge/Docker-Ready-blue.svg)\n  ![License](https://img.shields.io/badge/License-ISC-yellow.svg)\n</div>\n\n## 📋 Table of Contents\n\n- [🎯 Overview](#-overview)\n- [✨ Key Features](#-key-features)\n- [🚀 Quick Start](#-quick-start)\n- [🐳 Docker Setup](#-docker-setup)\n- [📖 Documentation](#-documentation)\n- [🧪 Testing](#-testing)\n- [🚀 Deployment](#-deployment)\n- [🤝 Contributing](#-contributing)\n- [📞 Support](#-support)\n\n## 🎯 Overview\n\nReliBoard is a comprehensive project management application designed for modern development teams. It provides a complete solution for task tracking, team collaboration, and project oversight with enterprise-grade features and production-ready architecture.\n\n### ⭐ **The Value Proposition: Why ReliBoard?**\n\n**Problem Solved**: Overcoming fragmented task tracking (spreadsheets, email, scattered apps) that causes missed deadlines and friction in cross-functional teams.\n\n**Impact**:\n- **15% reduction in time spent context-switching** through the Unified Dashboard\n- **Improved team clarity** via Role-Based Access Control ensuring data security and relevant access views\n- **Enterprise Readiness** demonstrated by high Test Coverage (85%+) and Dockerized deployment for zero-downtime updates\n\n### 🎯 **Perfect for Job Applications**\n\nThis project demonstrates:\n- **Full-Stack Development**: Complete frontend and backend implementation\n- **Production-Ready Code**: Enterprise patterns, security, and scalability\n- **Modern Technologies**: Latest frameworks and best practices\n- **DevOps Skills**: Docker, testing, CI/CD, and deployment\n- **Real-World Features**: Authentication, authorization, data management\n\n## ✨ Key Features\n\n### 🔐 **Authentication & Security**\n- JWT-based authentication with refresh tokens\n- Role-based access control (Admin, Manager, Developer, Viewer)\n- Password hashing with bcrypt\n- Rate limiting and security headers\n- Input validation and sanitization\n\n### 👥 **User Management**\n- User registration and login\n- Profile management\n- Admin user controls\n- User search and statistics\n\n### 📋 **Task Management**\n- CRUD operations for tasks\n- Advanced filtering and search\n- Task assignment and status tracking\n- Comments and discussion threads\n- Subtasks and dependencies\n- Time tracking (estimated/actual hours)\n- File attachments support\n\n### 📊 **Analytics & Reporting**\n- Task statistics and dashboards\n- Project progress tracking\n- User productivity metrics\n- Real-time data visualization\n\n### 🎨 **Modern UI/UX**\n- Responsive design for all devices\n- Drag-and-drop functionality\n- Real-time updates\n- Intuitive navigation\n\n## 🚀 Quick Start\n\n### Prerequisites\n- Node.js 18+\n- Docker & Docker Compose (optional but recommended)\n- Git\n\n### **One-Command Docker Setup**\n```bash\n# Clone the repository\ngit clone https://github.com/yourusername/reliboard.git\ncd reliboard\n\n# Start everything with Docker\ncd backend && docker-compose up -d\n\n# Populate with demo data\nnpm run demo-data\n\n# Access the application\n# Frontend: http://localhost:5173\n# Backend API: http://localhost:5000\n```\n\n### **Manual Development Setup**\n\n#### Backend Setup\n```bash\ncd backend\nnpm install\ncp .env.example .env\n# Edit .env with your configuration\nnpm run dev\n```\n\n#### Frontend Setup\n```bash\nnpm install\nnpm run dev\n```\n\n#### Demo Data (Optional)\n```bash\ncd backend\nnpm run demo-data\n```\n\n## 🐳 Docker Setup\n\n### **Development Environment**\n```bash\ncd backend\ndocker-compose up -d\n```\n\n### **Production Deployment**\n```bash\n# Build for production\ndocker-compose -f docker-compose.prod.yml up -d\n\n# Or use the development setup\ndocker-compose up -d\n```\n\n### **Available Services**\n- **MongoDB**: Database with persistent storage\n- **Redis**: Caching and session storage (optional)\n- **Backend API**: Node.js application\n- **Frontend**: React application (when containerized)\n\n## 📖 Documentation\n\n### **API Documentation**\n- [Backend API Guide](backend/README.md)\n- [API Testing Guide](backend/docs/API_TESTING_GUIDE.md)\n- [Postman Collection](backend/docs/postman_collection.json)\n\n### **Project Documentation**\n- [Project Requirements](PRD_ReliBoard.md)\n- [Project Showcase](PROJECT_SHOWCASE.md)\n- [Architecture Overview](PROJECT_SHOWCASE.md#architecture)\n\n## 🧪 Testing\n\n### **Comprehensive Test Coverage (85%+)**\n\n**Jest/Supertest Integration Tests**: Confirmed Role-Based Access Control worked correctly across all endpoints (e.g., ensuring a developer cannot access Admin routes like DELETE /api/users/:id).\n\n**Frontend Component Tests**: Verified crucial components, like the Drag-and-Drop Kanban Board, maintained state and handled optimistic updates gracefully.\n\n### **Automated Testing**\n```bash\n# Backend tests\ncd backend\nnpm test\nnpm run test:coverage\n\n# Frontend build verification\nnpm run build\n```\n\n### **Manual Testing**\n- Import `backend/docs/postman_collection.json` into Postman\n- Use the demo credentials to explore the application\n- Test all CRUD operations and user workflows\n\n### **Demo Credentials**\n```\nAdmin: admin@reliboard.com / Admin123!\nDeveloper: john@reliboard.com / Dev123!\nManager: sarah@reliboard.com / PM123!\n```\n\n## 🚀 Deployment\n\n### **Platform Options**\n- **Vercel**: Frontend deployment\n- **Railway**: Full-stack deployment\n- **AWS**: Enterprise deployment\n- **Docker**: Containerized deployment\n- **Heroku**: Quick deployment\n\n### **CI/CD Pipeline**\nGitHub Actions workflow included for:\n- Automated testing\n- Security scanning\n- Docker building\n- Deployment automation\n\n## 🏗️ Architecture\n\n### **System Architecture & Data Flow**\n\n```\nUser Browser\n└─► [React/TS Frontend - Vite Build]\n    └─► [Axios/HTTPS - Secure API Calls]\n        └─► [Express API - Helmet/Rate Limiting]\n            └─► [Auth Middleware (JWT Validation)]\n                └─► [Role-Based Access Control]\n                    └─► [Task Controller - Business Logic]\n                        └─► [Mongoose Model - Data Validation]\n                            └─► [MongoDB - Indexed Queries]\n```\n\n**Security Layers**:\n- 🔒 **Helmet**: Security headers and XSS protection\n- 🛡️ **Rate Limiting**: Prevents brute force attacks (100 req/15min)\n- 🔐 **JWT**: Stateless authentication with refresh tokens\n- 👥 **RBAC**: Role-based permissions (Admin/Manager/Developer/Viewer)\n\n### **Performance Optimizations**\n- **Reduced Task Fetch Latency to <50ms** using Mongoose indexing on assignee and project fields\n- **Successfully handles 200+ concurrent users** with an average API response time under 100ms\n- **Database connection pooling** for efficient resource utilization\n- **Code splitting and lazy loading** for optimized bundle sizes (<500KB)\n\n### **Project Structure**\n```\nreliboard/\n├── frontend/              # React application\n│   ├── src/\n│   │   ├── components/    # Reusable UI components\n│   │   ├── pages/         # Page components\n│   │   ├── hooks/         # Custom React hooks\n│   │   ├── services/      # API services\n│   │   ├── contexts/      # React contexts\n│   │   └── types/         # TypeScript definitions\n│   ├── public/            # Static assets\n│   └── package.json\n├── backend/               # Express API\n│   ├── routes/            # API route handlers\n│   ├── models/            # Mongoose models\n│   ├── middleware/        # Express middleware\n│   ├── tests/             # Test suites\n│   ├── docs/              # Documentation\n│   └── package.json\n├── docker/                # Docker configuration\n└── docs/                  # Project documentation\n```\n\n## 🛠️ Technology Stack\n\n### **Frontend**\n- **React 19** - Latest React with concurrent features\n- **TypeScript** - Type-safe development\n- **Vite** - Fast build tool and dev server\n- **React Router** - Client-side routing\n- **Recharts** - Data visualization\n- **Tailwind CSS** - Utility-first styling\n\n### **Backend**\n- **Node.js 18+** - JavaScript runtime\n- **Express.js** - Web framework\n- **MongoDB** - NoSQL database\n- **Mongoose** - ODM for MongoDB\n- **JWT** - Authentication tokens\n- **bcrypt** - Password hashing\n\n### **DevOps & Testing**\n- **Docker & Docker Compose** - Containerization\n- **Jest** - Unit and integration testing\n- **Supertest** - API testing\n- **GitHub Actions** - CI/CD pipeline\n\n## 🤝 Contributing\n\n### **Development Workflow**\n1. Fork the repository\n2. Create a feature branch (`git checkout -b feature/amazing-feature`)\n3. Make your changes\n4. Add tests for new features\n5. Ensure all tests pass (`npm test`)\n6. Commit your changes (`git commit -m 'Add amazing feature'`)\n7. Push to the branch (`git push origin feature/amazing-feature`)\n8. Open a Pull Request\n\n### **Code Standards**\n- Follow TypeScript best practices\n- Write comprehensive tests\n- Document new features\n- Maintain code coverage > 80%\n- Use conventional commits\n\n## 📞 Support\n\n**Project Author**: Himanshu Lade\n**Email**: himanshulade@hotmail.com\n**LinkedIn**: https://www.linkedin.com/in/himanshu-lade\n**GitHub**: https://github.com/Sharv619\n\n### **Demo Application**\n- **Live Demo**: [Deployed Application](https://reliboard-demo.vercel.app)\n- **API Documentation**: [Backend API Guide](backend/README.md)\n- **Postman Collection**: [Download Collection](backend/docs/postman_collection.json)\n\n---\n\n<div align=\"center\">\n\n**⭐ Star this repository if you find it helpful!**\n\n**This project represents months of dedicated learning and implementation of modern web development practices. It's designed to showcase full-stack development skills and serve as a solid foundation for production applications.**\n\n**Ready to transform your career? Showcase this project in your job applications! 🚀**\n\n</div>\n",
+    "readmeSourceUrl": "https://github.com/Sharv619/reliboard#readme",
+    "evidenceReferences": [],
+    "architectureDocuments": []
   },
   {
     "title": "Scrapper",
     "description": "Scrapper is a public GitHub project by Himanshu Lade.",
     "technologies": [
       "HTML"
+    ],
+    "skills": [
+      {
+        "key": "html",
+        "label": "HTML",
+        "category": "languages",
+        "sources": [
+          {
+            "source": "github-language",
+            "rawValue": "HTML"
+          }
+        ],
+        "kind": "language"
+      }
     ],
     "liveUrl": "",
     "githubUrl": "https://github.com/Sharv619/scrapper",
@@ -2300,13 +3939,29 @@
       }
     ],
     "readmeMarkdown": "",
-    "readmeSourceUrl": "https://github.com/Sharv619/scrapper#readme"
+    "readmeSourceUrl": "https://github.com/Sharv619/scrapper#readme",
+    "evidenceReferences": [],
+    "architectureDocuments": []
   },
   {
     "title": "Hedge Things",
     "description": "Options hedging engine - GARCH volatility, Kelly sizing, OLS cross-month correlation, embedding-based scenario matching",
     "technologies": [
       "Python"
+    ],
+    "skills": [
+      {
+        "key": "python",
+        "label": "Python",
+        "category": "languages",
+        "sources": [
+          {
+            "source": "github-language",
+            "rawValue": "Python"
+          }
+        ],
+        "kind": "language"
+      }
     ],
     "liveUrl": "",
     "githubUrl": "https://github.com/Sharv619/hedge-things",
@@ -2319,16 +3974,12 @@
     "forks": 0,
     "topics": [],
     "primaryLanguage": "Python",
-    "languageBreakdown": {
-      "Python": 92427
-    },
+    "languageBreakdown": {},
     "evidenceProfile": {
       "slug": "hedge-things",
       "repoName": "hedge-things",
       "lastUpdated": "2026-07-08T07:22:40Z",
-      "languages": [
-        "Python"
-      ],
+      "languages": [],
       "topics": [],
       "signals": [
         {
@@ -2500,12 +4151,15 @@
       }
     ],
     "readmeMarkdown": "",
-    "readmeSourceUrl": "https://github.com/Sharv619/hedge-things#readme"
+    "readmeSourceUrl": "https://github.com/Sharv619/hedge-things#readme",
+    "evidenceReferences": [],
+    "architectureDocuments": []
   },
   {
     "title": "Tings",
     "description": "hermes-agent-playground",
     "technologies": [],
+    "skills": [],
     "liveUrl": "",
     "githubUrl": "https://github.com/Sharv619/tings",
     "slug": "tings",
@@ -2528,9 +4182,9 @@
         {
           "key": "readme",
           "label": "README present",
-          "present": true,
-          "source": "readme",
-          "confidence": "high"
+          "present": false,
+          "source": "unknown",
+          "confidence": "low"
         },
         {
           "key": "tests",
@@ -2631,9 +4285,10 @@
           "confidence": "high"
         }
       ],
-      "maturityScore": 18,
+      "maturityScore": 8,
       "maturity": "experiment",
       "missingEvidence": [
+        "README present",
         "Tests present",
         "Docker present",
         "GitHub Actions present",
@@ -2651,6 +4306,14 @@
       "claimWarnings": []
     },
     "evidenceRecommendations": [
+      {
+        "projectSlug": "tings",
+        "recommendationType": "improve-readme",
+        "severity": "high",
+        "recommendation": "Improve the README with problem, solution, setup, screenshots, and limitations.",
+        "reason": "The README is the strongest public context source for automated portfolio cards.",
+        "draftOnly": true
+      },
       {
         "projectSlug": "tings",
         "recommendationType": "add-tests",
@@ -2684,14 +4347,30 @@
         "draftOnly": true
       }
     ],
-    "readmeMarkdown": "# tings\nhermes-agent-playground\n",
-    "readmeSourceUrl": "https://github.com/Sharv619/tings#readme"
+    "readmeMarkdown": "",
+    "readmeSourceUrl": "https://github.com/Sharv619/tings#readme",
+    "evidenceReferences": [],
+    "architectureDocuments": []
   },
   {
     "title": "Localhost",
     "description": "Localhost is a public GitHub project by Himanshu Lade.",
     "technologies": [
       "HTML"
+    ],
+    "skills": [
+      {
+        "key": "html",
+        "label": "HTML",
+        "category": "languages",
+        "sources": [
+          {
+            "source": "github-language",
+            "rawValue": "HTML"
+          }
+        ],
+        "kind": "language"
+      }
     ],
     "liveUrl": "",
     "githubUrl": "https://github.com/Sharv619/localhost",
@@ -2881,13 +4560,29 @@
       }
     ],
     "readmeMarkdown": "",
-    "readmeSourceUrl": "https://github.com/Sharv619/localhost#readme"
+    "readmeSourceUrl": "https://github.com/Sharv619/localhost#readme",
+    "evidenceReferences": [],
+    "architectureDocuments": []
   },
   {
     "title": "Sharvilak Writes",
     "description": "Sharvilak Writes is a public GitHub project by Himanshu Lade.",
     "technologies": [
       "HTML"
+    ],
+    "skills": [
+      {
+        "key": "html",
+        "label": "HTML",
+        "category": "languages",
+        "sources": [
+          {
+            "source": "github-language",
+            "rawValue": "HTML"
+          }
+        ],
+        "kind": "language"
+      }
     ],
     "liveUrl": "",
     "githubUrl": "https://github.com/Sharv619/sharvilak_writes",
@@ -3077,13 +4772,29 @@
       }
     ],
     "readmeMarkdown": "",
-    "readmeSourceUrl": "https://github.com/Sharv619/sharvilak_writes#readme"
+    "readmeSourceUrl": "https://github.com/Sharv619/sharvilak_writes#readme",
+    "evidenceReferences": [],
+    "architectureDocuments": []
   },
   {
     "title": "Deepmind Hackathon",
     "description": "google hackathon project (structure done)",
     "technologies": [
       "TypeScript"
+    ],
+    "skills": [
+      {
+        "key": "typescript",
+        "label": "TypeScript",
+        "category": "languages",
+        "sources": [
+          {
+            "source": "github-language",
+            "rawValue": "TypeScript"
+          }
+        ],
+        "kind": "language"
+      }
     ],
     "liveUrl": "",
     "githubUrl": "https://github.com/Sharv619/deepmind-hackathon",
@@ -3273,12 +4984,15 @@
       }
     ],
     "readmeMarkdown": "",
-    "readmeSourceUrl": "https://github.com/Sharv619/deepmind-hackathon#readme"
+    "readmeSourceUrl": "https://github.com/Sharv619/deepmind-hackathon#readme",
+    "evidenceReferences": [],
+    "architectureDocuments": []
   },
   {
     "title": "Screenshot Flutter",
     "description": "Screenshot Flutter is a public GitHub project by Himanshu Lade.",
     "technologies": [],
+    "skills": [],
     "liveUrl": "",
     "githubUrl": "https://github.com/Sharv619/screenshot-flutter",
     "slug": "screenshot-flutter",
@@ -3467,13 +5181,29 @@
       }
     ],
     "readmeMarkdown": "",
-    "readmeSourceUrl": "https://github.com/Sharv619/screenshot-flutter#readme"
+    "readmeSourceUrl": "https://github.com/Sharv619/screenshot-flutter#readme",
+    "evidenceReferences": [],
+    "architectureDocuments": []
   },
   {
     "title": "Reli Board",
     "description": "The board for tasks and project management tools CRM",
     "technologies": [
       "TypeScript"
+    ],
+    "skills": [
+      {
+        "key": "typescript",
+        "label": "TypeScript",
+        "category": "languages",
+        "sources": [
+          {
+            "source": "github-language",
+            "rawValue": "TypeScript"
+          }
+        ],
+        "kind": "language"
+      }
     ],
     "liveUrl": "",
     "githubUrl": "https://github.com/Sharv619/reli-board",
@@ -3663,13 +5393,29 @@
       }
     ],
     "readmeMarkdown": "",
-    "readmeSourceUrl": "https://github.com/Sharv619/reli-board#readme"
+    "readmeSourceUrl": "https://github.com/Sharv619/reli-board#readme",
+    "evidenceReferences": [],
+    "architectureDocuments": []
   },
   {
     "title": "Backpocket OS",
     "description": "Backpocket OS is a public GitHub project by Himanshu Lade.",
     "technologies": [
       "Python"
+    ],
+    "skills": [
+      {
+        "key": "python",
+        "label": "Python",
+        "category": "languages",
+        "sources": [
+          {
+            "source": "github-language",
+            "rawValue": "Python"
+          }
+        ],
+        "kind": "language"
+      }
     ],
     "liveUrl": "",
     "githubUrl": "https://github.com/Sharv619/backpocket-os",
@@ -3859,13 +5605,29 @@
       }
     ],
     "readmeMarkdown": "",
-    "readmeSourceUrl": "https://github.com/Sharv619/backpocket-os#readme"
+    "readmeSourceUrl": "https://github.com/Sharv619/backpocket-os#readme",
+    "evidenceReferences": [],
+    "architectureDocuments": []
   },
   {
     "title": "RAG",
     "description": "practice for rag",
     "technologies": [
       "Python"
+    ],
+    "skills": [
+      {
+        "key": "python",
+        "label": "Python",
+        "category": "languages",
+        "sources": [
+          {
+            "source": "github-language",
+            "rawValue": "Python"
+          }
+        ],
+        "kind": "language"
+      }
     ],
     "liveUrl": "",
     "githubUrl": "https://github.com/Sharv619/rag",
@@ -4055,13 +5817,29 @@
       }
     ],
     "readmeMarkdown": "",
-    "readmeSourceUrl": "https://github.com/Sharv619/rag#readme"
+    "readmeSourceUrl": "https://github.com/Sharv619/rag#readme",
+    "evidenceReferences": [],
+    "architectureDocuments": []
   },
   {
     "title": "Sharv619",
     "description": "Sharv619 is a public GitHub project by Himanshu Lade.",
     "technologies": [
       "TypeScript"
+    ],
+    "skills": [
+      {
+        "key": "typescript",
+        "label": "TypeScript",
+        "category": "languages",
+        "sources": [
+          {
+            "source": "github-language",
+            "rawValue": "TypeScript"
+          }
+        ],
+        "kind": "language"
+      }
     ],
     "liveUrl": "",
     "githubUrl": "https://github.com/Sharv619/Sharv619",
@@ -4251,13 +6029,29 @@
       }
     ],
     "readmeMarkdown": "",
-    "readmeSourceUrl": "https://github.com/Sharv619/Sharv619#readme"
+    "readmeSourceUrl": "https://github.com/Sharv619/Sharv619#readme",
+    "evidenceReferences": [],
+    "architectureDocuments": []
   },
   {
     "title": "LifeAutomationPortal",
     "description": "LifeAutomationPortal is a public GitHub project by Himanshu Lade.",
     "technologies": [
       "TypeScript"
+    ],
+    "skills": [
+      {
+        "key": "typescript",
+        "label": "TypeScript",
+        "category": "languages",
+        "sources": [
+          {
+            "source": "github-language",
+            "rawValue": "TypeScript"
+          }
+        ],
+        "kind": "language"
+      }
     ],
     "liveUrl": "",
     "githubUrl": "https://github.com/Sharv619/LifeAutomationPortal",
@@ -4447,12 +6241,15 @@
       }
     ],
     "readmeMarkdown": "",
-    "readmeSourceUrl": "https://github.com/Sharv619/LifeAutomationPortal#readme"
+    "readmeSourceUrl": "https://github.com/Sharv619/LifeAutomationPortal#readme",
+    "evidenceReferences": [],
+    "architectureDocuments": []
   },
   {
     "title": "Post Incident Response Case Study",
     "description": "Case Study: A detailed breakdown of a mission-critical system recovery. As the sole engineer, I restored 100% of data and improved system performance by 88% after a catastrophic production outage.",
     "technologies": [],
+    "skills": [],
     "liveUrl": "",
     "githubUrl": "https://github.com/Sharv619/post-incident-response-case-study",
     "slug": "post-incident-response-case-study",
@@ -4651,13 +6448,29 @@
       }
     ],
     "readmeMarkdown": "",
-    "readmeSourceUrl": "https://github.com/Sharv619/post-incident-response-case-study#readme"
+    "readmeSourceUrl": "https://github.com/Sharv619/post-incident-response-case-study#readme",
+    "evidenceReferences": [],
+    "architectureDocuments": []
   },
   {
     "title": "Codeflow Testing",
     "description": "Codeflow Testing is a public GitHub project by Himanshu Lade.",
     "technologies": [
       "TypeScript"
+    ],
+    "skills": [
+      {
+        "key": "typescript",
+        "label": "TypeScript",
+        "category": "languages",
+        "sources": [
+          {
+            "source": "github-language",
+            "rawValue": "TypeScript"
+          }
+        ],
+        "kind": "language"
+      }
     ],
     "liveUrl": "",
     "githubUrl": "https://github.com/Sharv619/codeflow-testing",
@@ -4847,13 +6660,29 @@
       }
     ],
     "readmeMarkdown": "",
-    "readmeSourceUrl": "https://github.com/Sharv619/codeflow-testing#readme"
+    "readmeSourceUrl": "https://github.com/Sharv619/codeflow-testing#readme",
+    "evidenceReferences": [],
+    "architectureDocuments": []
   },
   {
     "title": "Demo",
     "description": "Demo is a public GitHub project by Himanshu Lade.",
     "technologies": [
       "JavaScript"
+    ],
+    "skills": [
+      {
+        "key": "javascript",
+        "label": "JavaScript",
+        "category": "languages",
+        "sources": [
+          {
+            "source": "github-language",
+            "rawValue": "JavaScript"
+          }
+        ],
+        "kind": "language"
+      }
     ],
     "liveUrl": "",
     "githubUrl": "https://github.com/Sharv619/demo",
@@ -5044,6 +6873,8 @@
       }
     ],
     "readmeMarkdown": "",
-    "readmeSourceUrl": "https://github.com/Sharv619/demo#readme"
+    "readmeSourceUrl": "https://github.com/Sharv619/demo#readme",
+    "evidenceReferences": [],
+    "architectureDocuments": []
   }
 ]

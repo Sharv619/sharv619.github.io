@@ -1,45 +1,64 @@
 {
-  "version": "3.0.0",
-  "lastUpdated": "2026-09-29",
+  "version": "3.1.0",
+  "lastUpdated": "2026-10-02",
   "metadata": {
     "title": "Himanshu Lade - Career Knowledge Base",
-    "description": "RAG-ready knowledge base for AI Assistant",
+    "description": "RAG-ready career, project, and proof-of-work knowledge base for Himanshu Lade's portfolio assistant.",
     "author": "Himanshu Lade"
   },
   "personal": {
     "name": "Himanshu Lade",
     "title": "Full-Stack Systems & AI Engineer",
-    "tagline": "Local-first AI, practical automation, production recovery, and systems that remove friction",
+    "tagline": "Local-first AI, production recovery, workflow automation, technical SEO, and practical systems that remove friction.",
     "location": "Sydney, Australia",
-    "availability": "Open to opportunities",
-    "bio": "Sydney-based full-stack systems and AI engineer working across local-first AI, workflow automation, production recovery, technical SEO, and practical software. Experience includes ransomware recovery, page-load improvement from 25s to 3s, Docker and GitHub Actions delivery workflows, and open-source AI-assisted developer tooling.",
+    "availability": "Open to software engineering, AI engineering, and technical consulting opportunities.",
+    "bio": "Australia-based full-stack systems and AI engineer, open to remote work anywhere in the world, working across local-first AI, workflow automation, production recovery, technical SEO, and practical software systems. His work includes ransomware recovery, page-load improvement from 25s to under 3s, Docker and GitHub Actions delivery workflows, AI-assisted developer tooling, portfolio infrastructure, and small workflow utilities built from real operational friction.",
     "contact": {
       "email": "hl@himanshulade.com",
-      "phone": "+61 434 069 483",
       "linkedin": "linkedin.com/in/himanshu-lade",
-      "github": "github.com/Sharv619"
+      "github": "github.com/Sharv619",
+      "portfolio": "https://www.himanshulade.com"
     }
   },
   "experience": [
     {
       "id": "ask-jay",
       "company": "Ask Jay Services",
-      "role": "Software Engineer",
+      "role": "CTO",
       "type": "Contract",
       "duration": "May 2025 - Oct 2025",
       "location": "Wollongong, Australia",
+      "summary": "Worked as the primary engineer across recovery, hardening, full-stack delivery, mobile workflows, and deployment automation.",
       "achievements": [
-        "Recovered a production system from ransomware within three weeks of starting the engagement: 100% data restored, zero loss, and page load time reduced from 25 seconds to 3 seconds over 30 hours",
-        "Built a shift-booking automation bot and a three-sided Flutter marketplace for service providers, requesters, and administrators",
-        "Established CI/CD pipelines, GitHub Actions workflows, and production deployment practices for a greenfield stack"
+        "Recovered a production system after a ransomware incident, restoring production data with zero confirmed data loss.",
+        "Reduced page load time from roughly 25 seconds to under 3 seconds through performance and infrastructure fixes.",
+        "Hardened production access by addressing exposed services, rotating credentials, and improving database/network access controls.",
+        "Built full-stack product workflows across React/Next.js, Flutter, backend services, Docker, and GitHub Actions.",
+        "Established repeatable delivery practices for a greenfield startup stack."
       ],
-      "techStack": ["AWS", "React", "Flutter", "Docker", "GitHub Actions", "Node.js", "PostgreSQL"],
-      "highlights": ["Disaster Recovery", "Performance Optimization", "Full-Stack Development", "CI/CD", "Security Hardening"],
+      "techStack": [
+        "React",
+        "Next.js",
+        "Flutter",
+        "Node.js",
+        "Docker",
+        "GitHub Actions",
+        "AWS",
+        "MongoDB",
+        "PostgreSQL"
+      ],
+      "highlights": [
+        "Production Recovery",
+        "Security Hardening",
+        "Performance Optimization",
+        "Full-Stack Development",
+        "CI/CD"
+      ],
       "impact": {
         "metrics": [
-          "100% of production data restored with zero loss",
-          "Page load time reduced from 25s to 3s",
-          "Recovery and performance work completed over 30 hours"
+          "100% production data restored with zero confirmed data loss",
+          "Page load time reduced from about 25s to under 3s",
+          "Deployment workflow improved with Docker and GitHub Actions"
         ]
       }
     },
@@ -48,20 +67,32 @@
       "company": "Australian Computer Society",
       "role": "Web Developer Intern",
       "type": "Internship",
-      "duration": "Sep 2023 – Feb 2024",
+      "duration": "Sep 2023 - Feb 2024",
       "location": "Remote, Australia",
+      "summary": "Worked on MERN application improvements, frontend performance, authentication fixes, and internal tooling.",
       "achievements": [
-        "Improved MERN application frontend performance by 33% across a production application serving 200+ active users",
-        "Remediated 15+ OWASP Top 10 web application security vulnerabilities before production release",
-        "Built internal tooling with React, Node.js, Express, and MongoDB"
+        "Improved frontend performance and reduced page-load friction across a production MERN application.",
+        "Helped remediate web application security issues before release.",
+        "Built and maintained internal tooling using React, Node.js, Express, and MongoDB."
       ],
-      "techStack": ["React", "Node.js", "MongoDB", "Express", "JavaScript"],
-      "highlights": ["Security", "Performance", "Internal Tooling", "MERN"],
+      "techStack": [
+        "React",
+        "Node.js",
+        "Express",
+        "MongoDB",
+        "JavaScript"
+      ],
+      "highlights": [
+        "MERN",
+        "Performance",
+        "Security",
+        "Internal Tooling"
+      ],
       "impact": {
         "metrics": [
-          "33% frontend performance improvement",
-          "15+ OWASP Top 10 vulnerabilities remediated",
-          "200+ active users served"
+          "Performance improved across key frontend flows",
+          "Security fixes completed before production release",
+          "Internal tools supported operational workflows"
         ]
       }
     }
@@ -70,86 +101,214 @@
     {
       "id": "network-guardian-ai",
       "name": "Network Guardian AI",
-      "tagline": "AI-Powered Network Threat Detection System",
-      "description": "Prototype exploring AI-assisted network traffic analysis and anomaly detection.",
-      "hackathon": "Google DeepMind Hackathon",
-      "outcome": "Explored how entropy scoring and anomaly detection could surface suspicious traffic patterns.",
-      "solution": "Built containerised prototype services with Docker Compose and FastAPI for network monitoring and threat-summary workflows.",
-      "techStack": ["Python", "FastAPI", "React", "Scikit-learn", "Gemini API", "Docker"],
+      "tagline": "Self-hosted, offline AI network security tool",
+      "description": "DNS and network telemetry analysis built for personal use: entropy scoring and Isolation Forest heuristics run locally, Ollama provides offline AI summaries, and results cache so inference is only used when heuristics cannot decide. I run it as my own client, so the product is continuously tested on real traffic.",
+      "hackathon": "Google / AI hackathon project",
+      "problem": "Network and DNS logs are noisy, and suspicious traffic patterns are hard to explain quickly without additional analysis.",
+      "solution": "Built a FastAPI service around an AdGuard poller, SQLite domain history, tenant middleware, JWT/API-key auth, local entropy and anomaly scoring, optional Gemini/Ollama analysis, websocket updates, and a React dashboard. Now runs offline on a laptop with cached Ollama inference.",
+      "outcome": "Runs continuously on my own network for 6+ days, catches novel \"zero day\"-style domains for this deployment, and keeps cloud AI calls at a minimum through local caching.",
+      "techStack": [
+        "Python",
+        "FastAPI",
+        "React",
+        "SQLite",
+        "Scikit-learn",
+        "Ollama",
+        "Gemini API",
+        "Docker"
+      ],
       "achievements": [
-        "Explored Shannon Entropy and Isolation Forests for traffic anomaly detection",
-        "Built containerised prototype services",
-        "Created AI-assisted security-summary workflows"
+        "Explored Shannon Entropy for suspicious traffic scoring.",
+        "Used Isolation Forests for anomaly detection experiments.",
+        "Built containerised prototype services for analysis and summarisation workflows.",
+        "Runs fully offline on a laptop using cached Ollama inference.",
+        "Serves as my own daily client, so detection heuristics are continuously exercised on real traffic."
       ],
       "links": {
         "github": "https://github.com/Sharv619/network-guardian-ai",
         "live": null
       },
-      "keywords": ["AI-assisted", "Cybersecurity", "Python", "FastAPI", "Docker", "Anomaly Detection", "Network Security"],
-      "type": "AI-assisted security prototype",
-      "status": "Prototype"
+      "keywords": [
+        "AI-assisted security",
+        "Cybersecurity",
+        "Python",
+        "FastAPI",
+        "Docker",
+        "Anomaly Detection",
+        "Network Security"
+      ],
+      "type": "AI security prototype",
+      "status": "Active / self-hosted"
     },
     {
       "id": "codeflow-hook",
       "name": "CodeFlow-Hook",
-      "tagline": "Multi-Agent AI Code Review Tool",
-      "description": "Open-source CLI tool with multi-agent architecture for automated code review.",
-      "problem": "Manual code reviews were slow and inconsistent, causing bottlenecks in development workflows.",
-      "solution": "Built a CLI tool supporting multiple AI providers (Gemini, GPT, Claude) for automated code analysis, git hook management, and AI-powered reviews.",
-      "outcome": "Published an npm package for AI-assisted code review workflows with early usage traction.",
-      "technicalChallenge": "Integrating multiple AI providers into a responsive CLI was challenging. Created an abstraction layer with async processing and automatic model selection based on task complexity, maintaining under-1s execution for common operations.",
-      "techStack": ["Node.js", "TypeScript", "Gemini API", "RAG", "Vector Search", "Docker"],
+      "tagline": "Multi-agent AI code review CLI",
+      "description": "Open-source CLI for AI-assisted code review workflows, git hook integration, and multi-agent review patterns.",
+      "problem": "Manual code review can miss security, test-impact, dependency, and architecture issues when teams move quickly.",
+      "solution": "Built a CLI tool that supports AI-assisted review flows, provider abstraction, git hook workflows, and structured review output.",
+      "outcome": "Published as an npm package and used as a public proof-of-work project for AI-assisted developer tooling.",
+      "technicalChallenge": "Designed the tool around provider abstraction, structured review categories, offline/RAG experimentation, and practical CLI workflows rather than a single hardcoded model path.",
+      "techStack": [
+        "Node.js",
+        "TypeScript",
+        "Gemini API",
+        "RAG",
+        "Vector Search",
+        "Docker"
+      ],
       "achievements": [
-        "Created abstraction layer for multi-provider AI support",
-        "Published npm package for AI-assisted code review workflows"
+        "Published an npm package for AI-assisted code review workflows.",
+        "Designed multi-agent review categories including security, quality, test impact, dependencies, and architecture.",
+        "Added CLI-oriented workflows for practical developer usage."
       ],
       "links": {
         "github": "https://github.com/Sharv619/codeflow-hook",
         "npm": "https://npmjs.com/package/codeflow-hook"
       },
-      "keywords": ["Open Source", "AI-assisted", "Code Review", "RAG", "TypeScript", "CLI Tool"],
+      "keywords": [
+        "Open Source",
+        "AI-assisted",
+        "Code Review",
+        "RAG",
+        "TypeScript",
+        "CLI Tool",
+        "Developer Tooling"
+      ],
       "type": "Developer Tool",
       "status": "Published"
     },
     {
       "id": "portfolio",
       "name": "Personal Portfolio",
-      "tagline": "AI-Enhanced Personal Portfolio",
-      "description": "Modern personal portfolio with AI chatbot assistant and RAG-powered knowledge base.",
-      "techStack": ["Next.js", "React", "TypeScript", "Tailwind CSS", "AWS Bedrock", "Framer Motion"],
+      "tagline": "Living proof-of-work portfolio",
+      "description": "Next.js portfolio designed as a searchable evidence system for projects, skills, workflows, case studies, and assistant-backed career context.",
+      "problem": "A static resume does not show enough evidence for systems work, project depth, local-first AI experiments, or production recovery experience.",
+      "solution": "Built a portfolio with structured project data, skill taxonomy, GitHub project feed, case-study routes, SEO metadata, and an assistant knowledge base.",
+      "outcome": "Created a public portfolio that connects skills to real projects and keeps deployment, SEO, and proof-of-work history visible.",
+      "techStack": [
+        "Next.js",
+        "React",
+        "TypeScript",
+        "Tailwind CSS",
+        "GitHub Actions",
+        "AWS",
+        "RAG"
+      ],
       "achievements": [
-        "Built RAG-powered AI chatbot with neural visualization",
-        "Implemented AWS Bedrock integration with Titan Embeddings",
-        "Added Bedrock Guardrails for security"
+        "Added canonical SEO metadata, Open Graph tags, sitemap, robots.txt, and structured data.",
+        "Built project and skill mapping so skills connect back to concrete project evidence.",
+        "Added assistant knowledge-base structure for answering questions about experience and projects.",
+        "Consolidated personal workflow and weekend sprint tools into a clearer proof-of-work section."
       ],
       "links": {
         "github": "https://github.com/Sharv619/sharv619.github.io",
         "live": "https://www.himanshulade.com/"
       },
-      "keywords": ["Portfolio", "Next.js", "React", "AWS", "RAG", "AI Chatbot"],
+      "keywords": [
+        "Portfolio",
+        "Next.js",
+        "React",
+        "SEO",
+        "RAG",
+        "AI Assistant",
+        "Proof of Work"
+      ],
       "type": "Web Application",
       "status": "Live"
+    },
+    {
+      "id": "scrapper",
+      "name": "Scrapper",
+      "tagline": "Local PII scrubber for AI workflows (TDPI-backed)",
+      "description": "Dockerised local PII scrubber that sits in front of AI workflows: inbound data is scrubbed before reaching a model and outbound responses are checked before reaching the user. Academically grounded in a TDPI paper (March).",
+      "hackathon": "",
+      "problem": "Businesses want AI in their workflows but cannot send raw customer data to third-party models. PII leakage is a hard blocker.",
+      "solution": "A local Docker blackbox that intercepts requests and responses around AI workflows and scrubs PII deterministically, independent of any model.",
+      "outcome": "Gives businesses an always-on privacy guard so AI can be used without exposing customer data.",
+      "techStack": [
+        "Python",
+        "Docker",
+        "PII detection",
+        "FastAPI"
+      ],
+      "achievements": [
+        "Designed as a drop-in local guard for any AI workflow.",
+        "Deterministic scrubbing rules keep behaviour model-independent."
+      ],
+      "links": {
+        "github": "https://github.com/Sharv619/Scrapper",
+        "live": null
+      },
+      "keywords": [
+        "PII",
+        "privacy",
+        "AI safety",
+        "Docker",
+        "local-first"
+      ],
+      "type": "Privacy infrastructure",
+      "status": "Prototype / research-backed"
+    },
+    {
+      "id": "backpocket-os-ai",
+      "name": "BackPocket OS AI",
+      "tagline": "Local-first AI operations assistant for small businesses",
+      "description": "Local-first AI operations assistant turning emails, quote requests, documents, voice notes, and follow-ups into structured tasks with human approval before anything leaves the system. BYOK (bring your own key) keeps provider choice and spend with the operator.",
+      "hackathon": "",
+      "problem": "Small operators drown in admin work; cloud-first tools are expensive, keyboard-centric, and disconnected from field work.",
+      "solution": "Operator-owned local AI: emails/docs/voice notes become structured tasks, Ollama handles on-device inference offline, optional escalation uses the operator's own API key (BYOK), and every external action needs explicit approval.",
+      "outcome": "Defined a local-first product direction for small-business admin automation with privacy and human approval at the centre.",
+      "techStack": [
+        "Python",
+        "FastAPI",
+        "Flutter",
+        "SQLite",
+        "Ollama",
+        "Gemini",
+        "RAG"
+      ],
+      "achievements": [
+        "Modelled messy business inputs as auditable structured workflows.",
+        "Kept privacy, local ownership, and human approval central."
+      ],
+      "links": {
+        "github": "https://github.com/Sharv619/backpocket-os-ai",
+        "live": null
+      },
+      "keywords": [
+        "local-first",
+        "AI assistant",
+        "BYOK",
+        "small business",
+        "automation"
+      ],
+      "type": "AI workflow automation",
+      "status": "Prototype"
     }
   ],
   "skills": {
     "languages": [
-      "JavaScript (ES6+)",
       "TypeScript",
+      "JavaScript",
       "Python",
       "Dart",
       "SQL"
     ],
     "frameworks": [
-      "React.js",
+      "React",
       "Next.js",
       "Node.js",
-      "Express.js",
+      "Express",
       "Flutter",
       "FastAPI",
       "GraphQL"
     ],
     "cloudDevOps": [
-      "AWS (EC2, S3, Lambda, RDS)",
+      "AWS EC2",
+      "AWS S3",
+      "AWS Lambda",
+      "AWS RDS",
       "Docker",
       "GitHub Actions",
       "CI/CD",
@@ -160,33 +319,46 @@
       "RAG Architecture",
       "LLM Integration",
       "Gemini API",
-      "Mistral AI",
-      "Isolation Forests",
-      "Shannon Entropy",
+      "Ollama",
+      "Mistral",
       "Vector Search",
-      "sentence-transformers"
+      "ChromaDB",
+      "FAISS",
+      "sentence-transformers",
+      "Isolation Forests",
+      "Shannon Entropy"
+    ],
+    "engineeringStrengths": [
+      "Production recovery",
+      "Security hardening",
+      "Workflow automation",
+      "Technical SEO",
+      "Performance optimization",
+      "Local-first AI systems",
+      "Developer tooling",
+      "Practical prototyping"
     ]
   },
   "values": [
     {
-      "id": "open-source",
-      "name": "Open Source Philosophy",
-      "description": "Believes in building in public and contributing to the developer community"
+      "id": "proof-of-work",
+      "name": "Proof of Work",
+      "description": "Prefers showing real projects, commits, checks, and working systems over broad claims."
+    },
+    {
+      "id": "local-first-ai",
+      "name": "Local-First AI",
+      "description": "Builds AI workflows that can run locally where privacy, cost, or control matter."
     },
     {
       "id": "security-first",
-      "name": "Security-First Approach",
-      "description": "Implements security hardening and follows OWASP guidelines"
+      "name": "Security and Recovery",
+      "description": "Values hardening, recovery, credential hygiene, and production reliability."
     },
     {
-      "id": "production-reliability",
-      "name": "Production Reliability",
-      "description": "Focuses on building systems that run reliably in production"
-    },
-    {
-      "id": "continuous-learning",
-      "name": "Continuous Learning",
-      "description": "Stays current with latest technologies and best practices"
+      "id": "small-tools",
+      "name": "Small Tools, Daily Use",
+      "description": "Builds small utilities around repeated workflow friction, then folds them back into daily systems."
     }
   ],
   "education": [
@@ -194,29 +366,36 @@
       "degree": "Master of Computer Science",
       "institution": "University of Wollongong",
       "location": "Wollongong, Australia",
-      "year": "2024-2026"
+      "year": "2023"
     },
     {
-      "degree": "Bachelor of Engineering in Computer Technology",
+      "degree": "Professional Year Program - IT",
+      "institution": "Performance Education",
+      "location": "Australia",
+      "year": "2024"
+    },
+    {
+      "degree": "Bachelors of Engineering in Computer Technology",
       "institution": "Nagpur University",
       "location": "Nagpur, India",
-      "year": "2019-2023"
+      "year": "2020"
     }
   ],
   "chatbot": {
-    "name": "Assistant",
-    "personality": "Helpful, knowledgeable, conversational",
+    "name": "Portfolio Assistant",
+    "personality": "Clear, practical, evidence-led, and conversational.",
     "capabilities": [
-      "Answer questions about Himanshu's experience and projects",
-      "Provide technical insights on his work",
-      "Discuss career opportunities",
-      "Share knowledge about his skills and background"
+      "Answer questions about Himanshu's experience, projects, and technical strengths.",
+      "Connect skills to concrete projects and proof points.",
+      "Explain production recovery, local-first AI, technical SEO, and workflow automation examples.",
+      "Help recruiters or collaborators understand where Himanshu has applied specific technologies."
     ],
     "sampleQuestions": [
-      "What projects has Himanshu built?",
-      "Tell me about his AWS experience",
-      "What ML projects has he worked on?",
-      "What are his technical skills?"
+      "Which projects show Himanshu's AI engineering experience?",
+      "What production recovery work has he done?",
+      "How does his portfolio connect skills to project evidence?",
+      "What local-first AI projects has he built?",
+      "What is his experience with React, Python, FastAPI, Flutter, and AWS?"
     ]
   }
 }

@@ -26,7 +26,8 @@ describe("Projects", () => {
   it("keeps project filters, repository evidence, and personal workflows in one segment", () => {
     render(<Projects projects={projects} />);
 
-    expect(screen.getByRole("heading", { name: "Projects, Skills & Automations" })).toBeInTheDocument();
+    expect(screen.getByRole("heading", { name: "Field Index" })).toBeInTheDocument();
+    expect(screen.getByText("Projects · skills · automations")).toBeInTheDocument();
     expect(screen.getByRole("heading", { name: "Skills mapped to work" })).toBeInTheDocument();
     expect(screen.getByRole("heading", { name: "Proof-of-Work Lab" })).toBeInTheDocument();
     expect(screen.getByText("2 repositories")).toBeInTheDocument();

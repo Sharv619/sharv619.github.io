@@ -24,10 +24,10 @@ interface HomePageClientProps {
 
 export default function HomePageClient({ projects }: HomePageClientProps) {
   const certificationSkills = certifications.flatMap((certification) => certification.skills || []);
-  const caseStudies = getOrderedFlagshipCaseStudies().slice(0, 3);
+  const caseStudies = getOrderedFlagshipCaseStudies();
 
   return (
-    <div className="portfolio-scroll-shell min-h-screen">
+    <div className="journal-shell min-h-screen">
       <Navigation />
       <Hero />
       <FeaturedCaseStudies caseStudies={caseStudies} />

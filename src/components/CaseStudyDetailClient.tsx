@@ -2,18 +2,22 @@
 
 import Link from "next/link";
 import { motion } from "framer-motion";
-import Navigation from "@/components/Navigation";
 import Contact from "@/components/Contact";
+import Navigation from "@/components/Navigation";
+import RepositoryEvidenceSection from "@/components/RepositoryEvidenceSection";
+import type { Project } from "@/lib/data";
 import type { FlagshipCaseStudy } from "@/lib/flagship-case-studies";
 
 interface CaseStudyDetailClientProps {
   caseStudy: FlagshipCaseStudy;
+  project?: Project;
 }
 
-export default function CaseStudyDetailClient({ caseStudy }: CaseStudyDetailClientProps) {
+export default function CaseStudyDetailClient({ caseStudy, project }: CaseStudyDetailClientProps) {
   const primaryImpact = caseStudy.impact[0];
   const secondaryImpact = caseStudy.impact[1];
   const proofCount = caseStudy.proof.length;
+  const isNetworkGuardian = caseStudy.slug === "network-guardian-ai";
 
   return (
     <div className="min-h-screen bg-[#f7f4ed] dark:bg-[#101010]">
@@ -90,14 +94,18 @@ export default function CaseStudyDetailClient({ caseStudy }: CaseStudyDetailClie
             </div>
           </aside>
 
-          <div className="space-y-6">
-            <ListSection title="Impact" items={caseStudy.impact} tone="impact" />
-            <ListSection title="Technical Highlights" items={caseStudy.technicalHighlights} tone="technical" />
-            <ListSection title="Proof" items={caseStudy.proof} tone="proof" />
-            <ListSection title="Constraints" items={caseStudy.constraints} tone="constraint" />
-            <ListSection title="Limitations" items={caseStudy.limitations} tone="limitation" />
-            {caseStudy.roadmap && <ListSection title="Roadmap" items={caseStudy.roadmap} tone="roadmap" />}
-          </div>
+          {isNetworkGuardian ? (
+            <NetworkGuardianReadout caseStudy={caseStudy} />
+          ) : (
+            <div className="space-y-6">
+              <ListSection title="Impact" items={caseStudy.impact} tone="impact" />
+              <ListSection title="Technical Highlights" items={caseStudy.technicalHighlights} tone="technical" />
+              <ListSection title="Proof" items={caseStudy.proof} tone="proof" />
+              <ListSection title="Constraints" items={caseStudy.constraints} tone="constraint" />
+              <ListSection title="Limitations" items={caseStudy.limitations} tone="limitation" />
+              {caseStudy.roadmap && <ListSection title="Roadmap" items={caseStudy.roadmap} tone="roadmap" />}
+            </div>
+          )}
 
           <div className="flex flex-wrap gap-4 border-t border-stone-300 pt-8 dark:border-white/10 lg:col-span-2">
             <Link
@@ -151,8 +159,129 @@ export default function CaseStudyDetailClient({ caseStudy }: CaseStudyDetailClie
         </div>
       </section>
 
+      {project ? <RepositoryEvidenceSection project={project} /> : null}
+
       <Contact />
     </div>
+  );
+}
+
+function NetworkGuardianReadout({ caseStudy }: { caseStudy: FlagshipCaseStudy }) {
+  return (
+    <div className="space-y-8" data-testid="network-guardian-readout">
+      <section aria-labelledby="network-impact-heading">
+        <SectionHeading index="01" title="Operational impact" id="network-impact-heading" />
+        <div className="mt-4 grid gap-4 md:grid-cols-3">
+          {caseStudy.impact.map((item, index) => (
+            <article
+              key={item}
+              className="journal-card relative overflow-hidden rounded-md border-l-4 border-l-[var(--journal-verification)] p-5"
+            >
+              <span className="font-journal-mono text-xs font-bold text-[var(--journal-verification)]">
+                OUTCOME {String(index + 1).padStart(2, "0")}
+              </span>
+              <p className="mt-4 text-base font-semibold leading-7 text-[var(--journal-ink)]">{item}</p>
+            </article>
+          ))}
+        </div>
+      </section>
+
+      <section
+        aria-labelledby="network-technical-heading"
+        className="overflow-hidden rounded-lg border border-[var(--journal-rule-strong)] bg-[var(--journal-paper-raised)]"
+      >
+        <div className="border-b border-[var(--journal-rule)] px-5 py-5 sm:px-7">
+          <SectionHeading index="02" title="System register" id="network-technical-heading" />
+          <p className="mt-2 text-sm leading-6 text-[var(--journal-ink-muted)]">
+            Implemented surfaces across ingestion, analysis, access control, persistence, interface, and testing.
+          </p>
+        </div>
+        <ol className="grid md:grid-cols-2">
+          {caseStudy.technicalHighlights.map((item, index) => (
+            <li
+              key={item}
+              className="grid grid-cols-[2.75rem_1fr] gap-3 border-b border-[var(--journal-rule)] p-5 last:border-b-0 md:odd:border-r md:[&:nth-last-child(-n+2)]:border-b-0"
+            >
+              <span className="font-journal-mono text-sm font-bold text-[var(--journal-verification)]">
+                {String(index + 1).padStart(2, "0")}
+              </span>
+              <span className="text-sm font-medium leading-6 text-[var(--journal-ink)]">{item}</span>
+            </li>
+          ))}
+        </ol>
+      </section>
+
+      <section aria-labelledby="network-proof-heading">
+        <div className="flex flex-wrap items-end justify-between gap-3">
+          <SectionHeading index="03" title="Verification ledger" id="network-proof-heading" />
+          <span className="journal-stamp inline-flex px-3 py-1 text-xs">Repository backed</span>
+        </div>
+        <div className="mt-4 divide-y divide-[var(--journal-rule)] overflow-hidden rounded-lg border border-[var(--journal-rule-strong)] bg-[var(--journal-paper-raised)]">
+          {caseStudy.proof.map((item, index) => (
+            <article key={item} className="grid gap-3 p-5 sm:grid-cols-[7.5rem_1fr] sm:items-start">
+              <div className="flex items-center gap-2 font-journal-mono text-xs font-bold uppercase tracking-[0.12em] text-[var(--journal-verification)]">
+                <span className="flex h-5 w-5 items-center justify-center rounded-full border border-current" aria-hidden="true">✓</span>
+                Proof {String(index + 1).padStart(2, "0")}
+              </div>
+              <p className="text-sm font-medium leading-6 text-[var(--journal-ink)]">{item}</p>
+            </article>
+          ))}
+        </div>
+      </section>
+
+      <section aria-labelledby="network-boundaries-heading">
+        <SectionHeading index="04" title="Operating boundaries" id="network-boundaries-heading" />
+        <div className="mt-4 grid gap-4 md:grid-cols-2">
+          <BoundaryPanel label="Constraints" note="Conditions for responsible operation" items={caseStudy.constraints} />
+          <BoundaryPanel label="Limitations" note="What the evidence does not yet establish" items={caseStudy.limitations} warning />
+        </div>
+      </section>
+
+      {caseStudy.roadmap && (
+        <section aria-labelledby="network-roadmap-heading">
+          <SectionHeading index="05" title="Next field work" id="network-roadmap-heading" />
+          <ol className="mt-4 grid gap-3 md:grid-cols-3">
+            {caseStudy.roadmap.map((item, index) => (
+              <li key={item} className="journal-card rounded-md p-5">
+                <span className="font-journal-mono text-xs font-bold uppercase tracking-[0.12em] text-[var(--journal-ink-muted)]">
+                  Next {String(index + 1).padStart(2, "0")}
+                </span>
+                <p className="mt-3 text-sm font-semibold leading-6 text-[var(--journal-ink)]">{item}</p>
+              </li>
+            ))}
+          </ol>
+        </section>
+      )}
+    </div>
+  );
+}
+
+function SectionHeading({ index, title, id }: { index: string; title: string; id: string }) {
+  return (
+    <div className="flex items-center gap-3">
+      <span className="font-journal-mono text-xs font-bold text-[var(--journal-verification)]">{index}</span>
+      <h3 id={id} className="font-journal-serif text-2xl font-bold text-[var(--journal-ink)]">{title}</h3>
+      <span className="h-px flex-1 bg-[var(--journal-rule)]" aria-hidden="true" />
+    </div>
+  );
+}
+
+function BoundaryPanel({ label, note, items, warning = false }: { label: string; note: string; items: string[]; warning?: boolean }) {
+  return (
+    <article className={`rounded-lg border p-5 ${warning ? "border-[var(--journal-verification)]/50 bg-[color-mix(in_srgb,var(--journal-verification)_5%,var(--journal-paper-raised))]" : "border-[var(--journal-rule-strong)] bg-[var(--journal-paper-raised)]"}`}>
+      <p className={`font-journal-mono text-xs font-bold uppercase tracking-[0.14em] ${warning ? "text-[var(--journal-verification)]" : "text-[var(--journal-ink-muted)]"}`}>
+        {label}
+      </p>
+      <p className="mt-2 text-sm italic text-[var(--journal-ink-muted)]">{note}</p>
+      <ul className="mt-5 space-y-4">
+        {items.map((item) => (
+          <li key={item} className="grid grid-cols-[1rem_1fr] gap-3 text-sm font-medium leading-6 text-[var(--journal-ink)]">
+            <span className={warning ? "text-[var(--journal-verification)]" : "text-[var(--journal-brass)]"} aria-hidden="true">×</span>
+            <span>{item}</span>
+          </li>
+        ))}
+      </ul>
+    </article>
   );
 }
 

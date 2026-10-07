@@ -8,19 +8,17 @@ import rehypeSanitize from "rehype-sanitize";
 import remarkGfm from "remark-gfm";
 import Contact from "@/components/Contact";
 import Navigation from "@/components/Navigation";
-import type { Project } from "@/lib/data";
+import RepositoryEvidenceSection from "@/components/RepositoryEvidenceSection";
+import { slugify, type Project } from "@/lib/data";
 import { resolveGitHubReadmeImage, resolveGitHubReadmeUrl } from "@/lib/github-readme";
+import { parseArchitectureDetails, type ProjectJournalSection } from "@/lib/project-journal";
 
 interface ProjectDetailClientProps {
   project: Project;
 }
 
-interface DetailSection {
-  title: string;
-  lines: string[];
-}
-
 export default function ProjectDetailClient({ project }: ProjectDetailClientProps) {
+  const projectSlug = project.slug || slugify(project.title);
   const sections = parseArchitectureDetails(project.architectureDetails);
   const overview = project.portfolioSummary || sections.overview || project.description;
   const statusLabel = project.status || (project.archived ? "Archived" : project.caseStudySlug ? "Prototype" : "Active");
@@ -86,15 +84,13 @@ export default function ProjectDetailClient({ project }: ProjectDetailClientProp
 
       <section className="border-b border-stone-200 bg-white py-6 dark:border-white/10 dark:bg-[#151513]">
         <div className="mx-auto flex max-w-7xl flex-wrap gap-3 px-4 sm:px-6 lg:px-8">
-          {project.caseStudySlug && (
-            <Link
-              href={`/case-studies/${project.caseStudySlug}`}
-              aria-label={`View case study for ${project.title}`}
-              className="inline-flex min-h-11 items-center rounded-md bg-stone-950 px-5 py-2 text-sm font-bold text-white transition-colors duration-200 hover:bg-teal-800 dark:bg-white dark:text-stone-950 dark:hover:bg-teal-200"
-            >
-              Read the longer notes
-            </Link>
-          )}
+          <Link
+            href={`/projects/${projectSlug}/case-study`}
+            aria-label={`View case study for ${project.title}`}
+            className="inline-flex min-h-11 items-center rounded-md bg-stone-950 px-5 py-2 text-sm font-bold text-white transition-colors duration-200 hover:bg-teal-800 dark:bg-white dark:text-stone-950 dark:hover:bg-teal-200"
+          >
+            Read case study
+          </Link>
           {project.liveUrl && (
             <a
               href={project.liveUrl}
@@ -157,6 +153,8 @@ export default function ProjectDetailClient({ project }: ProjectDetailClientProp
         </div>
       </section>
 
+      <RepositoryEvidenceSection project={project} heading="The source, not just the claim." />
+
       <section className="border-t border-stone-200 bg-white py-16 dark:border-white/10 dark:bg-[#151513]">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="mb-8 flex flex-col gap-3 sm:flex-row sm:items-end sm:justify-between">
@@ -166,14 +164,12 @@ export default function ProjectDetailClient({ project }: ProjectDetailClientProp
               </p>
               <h2 className="text-3xl font-black leading-tight">What the build looked like.</h2>
             </div>
-            {project.caseStudySlug && (
-              <Link
-                href={`/case-studies/${project.caseStudySlug}`}
-                className="inline-flex min-h-11 items-center rounded-md border border-stone-300 px-5 py-2 text-sm font-bold text-stone-800 transition-colors duration-200 hover:bg-stone-100 dark:border-white/15 dark:text-stone-200 dark:hover:bg-white/10"
-              >
-                Read the longer notes
-              </Link>
-            )}
+            <Link
+              href={`/projects/${projectSlug}/case-study`}
+              className="inline-flex min-h-11 items-center rounded-md border border-stone-300 px-5 py-2 text-sm font-bold text-stone-800 transition-colors duration-200 hover:bg-stone-100 dark:border-white/15 dark:text-stone-200 dark:hover:bg-white/10"
+            >
+              Read case study
+            </Link>
           </div>
           {project.screenshots && project.screenshots.length > 0 ? (
             <div className="grid grid-cols-1 gap-5 lg:grid-cols-2">
@@ -307,7 +303,7 @@ function createMarkdownComponents(githubUrl: string): Components {
   };
 }
 
-function ReadoutSection({ section, index }: { section: DetailSection; index: number }) {
+function ReadoutSection({ section, index }: { section: ProjectJournalSection; index: number }) {
   return (
     <motion.section
       initial={{ opacity: 0, y: 16 }}
@@ -330,51 +326,6 @@ function ReadoutSection({ section, index }: { section: DetailSection; index: num
       </div>
     </motion.section>
   );
-}
-
-export function parseArchitectureDetails(details: string): { overview: string; details: DetailSection[] } {
-  const blocks = details.split(/\n{2,}/).map((block) => block.trim()).filter(Boolean);
-  const overview = blocks[0] || "";
-  const parsed = blocks.slice(1).map((block) => {
-    const lines = block.split("\n").map((line) => cleanLine(line)).filter(Boolean);
-    const firstLine = lines[0] || "Details";
-    const isHeading = firstLine.endsWith(":") || !firstLine.startsWith("•");
-    const title = formatJournalSectionTitle(cleanTitle(isHeading ? firstLine : "Details"));
-    const sectionLines = (isHeading ? lines.slice(1) : lines).map((line) => line.replace(/^•\s*/, "")).filter(Boolean);
-
-    return {
-      title,
-      lines: sectionLines.length > 0 ? sectionLines : [firstLine],
-    };
-  });
-
-  return {
-    overview,
-    details: parsed.length > 0 ? parsed : [{ title: "Build notes", lines: [overview] }],
-  };
-}
-
-export function formatJournalSectionTitle(title: string): string {
-  const titles: Record<string, string> = {
-    Problem: "Why I started it",
-    Solution: "What I tried",
-    Outcome: "Where it landed",
-    "What I built / designed": "What took shape",
-    "Technical highlights": "Under the hood",
-    Status: "Where it stands",
-    "GitHub Signals": "Repo notes",
-    Details: "Build notes",
-  };
-
-  return titles[title] || title;
-}
-
-function cleanLine(line: string): string {
-  return line.replace(/\*\*(.*?)\*\*/g, "$1").trim();
-}
-
-function cleanTitle(title: string): string {
-  return title.replace(/:$/, "").replace(/^•\s*/, "");
 }
 
 function formatDate(value?: string): string {

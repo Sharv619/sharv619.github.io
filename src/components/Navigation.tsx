@@ -1,9 +1,18 @@
 "use client";
 
-import { useState, useEffect } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import { useEffect, useState } from "react";
+import { AnimatePresence, motion } from "framer-motion";
 import { useChatbot } from "./ChatbotProvider";
 import ThemeToggle from "./ThemeToggle";
+
+const NAV_ITEMS = [
+  { name: "Home", href: "#home" },
+  { name: "Case Studies", href: "#case-studies" },
+  { name: "About", href: "#about" },
+  { name: "Career", href: "#experience" },
+  { name: "Projects", href: "#projects" },
+  { name: "Contact", href: "#contact" },
+];
 
 export default function Navigation() {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -11,144 +20,105 @@ export default function Navigation() {
   const { toggleChatbot } = useChatbot();
 
   useEffect(() => {
-    const handleScroll = () => {
-      setIsScrolled(window.scrollY > 50);
-    };
-    window.addEventListener("scroll", handleScroll);
+    const handleScroll = () => setIsScrolled(window.scrollY > 36);
+    window.addEventListener("scroll", handleScroll, { passive: true });
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  const navItems = [
-    { name: "Home", href: "#home" },
-    { name: "Work", href: "#case-studies" },
-    { name: "About", href: "#about" },
-    { name: "Experience", href: "#experience" },
-    { name: "Projects", href: "#projects" },
-    { name: "Personal Infra", href: "#workflows" },
-    { name: "Contact", href: "#contact" },
-  ];
-
   const navigateToSection = (href: string) => {
     const element = document.querySelector(href);
-
     if (element) {
       element.scrollIntoView({ behavior: "smooth" });
     } else {
       window.location.assign(`/${href}`);
     }
-
     setIsMobileMenuOpen(false);
   };
 
   return (
     <motion.nav
-      initial={{ y: -100 }}
+      initial={{ y: -72 }}
       animate={{ y: 0 }}
-      transition={{ duration: 0.6 }}
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+      transition={{ duration: 0.45 }}
+      className={`fixed inset-x-0 top-0 z-50 border-b transition-all duration-300 ${
         isScrolled
-          ? "border-b border-stone-200/80 bg-[#f7f4ed]/90 shadow-sm backdrop-blur-xl dark:border-white/10 dark:bg-[#101010]/90"
-          : "bg-transparent"
+          ? "border-[var(--journal-rule-strong)] bg-[color:var(--journal-paper)]/95 shadow-md backdrop-blur"
+          : "border-transparent bg-[color:var(--journal-paper)]/90"
       }`}
     >
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex justify-between items-center h-16">
-          <motion.div
-            whileHover={{ scale: 1.05 }}
-            className="flex items-center"
+      <div className="mx-auto flex h-16 max-w-[1500px] items-center justify-between border-x border-[var(--journal-rule)] px-4 sm:px-6 lg:px-8">
+        <button
+          onClick={() => navigateToSection("#home")}
+          className="font-journal-serif text-3xl font-bold tracking-tight text-[var(--journal-ink)]"
+          aria-label="Go to homepage"
+        >
+          HL
+        </button>
+
+        <div className="hidden items-center gap-1 lg:flex">
+          {NAV_ITEMS.map((item) => (
+            <button
+              key={item.name}
+              onClick={() => navigateToSection(item.href)}
+              className="border-b-2 border-transparent px-3 py-2 text-sm font-semibold text-[var(--journal-ink-muted)] transition-colors hover:border-[var(--journal-verification)] hover:text-[var(--journal-ink)]"
+            >
+              {item.name}
+            </button>
+          ))}
+        </div>
+
+        <div className="hidden items-center gap-2 md:flex">
+          <a
+            href="/resume"
+            className="rounded-md border border-[var(--journal-rule-strong)] px-4 py-2 text-sm font-semibold text-[var(--journal-ink)] transition-colors hover:bg-[var(--journal-leather)] hover:text-[#fffaf0]"
           >
-            <span className="inline-flex h-10 w-10 items-center justify-center rounded-md border border-stone-300 bg-white/70 text-sm font-black tracking-tight text-stone-950 shadow-sm dark:border-white/10 dark:bg-white/5 dark:text-white">
-              HL
-            </span>
-          </motion.div>
+            Resume
+          </a>
+          <button
+            onClick={toggleChatbot}
+            className="rounded-sm border border-[#d1ae54] bg-[#f3d57a] px-4 py-2 font-journal-mono text-sm font-bold text-[#332517] shadow-sm transition-transform hover:-translate-y-0.5"
+          >
+            Ask AI →
+          </button>
+          <ThemeToggle />
+        </div>
 
-          <div className="hidden md:flex items-center gap-1 rounded-md border border-stone-200/80 bg-white/55 p-1 shadow-sm backdrop-blur dark:border-white/10 dark:bg-white/5">
-            {navItems.map((item) => (
-              <button
-                key={item.name}
-                onClick={() => navigateToSection(item.href)}
-                className="rounded px-3 py-2 text-sm font-medium text-stone-700 transition-colors duration-200 hover:bg-stone-950 hover:text-white dark:text-stone-300 dark:hover:bg-white dark:hover:text-stone-950"
-              >
-                {item.name}
-              </button>
-            ))}
-          </div>
-
-          <div className="hidden md:flex items-center gap-3">
-            <a
-              href="/resume"
-              aria-label="Open Himanshu Lade resume page"
-              className="rounded-md border border-stone-300 bg-white/70 px-4 py-2 text-sm font-semibold text-stone-900 transition-colors duration-200 hover:border-stone-950 hover:bg-stone-950 hover:text-white dark:border-white/15 dark:bg-white/5 dark:text-white dark:hover:bg-white dark:hover:text-stone-950"
-            >
-              Resume
-            </a>
-
-            <button
-              onClick={toggleChatbot}
-              className="rounded-md bg-teal-700 px-4 py-2 text-sm font-semibold text-white shadow-sm transition-colors duration-200 hover:bg-teal-800 dark:bg-teal-400 dark:text-stone-950 dark:hover:bg-teal-300"
-            >
-              Ask AI
-            </button>
-
-            <ThemeToggle />
-          </div>
-
-          <div className="flex items-center gap-2 md:hidden">
-            <ThemeToggle />
-
-            <button
-              onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-              className="inline-flex h-11 w-11 items-center justify-center rounded-md border border-stone-300 bg-white/70 text-stone-800 dark:border-white/10 dark:bg-white/5 dark:text-stone-200"
-              aria-label="Toggle navigation"
-            >
-              <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={2}
-                  d={isMobileMenuOpen ? "M6 18L18 6M6 6l12 12" : "M4 6h16M4 12h16M4 18h16"}
-                />
-              </svg>
-            </button>
-          </div>
+        <div className="flex items-center gap-2 md:hidden">
+          <ThemeToggle />
+          <button
+            onClick={() => setIsMobileMenuOpen((value) => !value)}
+            className="inline-flex h-11 w-11 items-center justify-center rounded-md border border-[var(--journal-rule-strong)] text-[var(--journal-ink)]"
+            aria-label="Toggle navigation"
+          >
+            <span className="font-journal-mono text-lg">{isMobileMenuOpen ? "×" : "≡"}</span>
+          </button>
         </div>
       </div>
 
-      {/* Mobile Navigation */}
       <AnimatePresence>
         {isMobileMenuOpen && (
           <motion.div
             initial={{ opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: "auto" }}
             exit={{ opacity: 0, height: 0 }}
-            transition={{ duration: 0.3 }}
-            className="border-t border-stone-200 bg-[#f7f4ed] md:hidden dark:border-white/10 dark:bg-[#101010]"
+            className="journal-page border-t border-[var(--journal-rule)] md:hidden"
           >
-            <div className="px-4 py-4 space-y-4">
-              {navItems.map((item) => (
+            <div className="grid gap-1 px-4 py-4">
+              {NAV_ITEMS.map((item) => (
                 <button
                   key={item.name}
                   onClick={() => navigateToSection(item.href)}
-                  className="block w-full rounded-md px-3 py-2 text-left font-medium text-stone-700 transition-colors duration-200 hover:bg-stone-900 hover:text-white dark:text-stone-300 dark:hover:bg-white dark:hover:text-stone-950"
+                  className="border-b border-[var(--journal-rule)] px-3 py-3 text-left font-semibold text-[var(--journal-ink)]"
                 >
                   {item.name}
                 </button>
               ))}
-
               <button
                 onClick={toggleChatbot}
-                className="w-full rounded-md bg-teal-700 px-4 py-3 text-sm font-semibold text-white dark:bg-teal-400 dark:text-stone-950"
+                className="mt-3 rounded-sm bg-[#f3d57a] px-4 py-3 font-journal-mono font-bold text-[#332517]"
               >
-                Ask AI
+                Open Repo RAG
               </button>
-
-              <a
-                href="/resume"
-                aria-label="Open Himanshu Lade resume page"
-                className="block w-full rounded-md border border-stone-300 bg-white/70 px-4 py-3 text-center text-sm font-semibold text-stone-900 dark:border-white/15 dark:bg-white/5 dark:text-white"
-              >
-                Resume
-              </a>
             </div>
           </motion.div>
         )}

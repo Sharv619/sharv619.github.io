@@ -2,9 +2,7 @@
 
 import { useState, useRef, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import NeuralBackground from "./NeuralBackground";
 import SourceCard from "./SourceCard";
-import { sendChatMessageWithHistory } from "@/lib/assistant/rag-client";
 import { getKnowledgeBaseResponse } from "@/lib/assistant/fallback-responses";
 import { formatAssistantResponse } from "@/lib/assistant/response-style";
 import { expandSyntheticRagQuery } from "@/lib/assistant/synthetic-rag";
@@ -25,9 +23,7 @@ export default function AssistantChat({ isOpen, onClose }: AssistantChatProps) {
   const [input, setInput] = useState("");
   const [isLoading, setIsLoading] = useState(false);
   const [isThinking, setIsThinking] = useState(false);
-  const [useDemo, setUseDemo] = useState(!process.env.NEXT_PUBLIC_ASSISTANT_API);
   const messagesEndRef = useRef<HTMLDivElement>(null);
-  const sessionIdRef = useRef<string>(crypto.randomUUID());
 
   const scrollToBottom = () => {
     messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
@@ -56,66 +52,39 @@ export default function AssistantChat({ isOpen, onClose }: AssistantChatProps) {
     setIsLoading(true);
     setIsThinking(true);
 
-    // Add user message
     setMessages((prev) => [...prev, { role: "user", content: userMessage }]);
 
     try {
       const localFirstResponse = getLocalFirstResponse(userMessage);
 
-      if (localFirstResponse) {
-        setMessages((prev) => [
-          ...prev,
-          {
-            role: "assistant",
-            content: formatAssistantResponse(userMessage, localFirstResponse.response, localFirstResponse.sources),
-            sources: localFirstResponse.sources,
-          }
-        ]);
-      } else if (useDemo) {
-        await new Promise((resolve) => setTimeout(resolve, 1000 + Math.random() * 1000));
-        const expandedMessage = expandSyntheticRagQuery(userMessage, messages);
-        const result = getKnowledgeBaseResponse(expandedMessage);
-        
-        setMessages((prev) => [
-          ...prev,
-          {
-            role: "assistant",
-            content: formatAssistantResponse(userMessage, result.response, result.sources),
-            sources: result.sources,
-          }
-        ]);
-      } else {
-        // Real RAG mode
-        const result = await sendChatMessageWithHistory(userMessage, sessionIdRef.current, messages);
-        
-        setMessages((prev) => [
-          ...prev,
-          {
-            role: "assistant",
-            content: formatAssistantResponse(userMessage, result.response, result.sources),
-            sources: result.sources,
-          }
-        ]);
-      }
-    } catch (error) {
-      console.error("Chat error:", error);
-      // Fallback on error
+      const expandedMessage = expandSyntheticRagQuery(userMessage, messages);
+      const result = localFirstResponse || getKnowledgeBaseResponse(expandedMessage);
+
       setMessages((prev) => [
         ...prev,
         {
           role: "assistant",
-          content: "Sorry, I'm having trouble connecting. Using demo mode instead.",
+          content: formatAssistantResponse(userMessage, result.response, result.sources),
+          sources: result.sources,
+        }
+      ]);
+    } catch (error) {
+      console.error("Chat error:", error);
+      setMessages((prev) => [
+        ...prev,
+        {
+          role: "assistant",
+          content: "Sorry, I couldn't search the local portfolio index. Please try again.",
           sources: [],
         },
       ]);
-      setUseDemo(true);
     } finally {
       setIsLoading(false);
       setIsThinking(false);
     }
   };
 
-  const handleKeyPress = (e: React.KeyboardEvent) => {
+  const handleKeyDown = (e: React.KeyboardEvent) => {
     if (e.key === "Enter" && !e.shiftKey) {
       e.preventDefault();
       handleSend();
@@ -129,50 +98,42 @@ export default function AssistantChat({ isOpen, onClose }: AssistantChatProps) {
   return (
     <AnimatePresence>
       <motion.div
-        className="fixed bottom-6 right-6 z-50"
+        className="fixed inset-x-3 bottom-20 z-50 sm:inset-x-auto sm:bottom-6 sm:right-6"
         initial={{ opacity: 0, scale: 0.8, y: 20 }}
         animate={{ opacity: 1, scale: 1, y: 0 }}
         exit={{ opacity: 0, scale: 0.8, y: 20 }}
         transition={{ duration: 0.2 }}
       >
-        <div className="w-96 h-[500px] bg-gray-900/95 backdrop-blur-xl rounded-2xl shadow-2xl border border-gray-700/50 flex flex-col overflow-hidden">
-          {/* Neural Background */}
-          <NeuralBackground isThinking={isThinking} activeNodes={5} />
-
-          {/* Header */}
-          <div className="relative z-10 bg-gradient-to-r from-cyan-600 to-blue-600 p-4 flex items-center justify-between rounded-t-2xl">
+        <div className="flex h-[min(620px,72vh)] w-full flex-col overflow-hidden rounded-lg border border-[#c49a29] bg-[var(--journal-paper)] text-[var(--journal-ink)] shadow-[0_18px_45px_rgba(43,33,24,0.28)] sm:w-[420px]">
+          <div className="flex items-center justify-between border-b border-[var(--journal-rule)] bg-[#f5d66f] p-4 text-[#2b2118] dark:bg-[#f5deb3]">
             <div className="flex items-center gap-3">
-              <div className="w-10 h-10 bg-white/20 rounded-full flex items-center justify-center">
-                <span className="text-xl">🤖</span>
-              </div>
+              <span className="journal-stamp px-2 py-1 text-[9px]">Experimental Synthetic RAG</span>
               <div>
-                <h3 className="font-semibold text-white">Assistant</h3>
+                <h3 className="font-journal-serif text-lg font-semibold">Field Assistant</h3>
                 <div className="flex items-center gap-2">
-                  <span className={`w-2 h-2 rounded-full ${useDemo ? "bg-yellow-400" : "bg-green-400"}`} />
-                  <p className="text-xs text-white/70">
-                    {useDemo ? "Demo Mode" : "RAG Active"}
-                  </p>
+                  <span className="h-2 w-2 rounded-full bg-[var(--journal-red)]" />
+                  <p className="font-journal-mono text-[10px] uppercase tracking-[0.12em]"><span>Repo RAG</span><span aria-hidden="true"> · sources shown</span></p>
                 </div>
               </div>
             </div>
             <button
               onClick={onClose}
-              className="p-2 hover:bg-white/20 rounded-full transition-colors"
+              aria-label="Close assistant"
+              className="rounded-full p-2 transition-colors hover:bg-black/10"
             >
-              <svg className="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <svg className="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
               </svg>
             </button>
           </div>
 
-          {/* Messages */}
-          <div className="relative z-10 flex-1 overflow-y-auto p-4 space-y-4">
+          <div className="journal-grid flex-1 space-y-4 overflow-y-auto p-4">
             {messages.length === 0 && (
-              <div className="text-center text-gray-400 py-8">
-                <p className="text-2xl mb-2">👋</p>
-                <p className="font-medium text-gray-300">Hey! I&apos;m Assistant</p>
-                <p className="text-sm mt-2">
-                  Ask me about Himanshu&apos;s projects, skills, or experience. This assistant uses synthetic RAG over curated portfolio evidence and improves its routing as questions are asked; try &quot;What projects use RAG?&quot;, &quot;What did Himanshu do at Ask Jay?&quot;, or &quot;Which repos use React?&quot;
+              <div className="journal-card py-8 px-5 text-center text-[var(--journal-muted)]">
+                <p className="journal-kicker">Ask the archive</p>
+                <p className="mt-3 font-journal-serif text-2xl font-semibold text-[var(--journal-ink)]">Project-aware, with receipts.</p>
+                <p className="mt-3 text-sm leading-6">
+                  Ask me about Himanshu&apos;s projects, skills, or experience. I search curated Synthetic RAG evidence and current public repository documentation; try &quot;What projects have you built?&quot;, &quot;What are your latest projects?&quot;, &quot;Which repos use React?&quot;, or ask about any repository by name.
                 </p>
               </div>
             )}
@@ -185,13 +146,13 @@ export default function AssistantChat({ isOpen, onClose }: AssistantChatProps) {
                 className={`flex ${msg.role === "user" ? "justify-end" : "justify-start"}`}
               >
                 <div
-                  className={`max-w-[85%] rounded-2xl px-4 py-2 ${
+                  className={`max-w-[88%] rounded-lg border px-4 py-3 ${
                     msg.role === "user"
-                      ? "bg-gradient-to-r from-cyan-500 to-blue-500 text-white"
-                      : "bg-gray-800/80 text-gray-100 border border-gray-700/50"
+                      ? "border-[var(--journal-red)] bg-[var(--journal-red)] text-white"
+                      : "border-[var(--journal-rule)] bg-[var(--journal-surface)] text-[var(--journal-ink)] shadow-sm"
                   }`}
                 >
-                  <p className="text-sm whitespace-pre-wrap">{msg.content}</p>
+                  <p className="whitespace-pre-wrap text-sm leading-6">{msg.content}</p>
                   
                   {msg.role === "assistant" && msg.sources && (
                     <SourceCard sources={msg.sources} />
@@ -206,11 +167,11 @@ export default function AssistantChat({ isOpen, onClose }: AssistantChatProps) {
                 animate={{ opacity: 1 }}
                 className="flex justify-start"
               >
-                <div className="bg-gray-800/80 rounded-2xl px-4 py-3 border border-gray-700/50">
+                <div className="rounded-lg border border-[var(--journal-rule)] bg-[var(--journal-surface)] px-4 py-3">
                   <div className="flex gap-1">
-                    <span className="w-2 h-2 bg-cyan-400 rounded-full animate-bounce" style={{ animationDelay: "0ms" }} />
-                    <span className="w-2 h-2 bg-cyan-400 rounded-full animate-bounce" style={{ animationDelay: "150ms" }} />
-                    <span className="w-2 h-2 bg-cyan-400 rounded-full animate-bounce" style={{ animationDelay: "300ms" }} />
+                    <span className="h-2 w-2 animate-bounce rounded-full bg-[var(--journal-red)]" style={{ animationDelay: "0ms" }} />
+                    <span className="h-2 w-2 animate-bounce rounded-full bg-[var(--journal-red)]" style={{ animationDelay: "150ms" }} />
+                    <span className="h-2 w-2 animate-bounce rounded-full bg-[var(--journal-red)]" style={{ animationDelay: "300ms" }} />
                   </div>
                 </div>
               </motion.div>
@@ -219,22 +180,22 @@ export default function AssistantChat({ isOpen, onClose }: AssistantChatProps) {
             <div ref={messagesEndRef} />
           </div>
 
-          {/* Input */}
-          <div className="relative z-10 p-4 border-t border-gray-700/50">
+          <div className="border-t border-[var(--journal-rule)] bg-[var(--journal-surface)] p-4">
             <div className="flex gap-2">
               <input
                 type="text"
                 value={input}
                 onChange={(e) => setInput(e.target.value)}
-                onKeyPress={handleKeyPress}
+                onKeyDown={handleKeyDown}
                 placeholder="Ask about Himanshu..."
                 disabled={isLoading}
-                className="flex-1 bg-gray-800/80 border border-gray-600/50 rounded-xl px-4 py-2 text-sm text-white placeholder-gray-400 focus:outline-none focus:border-cyan-500/50 transition-colors"
+                className="min-w-0 flex-1 rounded-md border border-[var(--journal-rule)] bg-[var(--journal-paper)] px-4 py-2 font-journal-mono text-sm text-[var(--journal-ink)] placeholder:text-[var(--journal-muted)] focus:border-[var(--journal-red)] focus:outline-none focus:ring-2 focus:ring-[var(--journal-red)]/20"
               />
               <button
                 onClick={handleSend}
+                aria-label="Send message"
                 disabled={isLoading || !input.trim()}
-                className="px-4 py-2 bg-gradient-to-r from-cyan-500 to-blue-500 hover:from-cyan-400 hover:to-blue-400 disabled:opacity-50 disabled:cursor-not-allowed text-white rounded-xl transition-all"
+                className="rounded-md bg-[var(--journal-red)] px-4 py-2 text-white transition hover:-translate-y-0.5 disabled:cursor-not-allowed disabled:opacity-50"
               >
                 <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8" />

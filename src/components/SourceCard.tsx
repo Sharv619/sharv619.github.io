@@ -15,103 +15,36 @@ interface SourceCardProps {
   sources: Source[];
 }
 
-const sectionIcons: Record<string, string> = {
-  "Personal Info": "👤",
-  Experience: "💼",
-  Projects: "🚀",
-  "GitHub Projects": "💻",
-  Skills: "⚡",
-  Values: "🎯",
-  Education: "🎓",
-  Chatbot: "🤖",
-};
-
-const sectionColors: Record<string, string> = {
-  "Personal Info": "from-blue-500/20 to-blue-600/10 border-blue-500/30",
-  Experience: "from-purple-500/20 to-purple-600/10 border-purple-500/30",
-  Projects: "from-green-500/20 to-green-600/10 border-green-500/30",
-  "GitHub Projects": "from-green-500/20 to-emerald-600/10 border-green-500/30",
-  Skills: "from-orange-500/20 to-orange-600/10 border-orange-500/30",
-  Values: "from-pink-500/20 to-pink-600/10 border-pink-500/30",
-  Education: "from-cyan-500/20 to-cyan-600/10 border-cyan-500/30",
-  Chatbot: "from-indigo-500/20 to-indigo-600/10 border-indigo-500/30",
-};
-
 export default function SourceCard({ sources }: SourceCardProps) {
   const [isExpanded, setIsExpanded] = useState(false);
-
-  if (!sources || sources.length === 0) return null;
+  if (sources.length === 0) return null;
 
   const visibleSources = isExpanded ? sources : sources.slice(0, 3);
-  const formatSimilarity = (similarity: number): string | null => {
-    if (similarity <= 0 || similarity > 1) {
-      return null;
-    }
-
-    return `${Math.round(similarity * 100)}%`;
-  };
 
   return (
-    <div className="mt-3">
-      <div className="flex items-center gap-2 mb-2">
-        <span className="text-xs text-gray-400">📚 Sources:</span>
-        <button
-          onClick={() => setIsExpanded(!isExpanded)}
-          className="text-xs text-cyan-400 hover:text-cyan-300 transition-colors"
-        >
-          {isExpanded ? "Show less" : `Show all (${sources.length})`}
-        </button>
+    <div className="mt-4 border-t border-[var(--journal-rule)] pt-3">
+      <div className="mb-3 flex items-center justify-between gap-3">
+        <span className="font-journal-mono text-[10px] font-bold uppercase tracking-[0.14em] text-[var(--journal-muted)]">Evidence ledger</span>
+        {sources.length > 3 && (
+          <button onClick={() => setIsExpanded((value) => !value)} className="font-journal-mono text-[10px] font-semibold underline">
+            {isExpanded ? "Show less" : `Show all ${sources.length}`}
+          </button>
+        )}
       </div>
-
       <div className="flex flex-wrap gap-2">
-        {visibleSources.map((source, idx) => {
-          const icon = sectionIcons[source.section] || "📄";
-          const colorClass = sectionColors[source.section] || "from-gray-500/20 to-gray-600/10 border-gray-500/30";
-          const sourceLabel = source.title || source.section;
-          const similarityLabel = source.similarity ? formatSimilarity(source.similarity) : null;
-          const sourceContent = (
+        {visibleSources.map((source, index) => {
+          const content = (
             <>
-              <span className="text-sm">{icon}</span>
-              <span className="text-xs text-gray-200 font-medium">
-                {sourceLabel}
-              </span>
-              {similarityLabel && (
-                <span className="text-xs text-gray-400 ml-1">
-                  {similarityLabel}
-                </span>
-              )}
+              <span className="grid h-5 w-5 place-items-center rounded-full bg-[var(--journal-red)] text-[9px] text-white">✓</span>
+              <span className="max-w-44 truncate">{source.title || source.section}</span>
+              {source.similarity && source.similarity > 0 && source.similarity <= 1 ? <span className="opacity-60">{Math.round(source.similarity * 100)}%</span> : null}
             </>
           );
-          
-          const className = `
-            px-3 py-1.5 rounded-lg border backdrop-blur-sm
-            bg-gradient-to-r ${colorClass}
-            flex items-center gap-1.5
-          `;
-
+          const className = "inline-flex min-h-9 -rotate-1 items-center gap-2 rounded-md border border-[#c49a29] bg-[#f5d66f] px-3 py-2 font-journal-mono text-[10px] font-semibold text-[#2b2118] shadow-sm transition hover:-translate-y-0.5 hover:rotate-0 dark:bg-[#f5deb3]";
           return source.url ? (
-            <motion.a
-              key={`${source.id}-${idx}`}
-              href={source.url}
-              target="_blank"
-              rel="noopener noreferrer"
-              initial={{ opacity: 0, scale: 0.8 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ delay: idx * 0.1 }}
-              className={className}
-            >
-              {sourceContent}
-            </motion.a>
+            <motion.a key={`${source.id}-${index}`} href={source.url} target="_blank" rel="noopener noreferrer" initial={{ opacity: 0 }} animate={{ opacity: 1 }} className={className}>{content}<span aria-hidden="true">↗</span></motion.a>
           ) : (
-            <motion.div
-              key={`${source.id}-${idx}`}
-              initial={{ opacity: 0, scale: 0.8 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ delay: idx * 0.1 }}
-              className={className}
-            >
-              {sourceContent}
-            </motion.div>
+            <motion.span key={`${source.id}-${index}`} initial={{ opacity: 0 }} animate={{ opacity: 1 }} className={className}>{content}</motion.span>
           );
         })}
       </div>

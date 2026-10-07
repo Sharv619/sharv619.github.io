@@ -2,16 +2,16 @@ import { pathExists, readTextFile, writeRepoFile } from "../shared/fs-utils";
 
 const REQUIRED_CASE_STUDIES = [
   "production-recovery-performance-rebuild",
-  "pilly-medimate-voice",
+  "network-guardian-ai",
   "codeflow-hook",
 ];
 
 const POSITIONING_REPOS = [
   {
-    name: "Pilly / MediMate Voice",
-    description: "Firebase-backed responsible-AI medication support MVP for seniors and caregivers, featuring event-based reminders, caregiver alerts, voice-friendly responses, and strict safety boundaries.",
-    topics: ["firebase", "cloud-functions", "firestore", "responsible-ai", "healthcare-prototype", "medication-support", "caregiver-tools", "typescript", "gemini-api", "hackathon"],
-    direction: "Lead with the 12-hour hackathon MVP context, seniors/caregivers workflow, deterministic fallback behavior, and explicit non-medical safety boundaries.",
+    name: "Network Guardian AI",
+    description: "AdGuard-connected network security prototype using local heuristics, selective AI escalation, tenant-aware history, and an explainable review dashboard.",
+    topics: ["network-security", "adguard", "dns-analysis", "anomaly-detection", "privacy-first", "ai-assisted", "python", "fastapi", "react", "cybersecurity"],
+    direction: "Lead with the AdGuard-to-dashboard analysis path, local-first filtering, explainability, tenant boundaries, and honest prototype limitations.",
     priority: "Flagship",
   },
   {
@@ -43,10 +43,10 @@ const POSITIONING_REPOS = [
     priority: "Supporting",
   },
   {
-    name: "Network Guardian AI",
-    description: "Local network traffic intelligence prototype exploring privacy-first log analysis, anomaly detection, and AI-assisted security summaries.",
-    topics: ["network-security", "traffic-analysis", "anomaly-detection", "privacy-first", "ai-assisted", "python", "fastapi", "cybersecurity"],
-    direction: "Explain data inputs, anomaly detection approach, privacy model, false-positive limitations, and demo screenshots.",
+    name: "Pilly / MediMate Voice",
+    description: "Firebase-backed responsible-AI medication support MVP for seniors and caregivers, with event-based reminders and explicit non-medical safety boundaries.",
+    topics: ["firebase", "cloud-functions", "firestore", "responsible-ai", "healthcare-prototype", "medication-support", "typescript", "gemini-api", "hackathon"],
+    direction: "Keep the 2-hour hackathon context, deterministic fallback behavior, and explicit non-medical limitations clear.",
     priority: "Supporting",
   },
 ];

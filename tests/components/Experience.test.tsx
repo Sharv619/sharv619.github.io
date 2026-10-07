@@ -2,16 +2,16 @@ import { render, screen } from "@testing-library/react";
 import { describe, expect, it } from "vitest";
 
 import Experience from "../../src/components/Experience";
+import { experience } from "../../src/lib/data";
 
 describe("Experience", () => {
-  it("renders the latest resume-aligned work history", () => {
+  it("renders every career entry immediately in the homepage ledger", () => {
     render(<Experience />);
 
-    expect(screen.getByRole("heading", { name: "Software Engineer" })).toBeInTheDocument();
-    expect(screen.getByText("May 2025 - Oct 2025")).toBeInTheDocument();
-    expect(screen.getByText(/100% of the data with zero loss/)).toBeInTheDocument();
-    expect(screen.getByText(/33% across a production application serving 200\+ active users/)).toBeInTheDocument();
-    expect(screen.queryByText(/Founding Engineer \/ Principal Technical Lead/)).not.toBeInTheDocument();
-    expect(screen.queryByText(/10,000\+ users/)).not.toBeInTheDocument();
-  }, 30000);
+    expect(screen.getByRole("heading", { name: "Where the proof came from." })).toBeInTheDocument();
+    experience.forEach((entry) => {
+      expect(screen.getByRole("heading", { name: entry.position })).toBeInTheDocument();
+      expect(screen.getByRole("link", { name: `Open ${entry.company} website` })).toBeInTheDocument();
+    });
+  });
 });

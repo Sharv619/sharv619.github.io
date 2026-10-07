@@ -1,6 +1,7 @@
 import type { ProjectEvidenceProfile } from "./evidence-signals";
 import type { PortfolioRecommendation } from "./portfolio-recommendations";
 import type { ProjectSkill, SkillSource } from "./project-skill-types";
+import type { RepositoryArchitectureDocument, RepositoryEvidenceReference } from "./repository-evidence";
 export type { ProjectSkill, SkillSource };
 
 function skill(key: string, label: string, category: ProjectSkill["category"], source: SkillSource = "override"): ProjectSkill {
@@ -60,6 +61,8 @@ export interface Project {
   status?: string;
   role?: string;
   skills?: ProjectSkill[];
+  evidenceReferences?: RepositoryEvidenceReference[];
+  architectureDocuments?: RepositoryArchitectureDocument[];
 }
 
 export interface ProjectScreenshot {
@@ -73,7 +76,7 @@ export const personalInfo: PersonalInfo = {
   title: "Full-Stack Systems & AI Engineer",
   email: "hl@himanshulade.com",
   location: "Sydney, Australia",
-  bio: "Sydney-based full-stack systems and AI engineer building local-first AI, workflow automation, production recovery, and practical software across Australia.",
+  bio: "Australia-based full-stack systems and AI engineer building local-first AI, workflow automation, production recovery, and practical software, open to remote work worldwide.",
   avatar: "/avatar-960.webp",
 };
 
@@ -341,7 +344,7 @@ export const skills = {
 
 export const about = {
   title: "Systems, evidence, and the useful small stuff.",
-  content: `I am a Sydney-based full-stack systems and AI engineer. I work across production recovery, backend and frontend delivery, technical SEO, workflow automation, and local-first AI.
+  content: `I am an Australia-based full-stack systems and AI engineer, open to remote work anywhere in the world. I work across production recovery, backend and frontend delivery, technical SEO, workflow automation, and local-first AI.
 
 My production work includes ransomware recovery, marketplace engineering, performance work that reduced load time from 25 seconds to 3 seconds, and CI/CD and deployment workflows.
 

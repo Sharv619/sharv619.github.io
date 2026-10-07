@@ -3,8 +3,19 @@ import generatedGitHubProjects from "./generated-github-projects.json";
 import { enrichGitHubProjectEvidence } from "./github-evidence-enrichment";
 import { decodeGitHubBase64Content, getReadmeSourceUrl } from "./github-readme";
 import { normalizeProjectSkills } from "./project-taxonomy";
+import {
+  extractMermaidDiagrams,
+  extractLinkedArchitecturePaths,
+  parsePortfolioEvidenceManifest,
+  titleFromRepositoryPath,
+} from "./repository-evidence";
 import type { Project } from "./data";
 import type { GitHubEvidenceMetadata } from "./github-evidence-enrichment";
+import type {
+  PortfolioEvidenceManifest,
+  RepositoryArchitectureDocument,
+  RepositoryEvidenceReference,
+} from "./repository-evidence";
 
 export const DEFAULT_GITHUB_USERNAME = process.env.PORTFOLIO_GITHUB_USERNAME || "Sharv619";
 export const PORTFOLIO_TOPIC = process.env.PORTFOLIO_GITHUB_TOPIC || "all";
@@ -385,6 +396,8 @@ interface GitHubReadme {
 interface GitHubContentItem {
   content?: string;
   encoding?: string;
+  html_url?: string;
+  sha?: string;
   path: string;
   type: "file" | "dir" | string;
 }
@@ -398,6 +411,8 @@ interface ProjectEnrichment {
   manifestSkills?: string[];
   evidenceMetadata?: GitHubEvidenceMetadata;
   topic?: string;
+  evidenceReferences?: RepositoryEvidenceReference[];
+  architectureDocuments?: RepositoryArchitectureDocument[];
 }
 
 interface GetPortfolioProjectsOptions {
@@ -575,6 +590,8 @@ export function normalizeRepositoryProject(
     priority: override?.priority,
     status: override?.status,
     role: override?.role,
+    evidenceReferences: enrichment.evidenceReferences,
+    architectureDocuments: enrichment.architectureDocuments,
   };
 }
 
@@ -681,13 +698,20 @@ function getCachedGitHubProjects(username: string, topic: string): Promise<Proje
 async function fetchGitHubProjects(username: string, topic: string): Promise<Project[]> {
   const repos = await fetchPortfolioRepositories(username, topic);
   const projects = await mapWithConcurrency(repos, ENRICHMENT_CONCURRENCY, async (repo) => {
-    const [readme, languages, manifestEvidence] = await Promise.all([
-      fetchRepositoryReadme(username, repo.name).catch(() => ""),
+    const readmePromise = fetchRepositoryReadme(username, repo.name).catch(() => "");
+    const [readme, languages, manifestEvidence, repositoryEvidence] = await Promise.all([
+      readmePromise,
       fetchRepositoryLanguages(username, repo.name).catch(() => ({})),
       fetchRepositoryManifestEvidence(username, repo.name).catch(() => ({
         manifestSkills: [],
         metadata: {},
       })),
+      readmePromise
+        .then((repositoryReadme) => fetchRepositoryEvidence(username, repo.name, repo.html_url, repositoryReadme))
+        .catch(() => ({
+          evidenceReferences: [],
+          architectureDocuments: [],
+        })),
     ]);
 
     return normalizeRepositoryProject(repo, {
@@ -696,6 +720,8 @@ async function fetchGitHubProjects(username: string, topic: string): Promise<Pro
       manifestSkills: manifestEvidence.manifestSkills,
       evidenceMetadata: manifestEvidence.metadata,
       topic,
+      evidenceReferences: repositoryEvidence.evidenceReferences,
+      architectureDocuments: repositoryEvidence.architectureDocuments,
     });
   });
 
@@ -758,6 +784,202 @@ async function fetchRepositoryLanguages(username: string, repoName: string): Pro
   return fetchGitHubJson<GitHubLanguages>(
     `${GITHUB_API_BASE}/repos/${encodeURIComponent(username)}/${encodeURIComponent(repoName)}/languages`
   );
+}
+
+interface RepositoryFileArtifact {
+  path: string;
+  content: string;
+  htmlUrl: string;
+  sha?: string;
+}
+
+const DEFAULT_ARCHITECTURE_PATHS = [
+  "ARCHITECTURE.md",
+  "docs/ARCHITECTURE.md",
+  "docs/architecture.md",
+  "docs/system-architecture.md",
+];
+
+export function selectRepositoryArchitecturePaths(
+  manifestPaths: string[],
+  readmePaths: string[],
+  docsPaths: string[]
+): string[] {
+  const explicitPaths = uniqueStrings(manifestPaths);
+  const explicitPathSet = new Set(explicitPaths);
+  const automaticPaths = uniqueStrings([
+    ...DEFAULT_ARCHITECTURE_PATHS,
+    ...readmePaths,
+    ...docsPaths,
+  ]).filter((path) => !explicitPathSet.has(path));
+
+  return [...explicitPaths, ...automaticPaths.slice(0, Math.max(0, 12 - explicitPaths.length))];
+}
+
+async function fetchRepositoryEvidence(
+  username: string,
+  repoName: string,
+  repositoryUrl: string,
+  readme: string
+): Promise<{
+  evidenceReferences: RepositoryEvidenceReference[];
+  architectureDocuments: RepositoryArchitectureDocument[];
+}> {
+  const [manifestArtifact, docsArchitecturePaths] = await Promise.all([
+    fetchOptionalRepositoryFileArtifact(username, repoName, "portfolio-evidence.json"),
+    fetchRepositoryDocsArchitecturePaths(username, repoName),
+  ]);
+  const manifest = manifestArtifact ? parsePortfolioEvidenceManifest(manifestArtifact.content) : null;
+  const architecturePaths = selectRepositoryArchitecturePaths(
+    manifest?.architecture.map((entry) => entry.path) || [],
+    extractLinkedArchitecturePaths(readme),
+    docsArchitecturePaths
+  );
+  const architectureArtifacts = await Promise.all(
+    architecturePaths.map((path) => fetchOptionalRepositoryFileArtifact(username, repoName, path))
+  );
+  const architectureDocuments = architectureArtifacts
+    .filter((artifact): artifact is RepositoryFileArtifact => Boolean(artifact))
+    .map((artifact) => ({
+      path: artifact.path,
+      title: manifest?.architecture.find((entry) => entry.path === artifact.path)?.title
+        || titleFromRepositoryPath(artifact.path),
+      content: artifact.content,
+      sourceUrl: artifact.htmlUrl,
+      diagrams: extractMermaidDiagrams(artifact.content, artifact.path),
+    }));
+  const evidenceReferences = manifest
+    ? await resolveManifestEvidence(username, repoName, repositoryUrl, manifest)
+    : [];
+
+  architectureDocuments.forEach((document) => {
+    evidenceReferences.push({
+      id: `architecture-${document.path.toLowerCase().replace(/[^a-z0-9]+/g, "-")}`,
+      label: document.title,
+      kind: "file",
+      url: document.sourceUrl,
+      path: document.path,
+      description: "Repository architecture document",
+    });
+  });
+
+  return {
+    evidenceReferences: deduplicateEvidenceReferences(evidenceReferences),
+    architectureDocuments,
+  };
+}
+
+async function fetchRepositoryDocsArchitecturePaths(username: string, repoName: string): Promise<string[]> {
+  try {
+    const contents = await fetchGitHubJson<GitHubContentResponse>(
+      `${GITHUB_API_BASE}/repos/${encodeURIComponent(username)}/${encodeURIComponent(repoName)}/contents/docs`
+    );
+
+    if (!Array.isArray(contents)) {
+      return [];
+    }
+
+    return contents
+      .filter((item) => item.type === "file"
+        && /\.mdx?$/i.test(item.path)
+        && /(?:architecture|system[-_ ]?design|technical[-_ ]?design)/i.test(item.path))
+      .map((item) => item.path)
+      .slice(0, 12);
+  } catch {
+    return [];
+  }
+}
+
+async function resolveManifestEvidence(
+  username: string,
+  repoName: string,
+  repositoryUrl: string,
+  manifest: PortfolioEvidenceManifest
+): Promise<RepositoryEvidenceReference[]> {
+  const references: RepositoryEvidenceReference[] = [];
+
+  for (const claim of manifest.claims) {
+    for (const evidence of claim.evidence) {
+      if (evidence.type === "file") {
+        const artifact = await fetchOptionalRepositoryFileArtifact(username, repoName, evidence.path);
+        if (artifact) {
+          references.push({
+            id: `${claim.id}-${artifact.sha || evidence.path}`,
+            label: evidence.label || claim.label,
+            kind: "file",
+            url: artifact.htmlUrl,
+            path: artifact.path,
+            description: claim.description,
+          });
+        }
+        continue;
+      }
+
+      const commitExists = await repositoryCommitExists(username, repoName, evidence.sha);
+      if (commitExists) {
+        references.push({
+          id: `${claim.id}-${evidence.sha}`,
+          label: evidence.label || claim.label,
+          kind: "commit",
+          url: `${repositoryUrl}/commit/${evidence.sha}`,
+          sha: evidence.sha,
+          description: claim.description,
+        });
+      }
+    }
+  }
+
+  return references;
+}
+
+async function repositoryCommitExists(username: string, repoName: string, sha: string): Promise<boolean> {
+  try {
+    await fetchGitHubJson<unknown>(
+      `${GITHUB_API_BASE}/repos/${encodeURIComponent(username)}/${encodeURIComponent(repoName)}/commits/${encodeURIComponent(sha)}`
+    );
+    return true;
+  } catch {
+    return false;
+  }
+}
+
+async function fetchOptionalRepositoryFileArtifact(
+  username: string,
+  repoName: string,
+  path: string
+): Promise<RepositoryFileArtifact | null> {
+  try {
+    const item = await fetchGitHubJson<GitHubContentResponse>(
+      `${GITHUB_API_BASE}/repos/${encodeURIComponent(username)}/${encodeURIComponent(repoName)}/contents/${encodeRepositoryPath(path)}`
+    );
+    if (Array.isArray(item) || item.type !== "file" || item.encoding !== "base64" || !item.content) {
+      return null;
+    }
+
+    return {
+      path: item.path,
+      content: Buffer.from(item.content.replace(/\n/g, ""), "base64").toString("utf8"),
+      htmlUrl: item.html_url || `https://github.com/${encodeURIComponent(username)}/${encodeURIComponent(repoName)}/blob/HEAD/${encodeRepositoryPath(item.path)}`,
+      sha: item.sha,
+    };
+  } catch {
+    return null;
+  }
+}
+
+function uniqueStrings(values: string[]): string[] {
+  return [...new Set(values)];
+}
+
+function deduplicateEvidenceReferences(references: RepositoryEvidenceReference[]): RepositoryEvidenceReference[] {
+  const urls = new Set<string>();
+  return references.filter((reference) => {
+    if (urls.has(reference.url)) {
+      return false;
+    }
+    urls.add(reference.url);
+    return true;
+  });
 }
 
 async function fetchRepositoryManifestEvidence(

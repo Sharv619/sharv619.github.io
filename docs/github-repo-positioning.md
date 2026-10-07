@@ -13,7 +13,7 @@ Firebase-backed responsible-AI medication support MVP for seniors and caregivers
 firebase, cloud-functions, firestore, responsible-ai, healthcare-prototype, medication-support, caregiver-tools, typescript, gemini-api, hackathon
 
 **README improvement direction:**  
-Lead with the 12-hour hackathon MVP context, seniors/caregivers workflow, deterministic fallback behavior, and explicit non-medical safety boundaries.
+Lead with the 2-hour hackathon MVP context, seniors/caregivers workflow, deterministic fallback behavior, and explicit non-medical safety boundaries.
 
 **Screenshots needed:** Add a clear first-screen screenshot or terminal demo where applicable.
 

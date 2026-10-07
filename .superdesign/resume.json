@@ -1,0 +1,44 @@
+{
+  "schemaVersion": 1,
+  "targets": {
+    "/": {
+      "targetKind": "existing-ui",
+      "projectId": "902c1ff1-da86-4a69-a9b5-be4c656680f1",
+      "activeDraftId": "81159291-45b6-49d1-973b-abdd4b2b03a9",
+      "designSystemPath": ".superdesign/design-system.md",
+      "referenceIds": [
+        "8fe503b0-83e3-40e3-8feb-1f67e1bc9744"
+      ],
+      "contextFiles": [
+        ".superdesign/design-system.md",
+        "src/app/globals.css",
+        "src/components/HomePageClient.tsx",
+        "src/components/Navigation.tsx",
+        "src/components/Hero.tsx",
+        "src/components/About.tsx",
+        "src/components/Experience.tsx",
+        "src/components/FeaturedCaseStudies.tsx",
+        "src/components/Projects.tsx"
+      ],
+      "fingerprints": {
+        ".superdesign/design-system.md": "8f113efaf7d8e77f37675401eff155bb4516df8031426117349feebe33ec76be",
+        "src/app/globals.css": "908ea33d61b75213ead522187f60f0b2b1f229d9c72d338a31fc209931028aca",
+        "src/components/HomePageClient.tsx": "b2109796c7ab8ea212671074fa731f88a9fac6e82eaa9a97b67999cc06979a97",
+        "src/components/Navigation.tsx": "36af9318040bbddd22b5c7d6007fc091e99d8166c5d59381e8658e14c3d9fb20",
+        "src/components/Hero.tsx": "a33728f211a84d72eaaa839fb20c96c9045d986c232986d3d57e0fff9f1fdccd",
+        "src/components/About.tsx": "179ca8dfa2f8892e9eb1e2008062b041a3bc38bc54eaada7c3332da02ac19c39",
+        "src/components/Experience.tsx": "536577ca709dc1f42e39d6f25664fb6d4cc85666f8652848232562b25348aa47",
+        "src/components/FeaturedCaseStudies.tsx": "adb49a0e53cb814d49e65c172fa4a1eb40bba764765f79ca3dc1bd7af5251ce5",
+        "src/components/Projects.tsx": "2875f67d91064285630692d67156803f2b5f2385dd53928db85b39a7f020d252"
+      },
+      "drafts": {
+        "81159291-45b6-49d1-973b-abdd4b2b03a9": {
+          "title": "Himanshu Lade Field Journal",
+          "visualDirection": "rich leather-bound technical field journal with open-book architecture storytelling, a prominent always-visible career ledger, and swipeable two-case-study spreads",
+          "currentVersion": 4
+        }
+      },
+      "updatedAt": "2026-10-07T16:15:32+11:00"
+    }
+  }
+}

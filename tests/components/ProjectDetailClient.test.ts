@@ -1,6 +1,6 @@
 import { describe, expect, it } from "vitest";
 
-import { formatJournalSectionTitle, parseArchitectureDetails } from "../../src/components/ProjectDetailClient";
+import { formatJournalSectionTitle, parseArchitectureDetails } from "../../src/lib/project-journal";
 
 describe("ProjectDetailClient journal formatting", () => {
   it("turns portfolio headings into personal build-journal headings", () => {

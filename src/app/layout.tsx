@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import { IBM_Plex_Mono, IBM_Plex_Sans, IBM_Plex_Serif } from "next/font/google";
 import "./globals.css";
 import { personalInfo } from "@/lib/data";
 import { createPageMetadata, SITE_URL } from "@/lib/seo";
@@ -8,9 +8,22 @@ import AvailabilityBanner from "@/components/AvailabilityBanner";
 import SEOHead from "@/components/SEOHead";
 import ChatbotProvider from "@/components/ChatbotProvider";
 
-const inter = Inter({
+const plexSans = IBM_Plex_Sans({
   subsets: ["latin"],
-  variable: "--font-inter",
+  weight: ["400", "500", "600", "700"],
+  variable: "--font-plex-sans",
+});
+
+const plexSerif = IBM_Plex_Serif({
+  subsets: ["latin"],
+  weight: ["400", "500", "600", "700"],
+  variable: "--font-plex-serif",
+});
+
+const plexMono = IBM_Plex_Mono({
+  subsets: ["latin"],
+  weight: ["400", "500", "600", "700"],
+  variable: "--font-plex-mono",
 });
 
 export const metadata: Metadata = {
@@ -66,10 +79,10 @@ export default function RootLayout({
         <link rel="preconnect" href="https://raw.githubusercontent.com" />
         <link rel="preconnect" href="https://github.com" />
         <link rel="preconnect" href="https://cdn.jsdelivr.net" />
-        <meta name="theme-color" content="#ffffff" />
+        <meta name="theme-color" content="#5c4033" />
       </head>
       <body
-        className={`${inter.variable} font-sans antialiased`}
+        className={`${plexSans.variable} ${plexSerif.variable} ${plexMono.variable} antialiased`}
       >
         <SEOHead />
         <ThemeProvider>

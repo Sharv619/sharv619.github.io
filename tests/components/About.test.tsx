@@ -9,8 +9,10 @@ describe("About", () => {
     expect(screen.queryByRole("button", { name: "About" })).not.toBeInTheDocument();
     expect(screen.queryByRole("link", { name: "About" })).not.toBeInTheDocument();
     expect(screen.getByText("Human touch")).toBeInTheDocument();
+    expect(screen.getByText("Australia-based")).toBeInTheDocument();
+    expect(screen.getByText("Open to remote work anywhere in the world.")).toBeInTheDocument();
     expect(screen.getByRole("heading", { name: "How I Work" })).toBeInTheDocument();
     expect(screen.queryByRole("heading", { name: "Personal Workflow" })).not.toBeInTheDocument();
-    expect(container.querySelector("#about")).toHaveClass("dark:bg-[#151513]");
+    expect(container.querySelector("#about .journal-page-stack")).toBeInTheDocument();
   });
 });

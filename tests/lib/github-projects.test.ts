@@ -8,6 +8,7 @@ import {
   isPortfolioRepository,
   mergeTechnologies,
   normalizeRepositoryProject,
+  selectRepositoryArchitecturePaths,
   summarizeReadme,
 } from '../../src/lib/github-projects';
 import type { GitHubRepository } from '../../src/lib/github-projects';
@@ -128,6 +129,19 @@ Network Guardian AI detects suspicious network behavior with a three-stage machi
       'GitHub Pages',
       'Vitest',
     ]);
+  });
+
+  it('keeps explicit architecture paths ahead of the automatic discovery cap', () => {
+    const automaticPaths = Array.from({ length: 12 }, (_, index) => `docs/auto-${index}.md`);
+    const paths = selectRepositoryArchitecturePaths(
+      ['design/explicit-architecture.md'],
+      automaticPaths,
+      []
+    );
+
+    expect(paths[0]).toBe('design/explicit-architecture.md');
+    expect(paths).toContain('design/explicit-architecture.md');
+    expect(paths).toHaveLength(12);
   });
 
   it('normalizes GitHub repos into portfolio projects', () => {
