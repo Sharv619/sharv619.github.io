@@ -18,7 +18,7 @@ export function generateTaskPlanTool(goal: string, auditResults: unknown): TaskP
     p0.push("Restore or repair GitHub project ingestion before changing portfolio presentation.");
   }
   if (serialized.includes("missingcasestudies") || serialized.includes("flagship case study data file is missing")) {
-    p1.push("Add curated flagship case study data for production recovery, Pilly/MediMate Voice, and codeflow-hook.");
+    p1.push("Add curated flagship case study data for production recovery, Network Guardian AI, and codeflow-hook.");
   }
   if (serialized.includes("safe boundary") || serialized.includes("unsafe medical")) {
     p0.push("Add explicit healthcare safety boundaries before publishing Pilly/MediMate copy.");

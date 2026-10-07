@@ -107,7 +107,7 @@ export default function AssistantChat({ isOpen, onClose }: AssistantChatProps) {
         <div className="flex h-[min(620px,72vh)] w-full flex-col overflow-hidden rounded-lg border border-[#c49a29] bg-[var(--journal-paper)] text-[var(--journal-ink)] shadow-[0_18px_45px_rgba(43,33,24,0.28)] sm:w-[420px]">
           <div className="flex items-center justify-between border-b border-[var(--journal-rule)] bg-[#f5d66f] p-4 text-[#2b2118] dark:bg-[#f5deb3]">
             <div className="flex items-center gap-3">
-              <span className="journal-stamp">Verified</span>
+              <span className="journal-stamp px-2 py-1 text-[9px]">Experimental Synthetic RAG</span>
               <div>
                 <h3 className="font-journal-serif text-lg font-semibold">Field Assistant</h3>
                 <div className="flex items-center gap-2">
@@ -133,7 +133,7 @@ export default function AssistantChat({ isOpen, onClose }: AssistantChatProps) {
                 <p className="journal-kicker">Ask the archive</p>
                 <p className="mt-3 font-journal-serif text-2xl font-semibold text-[var(--journal-ink)]">Project-aware, with receipts.</p>
                 <p className="mt-3 text-sm leading-6">
-                  Ask me about Himanshu&apos;s projects, skills, or experience. I search verified portfolio evidence and current public repository documentation; try &quot;What projects have you built?&quot;, &quot;What are your latest projects?&quot;, &quot;Which repos use React?&quot;, or ask about any repository by name.
+                  Ask me about Himanshu&apos;s projects, skills, or experience. I search curated Synthetic RAG evidence and current public repository documentation; try &quot;What projects have you built?&quot;, &quot;What are your latest projects?&quot;, &quot;Which repos use React?&quot;, or ask about any repository by name.
                 </p>
               </div>
             )}

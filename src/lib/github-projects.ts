@@ -5,6 +5,7 @@ import { decodeGitHubBase64Content, getReadmeSourceUrl } from "./github-readme";
 import { normalizeProjectSkills } from "./project-taxonomy";
 import {
   extractMermaidDiagrams,
+  extractLinkedArchitecturePaths,
   parsePortfolioEvidenceManifest,
   titleFromRepositoryPath,
 } from "./repository-evidence";
@@ -697,17 +698,20 @@ function getCachedGitHubProjects(username: string, topic: string): Promise<Proje
 async function fetchGitHubProjects(username: string, topic: string): Promise<Project[]> {
   const repos = await fetchPortfolioRepositories(username, topic);
   const projects = await mapWithConcurrency(repos, ENRICHMENT_CONCURRENCY, async (repo) => {
+    const readmePromise = fetchRepositoryReadme(username, repo.name).catch(() => "");
     const [readme, languages, manifestEvidence, repositoryEvidence] = await Promise.all([
-      fetchRepositoryReadme(username, repo.name).catch(() => ""),
+      readmePromise,
       fetchRepositoryLanguages(username, repo.name).catch(() => ({})),
       fetchRepositoryManifestEvidence(username, repo.name).catch(() => ({
         manifestSkills: [],
         metadata: {},
       })),
-      fetchRepositoryEvidence(username, repo.name, repo.html_url).catch(() => ({
-        evidenceReferences: [],
-        architectureDocuments: [],
-      })),
+      readmePromise
+        .then((repositoryReadme) => fetchRepositoryEvidence(username, repo.name, repo.html_url, repositoryReadme))
+        .catch(() => ({
+          evidenceReferences: [],
+          architectureDocuments: [],
+        })),
     ]);
 
     return normalizeRepositoryProject(repo, {
@@ -796,20 +800,41 @@ const DEFAULT_ARCHITECTURE_PATHS = [
   "docs/system-architecture.md",
 ];
 
+export function selectRepositoryArchitecturePaths(
+  manifestPaths: string[],
+  readmePaths: string[],
+  docsPaths: string[]
+): string[] {
+  const explicitPaths = uniqueStrings(manifestPaths);
+  const explicitPathSet = new Set(explicitPaths);
+  const automaticPaths = uniqueStrings([
+    ...DEFAULT_ARCHITECTURE_PATHS,
+    ...readmePaths,
+    ...docsPaths,
+  ]).filter((path) => !explicitPathSet.has(path));
+
+  return [...explicitPaths, ...automaticPaths.slice(0, Math.max(0, 12 - explicitPaths.length))];
+}
+
 async function fetchRepositoryEvidence(
   username: string,
   repoName: string,
-  repositoryUrl: string
+  repositoryUrl: string,
+  readme: string
 ): Promise<{
   evidenceReferences: RepositoryEvidenceReference[];
   architectureDocuments: RepositoryArchitectureDocument[];
 }> {
-  const manifestArtifact = await fetchOptionalRepositoryFileArtifact(username, repoName, "portfolio-evidence.json");
+  const [manifestArtifact, docsArchitecturePaths] = await Promise.all([
+    fetchOptionalRepositoryFileArtifact(username, repoName, "portfolio-evidence.json"),
+    fetchRepositoryDocsArchitecturePaths(username, repoName),
+  ]);
   const manifest = manifestArtifact ? parsePortfolioEvidenceManifest(manifestArtifact.content) : null;
-  const architecturePaths = uniqueStrings([
-    ...DEFAULT_ARCHITECTURE_PATHS,
-    ...(manifest?.architecture.map((entry) => entry.path) || []),
-  ]).slice(0, 12);
+  const architecturePaths = selectRepositoryArchitecturePaths(
+    manifest?.architecture.map((entry) => entry.path) || [],
+    extractLinkedArchitecturePaths(readme),
+    docsArchitecturePaths
+  );
   const architectureArtifacts = await Promise.all(
     architecturePaths.map((path) => fetchOptionalRepositoryFileArtifact(username, repoName, path))
   );
@@ -842,6 +867,27 @@ async function fetchRepositoryEvidence(
     evidenceReferences: deduplicateEvidenceReferences(evidenceReferences),
     architectureDocuments,
   };
+}
+
+async function fetchRepositoryDocsArchitecturePaths(username: string, repoName: string): Promise<string[]> {
+  try {
+    const contents = await fetchGitHubJson<GitHubContentResponse>(
+      `${GITHUB_API_BASE}/repos/${encodeURIComponent(username)}/${encodeURIComponent(repoName)}/contents/docs`
+    );
+
+    if (!Array.isArray(contents)) {
+      return [];
+    }
+
+    return contents
+      .filter((item) => item.type === "file"
+        && /\.mdx?$/i.test(item.path)
+        && /(?:architecture|system[-_ ]?design|technical[-_ ]?design)/i.test(item.path))
+      .map((item) => item.path)
+      .slice(0, 12);
+  } catch {
+    return [];
+  }
 }
 
 async function resolveManifestEvidence(

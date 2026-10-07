@@ -22,6 +22,14 @@ function getProjectSlug(project: Project): string {
     .trim();
 }
 
+function formatProjectDate(value?: string): string {
+  if (!value) return "Not recorded";
+  const date = new Date(value);
+  return Number.isNaN(date.getTime())
+    ? value
+    : new Intl.DateTimeFormat("en-AU", { month: "short", year: "numeric" }).format(date);
+}
+
 export default function Projects({ projects, supplementalSkills = [] }: ProjectsProps) {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [selectedSkills, setSelectedSkills] = useState<string[]>([]);
@@ -89,8 +97,9 @@ export default function Projects({ projects, supplementalSkills = [] }: Projects
           <div>
             <p className="journal-kicker mb-3">Open source / continuously building</p>
             <h2 className="font-journal-serif text-5xl font-semibold text-[var(--journal-ink)] sm:text-6xl">
-              Projects, Skills &amp; Automations
+              Field Index
             </h2>
+            <p className="mt-3 font-journal-mono text-xs uppercase tracking-[0.14em] text-[var(--journal-ink-muted)]">Projects · skills · automations</p>
           </div>
           <div className="lg:justify-self-end">
             <p className="max-w-2xl text-lg leading-8 text-[var(--journal-ink-muted)]">
@@ -103,7 +112,7 @@ export default function Projects({ projects, supplementalSkills = [] }: Projects
           </div>
         </motion.div>
 
-        <div className="mb-6 grid gap-3 rounded-md border border-[var(--journal-rule-strong)] bg-[var(--journal-paper-raised)] p-3 md:grid-cols-[1fr_auto]">
+        <div className="journal-card mb-6 grid gap-3 rounded-md p-3 md:grid-cols-[1fr_auto]">
           <label className="flex min-h-12 items-center gap-3 rounded-md border border-[var(--journal-rule)] bg-[var(--journal-paper)] px-4">
             <span aria-hidden="true" className="font-journal-mono text-[var(--journal-ink-muted)]">⌕</span>
             <span className="sr-only">Search projects and automations</span>
@@ -141,7 +150,10 @@ export default function Projects({ projects, supplementalSkills = [] }: Projects
           </div>
         </div>
 
-        {showRepositories && <div className="overflow-hidden rounded-md border border-[var(--journal-rule-strong)] bg-[var(--journal-paper-raised)] shadow-lg">
+        {showRepositories && <div className="journal-card overflow-hidden rounded-md">
+          <div className="hidden grid-cols-[80px_1fr_1fr_160px] gap-4 border-b border-[var(--journal-rule-strong)] bg-[var(--journal-paper)] px-5 py-4 font-journal-mono text-[10px] font-semibold uppercase tracking-wider text-[var(--journal-ink-muted)] lg:grid">
+            <span>Source</span><span>Capability filter</span><span>Selected field note</span><span>Provenance</span>
+          </div>
           <div className="grid lg:grid-cols-[minmax(0,2fr)_minmax(0,3fr)]">
             <Skills
               projects={projects}
@@ -185,7 +197,7 @@ export default function Projects({ projects, supplementalSkills = [] }: Projects
               {hasProjects && (
                 <div>
               <div className="mb-6 flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
-                <div className="flex flex-wrap gap-3 text-sm text-gray-500 dark:text-gray-400">
+                <div className="flex flex-wrap gap-3 font-journal-mono text-xs text-[var(--journal-ink-muted)]">
                   <span>{visibleProjects.length} {visibleProjects.length === 1 ? "repository" : "repositories"}</span>
                   <span>{activeIndex + 1} of {visibleProjects.length}</span>
                   <span>{selectedSkills.length} active {selectedSkills.length === 1 ? "filter" : "filters"}</span>
@@ -219,6 +231,10 @@ export default function Projects({ projects, supplementalSkills = [] }: Projects
                 transition={{ duration: 0.4 }}
                 className="journal-card relative rounded-md border-l-4 border-l-[var(--journal-verification)] p-6"
               >
+                <div className="mb-5 flex flex-wrap items-center justify-between gap-3 border-b border-[var(--journal-rule)] pb-4 font-journal-mono text-[10px] uppercase tracking-[0.12em] text-[var(--journal-ink-muted)]">
+                  <span>GitHub source / record {String(activeIndex + 1).padStart(2, "0")}</span>
+                  <span>{currentProject.pushedAt || currentProject.updatedAt ? `Updated ${formatProjectDate(currentProject.pushedAt || currentProject.updatedAt)}` : "Public repository"}</span>
+                </div>
                 <div className="flex flex-col lg:flex-row lg:items-start lg:justify-between gap-4 mb-4">
                   <div>
                     <div className="mb-2 flex flex-wrap items-center gap-2">
@@ -247,10 +263,10 @@ export default function Projects({ projects, supplementalSkills = [] }: Projects
 
                 {currentProject.technicalChallenge && (
                   <div className="mt-6 rounded-md border border-dashed border-[var(--journal-rule-strong)] bg-[var(--journal-paper)] p-4">
-                    <h4 className="mb-2 text-sm font-semibold uppercase tracking-wide text-gray-700 dark:text-gray-200">
+                    <h4 className="mb-2 font-journal-mono text-xs font-semibold uppercase tracking-wide text-[var(--journal-ink)]">
                       Technical Challenge
                     </h4>
-                    <p className="text-gray-700 dark:text-gray-300 leading-relaxed text-sm">
+                    <p className="text-sm leading-relaxed text-[var(--journal-ink-muted)]">
                       {currentProject.technicalChallenge}
                     </p>
                   </div>
@@ -275,6 +291,11 @@ export default function Projects({ projects, supplementalSkills = [] }: Projects
                   </a>
                 </div>
               </motion.div>
+
+              <div className="mt-4 flex flex-col justify-between gap-2 border-y border-[var(--journal-rule)] bg-[var(--journal-paper)] px-4 py-3 font-journal-mono text-[10px] uppercase tracking-[0.1em] text-[var(--journal-ink-muted)] sm:flex-row">
+                <span>Provenance: public original repository</span>
+                <span>{currentProject.stars ?? 0} stars · {currentProject.forks ?? 0} forks</span>
+              </div>
 
               <div className="flex justify-center mt-6 space-x-2">
                 {visibleProjects.map((project, index) => (

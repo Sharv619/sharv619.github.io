@@ -21,11 +21,14 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const projectRoutes = projects.map(
     (project) => `/projects/${project.slug || slugify(project.title)}/`
   );
+  const repositoryCaseStudyRoutes = projects
+    .filter((project) => !project.caseStudySlug)
+    .map((project) => `/projects/${project.slug || slugify(project.title)}/case-study/`);
   const caseStudyRoutes = getOrderedFlagshipCaseStudies().map(
     (caseStudy) => `/case-studies/${caseStudy.slug}/`
   );
 
-  return [...STATIC_ROUTES, ...projectRoutes, ...caseStudyRoutes].map((route) => ({
+  return [...STATIC_ROUTES, ...projectRoutes, ...repositoryCaseStudyRoutes, ...caseStudyRoutes].map((route) => ({
     url: canonicalUrl(route),
     lastModified,
     changeFrequency: route === "/" ? "weekly" : "monthly",

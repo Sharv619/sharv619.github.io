@@ -7,7 +7,7 @@ import Contact from "@/components/Contact";
 import EvidenceTab from "@/components/EvidenceTab";
 import FeaturedCaseStudies from "@/components/FeaturedCaseStudies";
 import Navigation from "@/components/Navigation";
-import type { Project } from "@/lib/data";
+import { slugify, type Project } from "@/lib/data";
 import { getOrderedFlagshipCaseStudies } from "@/lib/flagship-case-studies";
 
 interface ProjectsPageClientProps {
@@ -58,7 +58,7 @@ export default function ProjectsPageClient({ projects }: ProjectsPageClientProps
                   <div className="mt-6 flex flex-wrap gap-3 border-t border-[var(--journal-rule)] pt-4 font-journal-mono text-xs font-semibold">
                     <Link href={`/projects/${project.slug}`} className="underline underline-offset-4">Field note</Link>
                     <a href={project.githubUrl} target="_blank" rel="noopener noreferrer" className="underline underline-offset-4">GitHub ↗</a>
-                    {project.caseStudySlug ? <Link href={`/case-studies/${project.caseStudySlug}`} className="underline underline-offset-4">Case study</Link> : null}
+                    <Link href={`/projects/${project.slug || slugify(project.title)}/case-study`} className="underline underline-offset-4">Case study</Link>
                   </div>
                 </motion.article>
               ))}

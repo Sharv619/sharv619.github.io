@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import CaseStudyDetailClient from "@/components/CaseStudyDetailClient";
 import { getFlagshipCaseStudy, getOrderedFlagshipCaseStudies } from "@/lib/flagship-case-studies";
+import { getPortfolioProjects } from "@/lib/github-projects";
+import { toPublicProject } from "@/lib/public-project";
 import { createPageMetadata } from "@/lib/seo";
 
 export const dynamicParams = false;
@@ -39,5 +41,8 @@ export default async function CaseStudyPage({ params }: CaseStudyPageProps) {
     notFound();
   }
 
-  return <CaseStudyDetailClient caseStudy={caseStudy} />;
+  const projects = await getPortfolioProjects();
+  const project = projects.find((item) => item.caseStudySlug === caseStudy.slug);
+
+  return <CaseStudyDetailClient caseStudy={caseStudy} project={project ? toPublicProject(project) : undefined} />;
 }

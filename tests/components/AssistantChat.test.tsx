@@ -15,7 +15,9 @@ describe("AssistantChat", () => {
   it("identifies the active browser-only repository RAG", () => {
     render(<AssistantChat isOpen onClose={() => undefined} />);
 
+    expect(screen.getByText("Experimental Synthetic RAG")).toBeInTheDocument();
     expect(screen.getByText("Repo RAG")).toBeInTheDocument();
+    expect(screen.queryByText("Verified")).not.toBeInTheDocument();
     expect(screen.queryByText("Demo Mode")).not.toBeInTheDocument();
   });
 

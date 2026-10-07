@@ -5,7 +5,7 @@ const RESUME_PDF_PATH = "/himanshu_lade_resume_v3.pdf";
 
 export const metadata = createPageMetadata({
   title: "Himanshu Lade Resume | Full-Stack AI Engineer Sydney",
-  description: "Resume for Sydney-based full-stack systems and AI engineer Himanshu Lade, covering production recovery, automation, technical SEO, and software delivery.",
+  description: "Resume for Australia-based full-stack systems and AI engineer Himanshu Lade, open to remote work worldwide and covering production recovery, automation, technical SEO, and software delivery.",
   path: "/resume/",
 });
 

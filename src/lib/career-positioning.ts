@@ -31,9 +31,9 @@ export const careerPositioning: CareerPositioning = {
       projectSlugs: ["production-recovery-performance-rebuild"],
     },
     {
-      title: "Responsible AI / Human-in-the-Loop Systems",
-      description: "Building local-first and AI-assisted workflows with explicit safety boundaries, deterministic fallbacks, and human approval.",
-      projectSlugs: ["pilly-medimate-voice"],
+      title: "AI-Assisted Security Systems",
+      description: "Building explainable network analysis workflows with local heuristics, selective AI escalation, tenant-aware history, and human review.",
+      projectSlugs: ["network-guardian-ai"],
     },
     {
       title: "AI Developer Tooling",

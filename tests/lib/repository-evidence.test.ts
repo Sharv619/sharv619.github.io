@@ -2,6 +2,7 @@ import { describe, expect, it } from "vitest";
 
 import {
   extractMermaidDiagrams,
+  extractLinkedArchitecturePaths,
   parsePortfolioEvidenceManifest,
   titleFromRepositoryPath,
 } from "../../src/lib/repository-evidence";
@@ -53,5 +54,19 @@ describe("repository evidence manifest", () => {
     expect(diagrams).toHaveLength(1);
     expect(diagrams[0].source).toContain("GitHub --> Portfolio");
     expect(titleFromRepositoryPath("docs/system-architecture.md")).toBe("System Architecture");
+  });
+
+  it("discovers architecture documents linked from a repository README", () => {
+    const paths = extractLinkedArchitecturePaths([
+      "- [Architecture](docs/NUDGEAI_ARCHITECTURE.md)",
+      "- [System design](./docs/system-design.mdx#overview)",
+      "- [Roadmap](docs/ROADMAP.md)",
+      "- [Unsafe](../private/ARCHITECTURE.md)",
+    ].join("\n"));
+
+    expect(paths).toEqual([
+      "docs/NUDGEAI_ARCHITECTURE.md",
+      "docs/system-design.mdx",
+    ]);
   });
 });

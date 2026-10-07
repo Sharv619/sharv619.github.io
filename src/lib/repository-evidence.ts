@@ -101,6 +101,31 @@ export function extractMermaidDiagrams(markdown: string, path: string): Reposito
   return diagrams;
 }
 
+export function extractLinkedArchitecturePaths(markdown: string): string[] {
+  const paths = new Set<string>();
+  const linkPattern = /\[([^\]]+)\]\(([^)]+)\)/g;
+  let match = linkPattern.exec(markdown);
+
+  while (match && paths.size < 12) {
+    const label = match[1].trim();
+    const rawTarget = match[2].trim().split(/\s+["']/)[0];
+    const target = rawTarget.split(/[?#]/)[0].replace(/^\.\//, "");
+    const isMarkdown = /\.mdx?$/i.test(target);
+    const isArchitecture = /(?:architecture|system[-_ ]?design|technical[-_ ]?design)/i.test(`${label} ${target}`);
+    const isSafeRelativePath = !/^(?:https?:|\/)/i.test(target)
+      && !target.split("/").includes("..")
+      && target.length <= 240;
+
+    if (isMarkdown && isArchitecture && isSafeRelativePath) {
+      paths.add(target);
+    }
+
+    match = linkPattern.exec(markdown);
+  }
+
+  return [...paths];
+}
+
 export function titleFromRepositoryPath(path: string): string {
   const fileName = path.split("/").pop() || path;
   return fileName
