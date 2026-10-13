@@ -4,11 +4,11 @@ This document defines the public claims that are safe to use across the portfoli
 
 ## Approved Headline
 
-Software Engineer focused on backend systems, production reliability, cloud deployment, and AI-assisted workflow automation.
+Founding Engineer focused on backend systems, production reliability, cloud deployment, and AI-assisted workflow automation.
 
 ## Ask Jay Services
 
-- Title: Software Engineer
+- Title: Founding Engineer
 - Dates: May-Oct 2025
 - Scope: Production recovery, automation, marketplace engineering, and deployment workflows
 - Approved claims:

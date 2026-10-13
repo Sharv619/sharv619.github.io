@@ -44,7 +44,7 @@ interface Component {
 const DEFAULT_KB: KnowledgeBase = {
   personal: {
     name: "Himanshu Lade",
-    title: "Software Engineer",
+    title: "Founding Engineer",
     location: "Sydney, Australia",
     contact: {
       email: "himanshulade@hotmail.com",
@@ -56,7 +56,7 @@ const DEFAULT_KB: KnowledgeBase = {
   experience: [
     {
       company: "Ask Jay Services",
-      role: "Software Engineer",
+      role: "Founding Engineer",
       duration: "May 2025 - Oct 2025",
       achievements: [
         "Recovered a production system from ransomware with 100% data restored and zero loss",

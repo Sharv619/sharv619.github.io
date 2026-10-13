@@ -33,7 +33,7 @@ export class GeminiService {
 
     if (messageLower.includes("experience") || messageLower.includes("work") || messageLower.includes("background")) {
       const latestExp = this.portfolioData.experience[0];
-      return `Himanshu is a Software Engineer with experience including ${latestExp.company} as ${latestExp.position} (${latestExp.duration}). ${latestExp.description[0]} He focuses on backend systems, production reliability, cloud deployment, and AI-assisted workflows.`;
+      return `Himanshu is a Founding Engineer with experience including ${latestExp.company} as ${latestExp.position} (${latestExp.duration}). ${latestExp.description[0]} He focuses on backend systems, production reliability, cloud deployment, and AI-assisted workflows.`;
     }
 
     if (messageLower.includes("project") || messageLower.includes("portfolio") || messageLower.includes("codeflow")) {

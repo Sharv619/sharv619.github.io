@@ -1,5 +1,5 @@
 ### Hi there, I'm Himanshu
-**Software Engineer focused on backend systems, production reliability, cloud deployment, and AI-assisted workflow automation.**
+**Founding Engineer focused on backend systems, production reliability, cloud deployment, and AI-assisted workflow automation.**
 
 I'm a software engineer in Sydney building practical systems around real workflows: production recovery, CI/CD, cloud deployment, internal tools, and AI-assisted automation. My strongest work sits at the intersection of shipping features, debugging production issues, and making systems easier to operate.
 
@@ -52,7 +52,7 @@ The public website is hosted with **GitHub Pages + Cloudflare**, not AWS, and us
 ---
 ### Recent Experience Highlights
 
-- **Ask Jay Services:** Software Engineer, May-Oct 2025. Recovered a production system from ransomware with 100% data restored and zero loss, reduced page load time from 25 seconds to 3 seconds, built a shift-booking bot and three-sided Flutter marketplace, and established CI/CD practices.
+- **Ask Jay Services:** Founding Engineer, May-Oct 2025. Recovered a production system from ransomware with 100% data restored and zero loss, reduced page load time from 25 seconds to 3 seconds, built a shift-booking bot and three-sided Flutter marketplace, and established CI/CD practices.
 - **Australian Computer Society:** Web Developer Intern, Sep 2023-Feb 2024. Improved MERN frontend performance by 33% for a production application serving 200+ active users, remediated 15+ OWASP Top 10 vulnerabilities, and built internal tooling.
 
 ---

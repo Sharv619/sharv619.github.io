@@ -2,6 +2,7 @@ import type { MetadataRoute } from "next";
 import { slugify } from "@/lib/data";
 import { getOrderedFlagshipCaseStudies } from "@/lib/flagship-case-studies";
 import { getPortfolioProjects } from "@/lib/github-projects";
+import { getPersonalWorkflowSlug, personalAutomationWorkflows } from "@/lib/personal-workflows";
 import { canonicalUrl } from "@/lib/seo";
 
 export const dynamic = "force-static";
@@ -27,8 +28,11 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const caseStudyRoutes = getOrderedFlagshipCaseStudies().map(
     (caseStudy) => `/case-studies/${caseStudy.slug}/`
   );
+  const workflowRoutes = personalAutomationWorkflows
+    .filter((workflow) => !workflow.projectSlug)
+    .map((workflow) => `/workflows/${getPersonalWorkflowSlug(workflow.title)}/`);
 
-  return [...STATIC_ROUTES, ...projectRoutes, ...repositoryCaseStudyRoutes, ...caseStudyRoutes].map((route) => ({
+  return [...STATIC_ROUTES, ...projectRoutes, ...repositoryCaseStudyRoutes, ...caseStudyRoutes, ...workflowRoutes].map((route) => ({
     url: canonicalUrl(route),
     lastModified,
     changeFrequency: route === "/" ? "weekly" : "monthly",

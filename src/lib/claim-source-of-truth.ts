@@ -5,7 +5,7 @@ export const verifiedClaims = {
   },
   experience: {
     askJay: {
-      title: "Software Engineer",
+      title: "Founding Engineer",
       duration: "May-Oct 2025",
       summary: "Production recovery, automation, and marketplace engineering for a service marketplace.",
       approvedClaims: [

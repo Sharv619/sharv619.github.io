@@ -58,7 +58,7 @@
       "What does Himanshu do?",
       "Give me a quick profile summary"
     ],
-    "answer": "Himanshu Lade is a Sydney-based Software Engineer focused on backend systems, production reliability, cloud deployment, and AI-assisted workflow automation. His recent work includes production recovery, performance optimization, Docker/GitHub Actions CI/CD, AWS-oriented deployment work, and practical AI tooling such as codeflow-hook and portfolio RAG experiments.",
+    "answer": "Himanshu Lade is a Sydney-based Founding Engineer focused on backend systems, production reliability, cloud deployment, and AI-assisted workflow automation. His recent work includes production recovery, performance optimization, Docker/GitHub Actions CI/CD, AWS-oriented deployment work, and practical AI tooling such as codeflow-hook and portfolio RAG experiments.",
     "sources": [
       {
         "id": "kb-personal",
@@ -92,7 +92,7 @@
       "What production recovery work has Himanshu done?",
       "What is his most production-relevant experience?"
     ],
-    "answer": "At Ask Jay Services, Himanshu worked as a Software Engineer from May 2025 to October 2025. He recovered a production system from ransomware within three weeks of starting the engagement, restored 100% of the data with zero loss, reduced page load time from 25 seconds to 3 seconds over 30 hours, built a shift-booking automation bot and a three-sided Flutter marketplace, and established CI/CD and production deployment practices.",
+    "answer": "At Ask Jay Services, Himanshu worked as a Founding Engineer from May 2025 to October 2025. He recovered a production system from ransomware within three weeks of starting the engagement, restored 100% of the data with zero loss, reduced page load time from 25 seconds to 3 seconds over 30 hours, built a shift-booking automation bot and a three-sided Flutter marketplace, and established CI/CD and production deployment practices.",
     "sources": [
       {
         "id": "ask-jay",
