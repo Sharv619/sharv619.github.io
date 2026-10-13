@@ -52,7 +52,7 @@ export default function LinkedInPosts() {
             <h2 className="mt-6 text-3xl font-black tracking-tight text-white sm:text-4xl">
               Himanshu Lade
             </h2>
-            <p className="mt-2 font-semibold text-white/75">Software Engineer · Sydney</p>
+            <p className="mt-2 font-semibold text-white/75">Founding Engineer · Sydney</p>
             <p className="mt-6 max-w-md leading-7 text-white/90">
               Build notes, lessons from the messy middle, and ideas that are still taking shape.
             </p>

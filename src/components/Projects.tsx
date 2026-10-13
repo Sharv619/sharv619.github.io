@@ -4,7 +4,10 @@ import { motion } from "framer-motion";
 import Link from "next/link";
 import { useState } from "react";
 import Skills from "@/components/Skills";
-import { personalAutomationWorkflows } from "@/lib/personal-workflows";
+import {
+  getPersonalWorkflowHref,
+  personalAutomationWorkflows,
+} from "@/lib/personal-workflows";
 import { projectMatchesSkill } from "@/lib/project-skills";
 import type { Project } from "@/lib/data";
 
@@ -353,42 +356,48 @@ export default function Projects({ projects, supplementalSkills = [] }: Projects
 
           <div className="grid gap-4 lg:grid-cols-3">
             {visibleAutomations.map((workflow, workflowIndex) => (
-              <motion.article
+              <Link
                 key={workflow.title}
-                initial={{ opacity: 0, y: 16 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.45, delay: workflowIndex * 0.08 }}
-                viewport={{ once: true }}
-                className="journal-card flex h-full flex-col rounded-md border-l-4 border-l-[var(--journal-brass)] p-6"
+                href={getPersonalWorkflowHref(workflow)}
+                aria-label={`Open ${workflow.title} ${workflow.projectSlug ? "project" : "field note"}`}
+                className="block h-full focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[var(--journal-verification)]"
               >
-                <p className="font-journal-mono text-xs font-bold uppercase tracking-[0.16em] text-[var(--journal-verification)]">
-                  {workflow.label}
-                </p>
-                <h4 className="font-journal-serif text-xl font-semibold text-[var(--journal-ink)]">
-                  {workflow.title}
-                </h4>
-                <p className="mt-2 text-sm leading-relaxed text-[var(--journal-ink-muted)]">
-                  {workflow.description}
-                </p>
-                <ul className="mt-5 flex flex-wrap gap-2" aria-label={`${workflow.title} technologies`}>
-                  {workflow.technologies.map((technology) => (
-                    <li
-                      key={technology}
-                      className="rounded-sm border border-[var(--journal-rule)] px-3 py-1 font-journal-mono text-xs font-semibold text-[var(--journal-ink-muted)]"
-                    >
-                      {technology}
-                    </li>
-                  ))}
-                </ul>
-                <div className="mt-5 rounded-md border border-dashed border-[var(--journal-rule-strong)] bg-[var(--journal-paper)] p-4">
-                  <p className="font-journal-mono text-xs font-semibold uppercase tracking-wide text-[var(--journal-ink-muted)]">
-                    How it works
+                <motion.article
+                  initial={{ opacity: 0, y: 16 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.45, delay: workflowIndex * 0.08 }}
+                  viewport={{ once: true }}
+                  className="journal-card flex h-full flex-col rounded-md border-l-4 border-l-[var(--journal-brass)] p-6"
+                >
+                  <p className="font-journal-mono text-xs font-bold uppercase tracking-[0.16em] text-[var(--journal-verification)]">
+                    {workflow.label}
                   </p>
-                  <p className="mt-2 text-sm font-medium leading-relaxed text-[var(--journal-ink)]">
-                    {workflow.detail}
+                  <h4 className="font-journal-serif text-xl font-semibold text-[var(--journal-ink)]">
+                    {workflow.title}
+                  </h4>
+                  <p className="mt-2 text-sm leading-relaxed text-[var(--journal-ink-muted)]">
+                    {workflow.description}
                   </p>
-                </div>
-              </motion.article>
+                  <ul className="mt-5 flex flex-wrap gap-2" aria-label={`${workflow.title} technologies`}>
+                    {workflow.technologies.map((technology) => (
+                      <li
+                        key={technology}
+                        className="rounded-sm border border-[var(--journal-rule)] px-3 py-1 font-journal-mono text-xs font-semibold text-[var(--journal-ink-muted)]"
+                      >
+                        {technology}
+                      </li>
+                    ))}
+                  </ul>
+                  <div className="mt-5 rounded-md border border-dashed border-[var(--journal-rule-strong)] bg-[var(--journal-paper)] p-4">
+                    <p className="font-journal-mono text-xs font-semibold uppercase tracking-wide text-[var(--journal-ink-muted)]">
+                      How it works
+                    </p>
+                    <p className="mt-2 text-sm font-medium leading-relaxed text-[var(--journal-ink)]">
+                      {workflow.detail}
+                    </p>
+                  </div>
+                </motion.article>
+              </Link>
             ))}
           </div>
         </div>}

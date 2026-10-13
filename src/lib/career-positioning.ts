@@ -13,7 +13,7 @@ export const careerPositioning: CareerPositioning = {
   headline: "Full-stack systems and AI engineer building practical automation, reliable software, and local-first tools.",
   subheadline: "The live site is my public evidence layer. Localhost is where small utilities, local models, and infrastructure experiments begin.",
   targetRoles: [
-    "Software Engineer",
+    "Founding Engineer",
     "Full-Stack Developer",
     "Backend Developer",
     "DevOps Engineer",

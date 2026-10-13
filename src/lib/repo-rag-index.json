@@ -4260,6 +4260,506 @@
     "evidenceType": "evidence"
   },
   {
+    "repository": "Vegspoons Wallet Enquiry",
+    "repositorySlug": "vegspoons-wallet-enquiry",
+    "repositoryUrl": "https://github.com/Sharv619/vegspoons-wallet-enquiry",
+    "title": "Vegspoons Wallet Enquiry",
+    "technologies": [
+      "Python"
+    ],
+    "topics": [],
+    "primaryLanguage": "Python",
+    "updatedAt": "2026-09-03T13:56:34Z",
+    "authority": "repository",
+    "featured": false,
+    "priority": 0,
+    "id": "vegspoons-wallet-enquiry-metadata",
+    "sourceUrl": "https://github.com/Sharv619/vegspoons-wallet-enquiry",
+    "heading": "Repository overview",
+    "content": "High-performance serverless sidecar for issuing Apple Wallet and Google Wallet membership passes from Stripe payment events, with a live merchant verification loop.\nPrimary language: Python.\nTechnologies: Python.",
+    "evidenceType": "metadata"
+  },
+  {
+    "repository": "Vegspoons Wallet Enquiry",
+    "repositorySlug": "vegspoons-wallet-enquiry",
+    "repositoryUrl": "https://github.com/Sharv619/vegspoons-wallet-enquiry",
+    "title": "Vegspoons Wallet Enquiry",
+    "technologies": [
+      "Python"
+    ],
+    "topics": [],
+    "primaryLanguage": "Python",
+    "updatedAt": "2026-09-03T13:56:34Z",
+    "authority": "repository",
+    "featured": false,
+    "priority": 0,
+    "id": "vegspoons-wallet-enquiry-vegspoons-wallet-bridge-1",
+    "sourceUrl": "https://github.com/Sharv619/vegspoons-wallet-enquiry#readme#vegspoons-wallet-bridge",
+    "heading": "VegSpoons Wallet Bridge",
+    "content": "High-performance serverless sidecar for issuing Apple Wallet and Google Wallet membership passes from Stripe payment events, with a live merchant verification loop.",
+    "evidenceType": "readme"
+  },
+  {
+    "repository": "Vegspoons Wallet Enquiry",
+    "repositorySlug": "vegspoons-wallet-enquiry",
+    "repositoryUrl": "https://github.com/Sharv619/vegspoons-wallet-enquiry",
+    "title": "Vegspoons Wallet Enquiry",
+    "technologies": [
+      "Python"
+    ],
+    "topics": [],
+    "primaryLanguage": "Python",
+    "updatedAt": "2026-09-03T13:56:34Z",
+    "authority": "repository",
+    "featured": false,
+    "priority": 0,
+    "id": "vegspoons-wallet-enquiry-documentation-suite-1",
+    "sourceUrl": "https://github.com/Sharv619/vegspoons-wallet-enquiry#readme#documentation-suite",
+    "heading": "Documentation Suite",
+    "content": "- Product Requirements Document\n- Mermaid Workflow Diagram\n- Standalone Mermaid Source\n- Accelerated 10-Day Technical Work Breakdown Structure\n- Sovereign Membership Engine Proposal With 30-Day Roadmap",
+    "evidenceType": "readme"
+  },
+  {
+    "repository": "Vegspoons Wallet Enquiry",
+    "repositorySlug": "vegspoons-wallet-enquiry",
+    "repositoryUrl": "https://github.com/Sharv619/vegspoons-wallet-enquiry",
+    "title": "Vegspoons Wallet Enquiry",
+    "technologies": [
+      "Python"
+    ],
+    "topics": [],
+    "primaryLanguage": "Python",
+    "updatedAt": "2026-09-03T13:56:34Z",
+    "authority": "repository",
+    "featured": false,
+    "priority": 0,
+    "id": "vegspoons-wallet-enquiry-system-overview-1",
+    "sourceUrl": "https://github.com/Sharv619/vegspoons-wallet-enquiry#readme#system-overview",
+    "heading": "System Overview",
+    "content": "The VegSpoons Wallet Bridge is designed as a zero-interference sidecar around the existing VegSpoons directory site. The legacy Apache, Ubuntu, and jQuery membership stack continues to operate without schema changes, runtime coupling, or deployment dependency on the wallet service.\n\nThe bridge listens to Stripe webhooks, validates event authenticity, records membership state in DynamoDB, generates wallet pass artifacts, stores short-lived delivery assets in S3, and exposes a verification API for merchant scans. Wallet passes are not treated as static images. Each scan resolves to live server-side state so screenshots, stale passes, and replayed QR codes can be rejected.",
+    "evidenceType": "readme"
+  },
+  {
+    "repository": "Vegspoons Wallet Enquiry",
+    "repositorySlug": "vegspoons-wallet-enquiry",
+    "repositoryUrl": "https://github.com/Sharv619/vegspoons-wallet-enquiry",
+    "title": "Vegspoons Wallet Enquiry",
+    "technologies": [
+      "Python"
+    ],
+    "topics": [],
+    "primaryLanguage": "Python",
+    "updatedAt": "2026-09-03T13:56:34Z",
+    "authority": "repository",
+    "featured": false,
+    "priority": 0,
+    "id": "vegspoons-wallet-enquiry-reference-architecture-1",
+    "sourceUrl": "https://github.com/Sharv619/vegspoons-wallet-enquiry#readme#reference-architecture",
+    "heading": "Reference Architecture",
+    "content": "- API Gateway REST API exposes `POST /webhook` and `POST /verify`.\n- Python 3.12 AWS Lambda contains the logic engine, pass factory, and verification handler.\n- AWS Secrets Manager stores Stripe, Apple, and Google signing material.\n- DynamoDB stores idempotency records, wallet pass state, entitlement status, and scan audit records.\n- S3 stores temporary pass packages and delivery payloads with strict lifecycle expiry.\n- CloudWatch Logs, Metrics, and Alarms provide operational visibility.\n- All resources are deployed in `ap-southeast-2` to keep customer and membership verification data region-locked to Sydney.",
+    "evidenceType": "readme"
+  },
+  {
+    "repository": "Vegspoons Wallet Enquiry",
+    "repositorySlug": "vegspoons-wallet-enquiry",
+    "repositoryUrl": "https://github.com/Sharv619/vegspoons-wallet-enquiry",
+    "title": "Vegspoons Wallet Enquiry",
+    "technologies": [
+      "Python"
+    ],
+    "topics": [],
+    "primaryLanguage": "Python",
+    "updatedAt": "2026-09-03T13:56:34Z",
+    "authority": "repository",
+    "featured": false,
+    "priority": 0,
+    "id": "vegspoons-wallet-enquiry-design-principles-1",
+    "sourceUrl": "https://github.com/Sharv619/vegspoons-wallet-enquiry#readme#design-principles",
+    "heading": "Design Principles",
+    "content": "- **Sidecar isolation:** no direct writes to the legacy site database and no required changes to Apache, PHP, jQuery, or hosting topology.\n- **Stateless execution:** Lambda handlers derive state from signed inputs, DynamoDB, and Secrets Manager, keeping runtime instances disposable.\n- **Idempotency by default:** Stripe event IDs and internal pass IDs are written with DynamoDB conditional expressions to prevent duplicate issuance.\n- **Security-first pass handling:** wallet tokens are signed, scan results are live, screenshots are insufficient for acceptance, and replay attempts are auditable.\n- **No secret values in environment variables:** Lambda environment variables may contain secret ARNs and configuration names only.\n- **Low-latency verification:** `/verify` is optimized for sub-200 ms p95 decision time in-region.",
+    "evidenceType": "readme"
+  },
+  {
+    "repository": "Vegspoons Wallet Enquiry",
+    "repositorySlug": "vegspoons-wallet-enquiry",
+    "repositoryUrl": "https://github.com/Sharv619/vegspoons-wallet-enquiry",
+    "title": "Vegspoons Wallet Enquiry",
+    "technologies": [
+      "Python"
+    ],
+    "topics": [],
+    "primaryLanguage": "Python",
+    "updatedAt": "2026-09-03T13:56:34Z",
+    "authority": "repository",
+    "featured": false,
+    "priority": 0,
+    "id": "vegspoons-wallet-enquiry-core-data-stores-1",
+    "sourceUrl": "https://github.com/Sharv619/vegspoons-wallet-enquiry#readme#core-data-stores",
+    "heading": "Core Data Stores",
+    "content": "| Store | Purpose | Suggested key design |\n| --- | --- | --- |\n| `WalletBridgePasses` | Canonical pass and entitlement state | `PK = PASS# `, `SK = STATE#CURRENT` |\n| `WalletBridgeIdempotency` | Stripe webhook deduplication and pass factory locks | `PK = STRIPE_EVENT# ` with TTL |\n| `WalletBridgeScans` | Merchant scan audit trail and replay detection | `PK = PASS# `, `SK = SCAN# # ` |\n| S3 temporary bucket | Apple `.pkpass`, Google delivery JSON, and short-lived artifacts | Lifecycle expiry between 15 minutes and 24 hours |",
+    "evidenceType": "readme"
+  },
+  {
+    "repository": "Vegspoons Wallet Enquiry",
+    "repositorySlug": "vegspoons-wallet-enquiry",
+    "repositoryUrl": "https://github.com/Sharv619/vegspoons-wallet-enquiry",
+    "title": "Vegspoons Wallet Enquiry",
+    "technologies": [
+      "Python"
+    ],
+    "topics": [],
+    "primaryLanguage": "Python",
+    "updatedAt": "2026-09-03T13:56:34Z",
+    "authority": "repository",
+    "featured": false,
+    "priority": 0,
+    "id": "vegspoons-wallet-enquiry-prerequisites-1",
+    "sourceUrl": "https://github.com/Sharv619/vegspoons-wallet-enquiry#readme#prerequisites",
+    "heading": "Prerequisites",
+    "content": "- AWS account with deployment access to `ap-southeast-2`.\n- AWS CLI configured for the target account.\n- AWS SAM CLI or AWS CDK installed.\n- Python 3.12 available locally.\n- Stripe webhook endpoint secret.\n- Apple Wallet pass certificate, private key, WWDR certificate, team ID, pass type ID.\n- Google Wallet issuer ID and service account JSON with the minimum required wallet permissions.",
+    "evidenceType": "readme"
+  },
+  {
+    "repository": "Vegspoons Wallet Enquiry",
+    "repositorySlug": "vegspoons-wallet-enquiry",
+    "repositoryUrl": "https://github.com/Sharv619/vegspoons-wallet-enquiry",
+    "title": "Vegspoons Wallet Enquiry",
+    "technologies": [
+      "Python"
+    ],
+    "topics": [],
+    "primaryLanguage": "Python",
+    "updatedAt": "2026-09-03T13:56:34Z",
+    "authority": "repository",
+    "featured": false,
+    "priority": 0,
+    "id": "vegspoons-wallet-enquiry-configuration-1",
+    "sourceUrl": "https://github.com/Sharv619/vegspoons-wallet-enquiry#readme#configuration",
+    "heading": "Configuration",
+    "content": "Secrets must be created in AWS Secrets Manager before production deployment. Lambda should receive only ARNs or secret names.\n\nRecommended secrets:\n\n| Secret | Contents |\n| --- | --- |\n| `vegspoons/prod/stripe` | Stripe API key and webhook endpoint secret |\n| `vegspoons/prod/apple-wallet` | Apple pass certificate bundle, private key material, certificate password, team metadata |\n| `vegspoons/prod/google-wallet` | Google Wallet issuer ID and service account JSON |\n| `vegspoons/prod/merchant-auth` | Scanner JWT issuer key material or public key set |\n\nRecommended non-secret environment variables:",
+    "evidenceType": "readme"
+  },
+  {
+    "repository": "Vegspoons Wallet Enquiry",
+    "repositorySlug": "vegspoons-wallet-enquiry",
+    "repositoryUrl": "https://github.com/Sharv619/vegspoons-wallet-enquiry",
+    "title": "Vegspoons Wallet Enquiry",
+    "technologies": [
+      "Python"
+    ],
+    "topics": [],
+    "primaryLanguage": "Python",
+    "updatedAt": "2026-09-03T13:56:34Z",
+    "authority": "repository",
+    "featured": false,
+    "priority": 0,
+    "id": "vegspoons-wallet-enquiry-configuration-2",
+    "sourceUrl": "https://github.com/Sharv619/vegspoons-wallet-enquiry#readme#configuration",
+    "heading": "Configuration",
+    "content": "| Variable | Example | Notes |\n| --- | --- | --- |\n| `AWS_REGION` | `ap-southeast-2` | Must match deployment region |\n| `STAGE` | `prod` | Used for table and bucket names |\n| `STRIPE_SECRET_ARN` | `arn:aws:secretsmanager:...` | ARN only, not secret value |\n| `APPLE_SECRET_ARN` | `arn:aws:secretsmanager:...` | ARN only |\n| `GOOGLE_SECRET_ARN` | `arn:aws:secretsmanager:...` | ARN only |\n| `PASS_TABLE_NAME` | `WalletBridgePasses-prod` | DynamoDB table name |\n| `IDEMPOTENCY_TABLE_NAME` | `WalletBridgeIdempotency-prod` | DynamoDB table name |\n| `SCAN_TABLE_NAME` | `WalletBridgeScans-prod` | DynamoDB table name |\n| `TEMP_BUCKET_NAME` | `vegspoons-wallet-temp-prod` | S3 bucket name |",
+    "evidenceType": "readme"
+  },
+  {
+    "repository": "Vegspoons Wallet Enquiry",
+    "repositorySlug": "vegspoons-wallet-enquiry",
+    "repositoryUrl": "https://github.com/Sharv619/vegspoons-wallet-enquiry",
+    "title": "Vegspoons Wallet Enquiry",
+    "technologies": [
+      "Python"
+    ],
+    "topics": [],
+    "primaryLanguage": "Python",
+    "updatedAt": "2026-09-03T13:56:34Z",
+    "authority": "repository",
+    "featured": false,
+    "priority": 0,
+    "id": "vegspoons-wallet-enquiry-deployment-with-aws-sam-1",
+    "sourceUrl": "https://github.com/Sharv619/vegspoons-wallet-enquiry#readme#deployment-with-aws-sam",
+    "heading": "Deployment With AWS SAM",
+    "content": "The exact template may vary, but the production deployment should follow this flow:\n\n \n\nRecommended guided values:\n\n \n\nProduction deployment guardrails:\n\n- Reject deployment outside `ap-southeast-2`.\n- Enable S3 block public access and default SSE-KMS or SSE-S3 encryption.\n- Enable DynamoDB point-in-time recovery.\n- Scope Lambda IAM permissions to specific secret ARNs, table ARNs, and bucket prefixes.\n- Enable API Gateway access logs without request bodies or wallet tokens.",
+    "evidenceType": "readme"
+  },
+  {
+    "repository": "Vegspoons Wallet Enquiry",
+    "repositorySlug": "vegspoons-wallet-enquiry",
+    "repositoryUrl": "https://github.com/Sharv619/vegspoons-wallet-enquiry",
+    "title": "Vegspoons Wallet Enquiry",
+    "technologies": [
+      "Python"
+    ],
+    "topics": [],
+    "primaryLanguage": "Python",
+    "updatedAt": "2026-09-03T13:56:34Z",
+    "authority": "repository",
+    "featured": false,
+    "priority": 0,
+    "id": "vegspoons-wallet-enquiry-deployment-with-aws-cdk-1",
+    "sourceUrl": "https://github.com/Sharv619/vegspoons-wallet-enquiry#readme#deployment-with-aws-cdk",
+    "heading": "Deployment With AWS CDK",
+    "content": "If CDK is preferred:\n\n \n\nThe CDK stack should synthesize:\n\n- API Gateway REST API with stage-specific throttling.\n- Lambda function using Python 3.12 runtime.\n- DynamoDB tables with encryption and PITR.\n- S3 bucket with lifecycle expiry and no public access.\n- Secrets Manager read permissions limited to required secret ARNs.\n- CloudWatch alarms for error rate, p95 latency, throttles, and verification denials.",
+    "evidenceType": "readme"
+  },
+  {
+    "repository": "Vegspoons Wallet Enquiry",
+    "repositorySlug": "vegspoons-wallet-enquiry",
+    "repositoryUrl": "https://github.com/Sharv619/vegspoons-wallet-enquiry",
+    "title": "Vegspoons Wallet Enquiry",
+    "technologies": [
+      "Python"
+    ],
+    "topics": [],
+    "primaryLanguage": "Python",
+    "updatedAt": "2026-09-03T13:56:34Z",
+    "authority": "repository",
+    "featured": false,
+    "priority": 0,
+    "id": "vegspoons-wallet-enquiry-post-webhook-1",
+    "sourceUrl": "https://github.com/Sharv619/vegspoons-wallet-enquiry#readme#post-webhook",
+    "heading": "POST /webhook",
+    "content": "Receives Stripe webhook events and starts wallet issuance or membership state updates.",
+    "evidenceType": "readme"
+  },
+  {
+    "repository": "Vegspoons Wallet Enquiry",
+    "repositorySlug": "vegspoons-wallet-enquiry",
+    "repositoryUrl": "https://github.com/Sharv619/vegspoons-wallet-enquiry",
+    "title": "Vegspoons Wallet Enquiry",
+    "technologies": [
+      "Python"
+    ],
+    "topics": [],
+    "primaryLanguage": "Python",
+    "updatedAt": "2026-09-03T13:56:34Z",
+    "authority": "repository",
+    "featured": false,
+    "priority": 0,
+    "id": "vegspoons-wallet-enquiry-request-1",
+    "sourceUrl": "https://github.com/Sharv619/vegspoons-wallet-enquiry#readme#request",
+    "heading": "Request",
+    "content": "Headers:\n\n| Header | Required | Description |\n| --- | --- | --- |\n| `Stripe-Signature` | Yes | Stripe HMAC signature header. Must be verified against the raw request body. |\n| `Content-Type` | Yes | `application/json` |\n\nBody:\n\nThe raw Stripe webhook payload. The handler must validate the HMAC signature before JSON parsing.\n\nSupported event types:\n\n- `checkout.session.completed`\n- `customer.subscription.created`\n- `customer.subscription.updated`\n- `customer.subscription.deleted`\n- `invoice.payment_succeeded`\n- `invoice.payment_failed`\n- `charge.refunded`",
+    "evidenceType": "readme"
+  },
+  {
+    "repository": "Vegspoons Wallet Enquiry",
+    "repositorySlug": "vegspoons-wallet-enquiry",
+    "repositoryUrl": "https://github.com/Sharv619/vegspoons-wallet-enquiry",
+    "title": "Vegspoons Wallet Enquiry",
+    "technologies": [
+      "Python"
+    ],
+    "topics": [],
+    "primaryLanguage": "Python",
+    "updatedAt": "2026-09-03T13:56:34Z",
+    "authority": "repository",
+    "featured": false,
+    "priority": 0,
+    "id": "vegspoons-wallet-enquiry-processing-contract-1",
+    "sourceUrl": "https://github.com/Sharv619/vegspoons-wallet-enquiry#readme#processing-contract",
+    "heading": "Processing Contract",
+    "content": "1. Read the raw request body from API Gateway.\n2. Fetch the Stripe webhook secret from Secrets Manager or the local warm-cache.\n3. Verify `Stripe-Signature` using Stripe's HMAC-SHA256 signing scheme and timestamp tolerance.\n4. Reject invalid, expired, malformed, or replayed signatures.\n5. Write `event.id` to the idempotency table with a DynamoDB conditional put.\n6. Resolve the membership identity and entitlement status from the Stripe event.\n7. Generate or update the wallet pass state.\n8. Sign the Apple pass package and/or Google Wallet JWT.\n9. Store temporary delivery artifacts in S3 with lifecycle expiry.\n10. Return a deterministic acknowledgement to Stripe.",
+    "evidenceType": "readme"
+  },
+  {
+    "repository": "Vegspoons Wallet Enquiry",
+    "repositorySlug": "vegspoons-wallet-enquiry",
+    "repositoryUrl": "https://github.com/Sharv619/vegspoons-wallet-enquiry",
+    "title": "Vegspoons Wallet Enquiry",
+    "technologies": [
+      "Python"
+    ],
+    "topics": [],
+    "primaryLanguage": "Python",
+    "updatedAt": "2026-09-03T13:56:34Z",
+    "authority": "repository",
+    "featured": false,
+    "priority": 0,
+    "id": "vegspoons-wallet-enquiry-status-codes-1",
+    "sourceUrl": "https://github.com/Sharv619/vegspoons-wallet-enquiry#readme#status-codes",
+    "heading": "Status Codes",
+    "content": "| Code | Meaning |\n| --- | --- |\n| `200` | Event accepted or already processed idempotently. |\n| `400` | Malformed payload or unsupported event structure. |\n| `401` | Missing or invalid Stripe signature. |\n| `409` | Event is already locked by an in-flight processor. |\n| `500` | Internal error. Stripe may retry. |",
+    "evidenceType": "readme"
+  },
+  {
+    "repository": "Vegspoons Wallet Enquiry",
+    "repositorySlug": "vegspoons-wallet-enquiry",
+    "repositoryUrl": "https://github.com/Sharv619/vegspoons-wallet-enquiry",
+    "title": "Vegspoons Wallet Enquiry",
+    "technologies": [
+      "Python"
+    ],
+    "topics": [],
+    "primaryLanguage": "Python",
+    "updatedAt": "2026-09-03T13:56:34Z",
+    "authority": "repository",
+    "featured": false,
+    "priority": 0,
+    "id": "vegspoons-wallet-enquiry-request-1",
+    "sourceUrl": "https://github.com/Sharv619/vegspoons-wallet-enquiry#readme#request",
+    "heading": "Request",
+    "content": "Headers:\n\n| Header | Required | Description |\n| --- | --- | --- |\n| `Authorization` | Yes | Merchant scanner JWT or signed service token. |\n| `Content-Type` | Yes | `application/json` |\n\nBody:",
+    "evidenceType": "readme"
+  },
+  {
+    "repository": "Vegspoons Wallet Enquiry",
+    "repositorySlug": "vegspoons-wallet-enquiry",
+    "repositoryUrl": "https://github.com/Sharv619/vegspoons-wallet-enquiry",
+    "title": "Vegspoons Wallet Enquiry",
+    "technologies": [
+      "Python"
+    ],
+    "topics": [],
+    "primaryLanguage": "Python",
+    "updatedAt": "2026-09-03T13:56:34Z",
+    "authority": "repository",
+    "featured": false,
+    "priority": 0,
+    "id": "vegspoons-wallet-enquiry-processing-contract-1",
+    "sourceUrl": "https://github.com/Sharv619/vegspoons-wallet-enquiry#readme#processing-contract",
+    "heading": "Processing Contract",
+    "content": "1. Authenticate the merchant scanner token.\n2. Verify the wallet token signature, expiry, issuer, audience, and nonce entropy.\n3. Resolve `pass_id` and membership state from DynamoDB.\n4. Reject expired, revoked, suspended, or unknown passes.\n5. Detect replay by conditionally writing `scan_nonce` to the scan audit table.\n6. Return an accept, deny, or review decision with a short response TTL.",
+    "evidenceType": "readme"
+  },
+  {
+    "repository": "Vegspoons Wallet Enquiry",
+    "repositorySlug": "vegspoons-wallet-enquiry",
+    "repositoryUrl": "https://github.com/Sharv619/vegspoons-wallet-enquiry",
+    "title": "Vegspoons Wallet Enquiry",
+    "technologies": [
+      "Python"
+    ],
+    "topics": [],
+    "primaryLanguage": "Python",
+    "updatedAt": "2026-09-03T13:56:34Z",
+    "authority": "repository",
+    "featured": false,
+    "priority": 0,
+    "id": "vegspoons-wallet-enquiry-status-codes-1",
+    "sourceUrl": "https://github.com/Sharv619/vegspoons-wallet-enquiry#readme#status-codes",
+    "heading": "Status Codes",
+    "content": "| Code | Meaning |\n| --- | --- |\n| `200` | Verification completed. Check `decision`. |\n| `400` | Malformed request or invalid token format. |\n| `401` | Scanner authentication failed. |\n| `403` | Scanner is not authorized for this merchant or location. |\n| `404` | Pass was not found. |\n| `409` | Replay detected or nonce already consumed. |\n| `429` | Scanner or merchant exceeded rate limits. |\n| `500` | Internal error. Scanner should retry once with backoff. |",
+    "evidenceType": "readme"
+  },
+  {
+    "repository": "Vegspoons Wallet Enquiry",
+    "repositorySlug": "vegspoons-wallet-enquiry",
+    "repositoryUrl": "https://github.com/Sharv619/vegspoons-wallet-enquiry",
+    "title": "Vegspoons Wallet Enquiry",
+    "technologies": [
+      "Python"
+    ],
+    "topics": [],
+    "primaryLanguage": "Python",
+    "updatedAt": "2026-09-03T13:56:34Z",
+    "authority": "repository",
+    "featured": false,
+    "priority": 0,
+    "id": "vegspoons-wallet-enquiry-hmac-signature-verification-1",
+    "sourceUrl": "https://github.com/Sharv619/vegspoons-wallet-enquiry#readme#hmac-signature-verification",
+    "heading": "HMAC Signature Verification",
+    "content": "Stripe webhook validation must be performed against the raw request body. The body must not be parsed, normalized, or reserialized before verification because any byte-level change invalidates the signature model.\n\nRequired controls:\n\n- Use Stripe's signed timestamp and HMAC-SHA256 signature.\n- Enforce a narrow timestamp tolerance, normally 300 seconds.\n- Use constant-time comparison through the Stripe SDK or equivalent cryptographic primitive.\n- Treat missing, malformed, expired, or mismatched signatures as authentication failures.\n- Never log webhook bodies, signatures, customer payment data, or wallet tokens.",
+    "evidenceType": "readme"
+  },
+  {
+    "repository": "Vegspoons Wallet Enquiry",
+    "repositorySlug": "vegspoons-wallet-enquiry",
+    "repositoryUrl": "https://github.com/Sharv619/vegspoons-wallet-enquiry",
+    "title": "Vegspoons Wallet Enquiry",
+    "technologies": [
+      "Python"
+    ],
+    "topics": [],
+    "primaryLanguage": "Python",
+    "updatedAt": "2026-09-03T13:56:34Z",
+    "authority": "repository",
+    "featured": false,
+    "priority": 0,
+    "id": "vegspoons-wallet-enquiry-secrets-manager-integration-1",
+    "sourceUrl": "https://github.com/Sharv619/vegspoons-wallet-enquiry#readme#secrets-manager-integration",
+    "heading": "Secrets Manager Integration",
+    "content": "Secrets Manager is the system of record for signing material and third-party API secrets.\n\nRequired controls:\n\n- Store secret values only in Secrets Manager.\n- Use Lambda environment variables only for secret ARNs, table names, bucket names, and feature flags.\n- Cache decrypted secrets in memory for warm invocations with a short TTL.\n- Support `AWSCURRENT` and `AWSPREVIOUS` during key rotation windows.\n- Grant `secretsmanager:GetSecretValue` only for the exact required secret ARNs.\n- Encrypt secrets with AWS-managed or customer-managed KMS keys.\n- Redact secret fields from structured logs and exception messages.",
+    "evidenceType": "readme"
+  },
+  {
+    "repository": "Vegspoons Wallet Enquiry",
+    "repositorySlug": "vegspoons-wallet-enquiry",
+    "repositoryUrl": "https://github.com/Sharv619/vegspoons-wallet-enquiry",
+    "title": "Vegspoons Wallet Enquiry",
+    "technologies": [
+      "Python"
+    ],
+    "topics": [],
+    "primaryLanguage": "Python",
+    "updatedAt": "2026-09-03T13:56:34Z",
+    "authority": "repository",
+    "featured": false,
+    "priority": 0,
+    "id": "vegspoons-wallet-enquiry-wallet-token-security-1",
+    "sourceUrl": "https://github.com/Sharv619/vegspoons-wallet-enquiry#readme#wallet-token-security",
+    "heading": "Wallet Token Security",
+    "content": "Wallet QR payloads should be signed JWTs or compact JWS tokens.\n\nRequired claims:\n\n| Claim | Purpose |\n| --- | --- |\n| `iss` | VegSpoons Wallet Bridge issuer |\n| `aud` | Merchant verification API |\n| `sub` | Stable pass ID |\n| `jti` | Unique token ID for replay analysis |\n| `iat` | Issued-at timestamp |\n| `exp` | Short expiry timestamp |\n| `nonce` | At least 128 bits of cryptographic entropy |\n| `tier` | Non-sensitive entitlement tier identifier |\n\nJWTs must not contain payment data, full customer names, email addresses, or internal Stripe secrets.",
+    "evidenceType": "readme"
+  },
+  {
+    "repository": "Vegspoons Wallet Enquiry",
+    "repositorySlug": "vegspoons-wallet-enquiry",
+    "repositoryUrl": "https://github.com/Sharv619/vegspoons-wallet-enquiry",
+    "title": "Vegspoons Wallet Enquiry",
+    "technologies": [
+      "Python"
+    ],
+    "topics": [],
+    "primaryLanguage": "Python",
+    "updatedAt": "2026-09-03T13:56:34Z",
+    "authority": "repository",
+    "featured": false,
+    "priority": 0,
+    "id": "vegspoons-wallet-enquiry-performance-and-operations-1",
+    "sourceUrl": "https://github.com/Sharv619/vegspoons-wallet-enquiry#readme#performance-and-operations",
+    "heading": "Performance And Operations",
+    "content": "Targets:\n\n- `/verify` p95 latency below 200 ms from API Gateway receipt to decision response.\n- `/webhook` acknowledgement p95 below 200 ms for accepted events after warm start.\n- Lambda cold start p95 below 1 second with optimized package size and no unnecessary VPC attachment.\n- DynamoDB conditional writes below 20 ms p95 in-region under normal load.\n\nOperational practices:\n\n- Use Python 3.12 with a small dependency graph.\n- Initialize SDK clients outside the handler for execution environment reuse.\n- Cache Secrets Manager responses during warm invocations.\n- Use DynamoDB strongly consistent reads only when required by verification correctness.\n- Add CloudWatch alarms for Lambda errors, throttles, API Gateway 5xx, p95 latency, and replay spikes.\n- Use structured JSON logs with correlation IDs, Stripe event IDs, pass IDs, and merchant IDs.",
+    "evidenceType": "readme"
+  },
+  {
+    "repository": "Vegspoons Wallet Enquiry",
+    "repositorySlug": "vegspoons-wallet-enquiry",
+    "repositoryUrl": "https://github.com/Sharv619/vegspoons-wallet-enquiry",
+    "title": "Vegspoons Wallet Enquiry",
+    "technologies": [
+      "Python"
+    ],
+    "topics": [],
+    "primaryLanguage": "Python",
+    "updatedAt": "2026-09-03T13:56:34Z",
+    "authority": "repository",
+    "featured": false,
+    "priority": 0,
+    "id": "vegspoons-wallet-enquiry-regional-compliance-1",
+    "sourceUrl": "https://github.com/Sharv619/vegspoons-wallet-enquiry#readme#regional-compliance",
+    "heading": "Regional Compliance",
+    "content": "The production stack must be deployed and operated in `ap-southeast-2`.\n\nRegional controls:\n\n- API Gateway, Lambda, DynamoDB, S3, Secrets Manager, KMS, and CloudWatch all run in Sydney.\n- S3 replication is disabled unless the destination is explicitly approved.\n- DynamoDB global tables are disabled unless a formal data residency exception is approved.\n- Logs must not export customer-identifying data outside the region.\n- Backups, exports, and incident evidence must follow the same regional boundary.",
+    "evidenceType": "readme"
+  },
+  {
+    "repository": "Vegspoons Wallet Enquiry",
+    "repositorySlug": "vegspoons-wallet-enquiry",
+    "repositoryUrl": "https://github.com/Sharv619/vegspoons-wallet-enquiry",
+    "title": "Vegspoons Wallet Enquiry",
+    "technologies": [
+      "Python"
+    ],
+    "topics": [],
+    "primaryLanguage": "Python",
+    "updatedAt": "2026-09-03T13:56:34Z",
+    "authority": "repository",
+    "featured": false,
+    "priority": 0,
+    "id": "vegspoons-wallet-enquiry-local-development-notes-1",
+    "sourceUrl": "https://github.com/Sharv619/vegspoons-wallet-enquiry#readme#local-development-notes",
+    "heading": "Local Development Notes",
+    "content": "Recommended developer loop:\n\n \n\nStripe webhook testing:\n\n \n\nLocal tests should include:\n\n- Valid and invalid Stripe webhook signatures.\n- Duplicate webhook delivery.\n- Apple pass manifest signing.\n- Google Wallet JWT generation.\n- `/verify` accept, deny, expired, revoked, malformed, and replay cases.\n- Secrets Manager failure and cache fallback behavior.",
+    "evidenceType": "readme"
+  },
+  {
     "repository": "Stock Price Alerts",
     "repositorySlug": "stock-price-alerts",
     "repositoryUrl": "https://github.com/Sharv619/stock-price-alerts",

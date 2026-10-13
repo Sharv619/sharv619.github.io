@@ -97,7 +97,7 @@ export const experience = [
   },
   {
     company: "Ask Jay Services",
-    position: "Software Engineer",
+    position: "Founding Engineer",
     duration: "May 2025 - Oct 2025",
     description: "• Recovered a production system from ransomware within three weeks of starting the engagement, restoring 100% of the data with zero loss and reducing page load time from 25 seconds to 3 seconds over 30 hours.\n\n• Built a shift-booking automation bot and a three-sided Flutter marketplace for service providers, requesters, and administrators.\n\n• Established CI/CD pipelines, GitHub Actions workflows, and production deployment practices for a greenfield stack.",
     link: "https://askjay.com.au",
